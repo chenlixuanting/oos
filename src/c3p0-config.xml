@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<c3p0-config>
+	<default-config>
+
+		<!-- 驱动 -->
+		<property name="driverClass">com.microsoft.sqlserver.jdbc.SQLServerDriver
+		</property>
+
+		<!-- URL -->
+		<property name="jdbcUrl">jdbc:sqlserver://127.0.0.1;DatabaseName=oos
+		</property>
+
+		<!-- 账号 -->
+		<property name="user">sa</property>
+
+		<!-- 密码 -->
+		<property name="password">root</property>
+
+		<!-- 当连接不足时，一次性增加8个新的连接 -->
+		<property name="acquireIncrement">8</property>
+
+		<!-- 初始化池中有10个连接 -->
+		<property name="initialPoolSize">10</property>
+
+		<!-- 连接池最少的连接数 -->
+		<property name="minPoolSize">3</property>
+
+		<!-- 连接池中最多有20个连接 -->
+		<property name="maxPoolSize">20</property>
+
+		<property name="checkoutTimeout">60000</property>
+
+		<property name="acquireRetryAttempts">30</property>
+
+		<property name="numHelperThreads">7</property>
+
+		<property name="acquireRetryDelay">1000</property>
+
+		<property name="testConnectionOnCheckin">false</property>
+
+	</default-config>
+</c3p0-config>

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<eclipse-userlibraries>
+  <library name="lib">
+    <archive path="C:/WorkSapce/svn/root/SignSystem/web/WEB-INF/lib/jstl.jar" />
+    <archive path="C:/WorkSapce/svn/root/SignSystem/web/WEB-INF/lib/standard.jar" />
+    <archive path="C:/WorkSapce/svn/root/SignSystem/web/WEB-INF/lib/log4j-1.2.16.jar" />
+    <archive path="C:/WorkSapce/svn/root/SignSystem/web/WEB-INF/lib/spring-tx-3.2.0.RELEASE.jar" />
+    <archive path="C:/WorkSapce/svn/root/SignSystem/web/WEB-INF/lib/spring-web-3.2.0.RELEASE.jar" />
+    <archive path="C:/WorkSapce/svn/root/SignSystem/web/WEB-INF/lib/spring-core-3.2.0.RELEASE.jar" />
+    <archive path="C:/WorkSapce/svn/root/SignSystem/web/WEB-INF/lib/spring-jdbc-3.2.0.RELEASE.jar" />
+    <archive path="C:/WorkSapce/svn/root/SignSystem/web/WEB-INF/lib/spring-test-3.2.0.RELEASE.jar" />
+    <archive path="C:/WorkSapce/svn/root/SignSystem/web/WEB-INF/lib/spring-beans-3.2.0.RELEASE.jar" />
+    <archive path="C:/WorkSapce/svn/root/SignSystem/web/WEB-INF/lib/spring-webmvc-3.2.0.RELEASE.jar" />
+    <archive path="C:/WorkSapce/svn/root/SignSystem/web/WEB-INF/lib/spring-context-3.2.0.RELEASE.jar" />
+    <archive path="C:/WorkSapce/svn/root/SignSystem/web/WEB-INF/lib/mysql-connector-java-5.1.28-bin.jar" />
+    <archive path="C:/WorkSapce/svn/root/SignSystem/web/WEB-INF/lib/spring-expression-3.2.0.RELEASE.jar" />
+    <archive path="C:/WorkSapce/svn/root/SignSystem/web/WEB-INF/lib/com.springsource.org.apache.commons.logging-1.1.1.jar" />
+    <archive path="C:/oos/web/WEB-INF/lib/sqljdbc42.jar" />
+    <archive path="C:/oos/web/WEB-INF/lib/c3p0-0.9.1.jar" />
+    <archive path="C:/oos/web/WEB-INF/lib/servlet-api.jar" />
+    <archive path="C:/oos/web/WEB-INF/lib/log4j-1.2.17.jar" />
+    <archive path="C:/oos/web/WEB-INF/lib/ezmorph-1.0.4.jar" />
+    <archive path="C:/oos/web/WEB-INF/lib/commons-io-1.4.jar" />
+    <archive path="C:/oos/web/WEB-INF/lib/annotations-api.jar" />
+    <archive path="C:/oos/web/WEB-INF/lib/commons-net-3.6.jar" />
+    <archive path="C:/oos/web/WEB-INF/lib/fastjson-1.1.34.jar" />
+    <archive path="C:/oos/web/WEB-INF/lib/commons-lang-2.6.jar" />
+    <archive path="C:/oos/web/WEB-INF/lib/commons-logging-1.2.jar" />
+    <archive path="C:/oos/web/WEB-INF/lib/json-lib-2.2.3-jdk15.jar" />
+    <archive path="C:/oos/web/WEB-INF/lib/commons-beanutils-1.9.3.jar" />
+    <archive path="C:/oos/web/WEB-INF/lib/commons-fileupload-1.2.1.jar" />
+    <archive path="C:/oos/web/WEB-INF/lib/commons-collections-3.2.1.jar" />
+  </library>
+</eclipse-userlibraries>
+

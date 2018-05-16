@@ -1,0 +1,139 @@
+package com.guet.oos.dao.impl;
+
+import com.guet.oos.dao.AbstractDAOImpl;
+import com.guet.oos.dao.ShopCartDao;
+import com.guet.oos.fields.ShopCartFields;
+import com.guet.oos.po.ShopCart;
+
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Set;
+
+/**
+ * Created by Shinelon on 2018/5/15.
+ */
+public class ShopCartDaoImpl extends AbstractDAOImpl implements ShopCartDao {
+
+    public ShopCartDaoImpl(Connection conn) {
+        super(conn);
+    }
+
+    @Override
+    public boolean doCreate(ShopCart vo) {
+
+        String sql = "insert into shop_cart_table(usId,totalCost,productAmount,creatorTime,updateTime) values(?,?,?,?,?)";
+
+        try {
+            super.pstmt = super.conn.prepareStatement(sql);
+
+            super.pstmt.setLong(1, vo.getUsId());
+            super.pstmt.setDouble(2, vo.getTotalCost());
+            super.pstmt.setLong(3, vo.getProductAmount());
+            super.pstmt.setString(4, vo.getCreatorTime());
+            super.pstmt.setString(5, vo.getUpdateTime());
+
+            super.pstmt.execute();
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return false;
+        }
+
+        return true;
+    }
+
+    @Override
+    public boolean doUpdate(ShopCart vo) {
+        return false;
+    }
+
+    @Override
+    public boolean doRemove(Set<?> ids) {
+        return false;
+    }
+
+    @Override
+    public ShopCart findById(Long id) {
+        return null;
+    }
+
+    @Override
+    public List<ShopCart> findAll() {
+        return null;
+    }
+
+    @Override
+    public List<ShopCart> findBySplit(String column, String keyWord, Integer currentPage, Integer lineSize) {
+        return null;
+    }
+
+    @Override
+    public Integer getAllCount(String column, String keyWord) {
+        return null;
+    }
+
+    @Override
+    public Integer getAllCount(String column) {
+        return null;
+    }
+
+    @Override
+    public Integer getAllCount() {
+        return null;
+    }
+
+    @Override
+    public ShopCart getShopCartByUserId(Long userId) {
+
+        String sql = "select from shop_cart_table where scId=?";
+
+        List<ShopCart> shopCarts = null;
+
+        try {
+            super.pstmt = super.conn.prepareStatement(sql);
+            super.pstmt.setLong(1, userId);
+            ResultSet res = super.pstmt.executeQuery();
+            shopCarts = encapsulationShopCart(res);
+            return shopCarts.get(0);
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return null;
+        }
+
+    }
+
+    /**
+     * 封装购物车实体
+     *
+     * @param res 结果集
+     * @return
+     */
+    public List<ShopCart> encapsulationShopCart(ResultSet res) {
+
+        List<ShopCart> shopCarts = new ArrayList<ShopCart>();
+
+        try {
+            while (res.next()) {
+
+                ShopCart shopCart = new ShopCart();
+
+                shopCart.setUsId(res.getLong(ShopCartFields.USID));
+                shopCart.setScId(res.getLong(ShopCartFields.SCID));
+                shopCart.setProductAmount(res.getLong(ShopCartFields.PRODUCT_AMOUNT));
+                shopCart.setTotalCost(res.getDouble(ShopCartFields.TOTAL_COST));
+                shopCart.setCreatorTime(res.getString(ShopCartFields.CREATOR_TIME));
+                shopCart.setUpdateTime(res.getString(ShopCartFields.UPDATE_TIME));
+
+                shopCarts.add(shopCart);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return shopCarts;
+
+    }
+}

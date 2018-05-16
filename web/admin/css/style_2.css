@@ -1,0 +1,84 @@
+*{
+	padding:0px;
+	margin: 0px;
+}
+.over{
+	border: 1px solid black;
+}
+input{
+	box-sizing: border-box;
+	border: none;
+	padding: 5px;
+	font-size: 16px;
+	font-weight: normal;
+	color: #333;
+}
+input:hover{
+	cursor: pointer
+}
+.over_1{
+	width: 100px;
+	height: 30px;
+	position: relative;
+}
+.input_1{
+	width: 250px;
+	height: 35px;
+}
+.input_2{
+	width: 520px;
+	height: 80px;
+	margin: 0;
+	padding: 5px 10px;
+	box-sizing: border-box;
+	border: none;
+	font-size: 15px;
+	outline: none;
+}
+.input_2:focus{
+	box-shadow: none;
+	border: none;
+}
+table{
+	width:50%;
+	text-align: center;
+	margin: 0 auto;
+}
+caption{
+	color: darkslategray;
+	font-size: 20px;
+}
+th{
+	color: white;
+	background-color: cadetblue;
+	width: 100px;				
+}
+.basic{
+	width: 400px;
+	height: 35px;
+}
+.nobasic{
+	height:80px;
+	width:500px;
+}
+.pic{
+	width: 150px;
+}
+.submit{
+	position: absolute;
+	line-height: 18px;
+	font-size: 15px;
+	width: 6%;
+	height: 27px;
+	top: 3.5%;
+	right: 35%;
+	border-radius: 10px;
+	outline: none;
+	border: 1px solid #2196F3;
+}
+.submit:hover{
+	background-color:cadetblue;
+	color:white;
+	border: 1px solid #BBB;
+	transition:0.3s
+}
