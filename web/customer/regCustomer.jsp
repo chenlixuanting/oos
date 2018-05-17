@@ -55,7 +55,7 @@
                 <div class="top_menu_2">
                     <ul>
                         <li><span class="current"> 首页</span></li>
-                        <li><span><a href="orderLogin.jsp">重新登录</a></span></li>
+                        <li><span><a href="javascript:;" onclick="customerExit();">重新登录</a></span></li>
                         <li><span><a href="customerCenter.jsp">个人中心</a></span></li>
                         <li class="last_li w5"><a
                                 href="http://www.4008823823.com.cn/kfcios/jsp/help/help_new.html"
@@ -220,18 +220,17 @@
                             <ul>
                                 <li>
                                     <span class="Til">小计:</span>
-                                    <span class="Price">0.0元</span>
+                                    <span class="Price" id="productCost">0.0元</span>
                                 </li>
                                 <li>
                                     <span class="Til" style="width: 170px;">外送费<font
                                             id="prodesc" color="red"></font>
 									</span>
-                                    <span class="Price">9.0元</span>
+                                    <span class="Price" id="deliverCost">9.0元</span>
                                 </li>
-                                <li id="netUser_price" style="display: none;"></li>
                                 <li>
                                     <span class="Til">合计:</span>
-                                    <span class="Price">9.0元</span>
+                                    <span class="Price" id="totalCost">9.0元</span>
                                 </li>
                             </ul>
                         </div>

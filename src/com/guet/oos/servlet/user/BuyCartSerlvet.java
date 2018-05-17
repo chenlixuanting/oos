@@ -3,6 +3,7 @@ package com.guet.oos.servlet.user;
 import com.alibaba.fastjson.JSONObject;
 import com.guet.oos.constant.DateTimeFormat;
 import com.guet.oos.constant.SessionKey;
+import com.guet.oos.dto.JsonReturn;
 import com.guet.oos.dto.TemporaryUserInfo;
 import com.guet.oos.factory.ServiceFactory;
 import com.guet.oos.po.Dishes;
@@ -110,9 +111,8 @@ public class BuyCartSerlvet extends HttpServlet {
         //更新购物车中的商品信息
         httpSession.setAttribute(SessionKey.SHOP_CART, customerShopCart);
 
-        String str = JSONObject.toJSONString(customerShopCart).toString();
-
-        response.getWriter().write(JSONObject.toJSONString(customerShopCart));
+        //返回成功购买的标志
+        response.getWriter().write(JsonReturn.buildSuccessEmptyContent().toString());
 
     }
 

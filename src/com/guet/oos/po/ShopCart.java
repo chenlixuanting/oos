@@ -25,7 +25,7 @@ public class ShopCart implements Serializable {
 
     private long productAmount;// 商品数量
 
-    private List<OrderItem> orderItems = new ArrayList<OrderItem>();
+    private double deliverCost;// 配送费用
 
     @JSONField(serialize = false)
     private String creatorTime;// 创建时间
@@ -33,18 +33,21 @@ public class ShopCart implements Serializable {
     @JSONField(serialize = false)
     private String updateTime;// 更新时间
 
+    private List<OrderItem> orderItems = new ArrayList<OrderItem>();
+
     public ShopCart() {
         super();
     }
 
-    public ShopCart(long scId, long usId, double totalCost, long productAmount, List<OrderItem> orderItems, String creatorTime, String updateTime) {
+    public ShopCart(long scId, long usId, double totalCost, long productAmount, double deliverCost, String creatorTime, String updateTime, List<OrderItem> orderItems) {
         this.scId = scId;
         this.usId = usId;
         this.totalCost = totalCost;
         this.productAmount = productAmount;
-        this.orderItems = orderItems;
+        this.deliverCost = deliverCost;
         this.creatorTime = creatorTime;
         this.updateTime = updateTime;
+        this.orderItems = orderItems;
     }
 
     public long getScId() {
@@ -79,12 +82,12 @@ public class ShopCart implements Serializable {
         this.productAmount = productAmount;
     }
 
-    public List<OrderItem> getOrderItems() {
-        return orderItems;
+    public double getDeliverCost() {
+        return deliverCost;
     }
 
-    public void setOrderItems(List<OrderItem> orderItems) {
-        this.orderItems = orderItems;
+    public void setDeliverCost(double deliverCost) {
+        this.deliverCost = deliverCost;
     }
 
     public String getCreatorTime() {
@@ -103,6 +106,14 @@ public class ShopCart implements Serializable {
         this.updateTime = updateTime;
     }
 
+    public List<OrderItem> getOrderItems() {
+        return orderItems;
+    }
+
+    public void setOrderItems(List<OrderItem> orderItems) {
+        this.orderItems = orderItems;
+    }
+
     @Override
     public String toString() {
         return "ShopCart{" +
@@ -110,9 +121,10 @@ public class ShopCart implements Serializable {
                 ", usId=" + usId +
                 ", totalCost=" + totalCost +
                 ", productAmount=" + productAmount +
-                ", orderItems=" + orderItems +
+                ", deliverCost=" + deliverCost +
                 ", creatorTime='" + creatorTime + '\'' +
                 ", updateTime='" + updateTime + '\'' +
+                ", orderItems=" + orderItems +
                 '}';
     }
 
@@ -148,6 +160,9 @@ public class ShopCart implements Serializable {
         //重新计算商品数量
         productAmount = countProducts();
 
+        //重新计算运费
+        deliverCost = calcDeliverCost();
+
     }
 
     /**
@@ -179,7 +194,43 @@ public class ShopCart implements Serializable {
             spend += (orderItem.getQuantity() * orderItem.getPrice());
         }
 
+        //计入运费
+        spend += calcDeliverCost();
+
         return spend;
+    }
+
+    /**
+     * 计算运费
+     *
+     * @return
+     */
+    public double calcDeliverCost() {
+
+        long products = countProducts();
+
+        if (products >= DeliverCost.PROCUTS_1 && products < DeliverCost.PROCUTS_5) {
+
+            deliverCost = DeliverCost.DELIVER_PRODUCTS_1;
+
+        } else if (products >= DeliverCost.PROCUTS_5 && products < DeliverCost.PROCUTS_50) {
+
+            deliverCost = DeliverCost.DELIVER_PRODUCTS_5;
+
+        } else if (products >= DeliverCost.PROCUTS_50 && products < DeliverCost.PROCUTS_100) {
+
+            deliverCost = DeliverCost.DELIVER_PRODUCTS_50;
+
+        } else if (products >= DeliverCost.DELIVER_PRODUCTS_100) {
+
+            deliverCost = DeliverCost.DELIVER_PRODUCTS_100;
+
+        } else {
+            deliverCost = 0.0;
+        }
+
+        return deliverCost;
+
     }
 
 }

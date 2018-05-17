@@ -14,6 +14,7 @@ var property = {
 var codeMessage = {
 
     error0: "密码输入错误!",
-    error1: "验证码输入错误!"
+    error1: "验证码输入错误!",
+    error2: "订购失败!"
 
 };

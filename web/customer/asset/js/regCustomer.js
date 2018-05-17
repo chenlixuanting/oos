@@ -184,7 +184,6 @@ $(function () {
                      * 修改弹出框中的数据项
                      */
                     $("#desc").html(d.describe);
-                    // $("span.price").html(d.price);
                     $(".popup_product_detail_txt h4").html(d.dishesName);
                     $(".popup_product_detail_img img").attr("src", pageUrls.customerAddress + d.picAddress);
                     $(".popup_product_detail_img img").attr("alt", d.dishesName);
@@ -224,60 +223,33 @@ $(function () {
                     orderItem: JSON.stringify(orderItem)
                 },
                 success: function (data) {
-                    //更新购物车信息
-                    updateShopCart(data);
+
+                    var d = eval(data);
+
+                    var flag = d.head == "true" ? true : false;
+
+                    if (flag) {
+
+                        /**
+                         *拉出灰募
+                         * */
+                        $("body").append("<div class='ui-widget-overlay' style='width: 1920px; height: 974px; z-index: 1001;'></div>");
+
+                        //200毫秒后关闭黑幕
+                        setTimeout(function () {
+                            $(".ui-widget-overlay").remove();
+                        }, 300);
+
+                        //更新购物车信息
+                        updateShopCart();
+                    } else {
+                        //提示订购失败
+                        alert(codeMessage.error2);
+                    }
+
                 }
             });
         }
-    };
-
-    //更新购物车信息
-    function updateShopCart(data) {
-
-        //添加购物车成功,修改相应页面
-        var d = eval(data);
-
-        //{"orderItems":[{"creatorTime":"2018-05-16 00:03:06","dishesName":"皮蛋瘦肉粥","dsId":16,"oiId":0,"orId":0,"price":9.5,
-        // "productCost":9.5,"quantity":1,"scId":0,"updateTime":"2018-05-16 00:03:06"}],"productAmount":1,"totalCost":9.5}
-
-        $("#cart_menus").html("");
-        //购物车中商品信息
-        for (var x = 0; x < data.orderItems.length; x++) {
-            $("#cart_menus").append("<li>" +
-                "<div class='pro_title'>" + data.orderItems[x].dishesName + "</div>" +
-                "<div class='del'>" +
-                "<a href='javascript:void(0);'></a></div>" +
-                "<div class='pro_numbers'><a href='javascript:void(0);' style='cursor: pointer;'class='doMinus'>" +
-                "<img src='images/minus_icon_2s.gif' >" +
-                "</a>" +
-                "<input type='text' class='pro_numbers_input' value='" + data.orderItems[x].quantity + "' maxlength='2'disabled='disabled' onkeyup='this.value=this.value.replace(/D/g,'');'>" +
-                "<a href='javascript:void(0);' style='cursor: pointer;' class='doPlus'>" +
-                "<img src='images/plus_icon_2s.gif'>" +
-                "</a>" +
-                "</div>" +
-                "<div class='price'>" + data.orderItems[x].productCost.toFixed(2) + "</div>" +
-                "</li>");
-        }
-
-        //修改购物车中商品数量
-        $("#tatalnum").html(d.productAmount);
-
-        // alert(d.productAmount);
-        // $("div[class='total']").find()
-        // $("#cart_menus").html();
-        // alert(d.productAmount);
-        // alert(d.totalCost);
-        // alert(d.orderItems[0].dishesName);
-
-    }
-
-    //获取临时用户地址,并显示在页面上
-    function addAddress(d) {
-        //标号从0开始
-        $(".order_add").find("p").eq(1).append(
-            // 上海W1(上海新国际博览中心)(龙阳路2345号上海新国际博览中心F1层)71
-            d.cityName + "&nbsp;" + d.roadName + "(" + d.addressDetial + ")"
-        );
     };
 
     /**
@@ -302,3 +274,86 @@ $(function () {
     });
 
 });
+
+/**
+ * 用户退出
+ *
+ */
+function customerExit() {
+    //发出退出请求
+    $.ajax({
+        url: "customerExit.action",
+        type: "POST",
+        dataType: "json",
+        success: function () {
+            //跳转到用户登陆界面
+            location.assign("orderLogin.jsp");
+        }
+    });
+}
+
+/**
+ * 获取临时用户地址,并显示在页面上
+ *
+ * @param d
+ */
+function addAddress(d) {
+    //标号从0开始
+    $(".order_add").find("p").eq(1).append(
+        d.cityName + "&nbsp;" + d.roadName + "(" + d.addressDetial + ")"
+    );
+}
+
+/**
+ * 更新购物车信息
+ *
+ * @param data
+ */
+function updateShopCart() {
+
+    $.ajax({
+        url: "getShopCartInfo.action",
+        type: "POST",
+        dataType: "json",
+        success: function (data) {
+
+            //添加购物车成功,修改相应页面
+            var d = eval(data);
+
+            //清空购物车的信息
+            $("#cart_menus").html("");
+
+            //购物车中商品信息
+            for (var x = 0; x < data.orderItems.length; x++) {
+                $("#cart_menus").append("<li>" +
+                    "<div class='pro_title'>" + data.orderItems[x].dishesName + "</div>" +
+                    "<div class='del'>" +
+                    "<a href='javascript:void(0);'></a></div>" +
+                    "<div class='pro_numbers'><a href='javascript:void(0);' style='cursor: pointer;'class='doMinus'>" +
+                    "<img src='images/minus_icon_2s.gif' >" +
+                    "</a>" +
+                    "<input type='text' class='pro_numbers_input' value='" + data.orderItems[x].quantity + "' maxlength='2'disabled='disabled' onkeyup='this.value=this.value.replace(/D/g,'');'>" +
+                    "<a href='javascript:void(0);' style='cursor: pointer;' class='doPlus'>" +
+                    "<img src='images/plus_icon_2s.gif'>" +
+                    "</a>" +
+                    "</div>" +
+                    "<div class='price'>" + data.orderItems[x].productCost.toFixed(2) + "</div>" +
+                    "</li>");
+            }
+
+            //修改购物车中商品数量
+            $("#tatalnum").html(d.productAmount);
+
+            //修改费用信息
+            $("#productCost").html(d.totalCost.toFixed(2));
+
+            //修改运费信息,保留两位小数
+            $("#deliverCost").html(d.deliverCost.toFixed(2));
+
+            //修改总费用
+            $("#totalCost").html(d.totalCost.toFixed(2));
+
+        }
+    });
+
+}
