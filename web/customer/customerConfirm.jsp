@@ -17,6 +17,7 @@
     <script type="text/javascript" src="js/quote/jquery-3.2.1.min.js"></script>
     <script type="text/javascript" src="asset/js/customerConfirm.js"></script>
     <script type="text/javascript" src="asset/js/common.js"></script>
+
 </head>
 <body>
 
@@ -156,6 +157,15 @@
                             <div id="adderssArea" style="padding-bottom: 20px;" class="line_back">
                                 <div class="address_span"><span class="span_1" id="span1">送餐地址：</span></div>
 
+                                <%-- 保存日期 --%>
+                                <input type="text" style="display: none" id="input_date"/>
+
+                                <%-- 保存小时 --%>
+                                <input type="text" style="display: none" id="input_hour"/>
+
+                                <%-- 保存分钟 --%>
+                                <input type="text" style="display: none" id="input_minute"/>
+
                                 <!--送餐地址开始-->
                                 <div id="address_1" style="">
                                     <div class="fl_l">
@@ -214,7 +224,7 @@
                                                    checked="checked"
                                                    style="vertical-align:middle;margin:-4px 0 0;">
                                             <a name="sendfoodtimeLink" href="javascript:void(0);"
-                                               style="text-decoration: none;">
+                                               style="text-decoration: none;" timeType="1">
                                                 <span>成功提交订单后，预计</span>
                                                 <span class="bc">30</span>分钟左右送达。
                                             </a>
@@ -228,35 +238,34 @@
                                             <div class="fl_l">
                                                 <input class="sendfoodtime-style" name="sendfoodtime" type="radio">
                                                 <a name="sendfoodtimeLink" href="javascript:void(0);"
-                                                   style="text-decoration: none;">
+                                                   style="text-decoration: none;" timeType="2">
                                                     <span>预约当日稍晚时间送餐。</span>
                                                 </a>
                                             </div>
-                                            <div class="selectTime sendTime" style="display: none;" id="currentDayLater">
-                                                <div><span id="currentDate"></span>
+                                            <div class="selectTime sendTime" style="display: none;"
+                                                 id="currentDayLater">
+                                                <div><span id="currentDate" name="day"></span>
                                                     <div class="macstyle">
-                                                        <div class="tag_select">15</div>
-                                                        <ul class="tag_options" style="display: none" id="putOffOneHour">
-                                                        </ul>
-                                                        <input type="hidden" name="hour" value="15"></div>
+                                                        <select class="tag_select" name="hour" timeType="2" id="putOffOneHour"
+                                                                style="width: 60px;">
+                                                        </select>
+                                                    </div>
                                                     <span>时</span>
                                                     <div class="macstyle">
-                                                        <div class="tag_select">55</div>
-                                                        <ul class="tag_options" style="display: none;">
-                                                            <li>00</li>
-                                                            <li>05</li>
-                                                            <li>10</li>
-                                                            <li>15</li>
-                                                            <li>20</li>
-                                                            <li>25</li>
-                                                            <li>30</li>
-                                                            <li>35</li>
-                                                            <li>40</li>
-                                                            <li>45</li>
-                                                            <li>50</li>
-                                                            <li>55</li>
-                                                        </ul>
-                                                        <input type="hidden" name="minute" value="55">
+                                                        <select class="tag_select" name="minute" timeType="2" style="width: 60px;" id="putOffOneHourMinute">
+                                                            <option selected="selected">00</option>
+                                                            <option>05</option>
+                                                            <option>10</option>
+                                                            <option>15</option>
+                                                            <option>20</option>
+                                                            <option>25</option>
+                                                            <option>30</option>
+                                                            <option>35</option>
+                                                            <option>40</option>
+                                                            <option>45</option>
+                                                            <option>50</option>
+                                                            <option>55</option>
+                                                        </select>
                                                     </div>
                                                     <span>分送到</span>
                                                     <input type="hidden" name="isSecondDay" value="false">
@@ -271,64 +280,63 @@
                                                 <input class="sendfoodtime-style" name="sendfoodtime" type="radio"
                                                        bookingtype="2">
                                                 <a name="sendfoodtimeLink" href="javascript:void(0);"
-                                                   style="text-decoration:none;"><span>隔日预约单。</span>
+                                                   style="text-decoration:none;" timeType="3"><span>隔日预约单。</span>
                                                 </a>
                                             </div>
                                             <div class="selectTime otherDaySendTime" style="display: none;">
                                                 <div><span>送餐时间：</span>
                                                     <div class="macstyle">
-                                                        <div class="tag_day_select">2018年05月13日 周日</div>
-                                                        <ul class="tag_day_options" style="display: none;">
-                                                        </ul>
-                                                        <input type="hidden" name="day" value="2018年05月13日 周日"></div>
+                                                        <select class="tag_day_select" name="day" timeType="3" id="putOffManyDayDate">
+                                                        </select>
+                                                    </div>
                                                     <div class="macstyle">
-                                                        <div class="tag_select">10</div>
-                                                        <ul class="tag_options" style="display: none;">
-                                                            <li>0</li>
-                                                            <li>1</li>
-                                                            <li>2</li>
-                                                            <li>3</li>
-                                                            <li>4</li>
-                                                            <li>5</li>
-                                                            <li>6</li>
-                                                            <li>7</li>
-                                                            <li>8</li>
-                                                            <li>9</li>
-                                                            <li>10</li>
-                                                            <li>11</li>
-                                                            <li>12</li>
-                                                            <li>13</li>
-                                                            <li>14</li>
-                                                            <li>15</li>
-                                                            <li>16</li>
-                                                            <li>17</li>
-                                                            <li>18</li>
-                                                            <li>19</li>
-                                                            <li>20</li>
-                                                            <li>21</li>
-                                                            <li>22</li>
-                                                            <li>23</li>
-                                                        </ul>
-                                                        <input type="hidden" name="hour" value="10"></div>
+                                                        <select class="tag_select" name="hour" timeType="3" style="width:60px;" id="putOffManyDayHour">
+                                                            <option>0</option>
+                                                            <option>1</option>
+                                                            <option>2</option>
+                                                            <option>3</option>
+                                                            <option>4</option>
+                                                            <option>5</option>
+                                                            <option>6</option>
+                                                            <option>7</option>
+                                                            <option>8</option>
+                                                            <option>9</option>
+                                                            <option>10</option>
+                                                            <option>11</option>
+                                                            <option>12</option>
+                                                            <option>13</option>
+                                                            <option>14</option>
+                                                            <option>15</option>
+                                                            <option>16</option>
+                                                            <option>17</option>
+                                                            <option>18</option>
+                                                            <option>19</option>
+                                                            <option>20</option>
+                                                            <option>21</option>
+                                                            <option>22</option>
+                                                            <option>23</option>
+                                                        </select>
+                                                    </div>
                                                     <span>时</span>
                                                     <div class="macstyle">
-                                                        <div class="tag_select">40</div>
-                                                        <ul class="tag_options">
-                                                            <li>00</li>
-                                                            <li>05</li>
-                                                            <li>10</li>
-                                                            <li>15</li>
-                                                            <li>20</li>
-                                                            <li>25</li>
-                                                            <li>30</li>
-                                                            <li>35</li>
-                                                            <li>40</li>
-                                                            <li>45</li>
-                                                            <li>50</li>
-                                                            <li>55</li>
-                                                        </ul>
-                                                        <input type="hidden" name="minute" value="40"></div>
-                                                    <span>分送到</span><input type="hidden" name="isSecondDay" value="">
+                                                        <select class="tag_select" name="minute"
+                                                                style="width:60px;" timeType="3" id="putOffManyDayMinute">
+                                                            <option>00</option>
+                                                            <option>05</option>
+                                                            <option>10</option>
+                                                            <option>15</option>
+                                                            <option>20</option>
+                                                            <option>25</option>
+                                                            <option>30</option>
+                                                            <option>35</option>
+                                                            <option>40</option>
+                                                            <option>45</option>
+                                                            <option>50</option>
+                                                            <option>55</option>
+                                                        </select>
+                                                    </div>
+                                                    <span>分送到</span><input type="hidden" name="isSecondDay"
+                                                                           value="">
                                                 </div>
                                             </div>
                                         </div>

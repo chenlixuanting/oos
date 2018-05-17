@@ -826,7 +826,7 @@ height: 55px; }
 
 .macstyle{position:relative;}
 
-.macstyle .tag_select { display: block; color: #333; width: 30px; height: 25px; cursor:pointer; background: url(../images/select_bg01.png) no-repeat; padding: 0 10px 0 8px; line-height: 25px; font-size: 14px; margin-left:10px; }
+.macstyle .tag_select { display: block; color: #333; width: 30px; height: 25px; cursor:pointer; /*background: url(../images/select_bg01.png) no-repeat;*/ padding: 0 10px 0 8px; line-height: 25px; font-size: 14px; margin-left:10px; }
 
 .macstyle .tag_options{position: absolute; top: 22px; left: 0; border: 1px #695151 solid;  width: 46px; display:none;z-index:999; margin-left:10px;overflow-y:auto;overflow-x:hidden;max-height:200px;background: #eeeeee;}
 
@@ -836,7 +836,7 @@ height: 55px; }
 
 /* 隔日预约单日期样式 */
 
-.macstyle .tag_day_select { display: block; color: #333; width: 180px; height: 25px; cursor:pointer; background: url(../images/select_bg03.png) no-repeat; padding: 0 10px 0 8px; line-height: 25px; font-size: 14px; margin-left:10px; }
+.macstyle .tag_day_select { display: block; color: #333; width: 180px; height: 25px; cursor:pointer; /*background: url(../images/select_bg03.png) no-repeat;*/ padding: 0 10px 0 8px; line-height: 25px; font-size: 14px; margin-left:10px; }
 
 .macstyle .tag_day_options{position: absolute; top: 22px; left: 0; border: 1px #695151 solid; width: 178px; display:none;z-index:999; margin-left:10px;background:#eeeeee }
 

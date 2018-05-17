@@ -3,26 +3,18 @@
  */
 $(function () {
 
+    var inputDate = $("#input_date");
+    var inputHour = $("#input_hour");
+    var inputMinute = $("#input_minute");
+
+    inputDate.val(getPutOffDayDate(putOffMinutes(30)));
+    inputHour.val(getPutOffHoursHour(putOffMinutes(30)));
+    inputMinute.val(getPutOffMinutesMinute(putOffMinutes(30)));
+
     /**
      * 送达时间初始化
      */
     initDeliverTime();
-
-
-    /**
-     * 给时间列表项绑定事件
-     */
-    $("#putOffOneHour").click(function () {
-        $(this).css("display", "block");
-    });
-
-    // $(".tag_options").find("li").onfocus(function () {
-    //     $(this).addClass("hover");
-    // });
-    //
-    // $(".tag_options").find("li").blur(function () {
-    //     $(this).removeClass("hover");
-    // });
 
     /**
      * 发生ajax请求CustomerConfirm.action获取临时用户的详细信息
@@ -43,8 +35,9 @@ $(function () {
      */
     $("#nextStep").click(function () {
 
-        var deliverTime = new Date();
-        var timeStr = deliverTime.Format("yyyy-MM-dd");
+        var timeStr = inputDate.val() + " " + inputHour.val() + "时" + inputMinute.val() + "分";
+
+        // alert(timeStr);
 
         // 保存用户所选择的发货的时间
         $.ajax({
@@ -54,9 +47,17 @@ $(function () {
             data: {
                 deliverTime: timeStr
             },
-            success: function () {
-                //跳转到购物页面
-                location.assign("regCustomer.jsp");
+            success: function (data) {
+
+                var d = eval(data);
+
+                var flag = d.head == "true" ? true : false;
+
+                if (flag) {
+                    //跳转到购物页面
+                    location.assign("regCustomer.jsp");
+                }
+
             }
         });
     });
@@ -98,6 +99,63 @@ $(function () {
         setTimeout(function () {
             $(".ui-widget-overlay").remove();
         }, 200);
+
+        /**
+         * 修改相应的输入框保存餐品送达时间
+         */
+        var timeType = $(this).attr("timeType");
+
+        switch (timeType) {
+
+            //30分钟后送达
+            case "1":
+                inputDate.val(getPutOffDayDate(putOffMinutes(30)));
+                inputHour.val(getPutOffHoursHour(putOffMinutes(30)));
+                inputMinute.val(getPutOffMinutesMinute(putOffMinutes(30)));
+                break;
+            //当日稍晚送达
+            case "2":
+                inputDate.val($("#currentDate").html());
+                inputHour.val($("#putOffOneHour").val());
+                inputMinute.val($("#putOffOneHourMinute").val());
+                break;
+            //隔天送达
+            case "3":
+                inputDate.val($("#putOffManyDayDate").val());
+                inputHour.val($("#putOffManyDayHour").val());
+                inputMinute.val($("#putOffManyDayMinute").val());
+                break;
+        }
+
+    });
+
+    $("select").change(function () {
+        /**
+         * 修改相应的输入框保存餐品送达时间
+         */
+        var timeType = $(this).attr("timeType");
+
+        switch (timeType) {
+
+            //30分钟后送达
+            case "1":
+                inputDate.val(getPutOffDayDate(putOffMinutes(30)));
+                inputHour.val(getPutOffHoursHour(putOffMinutes(30)));
+                inputMinute.val(getPutOffMinutesMinute(putOffMinutes(30)));
+                break;
+            //当日稍晚送达
+            case "2":
+                inputDate.val($("#currentDate").html());
+                inputHour.val($("#putOffOneHour").val());
+                inputMinute.val($("#putOffOneHourMinute").val());
+                break;
+            //隔天送达
+            case "3":
+                inputDate.val($("#putOffManyDayDate").val());
+                inputHour.val($("#putOffManyDayHour").val());
+                inputMinute.val($("#putOffManyDayMinute").val());
+                break;
+        }
     });
 
     /**
@@ -129,26 +187,26 @@ function initDeliverTime() {
 
     //当天较晚时间送达
     //推迟一个小时
-    var putOffOneHour = putOffHours(1);
-    var putOffZoneDay = putOffDay(0);
+    var putOffOneHour = getPutOffHoursHour(putOffHours(1));
+    var putOffZoneDay = getPutOffDayDate(putOffHours(1));
 
     //添加到对应列表中
     $("#currentDate").html(putOffZoneDay);
-    $("#putOffOneHour").html("<li>" + putOffOneHour + "</li>");
+    $("#putOffOneHour").html("<option>" + putOffOneHour + "</option>");
 
     //推迟三天后送达
-    var putOffOneDay = putOffDay(1);
-    var putOffTwoDay = putOffDay(2);
-    var putOffThreeDay = putOffDay(3);
+    var putOffOneDay = getPutOffDayDate(putOffDay(1));
+    var putOffTwoDay = getPutOffDayDate(putOffDay(2));
+    var putOffThreeDay = getPutOffDayDate(putOffDay(3));
 
     //添加到对应列表中
-    $(".tag_day_options").append("<li>" + putOffOneDay + "</li>");
-    $(".tag_day_options").append("<li>" + putOffTwoDay + "</li>");
-    $(".tag_day_options").append("<li>" + putOffThreeDay + "</li>");
+    $(".tag_day_select").append("<option>" + putOffOneDay + "</option>");
+    $(".tag_day_select").append("<option>" + putOffTwoDay + "</option>");
+    $(".tag_day_select").append("<option>" + putOffThreeDay + "</option>");
 
 }
 
-//推迟day填后的日期
+//推迟day天
 function putOffDay(day) {
 
     //今日稍晚时候送达
@@ -158,25 +216,61 @@ function putOffDay(day) {
     //推迟day天
     currentDate.setDate(currentDate.getDate() + day);
 
+    return currentDate;
+
+}
+
+//推迟hours个小时
+function putOffHours(hours) {
+
+    var currentDate = new Date();
+
+    currentDate.setHours(currentDate.getHours() + hours);
+
+    return currentDate;
+}
+
+//推迟minutes分钟
+function putOffMinutes(minutes) {
+
+    var currentDate = new Date();
+
+    currentDate.setMinutes(currentDate.getMinutes() + minutes);
+
+    return currentDate;
+}
+
+function getPutOffMinutesMinute(date) {
+
+    var minuteStr = date.getMinutes();
+
+    return minuteStr;
+
+}
+
+function getPutOffHoursHour(date) {
+
+    var hourStr = date.getHours();
+
+    return hourStr;
+
+}
+
+function getPutOffDayDate(date) {
+
     //获得年份
-    var year = currentDate.getFullYear();
+    var year = date.getFullYear();
     //获得月份从0开始
-    var month = currentDate.getMonth();
+    var month = date.getMonth();
     //获得日期
-    var day = currentDate.getDate();
+    var day = date.getDate();
     //获得星期
-    var week = currentDate.getDay();
+    var week = date.getDay();
 
     var currentDateStr = year + "年" + (month + 1) + "月" + day + "日" + " " + chooseWeek(week);
 
     return currentDateStr;
 
-}
-
-//推迟一个小时
-function putOffHours(hours) {
-    var currentDate = new Date();
-    return currentDate.getHours() + hours;
 }
 
 //选择星期
