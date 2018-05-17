@@ -83,7 +83,8 @@
                     <ul>
                         <li>
                             <div class="userinfo_til"><span class="red">*</span> 客户姓名：</div>
-                            <div class="input_box"><input id="username" type="text" name="username" validTip='客户姓名'/>
+                            <div class="input_box">
+                                <input id="username" type="text" name="username" validTip='客户姓名'/>
                             </div>
                             <div class="radio_box">
                                 <input id="gender" name="gender" type="hidden" value="0"/>
@@ -99,7 +100,7 @@
                             <div class="userinfo_til"><span class="red">*</span>
                                 <span class="pr_num_jiange">手机</span>：
                             </div>
-                            <div class="input_box_iphone" id="input_box_iphone">18265478932</div>
+                            <div class="input_box_iphone" id="input_box_iphone"></div>
                             <div id="tipYoQ"><span>友情提示：您的手机号码将作为您的登录账户</span></div>
                         </li>
                     </ul>
@@ -130,7 +131,7 @@
                 <!--协议开始-->
                 <div class="agreement">
                     <p>
-                        <span class="p_left"><a id="clickAgree" class="un" href="javascript:void(0);">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;我已阅读并同意</a></span>
+                        <span class="p_left"><a id="clickAgree" class="un" value="0" href="javascript:void(0);">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;我已阅读并同意</a></span>
                         <span class="p_right">
                                 <a href="javascript:void(0);">
                                     用户协议
