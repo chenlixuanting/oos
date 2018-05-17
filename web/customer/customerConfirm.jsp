@@ -206,16 +206,19 @@
                                 <div class="address_span" style="height:70px;margin-right:25px;width: 71px;">送餐时间：</div>
                                 <div>
                                     <%-- 预计30分钟后送达--%>
-                                    <div style=" margin-top: 20px;"><p class="deliveryHeight">
-                                        <input name="sendfoodtime"
-                                               type="radio"
-                                               tip="inTime"
-                                               checked="checked"
-                                               style="vertical-align:middle;margin:-4px 0 0;">
-                                        <a name="sendfoodtimeLink" href="javascript:void(0);"
-                                           style="text-decoration: none;">
-                                            <span>成功提交订单后，预计</span>
-                                            <span class="bc">30</span>分钟左右送达。</a></p>
+                                    <div style=" margin-top: 20px;">
+                                        <p class="deliveryHeight">
+                                            <input name="sendfoodtime"
+                                                   type="radio"
+                                                   tip="inTime"
+                                                   checked="checked"
+                                                   style="vertical-align:middle;margin:-4px 0 0;">
+                                            <a name="sendfoodtimeLink" href="javascript:void(0);"
+                                               style="text-decoration: none;">
+                                                <span>成功提交订单后，预计</span>
+                                                <span class="bc">30</span>分钟左右送达。
+                                            </a>
+                                        </p>
 
                                         <%--空表div,为使代码统一--%>
                                         <div></div>
@@ -223,34 +226,41 @@
                                         <%--隔天送达--%>
                                         <div style="position:relative;width: 100%;height: 30px;margin-left: 93px;display:block">
                                             <div class="fl_l">
-                                                <input class="sendfoodtime-style" name="sendfoodtime"
-                                                       type="radio"
-                                                       value="00289,12,新1秀(东莞路与伊春路交叉口南50米),120.390564,36.103476"> <a
-                                                    name="sendfoodtimeLink"
-                                                    href="javascript:void(0);"
-                                                    style="text-decoration: none;"><span>预约当日稍晚时间送餐。</span></a>
+                                                <input class="sendfoodtime-style" name="sendfoodtime" type="radio">
+                                                <a name="sendfoodtimeLink" href="javascript:void(0);"
+                                                   style="text-decoration: none;">
+                                                    <span>预约当日稍晚时间送餐。</span>
+                                                </a>
                                             </div>
-                                            <div class="selectTime sendTime" style="display: none;">
-                                                <div><span>2018年5月12日</span>
+                                            <div class="selectTime sendTime" style="display: none;" id="currentDayLater">
+                                                <div><span id="currentDate"></span>
                                                     <div class="macstyle">
                                                         <div class="tag_select">15</div>
-                                                        <ul class="tag_options" style="display: none">
-                                                            <li>15</li>
-                                                            <%--class="hover"--%>
-                                                            <li>21</li>
-                                                            <li>22</li>
-                                                            <li>23</li>
+                                                        <ul class="tag_options" style="display: none" id="putOffOneHour">
                                                         </ul>
                                                         <input type="hidden" name="hour" value="15"></div>
                                                     <span>时</span>
                                                     <div class="macstyle">
                                                         <div class="tag_select">55</div>
                                                         <ul class="tag_options" style="display: none;">
+                                                            <li>00</li>
+                                                            <li>05</li>
+                                                            <li>10</li>
+                                                            <li>15</li>
+                                                            <li>20</li>
+                                                            <li>25</li>
+                                                            <li>30</li>
+                                                            <li>35</li>
+                                                            <li>40</li>
+                                                            <li>45</li>
+                                                            <li>50</li>
                                                             <li>55</li>
                                                         </ul>
-                                                        <input type="hidden" name="minute" value="55"></div>
-                                                    <span>分送到</span><input type="hidden" name="isSecondDay"
-                                                                           value="false"></div>
+                                                        <input type="hidden" name="minute" value="55">
+                                                    </div>
+                                                    <span>分送到</span>
+                                                    <input type="hidden" name="isSecondDay" value="false">
+                                                </div>
                                             </div>
                                             <div></div>
                                         </div>
@@ -258,35 +268,62 @@
                                         <%--隔几天后送达--%>
                                         <div style="position:relative;width: 100%;height: 30px;margin-left: 93px;display:block">
                                             <div class="fl_l">
-                                                <input class="sendfoodtime-style" name="sendfoodtime"
-                                                       type="radio"
-                                                       value="00289,12,新1秀(东莞路与伊春路交叉口南50米),120.390564,36.103476"
-                                                       bookingtype="2"> <a
-                                                    name="sendfoodtimeLink" href="javascript:void(0);"
-                                                    style="text-decoration:none;"><span>隔日预约单。</span></a></div>
+                                                <input class="sendfoodtime-style" name="sendfoodtime" type="radio"
+                                                       bookingtype="2">
+                                                <a name="sendfoodtimeLink" href="javascript:void(0);"
+                                                   style="text-decoration:none;"><span>隔日预约单。</span>
+                                                </a>
+                                            </div>
                                             <div class="selectTime otherDaySendTime" style="display: none;">
                                                 <div><span>送餐时间：</span>
                                                     <div class="macstyle">
                                                         <div class="tag_day_select">2018年05月13日 周日</div>
                                                         <ul class="tag_day_options" style="display: none;">
-                                                            <li>2018年05月13日 周日</li>
-                                                            <li>2018年05月14日 周一</li>
-                                                            <li>2018年05月15日 周二</li>
                                                         </ul>
                                                         <input type="hidden" name="day" value="2018年05月13日 周日"></div>
                                                     <div class="macstyle">
                                                         <div class="tag_select">10</div>
                                                         <ul class="tag_options" style="display: none;">
+                                                            <li>0</li>
+                                                            <li>1</li>
+                                                            <li>2</li>
+                                                            <li>3</li>
+                                                            <li>4</li>
+                                                            <li>5</li>
+                                                            <li>6</li>
+                                                            <li>7</li>
+                                                            <li>8</li>
+                                                            <li>9</li>
+                                                            <li>10</li>
+                                                            <li>11</li>
+                                                            <li>12</li>
+                                                            <li>13</li>
+                                                            <li>14</li>
+                                                            <li>15</li>
+                                                            <li>16</li>
+                                                            <li>17</li>
+                                                            <li>18</li>
+                                                            <li>19</li>
                                                             <li>20</li>
                                                             <li>21</li>
                                                             <li>22</li>
+                                                            <li>23</li>
                                                         </ul>
                                                         <input type="hidden" name="hour" value="10"></div>
                                                     <span>时</span>
                                                     <div class="macstyle">
                                                         <div class="tag_select">40</div>
                                                         <ul class="tag_options">
+                                                            <li>00</li>
+                                                            <li>05</li>
+                                                            <li>10</li>
+                                                            <li>15</li>
+                                                            <li>20</li>
+                                                            <li>25</li>
+                                                            <li>30</li>
+                                                            <li>35</li>
                                                             <li>40</li>
+                                                            <li>45</li>
                                                             <li>50</li>
                                                             <li>55</li>
                                                         </ul>
@@ -302,7 +339,6 @@
                                 </div>
                             </div>
                         </div>
-
                         <div>
                             <div>
                                 <div id="nextTr" style="text-align: center; margin-top: 10px;">

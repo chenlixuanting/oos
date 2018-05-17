@@ -95,13 +95,15 @@
                                             <div class="info_table_1">
                                                 <div>
                                                     <div style="border: none;">
-                                                        <div class="add_address">
+                                                        <div class="add_address" style="position: relative">
                                                             <p>
-                                                                <span class="new_tel_input">
+                                                                <span class="new_tel_input" style="width: 315px;">
                                                                     <input id="cityName" type="text" class="input_5"
+                                                                           style="width: 270px;"
                                                                            autocomplete="off"/>
                                                                     <span class="add_icon" id="query_city"></span>
                                                                     <span class="location"></span>
+                                                                    <div id="allmap" style="display: none;width: 473px;height: 200px;position: absolute;top: 35px;"></div>
                                                                 </span>
                                                             </p>
                                                             <p id="add_add2" address2=address2 style="display:block">
@@ -177,4 +179,53 @@
 <div id="layer_box"></div>
 </div>
 </body>
+
+<!-- 地图弹出层 -->
+
+<script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=OMHt7FA3ciGcVCAMDOAbAeUf9nZ0idKZ"></script>
+<script  type="text/javascript">
+    // 百度地图API功能
+    var map = new BMap.Map("allmap");
+    var point = new BMap.Point(116.331398,39.897445);
+    map.centerAndZoom(point,12);
+    map.enableScrollWheelZoom(true);     //开启鼠标滚轮缩放
+    var geoc = new BMap.Geocoder();
+
+    var geolocation = new BMap.Geolocation();//定位
+    geolocation.getCurrentPosition(function(r){
+        if(this.getStatus() == BMAP_STATUS_SUCCESS){
+            var mk = new BMap.Marker(r.point);
+            map.addOverlay(mk);
+            map.panTo(r.point);  //把位置更新至当前位置
+            var pt = r.point;
+            geoc.getLocation(pt, function(rs){
+                var addComp = rs.addressComponents;
+                //alert(addComp.province + ", " + addComp.city + ", " + addComp.district + ", " + addComp.street + ", " + addComp.streetNumber);
+            });
+        }
+        else {
+            alert('failed'+this.getStatus());
+        }
+    });
+
+    map.addEventListener("click", function(e){       //点击获取坐标
+        var pt = e.point;
+        geoc.getLocation(pt, function(rs){
+            var addComp = rs.addressComponents;
+            if (confirm("你选择的地址是否为"+addComp.province + ", " + addComp.city + ", " + addComp.district + ", " + addComp.street + ", " + addComp.streetNumber)){
+                $("#cityName").attr("value",addComp.province + addComp.city + addComp.district + addComp.street + addComp.streetNumber);
+                $("#allmap").css({display:"none"});
+            }
+            //alert(addComp.province + ", " + addComp.city + ", " + addComp.district + ", " + addComp.street + ", " + addComp.streetNumber);
+           //addComp.province + addComp.city + addComp.district + addComp.street + addComp.streetNumber ;
+        });
+    });
+
+
+    $("#query_city").click(function () {
+        console.log(111);
+        $("#allmap").css({display:"block"});
+    });
+</script>
+<!-- 地图弹出层 -->
 </html>

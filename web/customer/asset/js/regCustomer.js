@@ -216,7 +216,7 @@ $(function () {
             };
 
             $.ajax({
-                url: "BuyCart.action",
+                url: "ShopCart.action",
                 type: "POST",
                 dataType: "json",
                 data: {

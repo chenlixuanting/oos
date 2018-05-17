@@ -27,16 +27,19 @@ $(function () {
         if (value == "0") {
             $(this).removeClass('un');
             $(this).attr("value", "1");
+            $("#submit_btn").removeAttr("disabled");
         } else {
             $(this).addClass('un');
             $(this).attr("value", "0");
+            $("#submit_btn").attr("disabled", "disabled");
         }
+
     });
 
-    $("#password11").click(function () {
-        $(this).css("display", "none");
-        $("#password1").css("display", "block");
-    });
+    // $("#password11").click(function () {
+    //     $(this).css("display", "none");
+    //     $("#password1").css("display", "block");
+    // });
 
     //返回上一步按钮
     $("#back_menu_btn1").click(function () {
@@ -50,7 +53,8 @@ $(function () {
 
         var customerData = {
             deliverName: $("#username").val(),
-            password: $("#password1").val()
+            password: $("#password").val(),
+            deliverSex: $(".on").html()
         };
 
         //请求将临时用户注册为正式用户

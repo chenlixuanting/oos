@@ -109,9 +109,9 @@
                             <div class="userinfo_til"><span class="red">*</span> <span class="pr_num_jiange">密码</span>：
                             </div>
                             <div class="input_box">
-                                <input type="password" id="password1" name='userPassword' maxlength="16"
-                                       style="display:none;"/>
-                                <input type="text" id="password11" value='请输入密码'/>
+                                <input type="password" id="password" name='userPassword' maxlength="16"
+                                       style="display:block;" value='请输入密码'/>
+                                <%--<input type="text" id="password11" value='请输入密码'/>--%>
                             </div>
                             <div class="passwordCanSee">
                                 <img src="images/passwordSee.png" class="passwordSee"/>
@@ -147,7 +147,7 @@
                 <!--协议结束-->
             </div>
             <input type="button" class="b_shang" id="back_menu_btn1"/>
-            <input type="button" class="b_xia" id="submit_btn"/>
+            <input type="button" class="b_xia" id="submit_btn" disabled="disabled"/>
             <div class="clear"></div>
         </div>
     </div>

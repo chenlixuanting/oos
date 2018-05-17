@@ -1,6 +1,5 @@
 package com.guet.oos.servlet.user;
 
-import com.alibaba.fastjson.JSONReader;
 import com.guet.oos.constant.SessionKey;
 import com.guet.oos.dto.JsonReturn;
 import com.guet.oos.dto.TemporaryUserInfo;
@@ -26,7 +25,6 @@ public class SelectDeliverTimeServlet extends HttpServlet {
      */
     public SelectDeliverTimeServlet() {
         super();
-        // TODO Auto-generated constructor stub
     }
 
     /**
@@ -51,7 +49,6 @@ public class SelectDeliverTimeServlet extends HttpServlet {
      * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
      */
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        // TODO Auto-generated method stub
         doGet(request, response);
     }
 

@@ -1,6 +1,5 @@
 package com.guet.oos.servlet.user;
 
-import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
 import com.guet.oos.constant.SessionKey;
 import com.guet.oos.dto.TemporaryUserInfo;
@@ -42,11 +41,13 @@ public class SaveCustomerServlet extends HttpServlet {
 
         String deliverName = requestDataJson.getString("deliverName");
         String password = requestDataJson.getString("password");
+        String deliverSex = requestDataJson.getString("deliverSex");
 
         //设置临时用户的收货人,密码,收货时间
         userInfo.setDeliverName(deliverName);
         userInfo.setPassword(password);
         userInfo.setDeliverTime("30分钟后送达");
+        userInfo.setDeliverSex(deliverSex);
 
     }
 

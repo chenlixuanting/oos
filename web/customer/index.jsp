@@ -95,7 +95,7 @@
         <div id="content" class="ersee_product_height_ie6" style="position: relative;">
 
             <!-- 左侧菜单栏-->
-            <div id="s_lm" class="left_menu s_lm" style="position: absolute;">
+            <div id="s_lm" class="notmenu left_menu s_lm" style="position: absolute;">
                 <div class="left_menu_top">
                 </div>
                 <div class="left_menu_main">
@@ -207,7 +207,7 @@
             </div>
 
             <!-- 右侧模块 -->
-            <div id="s_login" class="right s_rm_login"
+            <div id="s_login" class="notmenu right s_rm_login"
                  style="position: absolute; top: 0; float: none; margin: 0 0 0 779px; height: 542px;">
 
                 <!-- 右侧模块 -->
@@ -261,5 +261,37 @@
         </div>
     </div>
 </form>
+
+<%--实现两边的菜单栏贴紧；浏览器顶部--%>
+<script>
+    $.fn.smartFloat = function () {
+        var position = function (element) {
+            var top = element.position().top, pos = element.css("position");
+            var browser = navigator.appName;
+            var browser2 = navigator.userAgent;
+            $(window).scroll(function () {
+                var scrolls = $(this).scrollTop();
+                if (scrolls > 120) {
+                    if (window.XMLHttpRequest) {
+                        if (browser2.indexOf("Chrome") > -1 || browser2.indexOf("MSIE") > -1 || browser2.indexOf("iPhone") > -1) {
+                            element.css({position: "fixed", top: 0});//更改这里的0可以设定在哪个Y位置固定
+                        } else {
+                            element.css({position: "fixed", top: scrolls});
+                        }
+                    } else {
+                        element.css({top: scrolls});
+                    }
+                } else {
+                    element.css({position: pos, top: top});
+                }
+            });
+        };
+        return $(this).each(function () {
+            position($(this));
+        });
+    };
+
+    $(".notmenu").smartFloat();
+</script>
 </body>
 </html>

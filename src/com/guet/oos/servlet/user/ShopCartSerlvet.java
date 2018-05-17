@@ -26,8 +26,8 @@ import java.util.Date;
 /**
  * Created by Shinelon on 2018/5/15.
  */
-@WebServlet("/customer/BuyCart.action")
-public class BuyCartSerlvet extends HttpServlet {
+@WebServlet("/customer/ShopCart.action")
+public class ShopCartSerlvet extends HttpServlet {
 
     private static final long serialVersionUID = 1L;
 
@@ -37,7 +37,7 @@ public class BuyCartSerlvet extends HttpServlet {
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public BuyCartSerlvet() {
+    public ShopCartSerlvet() {
         super();
     }
 
@@ -93,7 +93,7 @@ public class BuyCartSerlvet extends HttpServlet {
         //设置菜品单价
         orderItem.setPrice(dishes.getPrice());
 
-        //设置菜品数量为1
+        //设置菜品数量
         orderItem.setQuantity(quantity);
 
         //设置菜品开销

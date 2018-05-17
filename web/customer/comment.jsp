@@ -154,7 +154,7 @@
                             </span>
                         </li>
                         <li class="w2"><span><a href="orderLogin.jsp">开始订餐</a></span></li>
-                        <li class="w3"><span class="current"><a href="customerCenter.jsp">个人中心</a></span></li>
+                        <li class="w3"><span class="current"><a href="js/backups/customerCenter.jsp">个人中心</a></span></li>
                         <li class="last_li w5">
                             <a href="http://www.4008823823.com.cn/kfcios/jsp/help/help_new.html" target="_blank">帮助中心</a>
                         </li>
