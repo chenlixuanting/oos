@@ -10,20 +10,31 @@ public class TemporaryUserInfo implements Serializable {
 
     private static final long serialVersionUID = 6256076388898114506L;
 
-    private String username;
-    private String sex;
-    private String mobile;
-    private String cityName;
-    private String roadName;
-    private String addressDetial;
-    private String deliverTime;
+    private String username; //临时用户名
+    private String password; //临时用户密码
+    private String sex;//临时用户性别
+    private String mobile;//临时用户手机号码
+    private String cityName;//临时用户所在城市名
+    private String roadName;//临时用户所在道路名
+    private String addressDetial;//临时用户详细地址
+    private String deliverTime;//收货人时间
+    private String deliverName;//收获人名称
+    private String deliverSex;//收货人性别
 
-    public String getDeliverTime() {
-        return deliverTime;
+    public TemporaryUserInfo(String username, String password, String sex, String mobile, String cityName, String roadName, String addressDetial, String deliverTime, String deliverName, String deliverSex) {
+        this.username = username;
+        this.password = password;
+        this.sex = sex;
+        this.mobile = mobile;
+        this.cityName = cityName;
+        this.roadName = roadName;
+        this.addressDetial = addressDetial;
+        this.deliverTime = deliverTime;
+        this.deliverName = deliverName;
+        this.deliverSex = deliverSex;
     }
 
-    public void setDeliverTime(String deliverTime) {
-        this.deliverTime = deliverTime;
+    public TemporaryUserInfo() {
     }
 
     public String getUsername() {
@@ -32,6 +43,14 @@ public class TemporaryUserInfo implements Serializable {
 
     public void setUsername(String username) {
         this.username = username;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
     }
 
     public String getSex() {
@@ -74,27 +93,43 @@ public class TemporaryUserInfo implements Serializable {
         this.addressDetial = addressDetial;
     }
 
-    public TemporaryUserInfo(String username, String sex, String mobile, String cityName, String roadName, String addressDetial) {
-        this.username = username;
-        this.sex = sex;
-        this.mobile = mobile;
-        this.cityName = cityName;
-        this.roadName = roadName;
-        this.addressDetial = addressDetial;
+    public String getDeliverTime() {
+        return deliverTime;
+    }
+
+    public void setDeliverTime(String deliverTime) {
+        this.deliverTime = deliverTime;
+    }
+
+    public String getDeliverName() {
+        return deliverName;
+    }
+
+    public void setDeliverName(String deliverName) {
+        this.deliverName = deliverName;
+    }
+
+    public String getDeliverSex() {
+        return deliverSex;
+    }
+
+    public void setDeliverSex(String deliverSex) {
+        this.deliverSex = deliverSex;
     }
 
     @Override
     public String toString() {
         return "TemporaryUserInfo{" +
                 "username='" + username + '\'' +
+                ", password='" + password + '\'' +
                 ", sex='" + sex + '\'' +
                 ", mobile='" + mobile + '\'' +
                 ", cityName='" + cityName + '\'' +
                 ", roadName='" + roadName + '\'' +
                 ", addressDetial='" + addressDetial + '\'' +
+                ", deliverTime='" + deliverTime + '\'' +
+                ", deliverName='" + deliverName + '\'' +
+                ", deliverSex='" + deliverSex + '\'' +
                 '}';
-    }
-
-    public TemporaryUserInfo() {
     }
 }

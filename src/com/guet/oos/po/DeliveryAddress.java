@@ -1,110 +1,109 @@
 package com.guet.oos.po;
 
 import java.io.Serializable;
-import java.util.Date;
 
 /**
  * 收货地址
- * 
- * @author Shinelon
  *
+ * @author Shinelon
  */
 public class DeliveryAddress implements Serializable {
 
-	private static final long serialVersionUID = 786454224465450725L;
+    private static final long serialVersionUID = 786454224465450725L;
 
-	private long daId;// 收货地址ID
+    private long daId;// 收货地址ID
 
-	private long oId;// 订单ID
+    private long usId;//用户ID
 
-	private String receiverName;// 收货人姓名
+    private String receiverName;// 收货人姓名
 
-	private String receiverMobile;// 收货人电话
+    private String receiverMobile;// 收货人电话
 
-	private String receiverAddress;// 收货人地址
+    private String receiverAddress;// 收货人地址
 
-	private Date creatorTime;// 创建时间
+    private String creatorTime;// 创建时间
 
-	private Date updateTime;// 更新时间
+    private String updateTime;// 更新时间
 
-	public long getDaId() {
-		return daId;
-	}
+    public DeliveryAddress(long daId, long usId, String receiverName, String receiverMobile, String receiverAddress, String creatorTime, String updateTime) {
+        this.daId = daId;
+        this.usId = usId;
+        this.receiverName = receiverName;
+        this.receiverMobile = receiverMobile;
+        this.receiverAddress = receiverAddress;
+        this.creatorTime = creatorTime;
+        this.updateTime = updateTime;
+    }
 
-	public void setDaId(long daId) {
-		this.daId = daId;
-	}
+    public DeliveryAddress() {
+    }
 
-	public long getoId() {
-		return oId;
-	}
+    public long getDaId() {
+        return daId;
+    }
 
-	public void setoId(long oId) {
-		this.oId = oId;
-	}
+    public void setDaId(long daId) {
+        this.daId = daId;
+    }
 
-	public String getReceiverName() {
-		return receiverName;
-	}
+    public long getUsId() {
+        return usId;
+    }
 
-	public void setReceiverName(String receiverName) {
-		this.receiverName = receiverName;
-	}
+    public void setUsId(long usId) {
+        this.usId = usId;
+    }
 
-	public String getReceiverMobile() {
-		return receiverMobile;
-	}
+    public String getReceiverName() {
+        return receiverName;
+    }
 
-	public void setReceiverMobile(String receiverMobile) {
-		this.receiverMobile = receiverMobile;
-	}
+    public void setReceiverName(String receiverName) {
+        this.receiverName = receiverName;
+    }
 
-	public String getReceiverAddress() {
-		return receiverAddress;
-	}
+    public String getReceiverMobile() {
+        return receiverMobile;
+    }
 
-	public void setReceiverAddress(String receiverAddress) {
-		this.receiverAddress = receiverAddress;
-	}
+    public void setReceiverMobile(String receiverMobile) {
+        this.receiverMobile = receiverMobile;
+    }
 
-	public Date getCreatorTime() {
-		return creatorTime;
-	}
+    public String getReceiverAddress() {
+        return receiverAddress;
+    }
 
-	public void setCreatorTime(Date creatorTime) {
-		this.creatorTime = creatorTime;
-	}
+    public void setReceiverAddress(String receiverAddress) {
+        this.receiverAddress = receiverAddress;
+    }
 
-	public Date getUpdateTime() {
-		return updateTime;
-	}
+    public String getCreatorTime() {
+        return creatorTime;
+    }
 
-	public void setUpdateTime(Date updateTime) {
-		this.updateTime = updateTime;
-	}
+    public void setCreatorTime(String creatorTime) {
+        this.creatorTime = creatorTime;
+    }
 
-	public DeliveryAddress(long daId, long oId, String receiverName, String receiverMobile, String receiverAddress,
-			Date creatorTime, Date updateTime) {
-		super();
-		this.daId = daId;
-		this.oId = oId;
-		this.receiverName = receiverName;
-		this.receiverMobile = receiverMobile;
-		this.receiverAddress = receiverAddress;
-		this.creatorTime = creatorTime;
-		this.updateTime = updateTime;
-	}
+    public String getUpdateTime() {
+        return updateTime;
+    }
 
-	public DeliveryAddress() {
-		super();
-		// TODO Auto-generated constructor stub
-	}
+    public void setUpdateTime(String updateTime) {
+        this.updateTime = updateTime;
+    }
 
-	@Override
-	public String toString() {
-		return "DeliveryAddress [daId=" + daId + ", oId=" + oId + ", receiverName=" + receiverName + ", receiverMobile="
-				+ receiverMobile + ", receiverAddress=" + receiverAddress + ", creatorTime=" + creatorTime
-				+ ", updateTime=" + updateTime + "]";
-	}
-
+    @Override
+    public String toString() {
+        return "DeliveryAddress{" +
+                "daId=" + daId +
+                ", usId=" + usId +
+                ", receiverName='" + receiverName + '\'' +
+                ", receiverMobile='" + receiverMobile + '\'' +
+                ", receiverAddress='" + receiverAddress + '\'' +
+                ", creatorTime='" + creatorTime + '\'' +
+                ", updateTime='" + updateTime + '\'' +
+                '}';
+    }
 }

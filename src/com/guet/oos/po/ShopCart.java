@@ -21,11 +21,13 @@ public class ShopCart implements Serializable {
     @JSONField(serialize = false)
     private long usId;// 用户ID
 
-    private double totalCost;// 总金额
+    private double totalCost;// 总支出金额
 
     private long productAmount;// 商品数量
 
     private double deliverCost;// 配送费用
+
+    private double productCost;//商品开销
 
     @JSONField(serialize = false)
     private String creatorTime;// 创建时间
@@ -39,12 +41,14 @@ public class ShopCart implements Serializable {
         super();
     }
 
-    public ShopCart(long scId, long usId, double totalCost, long productAmount, double deliverCost, String creatorTime, String updateTime, List<OrderItem> orderItems) {
+
+    public ShopCart(long scId, long usId, double totalCost, long productAmount, double deliverCost, double productCost, String creatorTime, String updateTime, List<OrderItem> orderItems) {
         this.scId = scId;
         this.usId = usId;
         this.totalCost = totalCost;
         this.productAmount = productAmount;
         this.deliverCost = deliverCost;
+        this.productCost = productCost;
         this.creatorTime = creatorTime;
         this.updateTime = updateTime;
         this.orderItems = orderItems;
@@ -90,6 +94,14 @@ public class ShopCart implements Serializable {
         this.deliverCost = deliverCost;
     }
 
+    public double getProductCost() {
+        return productCost;
+    }
+
+    public void setProductCost(double productCost) {
+        this.productCost = productCost;
+    }
+
     public String getCreatorTime() {
         return creatorTime;
     }
@@ -122,6 +134,7 @@ public class ShopCart implements Serializable {
                 ", totalCost=" + totalCost +
                 ", productAmount=" + productAmount +
                 ", deliverCost=" + deliverCost +
+                ", productCost=" + productCost +
                 ", creatorTime='" + creatorTime + '\'' +
                 ", updateTime='" + updateTime + '\'' +
                 ", orderItems=" + orderItems +
@@ -154,14 +167,28 @@ public class ShopCart implements Serializable {
             orderItems.add(orderItem);
         }
 
-        //重新计算总金额
-        totalCost = checkout();
+        //重新计算商品总支出金额
+        productCost = checkout();
 
         //重新计算商品数量
         productAmount = countProducts();
 
         //重新计算运费
         deliverCost = calcDeliverCost();
+
+        //重新计算总支出金额
+        totalCost = calcTotalCost();
+
+    }
+
+    /**
+     * 计算总支出
+     *
+     * @return
+     */
+    public double calcTotalCost() {
+
+        return checkout() + calcDeliverCost();
 
     }
 
@@ -182,7 +209,7 @@ public class ShopCart implements Serializable {
     }
 
     /**
-     * 计算总金额
+     * 计算商品总支出金额
      *
      * @return
      */
@@ -193,9 +220,6 @@ public class ShopCart implements Serializable {
         for (OrderItem orderItem : orderItems) {
             spend += (orderItem.getQuantity() * orderItem.getPrice());
         }
-
-        //计入运费
-        spend += calcDeliverCost();
 
         return spend;
     }

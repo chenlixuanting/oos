@@ -3,6 +3,14 @@
  */
 $(function () {
 
+    $("#step1").click(function () {
+        location.assign("regCustomer.jsp");
+    });
+
+    $("#step_pay").click(function () {
+        location.assign("saveCustomer.jsp");
+    });
+
     /**
      * 获取购物车的信息
      */
@@ -11,6 +19,39 @@ $(function () {
         type: "POST",
         dataType: "json",
         success: function (data) {
+
+            var d = eval(data);
+
+            //循环添加商品项信息
+            for (var x = 0; x < data.orderItems.length; x++) {
+                $(".order_detail_table").append(
+                    "<tr class='sct_row'>" +
+                    "<td>" + (x + 1) + "</td>" +
+                    "<td>" + data.orderItems[x].dishesName + "</td>" +
+                    "<td>&yen;" + data.orderItems[x].price.toFixed(2) + "</td>" +
+                    "<td><span>" + data.orderItems[x].quantity + "</span></td>" +
+                    "<td>&yen;" + data.orderItems[x].productCost.toFixed(2) + "</td>" +
+                    "<td>" +
+                    "<img src='images/delete_icon_3.png'/>" +
+                    "<a class='oiCancel' href='javascript:void(0)'>取消</a>" +
+                    "</td>" +
+                    "<td>&nbsp;</td>" +
+                    "</tr>"
+                );
+            }
+
+            //修改pay页面的支出金额
+            $(".coupon_code").append(
+                "<span>" +
+                "<em class='ft_b'>小　计：</em>" + d.productCost.toFixed(2) + "元 |" +
+                "<em class='ft_b'>外送费：</em>" + d.deliverCost.toFixed(2) + "元" +
+                "<strong style='color: #F00;'></strong>" +
+                "</span>" +
+                "<span class='total_price_span' style='margin-top: -20px;margin-left: -46px'>" +
+                "<em class='ft_b'>总金额：</em>" + d.totalCost.toFixed(2) + "元" +
+                "</span>"
+            );
+
         }
     });
 

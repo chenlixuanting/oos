@@ -15,6 +15,7 @@ import java.io.IOException;
  */
 @WebServlet("/customer/customerExit.action")
 public class CustomerExitServlet extends HttpServlet {
+
     private static final long serialVersionUID = 1L;
 
     /**

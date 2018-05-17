@@ -1,4 +1,4 @@
-package com.guet.oos.po;
+package com.guet.oos.po.backups;
 
 import java.io.Serializable;
 import java.util.Date;

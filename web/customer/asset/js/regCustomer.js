@@ -345,7 +345,7 @@ function updateShopCart() {
             $("#tatalnum").html(d.productAmount);
 
             //修改费用信息
-            $("#productCost").html(d.totalCost.toFixed(2));
+            $("#productCost").html(d.productCost.toFixed(2));
 
             //修改运费信息,保留两位小数
             $("#deliverCost").html(d.deliverCost.toFixed(2));

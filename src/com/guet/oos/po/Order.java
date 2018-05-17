@@ -1,7 +1,6 @@
 package com.guet.oos.po;
 
 import java.io.Serializable;
-import java.util.Date;
 
 /**
  * 订单实体
@@ -18,17 +17,23 @@ public class Order implements Serializable {
 
     private long mgId;// 管理员ID
 
+    private long daId;// 收货地址ID
+
     private int status;// 状态标志
 
-    private Date creatorTime;// 创建时间
+    private String payType;//付款方式
 
-    private Date updateTime;// 更新时间
+    private String creatorTime;// 创建时间
 
-    public Order(long orId, long usId, long mgId, int status, Date creatorTime, Date updateTime) {
+    private String updateTime;// 更新时间
+
+    public Order(long orId, long usId, long mgId, long daId, int status, String payType, String creatorTime, String updateTime) {
         this.orId = orId;
         this.usId = usId;
         this.mgId = mgId;
+        this.daId = daId;
         this.status = status;
+        this.payType = payType;
         this.creatorTime = creatorTime;
         this.updateTime = updateTime;
     }
@@ -60,6 +65,14 @@ public class Order implements Serializable {
         this.mgId = mgId;
     }
 
+    public long getDaId() {
+        return daId;
+    }
+
+    public void setDaId(long daId) {
+        this.daId = daId;
+    }
+
     public int getStatus() {
         return status;
     }
@@ -68,19 +81,27 @@ public class Order implements Serializable {
         this.status = status;
     }
 
-    public Date getCreatorTime() {
+    public String getPayType() {
+        return payType;
+    }
+
+    public void setPayType(String payType) {
+        this.payType = payType;
+    }
+
+    public String getCreatorTime() {
         return creatorTime;
     }
 
-    public void setCreatorTime(Date creatorTime) {
+    public void setCreatorTime(String creatorTime) {
         this.creatorTime = creatorTime;
     }
 
-    public Date getUpdateTime() {
+    public String getUpdateTime() {
         return updateTime;
     }
 
-    public void setUpdateTime(Date updateTime) {
+    public void setUpdateTime(String updateTime) {
         this.updateTime = updateTime;
     }
 
@@ -90,9 +111,11 @@ public class Order implements Serializable {
                 "orId=" + orId +
                 ", usId=" + usId +
                 ", mgId=" + mgId +
+                ", daId=" + daId +
                 ", status=" + status +
-                ", creatorTime=" + creatorTime +
-                ", updateTime=" + updateTime +
+                ", payType='" + payType + '\'' +
+                ", creatorTime='" + creatorTime + '\'' +
+                ", updateTime='" + updateTime + '\'' +
                 '}';
     }
 }

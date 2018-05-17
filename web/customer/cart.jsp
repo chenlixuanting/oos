@@ -84,32 +84,9 @@
                                     </th>
                                     <th width="10%" class="right_th">详细</th>
                                 </tr>
-                                <tr class="sct_row" productid="53458" objectid="1df28d5b-34f0-4eb5-9868-e3894daaa695">
-                                    <td>1</td>
-                                    <td>喵咪咖啡(拿铁热大)</td>
-                                    <td>&yen;25.0</td>
-                                    <td><span>1</span></td>
-                                    <td>&yen; 18.0</td>
-                                    <td>
-                                        <img src="images/delete_icon_3.png"/>
-                                        <a class="oiCancel" href="javascript:void(0)">取消</a>
-                                    </td>
-                                    <td>&nbsp;</td>
-                                </tr>
                             </table>
                         </div>
                         <div class="coupon_code" style="margin-bottom: 37px;*margin-bottom: 40px;">
-                            <span>
-                                <em class="ft_b">小　计：</em>18.0元 | <em class="ft_b">
-                                      外送费
-                                        ：
-                                </em>9.0元<strong style="color: #F00;">
-                                </strong>
-                            </span>
-
-                            <span class="total_price_span" style="margin-top: -20px;margin-left: -46px">
-                                    <em class="ft_b">总金额：</em>27.0元
-                            </span>
                         </div>
                     </div>
                     <div class="clear"></div>
@@ -118,14 +95,6 @@
                     <input id="step1" type="button" class="step1 backbtn"/>
                     <input id="step_pay" type="button" class="nextbtn"/>
                 </p>
-                <script>
-                    $("#step1").click(function () {
-                        location.assign("regCustomer.jsp");
-                    });
-                    $("#step_pay").click(function () {
-                        location.assign("pay.jsp");
-                    });
-                </script>
             </div>
             <div class="login_content_btm"></div>
         </div>
