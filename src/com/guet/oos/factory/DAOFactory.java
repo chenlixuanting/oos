@@ -33,4 +33,12 @@ public class DAOFactory {
     public static DeliveryAddressDao getDeliveryAddressDaoInstance() {
         return new DeliveryAddressDaoImpl(JDBCUtils.getConnection());
     }
+
+    public static OrderDao getOrderDaoInstance() {
+        return new OrderDaoImpl(JDBCUtils.getConnection());
+    }
+
+    public static OrderItemDao getOrderItemDaoInstance() {
+        return new OrderItemDaoImpl(JDBCUtils.getConnection());
+    }
 }

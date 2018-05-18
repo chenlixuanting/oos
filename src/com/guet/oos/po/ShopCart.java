@@ -1,6 +1,7 @@
 package com.guet.oos.po;
 
 import com.alibaba.fastjson.annotation.JSONField;
+import com.guet.oos.constant.DeliverCost;
 
 import java.io.Serializable;
 import java.util.ArrayList;

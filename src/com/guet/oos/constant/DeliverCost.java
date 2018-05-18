@@ -1,4 +1,4 @@
-package com.guet.oos.po;
+package com.guet.oos.constant;
 
 /**
  * 运费实体

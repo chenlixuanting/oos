@@ -6,8 +6,11 @@ import com.guet.oos.dto.JsonReturn;
 import com.guet.oos.dto.TemporaryUserInfo;
 import com.guet.oos.factory.ServiceFactory;
 import com.guet.oos.po.DeliveryAddress;
+import com.guet.oos.po.OrderItem;
+import com.guet.oos.po.ShopCart;
 import com.guet.oos.po.User;
 import com.guet.oos.service.DeliveryAddressService;
+import com.guet.oos.service.ShopCartService;
 import com.guet.oos.service.UserService;
 
 import javax.servlet.ServletException;
@@ -17,6 +20,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
+import java.util.List;
 
 /**
  * Created by Shinelon on 2018/5/17.
@@ -29,6 +33,8 @@ public class SaveCustomerServlet extends HttpServlet {
     private UserService userService = ServiceFactory.getUserServiceInstance();
 
     private DeliveryAddressService deliveryAddressService = ServiceFactory.getDeliveryAddressServiceInstance();
+
+    private ShopCartService shopCartService = ServiceFactory.getShopCartServiceInstance();
 
     /**
      * @see HttpServlet#HttpServlet()
@@ -78,6 +84,25 @@ public class SaveCustomerServlet extends HttpServlet {
 
         //将user保存到Session中
         httpSession.setAttribute(SessionKey.USER, user);
+
+        //给购物车中usId赋值
+        ShopCart shopCart = (ShopCart) httpSession.getAttribute(SessionKey.SHOP_CART);
+
+        shopCart.setUsId(user.getUsId());
+
+        //为新用户创建购物车
+        shopCartService.createShopCart(shopCart);
+
+        //通过usId查找唯一的购物车
+        ShopCart formalShopCart = shopCartService.getShopCartByUserId(user.getUsId());
+
+        //为订单项赋值上购物车id
+        for (OrderItem oi : shopCart.getOrderItems()) {
+            oi.setScId(formalShopCart.getScId());
+        }
+
+        //重新保存shopCart
+        httpSession.setAttribute(SessionKey.SHOP_CART, shopCart);
 
         //成功返回
         response.getWriter().write(JsonReturn.buildSuccessEmptyContent().toString());

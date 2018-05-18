@@ -1,6 +1,5 @@
 package com.guet.oos.factory;
 
-import com.guet.oos.dao.DeliveryAddressDao;
 import com.guet.oos.service.*;
 import com.guet.oos.service.impl.*;
 
@@ -32,5 +31,9 @@ public class ServiceFactory {
 
     public static DeliveryAddressService getDeliveryAddressServiceInstance() {
         return new DeliveryAddressServiceImpl();
+    }
+
+    public static OrderService getOrderServiceInstance() {
+        return new OrderServiceImpl();
     }
 }

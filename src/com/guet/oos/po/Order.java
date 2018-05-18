@@ -11,7 +11,7 @@ public class Order implements Serializable {
 
     private static final long serialVersionUID = -1354904956050380915L;
 
-    private long orId;// 订单ID
+    private String orId;// 订单ID
 
     private long usId;// 用户ID
 
@@ -19,7 +19,15 @@ public class Order implements Serializable {
 
     private long daId;// 收货地址ID
 
-    private int status;// 状态标志
+    private double totalCost;// 总支出金额
+
+    private long productAmount;// 商品数量
+
+    private double deliverCost;// 配送费用
+
+    private double productCost;//商品开销
+
+    private String orderStatus;// 状态标志
 
     private String payType;//付款方式
 
@@ -27,12 +35,16 @@ public class Order implements Serializable {
 
     private String updateTime;// 更新时间
 
-    public Order(long orId, long usId, long mgId, long daId, int status, String payType, String creatorTime, String updateTime) {
+    public Order(String orId, long usId, long mgId, long daId, double totalCost, long productAmount, double deliverCost, double productCost, String orderStatus, String payType, String creatorTime, String updateTime) {
         this.orId = orId;
         this.usId = usId;
         this.mgId = mgId;
         this.daId = daId;
-        this.status = status;
+        this.totalCost = totalCost;
+        this.productAmount = productAmount;
+        this.deliverCost = deliverCost;
+        this.productCost = productCost;
+        this.orderStatus = orderStatus;
         this.payType = payType;
         this.creatorTime = creatorTime;
         this.updateTime = updateTime;
@@ -41,11 +53,11 @@ public class Order implements Serializable {
     public Order() {
     }
 
-    public long getOrId() {
+    public String getOrId() {
         return orId;
     }
 
-    public void setOrId(long orId) {
+    public void setOrId(String orId) {
         this.orId = orId;
     }
 
@@ -73,12 +85,44 @@ public class Order implements Serializable {
         this.daId = daId;
     }
 
-    public int getStatus() {
-        return status;
+    public double getTotalCost() {
+        return totalCost;
     }
 
-    public void setStatus(int status) {
-        this.status = status;
+    public void setTotalCost(double totalCost) {
+        this.totalCost = totalCost;
+    }
+
+    public long getProductAmount() {
+        return productAmount;
+    }
+
+    public void setProductAmount(long productAmount) {
+        this.productAmount = productAmount;
+    }
+
+    public double getDeliverCost() {
+        return deliverCost;
+    }
+
+    public void setDeliverCost(double deliverCost) {
+        this.deliverCost = deliverCost;
+    }
+
+    public double getProductCost() {
+        return productCost;
+    }
+
+    public void setProductCost(double productCost) {
+        this.productCost = productCost;
+    }
+
+    public String getOrderStatus() {
+        return orderStatus;
+    }
+
+    public void setOrderStatus(String orderStatus) {
+        this.orderStatus = orderStatus;
     }
 
     public String getPayType() {
@@ -108,11 +152,15 @@ public class Order implements Serializable {
     @Override
     public String toString() {
         return "Order{" +
-                "orId=" + orId +
+                "orId='" + orId + '\'' +
                 ", usId=" + usId +
                 ", mgId=" + mgId +
                 ", daId=" + daId +
-                ", status=" + status +
+                ", totalCost=" + totalCost +
+                ", productAmount=" + productAmount +
+                ", deliverCost=" + deliverCost +
+                ", productCost=" + productCost +
+                ", orderStatus='" + orderStatus + '\'' +
                 ", payType='" + payType + '\'' +
                 ", creatorTime='" + creatorTime + '\'' +
                 ", updateTime='" + updateTime + '\'' +

@@ -1,8 +1,6 @@
 package com.guet.oos.service.impl;
 
-import com.guet.oos.po.Dishes;
-import com.guet.oos.po.ShopCart;
-import com.guet.oos.po.User;
+import com.guet.oos.po.OrderItem;
 import com.guet.oos.service.OrderItemService;
 
 /**
@@ -10,16 +8,8 @@ import com.guet.oos.service.OrderItemService;
  */
 public class OrderItemServiceImpl implements OrderItemService {
 
-    /**
-     * 添加一个订单项
-     *
-     * @param user
-     * @param dishes
-     * @param shopCart
-     * @return
-     */
     @Override
-    public boolean addOrderItem(User user, Dishes dishes, ShopCart shopCart) {
+    public boolean createOrderItem(OrderItem orderItem) {
         return false;
     }
 

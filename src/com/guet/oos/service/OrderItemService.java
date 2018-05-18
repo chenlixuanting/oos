@@ -1,8 +1,6 @@
 package com.guet.oos.service;
 
-import com.guet.oos.po.Dishes;
-import com.guet.oos.po.ShopCart;
-import com.guet.oos.po.User;
+import com.guet.oos.po.OrderItem;
 
 /**
  * 订单项
@@ -11,6 +9,6 @@ import com.guet.oos.po.User;
  */
 public interface OrderItemService {
 
-    public boolean addOrderItem(User user, Dishes dishes, ShopCart shopCart);
+    public boolean createOrderItem(OrderItem orderItem);
 
 }

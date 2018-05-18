@@ -24,16 +24,14 @@ public class ShopCartDaoImpl extends AbstractDAOImpl implements ShopCartDao {
     @Override
     public boolean doCreate(ShopCart vo) {
 
-        String sql = "insert into shop_cart_table(usId,totalCost,productAmount,creatorTime,updateTime) values(?,?,?,?,?)";
+        String sql = "insert into shop_cart_table(usId,creatorTime,updateTime) values(?,?,?)";
 
         try {
             super.pstmt = super.conn.prepareStatement(sql);
 
             super.pstmt.setLong(1, vo.getUsId());
-            super.pstmt.setDouble(2, vo.getTotalCost());
-            super.pstmt.setLong(3, vo.getProductAmount());
-            super.pstmt.setString(4, vo.getCreatorTime());
-            super.pstmt.setString(5, vo.getUpdateTime());
+            super.pstmt.setString(2, vo.getCreatorTime());
+            super.pstmt.setString(3, vo.getUpdateTime());
 
             super.pstmt.execute();
 
@@ -122,8 +120,6 @@ public class ShopCartDaoImpl extends AbstractDAOImpl implements ShopCartDao {
 
                 shopCart.setUsId(res.getLong(ShopCartFields.USID));
                 shopCart.setScId(res.getLong(ShopCartFields.SCID));
-                shopCart.setProductAmount(res.getLong(ShopCartFields.PRODUCT_AMOUNT));
-                shopCart.setTotalCost(res.getDouble(ShopCartFields.TOTAL_COST));
                 shopCart.setCreatorTime(res.getString(ShopCartFields.CREATOR_TIME));
                 shopCart.setUpdateTime(res.getString(ShopCartFields.UPDATE_TIME));
 
