@@ -20,8 +20,9 @@ public class TemporaryUserInfo implements Serializable {
     private String deliverTime;//收货人时间
     private String deliverName;//收获人名称
     private String deliverSex;//收货人性别
+    private String account;//登录账号
 
-    public TemporaryUserInfo(String username, String password, String sex, String mobile, String cityName, String roadName, String addressDetial, String deliverTime, String deliverName, String deliverSex) {
+    public TemporaryUserInfo(String username, String password, String sex, String mobile, String cityName, String roadName, String addressDetial, String deliverTime, String deliverName, String deliverSex, String account) {
         this.username = username;
         this.password = password;
         this.sex = sex;
@@ -32,6 +33,7 @@ public class TemporaryUserInfo implements Serializable {
         this.deliverTime = deliverTime;
         this.deliverName = deliverName;
         this.deliverSex = deliverSex;
+        this.account = account;
     }
 
     public TemporaryUserInfo() {
@@ -117,6 +119,14 @@ public class TemporaryUserInfo implements Serializable {
         this.deliverSex = deliverSex;
     }
 
+    public String getAccount() {
+        return account;
+    }
+
+    public void setAccount(String account) {
+        this.account = account;
+    }
+
     @Override
     public String toString() {
         return "TemporaryUserInfo{" +
@@ -130,6 +140,7 @@ public class TemporaryUserInfo implements Serializable {
                 ", deliverTime='" + deliverTime + '\'' +
                 ", deliverName='" + deliverName + '\'' +
                 ", deliverSex='" + deliverSex + '\'' +
+                ", account='" + account + '\'' +
                 '}';
     }
 }

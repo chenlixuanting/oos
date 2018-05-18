@@ -42,7 +42,7 @@ public class UserLoginServlet extends HttpServlet {
 
         LoginDataDto loginDataDto = JSONObject.parseObject(loginData, LoginDataDto.class);
 
-        User user = userService.findByMobile(loginDataDto.getMobile()).get(0);
+        User user = userService.findByMobile(loginDataDto.getMobile());
 
         //用户存在则继续判断密码
         if (!user.getPassword().equals(loginDataDto.getPassword())) {

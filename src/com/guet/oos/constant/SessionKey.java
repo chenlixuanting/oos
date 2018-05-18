@@ -21,11 +21,6 @@ public class SessionKey {
     public static final String TEMPORARY_USER_INFO = "temporaryUserInfo";
 
     /**
-     * 临时用户账号
-     */
-    public static final String TEMPORARY_USER_MOBILE = "temporaryUserMobile";
-
-    /**
      * 管理员信息
      */
     public static final String ADMINISTRATOR = "administrator";

@@ -39,7 +39,7 @@ public class TestInstance {
         user.setCreatorTime(sf.format(new Date()));
         user.setUpdateTime(sf.format(new Date()));
 
-        System.out.println(userService.creatUser(user));
+        System.out.println(userService.createUser(user));
     }
 
     /**

@@ -21,18 +21,24 @@ public class User implements Serializable {
 
     private String sex;// 性别
 
+    private String defaultDeliverAddress;//默认送货地址
+
     private String creatorTime;// 创建时间
 
     private String updateTime;// 修改时间
 
-    public User(long usId, String mobile, String password, String username, String sex, String creatorTime, String updateTime) {
+    public User(long usId, String mobile, String password, String username, String sex, String defaultDeliverAddress, String creatorTime, String updateTime) {
         this.usId = usId;
         this.mobile = mobile;
         this.password = password;
         this.username = username;
         this.sex = sex;
+        this.defaultDeliverAddress = defaultDeliverAddress;
         this.creatorTime = creatorTime;
         this.updateTime = updateTime;
+    }
+
+    public User() {
     }
 
     public long getUsId() {
@@ -75,6 +81,14 @@ public class User implements Serializable {
         this.sex = sex;
     }
 
+    public String getDefaultDeliverAddress() {
+        return defaultDeliverAddress;
+    }
+
+    public void setDefaultDeliverAddress(String defaultDeliverAddress) {
+        this.defaultDeliverAddress = defaultDeliverAddress;
+    }
+
     public String getCreatorTime() {
         return creatorTime;
     }
@@ -91,9 +105,6 @@ public class User implements Serializable {
         this.updateTime = updateTime;
     }
 
-    public User() {
-    }
-
     @Override
     public String toString() {
         return "User{" +
@@ -102,6 +113,7 @@ public class User implements Serializable {
                 ", password='" + password + '\'' +
                 ", username='" + username + '\'' +
                 ", sex='" + sex + '\'' +
+                ", defaultDeliverAddress='" + defaultDeliverAddress + '\'' +
                 ", creatorTime='" + creatorTime + '\'' +
                 ", updateTime='" + updateTime + '\'' +
                 '}';

@@ -30,4 +30,7 @@ public class DAOFactory {
         return new ShopCartDaoImpl(JDBCUtils.getConnection());
     }
 
+    public static DeliveryAddressDao getDeliveryAddressDaoInstance() {
+        return new DeliveryAddressDaoImpl(JDBCUtils.getConnection());
+    }
 }

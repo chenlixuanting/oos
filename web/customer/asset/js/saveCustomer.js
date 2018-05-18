@@ -49,8 +49,6 @@ $(function () {
     //确定并保存个人信息按钮
     $("#submit_btn").click(function () {
 
-        // location.assign("pay.jsp");
-
         var customerData = {
             deliverName: $("#username").val(),
             password: $("#password").val(),
@@ -67,6 +65,14 @@ $(function () {
             },
             success: function (data) {
 
+                var d = eval(data);
+
+                var flag = d.head == "true" ? true : false;
+
+                //跳转到pay.jsp
+                if (flag) {
+                    location.assign("pay.jsp");
+                }
             }
         });
 
