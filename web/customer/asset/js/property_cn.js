@@ -7,7 +7,9 @@ var property = {
     breakfastStart: "2018/01/01 10:15:00",
     breakfastEnd: "2018/01/01 09:14:00",
     lunchStart: "2018/01/01 09:15:00",
-    lunchEnd: "2018/01/01 22:44:00"
+    lunchEnd: "2018/01/01 22:44:00",
+    exist: "1",
+    notExist: "0"
 
 };
 

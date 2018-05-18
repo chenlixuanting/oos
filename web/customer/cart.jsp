@@ -1,7 +1,15 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
          pageEncoding="UTF-8" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+
+<%
+    String path = request.getContextPath();
+    String basePath = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort()
+            + path + "/customer/";
+%>
+
 <head>
+    <base href="<%=basePath%>">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
@@ -16,6 +24,7 @@
     <!-- 加载JS -->
     <script type="text/javascript" src="js/quote/jquery-3.2.1.min.js"></script>
     <script type="text/javascript" src="asset/js/cart.js"></script>
+    <script type="text/javascript" src="asset/js/property_cn.js"></script>
 
 </head>
 <body>
@@ -29,7 +38,7 @@
                 <input type="hidden" id="loginFlag" value="true"/>
                 <span class="span_1 fl_l" id="logon">
                        	 欢迎网上订餐！
-                    </span>
+                </span>
                 <div class="fl_r">
                         <span class="span_2 favbtn">
                             <a href="javascript:;">收藏本订餐网站</a>

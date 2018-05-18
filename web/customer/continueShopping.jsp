@@ -12,6 +12,7 @@
 
 <html>
 <head>
+    <base href="<%=basePath%>">
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <meta name="keywords" content="美味家"/>
@@ -29,6 +30,7 @@
     <script type="text/javascript" src="asset/js/pageToUrls.js"></script>
     <script type="text/javascript" src="asset/js/property_cn.js"></script>
 </head>
+
 <body style="_width: 100%; _height: 100%; display: block;">
 <form id="mainForm" name="myForm" action="" method="post">
     <div class="con">
@@ -45,10 +47,10 @@
                 <div class="top_menu_1">
                     <input type="hidden" id="isLogin" value="true"/> <input
                         type="hidden" id="loginFlag" value="true"/> <span
-                        class="span_1 fl_l" id="logon">欢迎<%=user.getUsername() + " " + user.getSex()%>！</span>
+                        class="span_1 fl_l" id="logon">欢迎 <%=user.getUsername() + " " + user.getSex()%> 网上订餐！</span>
                     <div class="fl_r">
-							<span class="span_2 favbtn"> <a href="javascript:;">收藏本订餐网站</a>
-							</span>
+                        <span class="span_2 favbtn"> <a href="javascript:;">收藏本订餐网站</a>
+                        </span>
                     </div>
                     <div class="clear"></div>
                 </div>
@@ -56,7 +58,7 @@
                 <div class="top_menu_2">
                     <ul>
                         <li><span class="current"> 首页</span></li>
-                        <li><span><a href="orderLogin.jsp">重新登录</a></span></li>
+                        <li><span><a href="javascript:;" onclick="customerExit();">重新登录</a></span></li>
                         <li><span><a href="customerCenter.jsp">个人中心</a></span></li>
                         <li class="last_li w5"><a
                                 href="http://www.4008823823.com.cn/kfcios/jsp/help/help_new.html"
@@ -156,11 +158,26 @@
                                         <p id="desc"></p>
                                     </div>
                                 </div>
+                                <div class="price_span_1">
+                                    <span class="product_number">
+                                        <a class="doMinus" href="javascript:;">
+                                            <img src="images/minus_icon_3.gif">
+                                        </a>
+                                        <input type="text" value="1" maxlength="2" class="pro_number_input2">
+                                        <a class="doPlus" href="javascript:;">
+                                            <img src="images/add_icon_3.gif">
+                                        </a>
+                                    </span>
+                                </div>
                             </div>
                             <div>
-                                <div class="price_span_2"><span class="price"></span>元/份</div>
                             </div>
-                            <input type="button" id="loginBtn" class="layerorder_btn">
+                            <div class="clear"></div>
+                            <p class="popup_btn" style="padding-top: 0px;">
+                                <a class="orderBtn" href="javascript:;" onclick="">
+                                    <img src="images/popup_btn_2.png">
+                                </a>
+                            </p>
                         </div>
                     </div>
                 </div>
@@ -199,101 +216,25 @@
                         <div class=" sub_right_order_main">
                             <div class="order_detail">
                                 <ul id="cart_menus">
-                                    <li>
-                                        <div class="pro_title">LineFriends亲子桶A</div>
-                                        <div class="del"><a href="javascript:void(0);"></a></div>
-                                        <div class="pro_numbers"><a href="javascript:void(0);" style="cursor: pointer;"
-                                                                    class="doMinus"><img
-                                                src="images/minus_icon_2s.gif"></a><input
-                                                type="text" class="pro_numbers_input" value="5" maxlength="2"
-                                                disabled="disabled" onkeyup="this.value=this.value.replace(/D/g,'');"><a
-                                                href="javascript:void(0);" style="cursor: pointer;" class="doPlus"><img
-                                                src="images/plus_icon_2s.gif"></a>
-                                        </div>
-                                        <div class="price">300.0</div>
-                                    </li>
-                                    <li>
-                                        <div class="pro_title">LineFriends亲子桶A</div>
-                                        <div class="del"><a href="javascript:void(0);"></a></div>
-                                        <div class="pro_numbers"><a href="javascript:void(0);" style="cursor: pointer;"
-                                                                    class="doMinus"><img
-                                                src="images/minus_icon_2s.gif"></a><input
-                                                type="text" class="pro_numbers_input" value="5" maxlength="2"
-                                                disabled="disabled" onkeyup="this.value=this.value.replace(/D/g,'');"><a
-                                                href="javascript:void(0);" style="cursor: pointer;" class="doPlus"><img
-                                                src="images/plus_icon_2s.gif"></a>
-                                        </div>
-                                        <div class="price">300.0</div>
-                                    </li>
-                                    <li>
-                                        <div class="pro_title">LineFriends亲子桶A</div>
-                                        <div class="del"><a href="javascript:void(0);"></a></div>
-                                        <div class="pro_numbers"><a href="javascript:void(0);" style="cursor: pointer;"
-                                                                    class="doMinus"><img
-                                                src="images/minus_icon_2s.gif"></a><input
-                                                type="text" class="pro_numbers_input" value="5" maxlength="2"
-                                                disabled="disabled" onkeyup="this.value=this.value.replace(/D/g,'');"><a
-                                                href="javascript:void(0);" style="cursor: pointer;" class="doPlus"><img
-                                                src="images/plus_icon_2s.gif"></a>
-                                        </div>
-                                        <div class="price">300.0</div>
-                                    </li>
-                                    <li>
-                                        <div class="pro_title">LineFriends亲子桶A</div>
-                                        <div class="del"><a href="javascript:void(0);"></a></div>
-                                        <div class="pro_numbers"><a href="javascript:void(0);" style="cursor: pointer;"
-                                                                    class="doMinus"><img
-                                                src="images/minus_icon_2s.gif"></a><input
-                                                type="text" class="pro_numbers_input" value="5" maxlength="2"
-                                                disabled="disabled" onkeyup="this.value=this.value.replace(/D/g,'');"><a
-                                                href="javascript:void(0);" style="cursor: pointer;" class="doPlus"><img
-                                                src="images/plus_icon_2s.gif"></a>
-                                        </div>
-                                        <div class="price">300.0</div>
-                                    </li>
-                                    <li>
-                                        <div class="pro_title">LineFriends亲子桶A</div>
-                                        <div class="del"><a href="javascript:void(0);"></a></div>
-                                        <div class="pro_numbers"><a href="javascript:void(0);" style="cursor: pointer;"
-                                                                    class="doMinus"><img
-                                                src="images/minus_icon_2s.gif"></a><input
-                                                type="text" class="pro_numbers_input" value="5" maxlength="2"
-                                                disabled="disabled" onkeyup="this.value=this.value.replace(/D/g,'');"><a
-                                                href="javascript:void(0);" style="cursor: pointer;" class="doPlus"><img
-                                                src="images/plus_icon_2s.gif"></a>
-                                        </div>
-                                        <div class="price">300.0</div>
-                                    </li>
-                                    <li>
-                                        <div class="pro_title">LineFriends亲子桶A</div>
-                                        <div class="del"><a href="javascript:void(0);"></a></div>
-                                        <div class="pro_numbers"><a href="javascript:void(0);" style="cursor: pointer;"
-                                                                    class="doMinus"><img
-                                                src="images/minus_icon_2s.gif"></a><input
-                                                type="text" class="pro_numbers_input" value="5" maxlength="2"
-                                                disabled="disabled" onkeyup="this.value=this.value.replace(/D/g,'');"><a
-                                                href="javascript:void(0);" style="cursor: pointer;" class="doPlus"><img
-                                                src="images/plus_icon_2s.gif"></a>
-                                        </div>
-                                        <div class="price">300.0</div>
-                                    </li>
                                 </ul>
                             </div>
                         </div>
                         <div class="total">
                             <ul>
-                                <li><span class="Til">小计:</span> <span class="Price">0.0元</span>
+                                <li>
+                                    <span class="Til">小计:</span>
+                                    <span class="Price" id="productCost">0.0元</span>
                                 </li>
-                                <li><span class="Til" style="width: 170px;"> 外送费<font
-                                        id="prodesc" color="red"></font>
-									</span> <span class="Price">9.0元</span></li>
-                                <li id="netUser_price" style="display: none;"></li>
-                                <li><span class="Til">合计:</span> <span class="Price">9.0元</span>
+                                <li>
+                                    <span class="Til" style="width: 170px;">外送费<font
+                                            id="prodesc" color="red"></font>
+									</span>
+                                    <span class="Price" id="deliverCost">9.0元</span>
                                 </li>
-                                <li style="height: 22px;"><span class="Til"
-                                                                style="color: red; display: none;">本单您共省了：</span> <span
-                                        class="Price" style="color: red; display: none;"> 0.0元
-									</span></li>
+                                <li>
+                                    <span class="Til">合计:</span>
+                                    <span class="Price" id="totalCost">9.0元</span>
+                                </li>
                             </ul>
                         </div>
                         <p class="al_c">
@@ -304,17 +245,13 @@
                                 <span class="til">送餐地址：</span> <span class="modify"> </span>
                             </p>
                             <p>
-                                上海W1(上海新国际博览中心)(龙阳路2345号上海新国际博览中心F1层)71 <input type="hidden"
-                                                                               id="cityNameDes" value="上海"/> <input
-                                    type="hidden"
-                                    id="mainAddressDes"
-                                    value="W1(上海新国际博览中心)(龙阳路2345号上海新国际博览中心F1层)"/> <input
-                                    type="hidden" id="supplementaladdressDes"
-                                    value="W1(上海新国际博览中心)(龙阳路2345号上海新国际博览中心F1层)"/> <input
-                                    type="hidden" id="x" value="121.565124"/> <input
-                                    type="hidden" id="y" value="31.207368"/> <input
-                                    type="hidden" id="addressId"
-                                    value="013f9b8b-97b5-449c-8678-df3b54ead996-a0"/>
+                                <%--上海W1(上海新国际博览中心)(龙阳路2345号上海新国际博览中心F1层)71--%>
+                                <%--<input type="hidden" id="cityNameDes" value="上海"/>--%>
+                                <%--<input type="hidden" id="mainAddressDes" value="W1(上海新国际博览中心)(龙阳路2345号上海新国际博览中心F1层)"/>--%>
+                                <%--<input type="hidden" id="supplementaladdressDes" value="W1(上海新国际博览中心)(龙阳路2345号上海新国际博览中心F1层)"/>--%>
+                                <%--<input type="hidden" id="x" value="121.565124"/>--%>
+                                <%--<input type="hidden" id="y" value="31.207368"/>--%>
+                                <%--<input type="hidden" id="addressId" value="013f9b8b-97b5-449c-8678-df3b54ead996-a0"/>--%>
                             </p>
                         </div>
                         <p style="padding: 6px 10px;">
@@ -328,6 +265,5 @@
         <div class="clear"></div>
     </div>
 </form>
-
 </body>
 </html>

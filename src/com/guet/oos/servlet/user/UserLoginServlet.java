@@ -6,7 +6,9 @@ import com.guet.oos.constant.SessionKey;
 import com.guet.oos.dto.JsonReturn;
 import com.guet.oos.dto.LoginDataDto;
 import com.guet.oos.factory.ServiceFactory;
+import com.guet.oos.po.DeliveryAddress;
 import com.guet.oos.po.User;
+import com.guet.oos.service.DeliveryAddressService;
 import com.guet.oos.service.UserService;
 
 import javax.servlet.ServletException;
@@ -14,6 +16,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import java.io.IOException;
 
 /**
@@ -24,7 +27,9 @@ public class UserLoginServlet extends HttpServlet {
 
     private static final long serialVersionUID = 1L;
 
-    UserService userService = ServiceFactory.getUserServiceInstance();
+    private UserService userService = ServiceFactory.getUserServiceInstance();
+
+    private DeliveryAddressService deliveryAddressService = ServiceFactory.getDeliveryAddressServiceInstance();
 
     /**
      * @see HttpServlet#HttpServlet()
@@ -44,6 +49,8 @@ public class UserLoginServlet extends HttpServlet {
 
         User user = userService.findByMobile(loginDataDto.getMobile());
 
+        HttpSession httpSession = request.getSession();
+
         //用户存在则继续判断密码
         if (!user.getPassword().equals(loginDataDto.getPassword())) {
             response.getWriter()
@@ -55,8 +62,15 @@ public class UserLoginServlet extends HttpServlet {
             response.getWriter()
                     .append(JsonReturn.buildFail(JsonReturnCode.VERIFY_CODE_ERROR).toString());
         } else {
+
+            //获取用户的默认送货地址
+            DeliveryAddress deliveryAddress = deliveryAddressService.findUserDefaultDeliverAddress(user.getUsId());
+
+            //将用户的的默认地址保存到Session中
+            user.setDefaultDeliverAddress(deliveryAddress);
+
             //将user信息存入Session
-            request.getSession().setAttribute(SessionKey.USER, user);
+            httpSession.setAttribute(SessionKey.USER, user);
 
             //验证通过
             response.getWriter()

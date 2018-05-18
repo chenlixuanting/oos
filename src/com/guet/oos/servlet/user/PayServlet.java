@@ -1,9 +1,6 @@
 package com.guet.oos.servlet.user;
 
-import com.guet.oos.constant.DateTimeFormat;
-import com.guet.oos.constant.OrderStatus;
-import com.guet.oos.constant.SessionKey;
-import com.guet.oos.constant.ShopCartConstant;
+import com.guet.oos.constant.*;
 import com.guet.oos.dto.JsonReturn;
 import com.guet.oos.factory.ServiceFactory;
 import com.guet.oos.po.Order;
@@ -89,6 +86,9 @@ public class PayServlet extends HttpServlet {
 
         //销毁Session中shopCart
         httpSession.removeAttribute(SessionKey.SHOP_CART);
+
+        //更改用户标志
+        httpSession.setAttribute(SessionKey.USER_FLAG, UserExist.USER_EXIST);
 
         response.getWriter().write(JsonReturn.buildSuccessEmptyContent().toString());
 

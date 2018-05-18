@@ -30,4 +30,9 @@ public class SessionKey {
      */
     public static final String SHOP_CART = "shopCart";
 
+    /**
+     * 用户标记(标记用户为正式用户还是非正式用户)
+     */
+    public static final String USER_FLAG = "userFlag";
+
 }

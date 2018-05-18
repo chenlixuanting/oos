@@ -2,6 +2,7 @@ package com.guet.oos.servlet.user;
 
 import com.alibaba.fastjson.JSONObject;
 import com.guet.oos.constant.SessionKey;
+import com.guet.oos.constant.UserExist;
 import com.guet.oos.dto.JsonReturn;
 import com.guet.oos.dto.LoginDataDto;
 import com.guet.oos.dto.TemporaryUserInfo;
@@ -14,6 +15,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.util.List;
 
@@ -47,11 +49,21 @@ public class UserLoginValidateServlet extends HttpServlet {
 
         User user = userService.findByMobile(loginDataDto.getMobile());
 
+        HttpSession httpSession = request.getSession();
+
+        //默认将用户标记为非正式用户
+        httpSession.setAttribute(SessionKey.USER_FLAG, UserExist.USER_NOT_EXIST);
+
         // 用户存在
         if (user != null) {
+
+            //将用户标记为正式用户
+            httpSession.setAttribute(SessionKey.USER_FLAG, UserExist.USER_EXIST);
+
             // 将bean.String转成成json格式数据，响应ajax
             response.getWriter()
                     .append(JsonReturn.buildSuccessEmptyContent().toString());
+
             // 用户不存在
         } else {
 

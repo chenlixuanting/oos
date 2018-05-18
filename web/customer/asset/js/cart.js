@@ -3,12 +3,36 @@
  */
 $(function () {
 
-    $("#step1").click(function () {
-        location.assign("regCustomer.jsp");
-    });
+    /**
+     * 获取用户标志并判断上一步和下一步按钮的逻辑
+     */
+    $.ajax({
+        url: "getUserFlag.action",
+        type: "POST",
+        dataType: "json",
+        success: function (data) {
 
-    $("#step_pay").click(function () {
-        location.assign("saveCustomer.jsp");
+            var d = eval(data);
+
+            if (d.body == property.notExist) {
+                $("#step1").click(function () {
+                    location.assign("regCustomer.jsp");
+                });
+
+                $("#step_pay").click(function () {
+                    location.assign("saveCustomer.jsp");
+                });
+            } else if (d.body == property.exist) {
+                $("#step1").click(function () {
+                    location.assign("continueShopping.jsp");
+                });
+
+                $("#step_pay").click(function () {
+                    location.assign("pay.jsp");
+                });
+            }
+
+        }
     });
 
     /**
