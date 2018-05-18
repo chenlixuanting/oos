@@ -20,7 +20,7 @@ public class ShopCartServiceImpl implements ShopCartService {
      */
     @Override
     public ShopCart getShopCartByUserId(Long userId) {
-        return null;
+        return shopCartDao.getShopCartByUserId(userId);
     }
 
     /**

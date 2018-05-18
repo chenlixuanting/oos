@@ -111,7 +111,6 @@ $(function () {
             data: {
                 requestData: JSON.stringify(requestData)
             }, success: function (data) {
-
             }
         });
     });
@@ -126,7 +125,11 @@ $(function () {
             type: "POST",
             dataType: "json",
             success: function (data) {
-
+                var d = eval(data);
+                var flag = d.head == "true" ? true : false;
+                if (flag) {
+                    location.assign("customerCenter.jsp");
+                }
             }
         });
     });

@@ -86,7 +86,7 @@ public class ShopCartDaoImpl extends AbstractDAOImpl implements ShopCartDao {
     @Override
     public ShopCart getShopCartByUserId(Long userId) {
 
-        String sql = "select from shop_cart_table where scId=?";
+        String sql = "select * from shop_cart_table where usId=?";
 
         List<ShopCart> shopCarts = null;
 

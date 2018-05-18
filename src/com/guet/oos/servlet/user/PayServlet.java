@@ -3,11 +3,14 @@ package com.guet.oos.servlet.user;
 import com.guet.oos.constant.DateTimeFormat;
 import com.guet.oos.constant.OrderStatus;
 import com.guet.oos.constant.SessionKey;
+import com.guet.oos.constant.ShopCartConstant;
+import com.guet.oos.dto.JsonReturn;
 import com.guet.oos.factory.ServiceFactory;
 import com.guet.oos.po.Order;
 import com.guet.oos.po.OrderItem;
 import com.guet.oos.po.ShopCart;
 import com.guet.oos.po.User;
+import com.guet.oos.service.OrderItemService;
 import com.guet.oos.service.OrderService;
 
 import javax.servlet.ServletException;
@@ -31,6 +34,8 @@ public class PayServlet extends HttpServlet {
     private static final long serialVersionUID = 1L;
 
     private OrderService orderService = ServiceFactory.getOrderServiceInstance();
+
+    private OrderItemService orderItemService = ServiceFactory.getOrderItemServiceInstance();
 
     /**
      * @see HttpServlet#HttpServlet()
@@ -76,6 +81,16 @@ public class PayServlet extends HttpServlet {
         List<OrderItem> orderItems = shopCart.getOrderItems();
 
         //循环赋予orderId的值，并将scId值-1，并保存到数据库
+        for (OrderItem oi : orderItems) {
+            oi.setOrId(orId);
+            oi.setScId(ShopCartConstant.PURCHASED);
+            orderItemService.createOrderItem(oi);
+        }
+
+        //销毁Session中shopCart
+        httpSession.removeAttribute(SessionKey.SHOP_CART);
+
+        response.getWriter().write(JsonReturn.buildSuccessEmptyContent().toString());
 
     }
 

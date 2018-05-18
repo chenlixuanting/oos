@@ -15,7 +15,7 @@ public class OrderItem implements Serializable {
 
     private long scId;// 购物车ID
 
-    private long orId;// 订单ID
+    private String orId;// 订单ID
 
     private long dsId;// 菜品ID
 
@@ -31,7 +31,7 @@ public class OrderItem implements Serializable {
 
     private String updateTime;// 更新时间
 
-    public OrderItem(long oiId, long scId, long orId, long dsId, String dishesName, long quantity, double price, double productCost, String creatorTime, String updateTime) {
+    public OrderItem(long oiId, long scId, String orId, long dsId, String dishesName, long quantity, double price, double productCost, String creatorTime, String updateTime) {
         this.oiId = oiId;
         this.scId = scId;
         this.orId = orId;
@@ -46,7 +46,6 @@ public class OrderItem implements Serializable {
 
     public OrderItem() {
     }
-
 
     public long getOiId() {
         return oiId;
@@ -64,11 +63,11 @@ public class OrderItem implements Serializable {
         this.scId = scId;
     }
 
-    public long getOrId() {
+    public String getOrId() {
         return orId;
     }
 
-    public void setOrId(long orId) {
+    public void setOrId(String orId) {
         this.orId = orId;
     }
 
@@ -133,7 +132,7 @@ public class OrderItem implements Serializable {
         return "OrderItem{" +
                 "oiId=" + oiId +
                 ", scId=" + scId +
-                ", orId=" + orId +
+                ", orId='" + orId + '\'' +
                 ", dsId=" + dsId +
                 ", dishesName='" + dishesName + '\'' +
                 ", quantity=" + quantity +

@@ -36,4 +36,8 @@ public class ServiceFactory {
     public static OrderService getOrderServiceInstance() {
         return new OrderServiceImpl();
     }
+
+    public static OrderItemService getOrderItemServiceInstance() {
+        return new OrderItemServiceImpl();
+    }
 }

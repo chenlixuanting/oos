@@ -54,6 +54,7 @@ public class OrderDaoImpl extends AbstractDAOImpl implements OrderDao {
             pstmt.setString(9, vo.getOrderStatus());
             pstmt.setString(10, vo.getCreatorTime());
             pstmt.setString(11, vo.getUpdateTime());
+
             pstmt.execute();
 
             return true;

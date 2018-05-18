@@ -1,5 +1,7 @@
 package com.guet.oos.service.impl;
 
+import com.guet.oos.dao.OrderItemDao;
+import com.guet.oos.factory.DAOFactory;
 import com.guet.oos.po.OrderItem;
 import com.guet.oos.service.OrderItemService;
 
@@ -8,9 +10,11 @@ import com.guet.oos.service.OrderItemService;
  */
 public class OrderItemServiceImpl implements OrderItemService {
 
+    private OrderItemDao orderItemDao = DAOFactory.getOrderItemDaoInstance();
+
     @Override
     public boolean createOrderItem(OrderItem orderItem) {
-        return false;
+        return orderItemDao.doCreate(orderItem);
     }
 
 }

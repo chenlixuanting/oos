@@ -12,6 +12,7 @@ import com.guet.oos.po.ShopCart;
 import com.guet.oos.po.User;
 import com.guet.oos.service.DishesService;
 import com.guet.oos.service.ShopCartService;
+import org.apache.commons.lang.time.DateFormatUtils;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -20,6 +21,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
+import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
@@ -46,6 +48,8 @@ public class ShopCartSerlvet extends HttpServlet {
      */
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
+        SimpleDateFormat sf = new SimpleDateFormat(DateTimeFormat.YYYY_MM_DD_HH_MM_SS);
+
         //获取Session
         HttpSession httpSession = request.getSession();
 
@@ -55,8 +59,6 @@ public class ShopCartSerlvet extends HttpServlet {
 
         long goodId = Long.valueOf(orderItemJson.getString("dishesId"));
         long quantity = Long.valueOf(orderItemJson.getString("quantity"));
-
-        SimpleDateFormat sf = new SimpleDateFormat(DateTimeFormat.YYYY_MM_DD_HH_MM_SS);
 
         //判断用户是否登陆
         User user = (User) httpSession.getAttribute(SessionKey.USER);
@@ -73,6 +75,8 @@ public class ShopCartSerlvet extends HttpServlet {
             if (user == null && temporaryUserInfo != null) {
                 //新建购物车
                 customerShopCart = new ShopCart();
+                customerShopCart.setCreatorTime(sf.format(new Date()));
+                customerShopCart.setUpdateTime(sf.format(new Date()));
             } else if (user != null && temporaryUserInfo == null) {
                 //通过已登录用户的id获取其对应的购物车
                 customerShopCart = shopCartService.getShopCartByUserId(user.getUsId());
