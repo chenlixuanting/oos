@@ -21,18 +21,21 @@ public class DeliveryAddress implements Serializable {
 
     private String receiverAddress;// 收货人地址
 
+    private String receiverTime;//收货时间
+
     private boolean isDefault;//是否为默认地址
 
     private String createTime;// 创建时间
 
     private String updateTime;// 更新时间
 
-    public DeliveryAddress(long daId, long usId, String receiverName, String receiverMobile, String receiverAddress, boolean isDefault, String createTime, String updateTime) {
+    public DeliveryAddress(long daId, long usId, String receiverName, String receiverMobile, String receiverAddress, String receiverTime, boolean isDefault, String createTime, String updateTime) {
         this.daId = daId;
         this.usId = usId;
         this.receiverName = receiverName;
         this.receiverMobile = receiverMobile;
         this.receiverAddress = receiverAddress;
+        this.receiverTime = receiverTime;
         this.isDefault = isDefault;
         this.createTime = createTime;
         this.updateTime = updateTime;
@@ -81,6 +84,14 @@ public class DeliveryAddress implements Serializable {
         this.receiverAddress = receiverAddress;
     }
 
+    public String getReceiverTime() {
+        return receiverTime;
+    }
+
+    public void setReceiverTime(String receiverTime) {
+        this.receiverTime = receiverTime;
+    }
+
     public boolean isDefault() {
         return isDefault;
     }
@@ -113,6 +124,7 @@ public class DeliveryAddress implements Serializable {
                 ", receiverName='" + receiverName + '\'' +
                 ", receiverMobile='" + receiverMobile + '\'' +
                 ", receiverAddress='" + receiverAddress + '\'' +
+                ", receiverTime='" + receiverTime + '\'' +
                 ", isDefault=" + isDefault +
                 ", createTime='" + createTime + '\'' +
                 ", updateTime='" + updateTime + '\'' +

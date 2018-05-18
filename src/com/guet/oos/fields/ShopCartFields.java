@@ -12,4 +12,5 @@ public class ShopCartFields {
     public static final String UPDATE_TIME = "updateTime";
     public static final String DELIVER_COST = "derliverCost";
     public static final String PRODUCT_COST = "productCost";
+    public static final String PAY_TYPE = "payType";
 }

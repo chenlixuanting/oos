@@ -63,7 +63,7 @@ public class SaveCustomerServlet extends HttpServlet {
         userService.transformToFormalUser(userInfo);
 
         //通过mobile查找唯一用户
-        User user = userService.findByMobile(userInfo.getMobile());
+        User user = userService.findByMobile(userInfo.getAccount());
 
         //将tempUserInfo中的地址提取封装成DeliverAddress并进行存储
         deliveryAddressService.pickUpDeliveryAddress(userInfo, user);
@@ -71,8 +71,7 @@ public class SaveCustomerServlet extends HttpServlet {
         //通过usId查找该用户默认地址
         DeliveryAddress deliveryAddress = deliveryAddressService.findUserDefaultDeliverAddress(user.getUsId());
 
-        //
-        user.setDefaultDeliverAddress(deliverName);
+        user.setDefaultDeliverAddress(deliveryAddress);
 
         //将temporaryUserInfo从Session中移除
         httpSession.removeAttribute(SessionKey.TEMPORARY_USER_INFO);

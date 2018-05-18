@@ -25,7 +25,7 @@ public class DeliveryAddressServiceImpl implements DeliveryAddressService {
         DeliveryAddress deliveryAddress = new DeliveryAddress();
 
         StringBuilder strAddress = new StringBuilder(userInfo.getCityName() + " " + userInfo.getRoadName() +
-                "(" + userInfo.getAddressDetial() + ")" + " " + userInfo.getDeliverName() + " " + userInfo.getDeliverSex());
+                "(" + userInfo.getAddressDetial() + ")" + " " + userInfo.getDeliverName() + " " + userInfo.getDeliverSex() + " " + userInfo.getMobile());
 
         SimpleDateFormat sf = new SimpleDateFormat(DateTimeFormat.YYYY_MM_DD_HH_MM_SS);
 
@@ -33,6 +33,7 @@ public class DeliveryAddressServiceImpl implements DeliveryAddressService {
         deliveryAddress.setReceiverName(userInfo.getDeliverName());
         deliveryAddress.setReceiverMobile(userInfo.getMobile());
         deliveryAddress.setReceiverAddress(strAddress.toString());
+        deliveryAddress.setReceiverTime(userInfo.getDeliverTime());
         deliveryAddress.setDefault(true);
         deliveryAddress.setCreateTime(sf.format(new Date()));
         deliveryAddress.setUpdateTime(sf.format(new Date()));

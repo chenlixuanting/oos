@@ -13,4 +13,6 @@ public class DeliverAddressFields {
     public static final String CREATE_TIME = "createTime";
     public static final String UPDATE_TIME = "updateTime";
     public static final String IS_DEFAULT = "isDefault";
+    public static final String RECEIVER_TIME = "receiverTime";
+
 }

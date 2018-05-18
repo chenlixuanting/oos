@@ -29,6 +29,8 @@ public class ShopCart implements Serializable {
 
     private double productCost;//商品开销
 
+    private String payType;//支付方式
+
     @JSONField(serialize = false)
     private String creatorTime;// 创建时间
 
@@ -38,17 +40,16 @@ public class ShopCart implements Serializable {
     private List<OrderItem> orderItems = new ArrayList<OrderItem>();
 
     public ShopCart() {
-        super();
     }
 
-
-    public ShopCart(long scId, long usId, double totalCost, long productAmount, double deliverCost, double productCost, String creatorTime, String updateTime, List<OrderItem> orderItems) {
+    public ShopCart(long scId, long usId, double totalCost, long productAmount, double deliverCost, double productCost, String payType, String creatorTime, String updateTime, List<OrderItem> orderItems) {
         this.scId = scId;
         this.usId = usId;
         this.totalCost = totalCost;
         this.productAmount = productAmount;
         this.deliverCost = deliverCost;
         this.productCost = productCost;
+        this.payType = payType;
         this.creatorTime = creatorTime;
         this.updateTime = updateTime;
         this.orderItems = orderItems;
@@ -102,6 +103,14 @@ public class ShopCart implements Serializable {
         this.productCost = productCost;
     }
 
+    public String getPayType() {
+        return payType;
+    }
+
+    public void setPayType(String payType) {
+        this.payType = payType;
+    }
+
     public String getCreatorTime() {
         return creatorTime;
     }
@@ -135,6 +144,7 @@ public class ShopCart implements Serializable {
                 ", productAmount=" + productAmount +
                 ", deliverCost=" + deliverCost +
                 ", productCost=" + productCost +
+                ", payType='" + payType + '\'' +
                 ", creatorTime='" + creatorTime + '\'' +
                 ", updateTime='" + updateTime + '\'' +
                 ", orderItems=" + orderItems +
