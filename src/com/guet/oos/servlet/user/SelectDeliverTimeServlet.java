@@ -36,9 +36,14 @@ public class SelectDeliverTimeServlet extends HttpServlet {
 
         HttpSession session = request.getSession();
 
-        TemporaryUserInfo temporaryUserInfo = (TemporaryUserInfo) session.getAttribute(SessionKey.TEMPORARY_USER_INFO);
+        Object temporaryUserInfo = session.getAttribute(SessionKey.TEMPORARY_USER_INFO);
 
-        temporaryUserInfo.setDeliverTime(timeStr);
+        if (temporaryUserInfo == null) {
+            response.getWriter().write(JsonReturn.buildFailEmptyContent().toString());
+            return;
+        }
+
+        ((TemporaryUserInfo) temporaryUserInfo).setDeliverTime(timeStr);
 
         session.setAttribute(SessionKey.TEMPORARY_USER_INFO, temporaryUserInfo);
 

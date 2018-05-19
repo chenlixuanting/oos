@@ -134,5 +134,9 @@ $(function () {
         });
     });
 
+    $("#back_menu_btn").click(function () {
+        location.assign("cart.jsp");
+    });
+
 });
 

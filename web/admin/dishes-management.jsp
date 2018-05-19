@@ -69,7 +69,7 @@
 
                     <a id="addBtn"
                        class="btn btn-success btn-lg pull-left"
-                       style="margin-left: -20px;"> 新 增 </a>
+                       style="margin-left: -26px;"> 新 增 </a>
 
                     <a id="deleteBtn" class="btn btn-danger btn-lg pull-left"
                        style="margin-left: 10px;"> 删 除 </a>
@@ -119,7 +119,7 @@
      aria-labelledby="myModalLabel" style="width: 800px !important; left: 40% !important;">
     <div class="modal-dialog" role="document">
 
-        <form action="./addDishes.action" method="post" enctype="multipart/form-data">
+        <form action="./addDishes.action" method="post" enctype="multipart/form-data" style="margin-bottom: 0px;">
             <div class="modal-content">
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal"
@@ -128,7 +128,7 @@
                     </button>
                     <h4 class="modal-title primary" id="infoModelTilte"></h4>
                 </div>
-                <div class="modal-body">
+                <div class="modal-body" style="max-height: none;">
                     <div class="row" style="text-align: center">
                         <div class="col-lg-12">
 
@@ -235,8 +235,10 @@
 <%--<script src="http://code.jquery.com/jquery-latest.js"></script>--%>
 <script src="js/bootstrap.min.js"></script>
 <script src="js/jquery-ui-1.10.2.custom.min.js"></script>
+
 <!-- knob -->
 <script src="js/jquery.knob.js"></script>
+
 <!-- flot charts -->
 <script src="js/jquery.flot.js"></script>
 <script src="js/jquery.flot.stack.js"></script>

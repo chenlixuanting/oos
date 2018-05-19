@@ -62,4 +62,9 @@ public class DeliveryAddressServiceImpl implements DeliveryAddressService {
         return null;
     }
 
+    @Override
+    public boolean userDefaultDeliverTime(long usId, String newTime) {
+        return deliveryAddressDao.userDefaultDeliverTime(usId, newTime);
+    }
+
 }

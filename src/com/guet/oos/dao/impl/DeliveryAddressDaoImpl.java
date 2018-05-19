@@ -44,6 +44,24 @@ public class DeliveryAddressDaoImpl extends AbstractDAOImpl implements DeliveryA
     }
 
     @Override
+    public boolean userDefaultDeliverTime(long usId, String newTime) {
+
+        String sql = "update delivery_address_table set receiverTime=? where usId=?";
+
+        try {
+            pstmt = conn.prepareStatement(sql);
+            pstmt.setString(1, newTime);
+            pstmt.setLong(2, usId);
+            pstmt.executeUpdate();
+            return true;
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return false;
+    }
+
+    @Override
     public boolean doCreate(DeliveryAddress vo) {
 
         String sql = "insert into delivery_address_table(usId,receiverName,receiverMobile,receiverAddress,receiverTime,isDefault,createTime,updateTime) values(?,?,?,?,?,?,?,?)";

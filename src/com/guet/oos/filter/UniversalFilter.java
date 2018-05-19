@@ -42,6 +42,7 @@ public class UniversalFilter implements Filter {
         if ((httpSession.getAttribute(SessionKey.TEMPORARY_USER_INFO) != null) || (httpSession.getAttribute(SessionKey.USER) != null)) {
             chain.doFilter(request, response);
         } else {
+            ((HttpServletRequest) request).getSession().invalidate();
             ((HttpServletResponse) response).sendRedirect("orderLogin.jsp");
         }
 

@@ -6,15 +6,9 @@
 
 <%
     String path = request.getContextPath();
+
     String basePath = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort()
             + path + "/customer/";
-
-    Object userInfo = request.getSession().getAttribute(SessionKey.TEMPORARY_USER_INFO);
-
-    if (userInfo == null) {
-        response.sendRedirect(request.getContextPath() + "/customer/orderLogin.jsp");
-    }
-
 %>
 
 <head>
@@ -115,7 +109,8 @@
                                                                            autocomplete="off"/>
                                                                     <span class="add_icon" id="query_city"></span>
                                                                     <span class="location"></span>
-                                                                    <div id="allmap" style="display: none;width: 473px;height: 200px;position: absolute;top: 35px;"></div>
+                                                                    <div id="allmap"
+                                                                         style="display: none;width: 473px;height: 200px;position: absolute;top: 35px;"></div>
                                                                 </span>
                                                             </p>
                                                             <p id="add_add2" address2=address2 style="display:block">
@@ -198,35 +193,35 @@
 <script type="text/javascript">
     // 百度地图API功能
     var map = new BMap.Map("allmap");
-    var point = new BMap.Point(116.331398,39.897445);
-    map.centerAndZoom(point,12);
+    var point = new BMap.Point(116.331398, 39.897445);
+    map.centerAndZoom(point, 12);
     map.enableScrollWheelZoom(true);     //开启鼠标滚轮缩放
     var geoc = new BMap.Geocoder();
 
     var geolocation = new BMap.Geolocation();//定位
-    geolocation.getCurrentPosition(function(r){
-        if(this.getStatus() == BMAP_STATUS_SUCCESS){
+    geolocation.getCurrentPosition(function (r) {
+        if (this.getStatus() == BMAP_STATUS_SUCCESS) {
             var mk = new BMap.Marker(r.point);
             map.addOverlay(mk);
             map.panTo(r.point);  //把位置更新至当前位置
             var pt = r.point;
-            geoc.getLocation(pt, function(rs){
+            geoc.getLocation(pt, function (rs) {
                 var addComp = rs.addressComponents;
                 //alert(addComp.province + ", " + addComp.city + ", " + addComp.district + ", " + addComp.street + ", " + addComp.streetNumber);
             });
         }
         else {
-            alert('failed'+this.getStatus());
+            alert('failed' + this.getStatus());
         }
     });
 
-    map.addEventListener("click", function(e){       //点击获取坐标
+    map.addEventListener("click", function (e) {       //点击获取坐标
         var pt = e.point;
-        geoc.getLocation(pt, function(rs){
+        geoc.getLocation(pt, function (rs) {
             var addComp = rs.addressComponents;
-            if (confirm("你选择的地址是否为"+addComp.province + ", " + addComp.city + ", " + addComp.district + ", " + addComp.street + ", " + addComp.streetNumber)){
-                $("#cityName").attr("value",addComp.province + addComp.city + addComp.district + addComp.street + addComp.streetNumber);
-                $("#allmap").css({display:"none"});
+            if (confirm("你选择的地址是否为" + addComp.province + ", " + addComp.city + ", " + addComp.district + ", " + addComp.street + ", " + addComp.streetNumber)) {
+                $("#cityName").attr("value", addComp.province + addComp.city + addComp.district + addComp.street + addComp.streetNumber);
+                $("#allmap").css({display: "none"});
             }
             //alert(addComp.province + ", " + addComp.city + ", " + addComp.district + ", " + addComp.street + ", " + addComp.streetNumber);
             //addComp.province + addComp.city + addComp.district + addComp.street + addComp.streetNumber ;
@@ -236,7 +231,7 @@
 
     $("#query_city").click(function () {
         console.log(111);
-        $("#allmap").css({display:"block"});
+        $("#allmap").css({display: "block"});
     });
 </script>
 <!-- 地图弹出层 -->

@@ -31,7 +31,12 @@ public class GetShopCartInfoServlet extends HttpServlet {
      */
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-        ShopCart shopCart = (ShopCart) request.getSession().getAttribute(SessionKey.SHOP_CART);
+        Object shopCart = request.getSession().getAttribute(SessionKey.SHOP_CART);
+
+        if (shopCart == null) {
+            response.getWriter().write("null");
+            return;
+        }
 
         response.getWriter().write(JSONObject.toJSONString(shopCart));
 

@@ -42,6 +42,7 @@ public class RegUserAccessFilter implements Filter {
         if (httpSession.getAttribute(SessionKey.TEMPORARY_USER_INFO) != null) {
             chain.doFilter(request, response);
         } else {
+            ((HttpServletRequest) request).getSession().invalidate();
             ((HttpServletResponse) response).sendRedirect("orderLogin.jsp");
         }
 

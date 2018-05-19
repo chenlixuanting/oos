@@ -1,10 +1,11 @@
 package com.guet.oos.servlet.user;
 
-import com.alibaba.fastjson.JSONObject;
 import com.guet.oos.constant.SessionKey;
-import com.guet.oos.dto.JsonEntityReturn;
 import com.guet.oos.dto.JsonReturn;
-import com.guet.oos.dto.TemporaryUserInfo;
+import com.guet.oos.factory.ServiceFactory;
+import com.guet.oos.po.DeliveryAddress;
+import com.guet.oos.po.User;
+import com.guet.oos.service.DeliveryAddressService;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -15,16 +16,19 @@ import javax.servlet.http.HttpSession;
 import java.io.IOException;
 
 /**
- * Created by Shinelon on 2018/5/14.
+ * Created by Shinelon on 2018/5/20.
  */
-@WebServlet("/customer/CustomerConfirm.action")
-public class CustomerConfirmServlet extends HttpServlet {
+@WebServlet("/customer/CustomerSelectDeliverTime.action")
+public class CustomerSelectDeliverTimeServlet extends HttpServlet {
+
     private static final long serialVersionUID = 1L;
+
+    private DeliveryAddressService deliveryAddressService = ServiceFactory.getDeliveryAddressServiceInstance();
 
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public CustomerConfirmServlet() {
+    public CustomerSelectDeliverTimeServlet() {
         super();
     }
 
@@ -33,16 +37,21 @@ public class CustomerConfirmServlet extends HttpServlet {
      */
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
+        String timeStr = request.getParameter("deliverTime");
+
         HttpSession session = request.getSession();
 
-        Object temporaryUserInfo = session.getAttribute(SessionKey.TEMPORARY_USER_INFO);
+        User user = (User) session.getAttribute(SessionKey.USER);
 
-        if (temporaryUserInfo == null) {
-            response.getWriter().write("null");
-        }
+        deliveryAddressService.userDefaultDeliverTime(user.getUsId(), timeStr);
 
-        //返回Success以及temporaryUserInfo实体的Json格式数据
-        response.getWriter().write(JSONObject.toJSONString(temporaryUserInfo));
+        DeliveryAddress deliveryAddress = deliveryAddressService.findUserDefaultDeliverAddress(user.getUsId());
+
+        user.setDefaultDeliverAddress(deliveryAddress);
+
+        session.setAttribute(SessionKey.USER, user);
+
+        response.getWriter().write(JsonReturn.buildSuccessEmptyContent().toString());
 
     }
 

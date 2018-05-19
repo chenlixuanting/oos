@@ -14,4 +14,6 @@ public interface DeliveryAddressService {
     public boolean createDeliveryAddress(DeliveryAddress deliveryAddress);
 
     public DeliveryAddress findUserDefaultDeliverAddress(long usId);
+
+    public boolean userDefaultDeliverTime(long usId, String newTime);
 }

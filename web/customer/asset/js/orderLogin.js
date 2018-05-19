@@ -80,7 +80,7 @@ $(function () {
                         $.orderLogin.refreshVerifyCode($("#verifyCodeImg"));
 
                         //跳转到continueShopping.jsp
-                        location.assign("continueShopping.jsp");
+                        location.assign("customer.jsp");
 
                     } else {
 
@@ -91,6 +91,10 @@ $(function () {
 
                             //清空密码输入框,并将聚集焦点
                             $("#password_text").val("");
+
+                            $.orderLogin.refreshVerifyCode($("#verifyCodeImg"));
+
+                            $("#verifyCode").val("");
 
                             $("#password_text").click();
 

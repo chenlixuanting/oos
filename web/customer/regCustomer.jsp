@@ -5,15 +5,9 @@
 
 <%
     String path = request.getContextPath();
+
     String basePath = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort()
             + path + "/customer/";
-
-    Object userInfo = request.getSession().getAttribute(SessionKey.TEMPORARY_USER_INFO);
-
-    if (userInfo == null) {
-        response.sendRedirect(request.getContextPath() + "/customer/orderLogin.jsp");
-    }
-
 %>
 
 <html>

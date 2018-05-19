@@ -5,8 +5,10 @@
 
 <%
     String path = request.getContextPath();
+
     String basePath = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort()
             + path + "/customer/";
+
     User user = (User) request.getSession().getAttribute("user");
 %>
 
@@ -62,7 +64,7 @@
                 <div class="top_menu_2">
                     <ul>
                         <li><span class="current"> 首页</span></li>
-                        <li><span><a href="javascript:;" onclick="customerExit();">重新登录</a></span></li>
+                        <li><span><a href="customerExit.action">重新登录</a></span></li>
                         <li><span><a href="customerCenter.jsp">个人中心</a></span></li>
                         <li class="last_li w5">
                             <a href="comment.jsp" target="_self">评论专区</a>

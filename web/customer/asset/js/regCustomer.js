@@ -3,6 +3,9 @@
  */
 $(function () {
 
+    //更新购物车商品信息
+    updateShopCart();
+
     /**
      * 页面加载时,自动加载对应餐点产品
      *
@@ -243,6 +246,7 @@ $(function () {
                         //更新购物车信息
                         updateShopCart();
                     } else {
+
                         //提示订购失败
                         alert(codeMessage.error2);
                     }
@@ -260,9 +264,17 @@ $(function () {
         type: "POST",
         dataType: "json",
         success: function (data) {
+
             var d = eval(data);
-            //初始化页面地址
-            addAddress(d);
+
+            if (d != "null") {
+                //初始化页面地址
+                addAddress(d);
+            } else {
+                alert("用户未登录!");
+                location.assign("orderLogin.jsp");
+            }
+
         }
     });
 
@@ -273,7 +285,8 @@ $(function () {
         location.assign("cart.jsp");
     });
 
-});
+})
+;
 
 /**
  * 用户退出
@@ -287,7 +300,6 @@ function customerExit() {
         dataType: "json",
         success: function () {
             //跳转到用户登陆界面
-            location.assign("orderLogin.jsp");
         }
     });
 }
@@ -319,6 +331,11 @@ function updateShopCart() {
 
             //添加购物车成功,修改相应页面
             var d = eval(data);
+
+            if (d == "null") {
+                alert("用户未登录!");
+                location.assign("orderLogin.jsp");
+            }
 
             //清空购物车的信息
             $("#cart_menus").html("");

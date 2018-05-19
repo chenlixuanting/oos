@@ -61,7 +61,7 @@
 
                     <a id="addBtn"
                        class="btn btn-success btn-lg pull-left"
-                       style="margin-left: -20px;"> 新 增 </a>
+                       style="margin-left: -26px;"> 新 增 </a>
 
                     <a id="deleteBtn" class="btn btn-danger btn-lg pull-left"
                        style="margin-left: 10px;"> 删 除 </a>

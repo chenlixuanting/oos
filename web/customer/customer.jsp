@@ -28,7 +28,7 @@
 
     <!-- 加载JS -->
     <script type="text/javascript" src="js/quote/jquery-3.2.1.min.js"></script>
-    <script type="text/javascript" src="asset/js/customerConfirm.js"></script>
+    <script type="text/javascript" src="asset/js/customer.js"></script>
     <script type="text/javascript" src="asset/js/common.js"></script>
 
 </head>
@@ -259,13 +259,15 @@
                                                  id="currentDayLater">
                                                 <div><span id="currentDate" name="day"></span>
                                                     <div class="macstyle">
-                                                        <select class="tag_select" name="hour" timeType="2" id="putOffOneHour"
+                                                        <select class="tag_select" name="hour" timeType="2"
+                                                                id="putOffOneHour"
                                                                 style="width: 60px;">
                                                         </select>
                                                     </div>
                                                     <span>时</span>
                                                     <div class="macstyle">
-                                                        <select class="tag_select" name="minute" timeType="2" style="width: 60px;" id="putOffOneHourMinute">
+                                                        <select class="tag_select" name="minute" timeType="2"
+                                                                style="width: 60px;" id="putOffOneHourMinute">
                                                             <option selected="selected">00</option>
                                                             <option>05</option>
                                                             <option>10</option>
@@ -299,11 +301,13 @@
                                             <div class="selectTime otherDaySendTime" style="display: none;">
                                                 <div><span>送餐时间：</span>
                                                     <div class="macstyle">
-                                                        <select class="tag_day_select" name="day" timeType="3" id="putOffManyDayDate">
+                                                        <select class="tag_day_select" name="day" timeType="3"
+                                                                id="putOffManyDayDate">
                                                         </select>
                                                     </div>
                                                     <div class="macstyle">
-                                                        <select class="tag_select" name="hour" timeType="3" style="width:60px;" id="putOffManyDayHour">
+                                                        <select class="tag_select" name="hour" timeType="3"
+                                                                style="width:60px;" id="putOffManyDayHour">
                                                             <option>0</option>
                                                             <option>1</option>
                                                             <option>2</option>
@@ -333,7 +337,8 @@
                                                     <span>时</span>
                                                     <div class="macstyle">
                                                         <select class="tag_select" name="minute"
-                                                                style="width:60px;" timeType="3" id="putOffManyDayMinute">
+                                                                style="width:60px;" timeType="3"
+                                                                id="putOffManyDayMinute">
                                                             <option>00</option>
                                                             <option>05</option>
                                                             <option>10</option>

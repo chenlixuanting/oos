@@ -43,11 +43,6 @@
 
     <filter-mapping>
         <filter-name>universalFilter</filter-name>
-        <url-pattern>/customer/customerCenter.jsp</url-pattern>
-    </filter-mapping>
-
-    <filter-mapping>
-        <filter-name>universalFilter</filter-name>
         <url-pattern>/customer/pay.jsp</url-pattern>
     </filter-mapping>
 
@@ -58,6 +53,11 @@
         <filter-name>formalUserAccessFilter</filter-name>
         <filter-class>com.guet.oos.filter.FormalUserAccessFilter</filter-class>
     </filter>
+
+    <filter-mapping>
+        <filter-name>formalUserAccessFilter</filter-name>
+        <url-pattern>/customer/customerCenter.jsp</url-pattern>
+    </filter-mapping>
 
     <filter-mapping>
         <filter-name>formalUserAccessFilter</filter-name>

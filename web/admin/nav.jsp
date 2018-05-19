@@ -15,35 +15,35 @@
 
 <ul id="dashboard-menu">
 
-    <li class="active">
+    <li>
         <a href="index.jsp">
             <i class="icon-home"></i>
             <span>首页</span>
         </a>
     </li>
 
-    <li class="active">
+    <li>
         <a href="user-management.jsp">
             <i class="icon-group"></i>
             <span>用户管理</span>
         </a>
     </li>
 
-    <li class="active">
+    <li>
         <a href="meal-management.jsp">
             <i class="icon-time"></i>
             <span>餐点管理</span>
         </a>
     </li>
 
-    <li class="active">
+    <li>
         <a href="dishes-type-management.jsp">
             <i class="icon-tags"></i>
             <span>菜品种类管理</span>
         </a>
     </li>
 
-    <li class="active">
+    <li>
         <a href="dishes-management.jsp">
             <i class="icon-food"></i>
             <span>菜品管理</span>
@@ -74,14 +74,14 @@
         </ul>
     </li>
 
-    <li class="active" id="maxAuthority" style="display: none;">
+    <li id="maxAuthority" style="display: none;">
         <a href="super-authority.jsp">
             <i class="icon-key"></i>
             <span>超级管理员权限</span>
         </a>
     </li>
 
-    <li class="active">
+    <li>
         <a href="personal-profile.jsp">
             <i class="icon-user"></i>
             <span>个人资料</span>
@@ -112,6 +112,7 @@
             var maxAuthority = document.getElementById("maxAuthority");
             maxAuthority.style.setProperty('display', 'block');
         }
+
     };
 
 </script>

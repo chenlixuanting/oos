@@ -43,6 +43,12 @@ public class UserLoginValidateServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
+        //清除Session
+        request.getSession().removeAttribute(SessionKey.TEMPORARY_USER_INFO);
+        request.getSession().removeAttribute(SessionKey.SHOP_CART);
+        request.getSession().removeAttribute(SessionKey.USER);
+        request.getSession().removeAttribute(SessionKey.USER_FLAG);
+
         String loginData = request.getParameter("mobileData");
 
         LoginDataDto loginDataDto = JSONObject.parseObject(loginData, LoginDataDto.class);
@@ -72,9 +78,9 @@ public class UserLoginValidateServlet extends HttpServlet {
             userInfo.setAccount(loginDataDto.getMobile());
 
             //检测Session中是否存在User
-            if (request.getSession().getAttribute(SessionKey.USER) != null) {
-                request.getSession().removeAttribute(SessionKey.USER);
-            }
+//            if (request.getSession().getAttribute(SessionKey.USER) != null) {
+//                request.getSession().removeAttribute(SessionKey.USER);
+//            }
 
             //将新用户电话号码添加到Session中
             request.getSession().setAttribute(SessionKey.TEMPORARY_USER_INFO, userInfo);

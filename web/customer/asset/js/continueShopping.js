@@ -3,6 +3,51 @@
  */
 $(function () {
 
+    $.ajax({
+        url: "getShopCartInfo.action",
+        type: "POST",
+        dataType: "json",
+        success: function (data) {
+
+            //添加购物车成功,修改相应页面
+            var d = eval(data);
+
+            //清空购物车的信息
+            $("#cart_menus").html("");
+
+            //购物车中商品信息
+            for (var x = 0; x < data.orderItems.length; x++) {
+                $("#cart_menus").append("<li>" +
+                    "<div class='pro_title'>" + data.orderItems[x].dishesName + "</div>" +
+                    "<div class='del'>" +
+                    "<a href='javascript:void(0);'></a></div>" +
+                    "<div class='pro_numbers'><a href='javascript:void(0);' style='cursor: pointer;'class='doMinus'>" +
+                    "<img src='images/minus_icon_2s.gif' >" +
+                    "</a>" +
+                    "<input type='text' class='pro_numbers_input' value='" + data.orderItems[x].quantity + "' maxlength='2'disabled='disabled' onkeyup='this.value=this.value.replace(/D/g,'');'>" +
+                    "<a href='javascript:void(0);' style='cursor: pointer;' class='doPlus'>" +
+                    "<img src='images/plus_icon_2s.gif'>" +
+                    "</a>" +
+                    "</div>" +
+                    "<div class='price'>" + data.orderItems[x].productCost.toFixed(2) + "</div>" +
+                    "</li>");
+            }
+
+            //修改购物车中商品数量
+            $("#tatalnum").html(d.productAmount);
+
+            //修改费用信息
+            $("#productCost").html(d.productCost.toFixed(2));
+
+            //修改运费信息,保留两位小数
+            $("#deliverCost").html(d.deliverCost.toFixed(2));
+
+            //修改总费用
+            $("#totalCost").html(d.totalCost.toFixed(2));
+
+        }
+    });
+
     /**
      * 页面加载时,自动加载对应餐点产品
      *
@@ -278,22 +323,6 @@ $(function () {
 
 });
 
-/**
- * 用户退出
- *
- */
-function customerExit() {
-    //发出退出请求
-    $.ajax({
-        url: "customerExit.action",
-        type: "POST",
-        dataType: "json",
-        success: function () {
-            //跳转到用户登陆界面
-            location.assign("orderLogin.jsp");
-        }
-    });
-}
 
 /**
  * 获取临时用户地址,并显示在页面上

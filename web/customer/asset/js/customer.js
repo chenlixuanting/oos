@@ -1,5 +1,5 @@
 /**
- * Created by Shinelon on 2018/5/12.
+ * Created by Shinelon on 2018/5/20.
  */
 $(function () {
 
@@ -20,7 +20,7 @@ $(function () {
      * 发生ajax请求CustomerConfirm.action获取临时用户的详细信息
      */
     $.ajax({
-        url: "CustomerConfirm.action",
+        url: "getUserInfo.action",
         type: "POST",
         dataType: "json",
         success: function (data) {
@@ -29,8 +29,10 @@ $(function () {
 
             if (d != "null") {
 
+                var json = eval(d.defaultDeliverAddress);
+
                 //初始化页面地址
-                initDeliverAddress(d);
+                initDeliverAddress(json);
 
             } else {
 
@@ -49,11 +51,9 @@ $(function () {
 
         var timeStr = inputDate.val() + " " + inputHour.val() + "时" + inputMinute.val() + "分";
 
-        // alert(timeStr);
-
         // 保存用户所选择的发货的时间
         $.ajax({
-            url: "SelectDeliverTime.action",
+            url: "CustomerSelectDeliverTime.action",
             type: "POST",
             dataType: "json",
             data: {
@@ -66,9 +66,8 @@ $(function () {
                 var flag = d.head == "true" ? true : false;
 
                 if (flag) {
-
                     //跳转到购物页面
-                    location.assign("regCustomer.jsp");
+                    location.assign("continueShopping.jsp");
                 } else {
                     alert("用户未登录!");
                     location.assign("orderLogin.jsp");
@@ -194,7 +193,7 @@ $(function () {
 function initDeliverAddress(d) {
     $("div[class='cityName']").append(
         "<a name=selAddressLink style='text-decoration: none;display: block;width: 493px;' href='javascript:;'>"
-        + d.cityName + "&nbsp;&nbsp;&nbsp;&nbsp;" + d.roadName + "(" + d.addressDetial + ")<br>" + d.username + d.sex + "&nbsp;&nbsp;" + d.mobile +
+        + d.receiverAddress +
         "</a>"
     );
 }
