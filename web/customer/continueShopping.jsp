@@ -17,7 +17,11 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <meta name="keywords" content="美味家"/>
     <meta name="description" content="美味家"/>
-    <title>美味家宅急送外卖网上订餐官网-美味家优惠套餐-外送菜单-送餐网</title>
+    <meta http-equiv="pragma" content="no-cache">
+    <meta http-equiv="cache-control" content="no-cache">
+    <meta http-equiv="expires" content="0">
+
+    <title>美味家网上订餐</title>
 
     <!-- 加载CSS -->
     <link rel="stylesheet" type="text/css" href="css/style.css"/>
@@ -60,9 +64,9 @@
                         <li><span class="current"> 首页</span></li>
                         <li><span><a href="javascript:;" onclick="customerExit();">重新登录</a></span></li>
                         <li><span><a href="customerCenter.jsp">个人中心</a></span></li>
-                        <li class="last_li w5"><a
-                                href="http://www.4008823823.com.cn/kfcios/jsp/help/help_new.html"
-                                target="_blank">帮助中心</a></li>
+                        <li class="last_li w5">
+                            <a href="comment.jsp" target="_self">评论专区</a>
+                        </li>
                     </ul>
                 </div>
             </div>

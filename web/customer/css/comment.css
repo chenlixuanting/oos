@@ -1,0 +1,89 @@
+#post_comment {
+    position: relative;
+    margin: 10px 0 0 0;
+    padding: 10px 0;
+    font-size: 14px;
+    font-weight: 700;
+    color: #d22222;
+    border-bottom: 5px #d22222 solid;
+}
+
+.comm_login {
+    position: absolute;
+    bottom: 10px;
+    width: 680px;
+    padding: 0 10px;
+}
+
+.comm_list h3 {
+    border-bottom: 1px #d22222 solid;
+    overflow: hidden;
+}
+
+.post_comment h3 {
+    position: relative;
+    margin: 10px 0 0 0;
+    padding: 10px 0;
+    font-size: 14px;
+    font-weight: 700;
+    color: #d22222;
+    border-bottom: 5px #d22222 solid;
+}
+
+h3 {
+    display: block;
+    font-size: 1.17em;
+    -webkit-margin-before: 1em;
+    -webkit-margin-after: 1em;
+    -webkit-margin-start: 0px;
+    -webkit-margin-end: 0px;
+    font-weight: bold;
+}
+
+.post_comment {
+    margin: 0 auto;
+    width: 728px;
+    font-size: 14px;
+    font-family: 'Microsoft Yahei';
+}
+
+.button {
+    margin-top: -17px;
+    margin-left: 26px;
+}
+
+.comm_list ul.list li.entry .adiv {
+    width: 207px;
+    float: left;
+    margin-right: 15px;
+}
+
+.comm_list ul.list li.entry .level {
+    font-size: 10px;
+    text-align: center;
+    width: 30px;
+    display: block;
+    line-height: 25px;
+}
+
+.comm_list ul.list li.entry .info, .comm_list ul.list li.entry .re_info {
+    padding: 10px 0 0 0;
+    font-size: 12px;
+    color: #888;
+}
+
+.comm_list ul.list li.entry .zhiChi {
+    position: relative;
+    float: right;
+    padding-bottom: 10px;
+    width: 100%;
+}
+
+.comm_list ul.list li.entry ul.reply {
+    clear: both;
+    margin: 5px 0 5px 35px;
+    padding: 0 8px;
+    border: 1px #fcbb90 solid;
+    background: #fefcf4;
+    zoom: 1;
+}

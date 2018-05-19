@@ -1,3 +1,4 @@
+<%@ page import="com.guet.oos.constant.SessionKey" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
          pageEncoding="UTF-8" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -6,6 +7,13 @@
     String path = request.getContextPath();
     String basePath = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort()
             + path + "/customer/";
+
+    Object userInfo = request.getSession().getAttribute(SessionKey.TEMPORARY_USER_INFO);
+
+    if (userInfo == null) {
+        response.sendRedirect(request.getContextPath() + "/customer/orderLogin.jsp");
+    }
+
 %>
 
 <html>
@@ -14,7 +22,11 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="keywords" content="美味家">
-    <meta name="description" content="美味家在线订餐">
+    <meta name="description" content="美味家">
+    <meta http-equiv="pragma" content="no-cache">
+    <meta http-equiv="cache-control" content="no-cache">
+    <meta http-equiv="expires" content="0">
+
     <title>美味家网上订餐官网</title>
 
     <!-- 加载CSS -->
@@ -59,7 +71,7 @@
                     </li>
                     <li class="w4">
                         <span>
-					        <a href="#">评论专区</a>
+					        <a href="comment.jsp" target="_self">评论专区</a>
 						</span>
                     </li>
                 </ul>

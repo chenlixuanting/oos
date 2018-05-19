@@ -9,6 +9,7 @@ import com.guet.oos.po.ShopCart;
 import com.guet.oos.po.User;
 import com.guet.oos.service.OrderItemService;
 import com.guet.oos.service.OrderService;
+import com.guet.oos.service.ShopCartService;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -33,6 +34,8 @@ public class PayServlet extends HttpServlet {
     private OrderService orderService = ServiceFactory.getOrderServiceInstance();
 
     private OrderItemService orderItemService = ServiceFactory.getOrderItemServiceInstance();
+
+    private ShopCartService shopCartService = ServiceFactory.getShopCartServiceInstance();
 
     /**
      * @see HttpServlet#HttpServlet()
@@ -85,7 +88,9 @@ public class PayServlet extends HttpServlet {
         }
 
         //销毁Session中shopCart
-        httpSession.removeAttribute(SessionKey.SHOP_CART);
+//        httpSession.removeAttribute(SessionKey.SHOP_CART);
+        ShopCart newShopCart = shopCartService.getShopCartByUserId(user.getUsId());
+        httpSession.setAttribute(SessionKey.SHOP_CART, newShopCart);
 
         //更改用户标志
         httpSession.setAttribute(SessionKey.USER_FLAG, UserExist.USER_EXIST);

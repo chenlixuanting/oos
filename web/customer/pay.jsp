@@ -15,6 +15,10 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="keywords" content="美味家">
     <meta name="description" content="美味家">
+    <meta http-equiv="pragma" content="no-cache">
+    <meta http-equiv="cache-control" content="no-cache">
+    <meta http-equiv="expires" content="0">
+
     <title>美味家网上订餐官网</title>
 
     <!-- 加载CSS -->
@@ -100,7 +104,7 @@
                             <input name="payType" type="radio" value="支付宝支付">支付宝支付
                         </li>
                         <li class="online">
-                            <input name="payType" type="radio" value="货到付款">货到付款
+                            <input name="payType" type="radio" checked="checked" value="货到付款">货到付款
                         </li>
                     </ul>
                 </div>

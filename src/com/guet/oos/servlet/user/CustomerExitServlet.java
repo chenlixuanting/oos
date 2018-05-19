@@ -33,7 +33,8 @@ public class CustomerExitServlet extends HttpServlet {
         //使用户Session失效
         request.getSession().invalidate();
 
-        response.getWriter().write(JsonReturn.buildSuccessEmptyContent().toString());
+        response.sendRedirect("orderLogin.jsp");
+
     }
 
     /**

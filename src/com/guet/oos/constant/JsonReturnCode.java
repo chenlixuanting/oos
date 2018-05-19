@@ -17,4 +17,7 @@ public class JsonReturnCode {
     //两次密码输入不一致
     public static final String PASSWORD_IS_NOT_SAME = "error4";
 
+    //创建用户失败
+    public static final String BUILD_USER_FAIL = "error5";
+
 }

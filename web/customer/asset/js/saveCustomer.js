@@ -10,7 +10,11 @@ $(function () {
         dataType: "json",
         success: function (data) {
             var d = eval(data);
-            $("#input_box_iphone").html(d.mobile);
+
+            if (d != null) {
+                $("#input_box_iphone").html(d.mobile);
+            }
+
         }
     });
 
@@ -71,7 +75,17 @@ $(function () {
 
                 //跳转到pay.jsp
                 if (flag) {
+
+                    alert(codeMessage.success0);
+
                     location.assign("pay.jsp");
+                } else {
+
+                    //提示注册用户失败
+                    alert(codeMessage.error5);
+
+                    //跳转到登陆界面
+                    location.assign("orderLogin.jsp");
                 }
             }
         });

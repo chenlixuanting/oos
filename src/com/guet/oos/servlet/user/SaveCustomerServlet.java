@@ -54,6 +54,14 @@ public class SaveCustomerServlet extends HttpServlet {
 
         HttpSession httpSession = request.getSession();
 
+        Object obj = httpSession.getAttribute(SessionKey.TEMPORARY_USER_INFO);
+
+        //判断TemporaryUserInfo是否被清除
+        if (obj == null) {
+            response.getWriter().write(JsonReturn.buildFailEmptyContent().toString());
+            return;
+        }
+
         TemporaryUserInfo userInfo = (TemporaryUserInfo) httpSession.getAttribute(SessionKey.TEMPORARY_USER_INFO);
 
         String deliverName = requestDataJson.getString("deliverName");

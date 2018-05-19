@@ -375,9 +375,7 @@ function changeSex(obj) {
 }
 
 function fullZone(value) {
-
     var d = new String(value);
-
     return d.length < 2 ? "0" + d : d;
 }
 

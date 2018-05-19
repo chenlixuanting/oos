@@ -1,3 +1,4 @@
+<%@ page import="com.guet.oos.constant.SessionKey" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
          pageEncoding="UTF-8" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -7,6 +8,13 @@
     String path = request.getContextPath();
     String basePath = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort()
             + path + "/customer/";
+
+    Object userInfo = request.getSession().getAttribute(SessionKey.TEMPORARY_USER_INFO);
+
+    if (userInfo == null) {
+        response.sendRedirect(request.getContextPath() + "/customer/orderLogin.jsp");
+    }
+
 %>
 
 <head>
@@ -16,7 +24,11 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <meta name="keywords" content="美味家"/>
     <meta name="description" content="美味家"/>
-    <title>美味家网上订餐官网-美味家优惠套餐-外送菜单-送餐网</title>
+    <meta http-equiv="pragma" content="no-cache">
+    <meta http-equiv="cache-control" content="no-cache">
+    <meta http-equiv="expires" content="0">
+
+    <title>美味家网上订餐</title>
 
     <!-- 加载CSS -->
     <link rel="stylesheet" type="text/css" href="css/style.css"/>
@@ -60,7 +72,7 @@
                         <span><a href="customerCenter.jsp">个人中心</a></span>
                     </li>
                     <li class="last_li w5">
-                        <a href="" target="_blank">评论专区</a>
+                        <a href="comment.jsp" target="_self">评论专区</a>
                     </li>
                 </ul>
             </div>
@@ -183,7 +195,7 @@
 <!-- 地图弹出层 -->
 
 <script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=OMHt7FA3ciGcVCAMDOAbAeUf9nZ0idKZ"></script>
-<script  type="text/javascript">
+<script type="text/javascript">
     // 百度地图API功能
     var map = new BMap.Map("allmap");
     var point = new BMap.Point(116.331398,39.897445);
@@ -217,7 +229,7 @@
                 $("#allmap").css({display:"none"});
             }
             //alert(addComp.province + ", " + addComp.city + ", " + addComp.district + ", " + addComp.street + ", " + addComp.streetNumber);
-           //addComp.province + addComp.city + addComp.district + addComp.street + addComp.streetNumber ;
+            //addComp.province + addComp.city + addComp.district + addComp.street + addComp.streetNumber ;
         });
     });
 

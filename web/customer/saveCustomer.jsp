@@ -4,6 +4,7 @@
 
 <%
     String path = request.getContextPath();
+
     String basePath = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort()
             + path + "/customer/";
 %>
@@ -16,6 +17,10 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <meta name="keywords" content="美味家"/>
     <meta name="description" content="美味家"/>
+    <meta http-equiv="pragma" content="no-cache">
+    <meta http-equiv="cache-control" content="no-cache">
+    <meta http-equiv="expires" content="0">
+
     <title>美味家网上订餐官网</title>
 
     <%-- 加载CSS --%>
@@ -25,6 +30,7 @@
     <!-- 加载JS -->
     <script type="text/javascript" src="js/quote/jquery-3.2.1.min.js"></script>
     <script type="text/javascript" src="asset/js/saveCustomer.js"></script>
+    <script type="text/javascript" src="asset/js/property_cn.js"></script>
 
 </head>
 <body>
@@ -155,7 +161,7 @@
                 <!--协议结束-->
             </div>
             <input type="button" class="b_shang" id="back_menu_btn1"/>
-            <input type="button" class="b_xia" id="submit_btn" disabled="disabled"/>
+            <input type="button" class="b_xia" id="submit_btn"/>
             <div class="clear"></div>
         </div>
     </div>

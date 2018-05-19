@@ -23,5 +23,6 @@ var codeMessage = {
     error2: "订购失败!",
     error3: "用户名不存在!",
     error4: "两次密码输入不一致!",
-
+    error5: "注册失败!",
+    success0: "注册成功!",
 };

@@ -7,6 +7,10 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <meta name="keywords" content="美味家"/>
     <meta name="description" content="美味家"/>
+    <meta http-equiv="pragma" content="no-cache">
+    <meta http-equiv="cache-control" content="no-cache">
+    <meta http-equiv="expires" content="0">
+
     <title>美味家网上订餐</title>
 
     <!-- 加载CSS -->
@@ -56,13 +60,13 @@
                 <ul>
                     <li class="w1">
                         <span>
-                            <a href="regCustomer.jsp">订餐首页</a>
+                            <a href="continueShopping.jsp">订餐首页</a>
                         </span>
                     </li>
-                    <li class="w2"><span><a href="orderLogin.jsp">开始订餐</a></span></li>
+                    <li class="w2"><span><a href="customerExit.action">重新登录</a></span></li>
                     <li class="w3"><span class="current"><a href="customerCenter.jsp">个人中心</a></span></li>
                     <li class="last_li w5">
-                        <a href="http://www.4008823823.com.cn/kfcios/jsp/help/help_new.html" target="_blank">帮助中心</a>
+                        <a href="comment.jsp" target="_self">评论专区</a>
                     </li>
                 </ul>
             </div>
