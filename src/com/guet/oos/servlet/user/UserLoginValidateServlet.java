@@ -71,6 +71,11 @@ public class UserLoginValidateServlet extends HttpServlet {
 
             userInfo.setAccount(loginDataDto.getMobile());
 
+            //检测Session中是否存在User
+            if (request.getSession().getAttribute(SessionKey.USER) != null) {
+                request.getSession().removeAttribute(SessionKey.USER);
+            }
+
             //将新用户电话号码添加到Session中
             request.getSession().setAttribute(SessionKey.TEMPORARY_USER_INFO, userInfo);
 

@@ -2,7 +2,94 @@
  * Created by Shinelon on 2018/5/1.
  */
 $(function () {
-
+    /*校验表单*/
+    $("form").bootstrapValidator({
+        live: 'disabled',// 'disabled'
+        submitButtons: '#saveChange',
+        feedbackIcons: {//根据验证结果显示的各种图标
+            valid: 'glyphicon glyphicon-ok',
+            invalid: 'glyphicon glyphicon-remove',
+            validating: 'glyphicon glyphicon-refresh'
+        },
+        fields: {
+            dishesName: {
+                validators: {
+                    notEmpty: {
+                        message: '菜品名称不能为空'
+                    }
+                }
+            },
+            dishesType: {
+                validators: {
+                    notEmpty: {
+                        message: '菜品种类不能为空'
+                    }
+                }
+            },
+            price: {
+                validators: {
+                    notEmpty: {
+                        message: '菜品单价不能为空'
+                    }
+                }
+            },
+            stock: {
+                validators: {
+                    notEmpty: {
+                        message: '库存不能为空'
+                    }
+                }
+            },
+            headPicture: {
+                validators: {
+                    notEmpty: {
+                        message: '图片不能为空'
+                    }
+                }
+            },
+            describe: {
+                validators: {
+                    notEmpty: {
+                        message: '简介不能为空'
+                    }
+                }
+            }
+        }
+    });
+    $("#saveChange").on('click', function () {
+        /*校验表单*/
+        var reg1 = /^([1-9]\d*|0)(\.\d{1,2})?$/;
+        var reg2 = /^[+]{0,1}(\d+)$/;
+        var reg3 = /^[a-zA-Z]:(\\.+)(.JPEG|.jpeg|.JPG|.jpg|.GIF|.gif|.BMP|.bmp|.PNG|.png)$/;
+        if ($("#dishesName").val() == "") {
+            alert("菜品名称不能为空");
+            return false;
+        }
+        if ($("#dishesType").val() == "") {
+            alert("菜品种类不能为空");
+            return false;
+        }
+        if (!reg1.test($("#price").val())) {
+            alert("到家格式有错且菜品单价最多精确到小数点后两位");
+            return false;
+        }
+        if (!reg2.test($("#stock").val())) {
+            alert("请填写正整数");
+            return false;
+        }
+        if ($("#mgId").val() == "") {
+            alert("ID不能为空");
+            return false;
+        }
+        if (!reg3.test($("#headPicture").val())) {
+            alert("请上传 jpg、JPG、gif、GIF、png、PNG、bmp、BMP、等常用图片格式");
+            return false;
+        }
+        if ($("#describe").val() == "") {
+            alert("简介不能为空");
+            return false;
+        }
+    });
     /**
      * 加载完毕后，ajax请求后台将所有餐点名称数据
      */
@@ -131,9 +218,8 @@ $(function () {
                 $("#dishesName").attr("disabled", true);
                 $("#dishesName").val(d.dishesName);
 
-                // 菜品种类
-                $("#dishesType").attr("disabled", true);
-                $("#dishesType").val(d.dishesType);
+                //菜品种类??/
+                $("#dishesTypeBox").css("display", "none");
 
                 //菜品单价
                 $("#price").attr("disabled", true);
@@ -155,7 +241,6 @@ $(function () {
 
                 //管理员ID
                 $("#mgId").attr("disabled", true);
-                $("#mgId").val(d.mgId);
 
                 //图片
                 $("#dishesPic").attr("src", $("#goods_pic_addrs").val() + d.picAddress);

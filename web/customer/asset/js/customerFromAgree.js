@@ -14,7 +14,40 @@ $(function () {
      * 请求CustomerRegAgree.action保存新用户的信息
      */
     $("#saveAddressBtn").click(
+
         function () {
+            /*校验*/
+            var cityName = $("#cityName").val();
+            var roadName = $("#roadName").val();
+            var addressDetial = $("#addressDetial").val();
+            var linkman = $("#linkman").val();
+            var linkphone = $("#linkphone").val();
+            var reg = /^(\+\d{2,3}\-)?\d{11}$/;
+
+            if (cityName == "") {
+                alert("送餐城市不能为空");
+                return false;
+            }
+            if (roadName == "") {
+                alert("路名/小区名不能为空");
+                return false;
+            }
+            if (addressDetial == "") {
+                alert("后续不能为空");
+                return false;
+            }
+            if (linkman == "") {
+                alert("联系人不能为空");
+                return false;
+            }
+            if (linkphone == "") {
+                alert("联系电话不能为空");
+                return false;
+            }
+            if (!reg.test(linkphone)) {
+                alert("手机号输入错误");
+                return false;
+            }
 
             var customerData = {
                 cityName: $("#cityName").val(),
@@ -35,7 +68,7 @@ $(function () {
                 success: function (data) {
 
                     var d = eval(data);
-
+                    console.log(111);
                     if (d.head) {
                         location.assign("customerConfirm.jsp");
                     } else {

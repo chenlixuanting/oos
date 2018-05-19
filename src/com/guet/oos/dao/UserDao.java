@@ -15,4 +15,10 @@ public interface UserDao extends IDAO<Long, User> {
      */
     public List<User> findByMobile(String mobile);
 
+    public boolean updateUsername(String username, long usId);
+
+    public boolean updateUserSex(String sex, long usId);
+
+    public boolean updateUserPassword(String newPassword, long usId);
+
 }

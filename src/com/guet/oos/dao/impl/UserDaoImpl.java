@@ -46,7 +46,6 @@ public class UserDaoImpl extends AbstractDAOImpl implements UserDao {
 
     @Override
     public boolean doUpdate(User vo) {
-        // TODO Auto-generated method stub
         return false;
     }
 
@@ -119,6 +118,62 @@ public class UserDaoImpl extends AbstractDAOImpl implements UserDao {
         }
 
         return users;
+    }
+
+    @Override
+    public boolean updateUsername(String username, long usId) {
+
+        String sql = "update user_table set username=? where usId=?";
+
+        try {
+            pstmt = conn.prepareStatement(sql);
+            pstmt.setString(1, username);
+            pstmt.setLong(2, usId);
+            pstmt.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return false;
+        }
+
+        return true;
+    }
+
+    @Override
+    public boolean updateUserSex(String sex, long usId) {
+
+        String sql = "update user_table set sex=? where usId=?";
+
+        try {
+            pstmt = conn.prepareStatement(sql);
+            pstmt.setString(1, sex);
+            pstmt.setLong(2, usId);
+            pstmt.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return false;
+        }
+
+        return true;
+
+    }
+
+    @Override
+    public boolean updateUserPassword(String newPassword, long usId) {
+
+        String sql = "update user_table set password=? where usId=?";
+
+        try {
+            pstmt = conn.prepareStatement(sql);
+            pstmt.setString(1, newPassword);
+            pstmt.setLong(2, usId);
+            pstmt.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return false;
+        }
+
+        return true;
+
     }
 
 }

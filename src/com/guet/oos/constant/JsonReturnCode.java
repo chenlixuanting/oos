@@ -11,4 +11,10 @@ public class JsonReturnCode {
     //验证码错误
     public static final String VERIFY_CODE_ERROR = "error1";
 
+    //用户不存在
+    public static final String USER_IS_NOT_EXIST = "error3";
+
+    //两次密码输入不一致
+    public static final String PASSWORD_IS_NOT_SAME = "error4";
+
 }

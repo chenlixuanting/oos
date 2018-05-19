@@ -4,6 +4,7 @@ import com.guet.oos.constant.DateTimeFormat;
 import com.guet.oos.dao.UserDao;
 import com.guet.oos.dto.TemporaryUserInfo;
 import com.guet.oos.factory.DAOFactory;
+import com.guet.oos.fields.UserFields;
 import com.guet.oos.po.User;
 import com.guet.oos.service.UserService;
 
@@ -49,6 +50,21 @@ public class UserServiceImpl implements UserService {
         createUser(user);
 
         return true;
+    }
+
+    @Override
+    public boolean updateUserName(String username, long usId) {
+        return userDao.updateUsername(username, usId);
+    }
+
+    @Override
+    public boolean updateUserSex(String sex, long usId) {
+        return userDao.updateUserSex(sex, usId);
+    }
+
+    @Override
+    public boolean updateUserPassword(String newPassword, long usId) {
+        return userDao.updateUserPassword(newPassword, usId);
     }
 
 }

@@ -18,12 +18,25 @@ $(function () {
         }
     });
 
+
     /**
      * 神一般的错误!每次都给$("#saveChange").on('click', function () 一个新的事件，，导致第二次时一次发生两次请求
      */
     //当保存按钮
     $("#saveChange").on('click', function () {
-
+        /*校验表单*/
+        if ($("#dishesTypeName").val() == "") {
+            alert("菜品种类不能为空");
+            return false;
+        }
+        if ($("#mealTypeName").val() == "") {
+            alert("餐点类型不能为空");
+            return false;
+        }
+        if ($("#mgId").val() == "") {
+            alert("ID不能为空");
+            return false;
+        }
         //封装数据
         var addData = {
             dishesTypeName: $("#dishesTypeName").val(),
@@ -34,6 +47,7 @@ $(function () {
         //发生ajax请求
         $.ajax({
             url: "./addDishesType.action",
+            async: false,//同步，会阻塞操作
             type: "POST",
             dataType: "json",
             data: {
@@ -58,6 +72,7 @@ $(function () {
                 $("#dataTable").dataTable().fnDraw(false);
             }
         });
+        // }
     });
 
     /**
@@ -125,7 +140,7 @@ $(function () {
             targets: 6,//表示是第8列，所以上面第8列没有对应数据列，就是在这里渲染的。
             render: function (obj) {
                 var id = obj.cid;
-                return "<a class='btn btn-primary btn-lg edit' style='margin-left: 200px;' id=" + id + ">编辑</a>";
+                return "<a class='btn btn-primary btn-lg edit' id=" + id + ">编辑</a>";
             }
 
         }, {//列渲染，可以添加一些操作等

@@ -15,6 +15,9 @@
 
     <!-- 加载JS -->
     <script type="text/javascript" src="js/quote/jquery-3.2.1.min.js"></script>
+    <script type="text/javascript" src="asset/js/customerCenter.js"></script>
+    <script type="text/javascript" src="asset/js/property_cn.js"></script>
+    <script type="text/javascript" src="asset/js/common.js"></script>
 
     <%-- CSS样式 --%>
     <style type="text/css">
@@ -37,14 +40,14 @@
                 <input type="hidden" id="isLogin" value="true"/>
                 <input type="hidden" id="loginFlag" value="true"/>
                 <span class="span_1 fl_l" id="logon">
-                        欢迎<span class="customerName" id="customerName">张鹏 先生</span>
+                        欢迎<span class="customerName"></span>
                         !
                         <i class="loginExit">退出</i>
                     </span>
                 <div class="fl_r">
-                        <span class="span_2 favbtn">
-                            <a href="javascript:;">收藏本订餐网站</a>
-                        </span>
+                    <span class="span_2 favbtn">
+                        <a href="javascript:;">收藏本订餐网站</a>
+                    </span>
                 </div>
                 <div class="clear"></div>
             </div>
@@ -52,9 +55,9 @@
             <div class="top_menu_2">
                 <ul>
                     <li class="w1">
-                            <span>
-                                <a href="regCustomer.jsp">订餐首页</a>
-                            </span>
+                        <span>
+                            <a href="regCustomer.jsp">订餐首页</a>
+                        </span>
                     </li>
                     <li class="w2"><span><a href="orderLogin.jsp">开始订餐</a></span></li>
                     <li class="w3"><span class="current"><a href="customerCenter.jsp">个人中心</a></span></li>
@@ -66,30 +69,6 @@
         </div>
         <div class="clear"></div>
     </div>
-    <script>
-        $(document).ready(function () {
-
-            $('.link1').click(function () {
-                $('.pages1').show().siblings().hide();
-                $('#l1').addClass("on");
-                $('#l2').removeClass("on");
-                $('#l3').removeClass("on");
-            })
-            $('.link2').click(function () {
-                $('.pages2').show().siblings().hide();
-                $('#l1').removeClass("on");
-                $('#l2').addClass("on");
-                $('#l3').removeClass("on");
-            })
-            $('.link3').click(function () {
-                $('.pages3').show().siblings().hide();
-                $('#l1').removeClass("on");
-                $('#l2').removeClass("on");
-                $('#l3').addClass("on");
-            })
-
-        });
-    </script>
     <!-- 内容 -->
     <div id="content">
         <div class="user_content">
@@ -117,10 +96,7 @@
                     <div class="linebox">
                         <h5>顾客姓名：</h5>
                         <div class="text">
-                            <span class="oldname-js">
-                                张鹏&nbsp;&nbsp;
-                                先生
-                            </span>
+                            <span class="oldname-js" id="customerName"></span>
                             <div class="textinput newname-js" style="display: none;">
                                 <input name="" type="text" value="" maxlength="24" tip="customerNameTip"/>
                             </div>
@@ -137,15 +113,15 @@
                     <div class="linebox">
                         <h5><span class="jiange">性别</span>：</h5>
                         <div class="text sexor-js" id="sexSelect">
-                            <a href="javascript:void(0);" class="on" gender="0">先生</a>
-                            <a href="javascript:void(0);" class="newsex-js" gender="1" style="display: none;">女士</a>
                         </div>
                         <div class="eidt">
-                            <span class="oldsex-js"><a href="javascript:void(0);" class="xgsex-js">修改</a></span>
+                            <span class="oldsex-js">
+                                <a href="javascript:void(0);" class="xgsex-js">修改</a>
+                            </span>
                             <span class="newsex-js" style="display: none;">
-										<a href="javascript:void(0);" class="on savesex-js">保存</a>
-										<span class="othertil">或</span>
-										<a href="javascript:void(0);" class="bcsex-js" style="font-size: 12px;">取消</a>
+                                <a href="javascript:void(0);" class="on savesex-js">保存</a>
+                                <span class="othertil">或</span>
+                                <a href="javascript:void(0);" class="bcsex-js" style="font-size: 12px;">取消</a>
                             </span>
                         </div>
                     </div>
@@ -170,7 +146,7 @@
                     <div class="linebox" id="bindPhone">
                         <!-- 绑定用户 -->
                         <div class="okip-js">
-                            <div class="text02">您当前绑定手机号码：18269305379</div>
+                            <div class="text02" id="bindMobile"></div>
                         </div>
                     </div>
                     <!-- 加载JS -->
@@ -194,46 +170,9 @@
                                     <div class="orderList_status">状态</div>
                                     <div class="orderList_option">操作</div>
                                 </li>
-                                <li class="orderList_li orderList_body">
-                                    <div class="orderList_format orderList_date">
-                                        <div class="orderList_day">04-29</div>
-                                        <div class="orderList_time">07:43</div>
-                                    </div>
-                                    <div class="orderList_format orderList_details">
-                                        <div class="orderList_detail_info">您本次订单共计1份餐品</div>
-                                        <div class="orderList_detail_desc"></div>
-                                    </div>
-                                    <div class="orderList_format orderList_price">10.0元</div>
-                                    <div class="orderList_format orderList_status">订单已提交</div>
-                                    <div class="orderList_format orderList_option">
-                                        <div id="details" class="orderItem_details">订单详情</div>
-                                        <div id="another_order" class="another_order">再来一单</div>
-                                    </div>
-                                    <script>
-                                        $(document).ready(function () {
-                                            //进入详情
-                                            $('#details').click(function () {
-                                                $('#order_item_detail').show().siblings().hide();
+                                <div id="orderList">
 
-                                            })
-                                            //关闭详情
-                                            $('#close_details').click(function () {
-                                                $('#orderList_now').show().siblings().hide();
-
-                                            })
-                                            //进入历史订单
-                                            $('#tohistory').click(function () {
-                                                $('#orderList_history').show().siblings().hide();
-
-                                            })
-                                            //再来一单
-                                            $('#another_order').click(function () {
-                                                location.replace("regCustomer.jsp");
-
-                                            })
-                                        });
-                                    </script>
-                                </li>
+                                </div>
                             </ul>
                         </div>
                         <div id="orderList_history" style="display: none;">
@@ -317,12 +256,6 @@
                                     <div class="hr_1"></div>
                                     <p><span class="personal_info_span_3">支付方式：</span>
                                         <span class="personal_info_span_2">货到现金付款&nbsp;&nbsp;</span></p>
-                                    <p><span class="personal_info_span_3">是否需要发票：</span>
-                                        <span class="personal_info_span_2"> 否</span></p>
-                                    <p><span class="personal_info_span_3">其它送餐要求：</span>
-                                        <span class="personal_info_span_2"></span></p>
-                                    <p><span class="personal_info_span_3">备用联系手机：</span>
-                                        <span class="personal_info_span_2">无</span></p>
                                 </div>
                             </div>
                         </div>
@@ -438,24 +371,24 @@
                                                     <input id="editCityCode" type="hidden"/>
                                                     <div class="add_address">
                                                         <p>
-                                                                <span class="new_tel_input">
-                                                                    <input id="cityName" type="text" class="input_5"
-                                                                           autocomplete="off"
-                                                                           style="color: rgb(173, 173, 173);"/>
-                                                                    <span class="add_icon"
-                                                                          id="query_city"></span> <span
-                                                                        class="location"></span>
-                                                                </span>
+                                                            <span class="new_tel_input">
+                                                                <input id="cityName" type="text" class="input_5"
+                                                                       autocomplete="off"
+                                                                       style="color: rgb(173, 173, 173);"/>
+                                                                <span class="add_icon"
+                                                                      id="query_city"></span> <span
+                                                                    class="location"></span>
+                                                            </span>
                                                         </p>
                                                         <p id="add_add2" address2="" style="display:none">
                                                             <input id="address2"
                                                                    style="width: 188px; color: rgb(173, 173, 173);"
                                                                    type="text" class="input_4" autocomplete="off"/>
                                                             <span class="new_add_img">
-																		<a href="javascript:void(0);">
-																			查询
-																		</a>
-                                                                </span>
+                                                                    <a href="javascript:void(0);">
+                                                                        查询
+                                                                    </a>
+                                                            </span>
                                                         </p>
                                                         <p id="add_add3" address3="" style="display:none">
                                                             <input id="address3" type="text" maxlength="10"
@@ -482,8 +415,10 @@
                                                                    style="width: 188px; color: rgb(173, 173, 173);"
                                                                    maxlength="11" class="input_4"
                                                                    autocomplete="off"/>
-                                                            <span class="new_add_boxs1"><a id="saveAddressBtn"
-                                                                                           href="javascript:;">保存</a></span>
+                                                            <span class="new_add_boxs1">
+                                                                <a id="saveAddressBtn"
+                                                                   href="javascript:;">保存</a>
+                                                            </span>
                                                         </p>
                                                         <p>
                                                             <span class="new_add_map">如此处与路名/小区名填写内容有矛盾，视为无效订单<br/>此处仅支持中文输入地址。</span>
@@ -498,6 +433,7 @@
                                 <!--添加送餐地址结束-->
                             </div>
                         </div>
+
                         <div style="float: left; width: 100%; margin-top: 20px; border-top: 1px solid rgb(204, 204, 204);">
                             <div style="margin: 20px;">
                                 <div style="float:left">友情提示：&nbsp;</div>
@@ -505,10 +441,53 @@
                                 </div>
                             </div>
                         </div>
+
                     </div>
                 </div>
             </div>
             <!--右侧主体/-->
+        </div>
+    </div>
+
+    <div class="ui-dialog ui-widget ui-widget-content ui-corner-all ui-alert ui-draggable ui-dialog-buttons"
+         tabindex="-1"
+         style="outline: 0px; z-index: 1002; height: auto; width: 370px; top: 362px; left: 775.1px; display: none;"
+         role="dialog" aria-labelledby="ui-id-1">
+        <div class="ui-dialog-titlebar ui-widget-header ui-corner-all ui-helper-clearfix"><span id="ui-id-1"
+                                                                                                class="ui-dialog-title">修改密码</span><a
+                href="#" class="ui-dialog-titlebar-close ui-corner-all" role="button"><span
+                class="ui-icon ui-icon-closethick">close</span></a></div>
+        <div id="dialog-bind-phone" closebtn="true" style="width: auto; min-height: 0px; height: auto;"
+             class="ui-dialog-content ui-widget-content" scrolltop="0" scrollleft="0">
+            <span>
+                <div class="pop_con">
+                    <div class="newps newps-js updataPs">
+                        <div class="newpsline" id="validate_emailorphone_area" style="display: block;">
+                            <div class="textinput">
+                                <input name="validate_emailorphone" type="text" disabled="true">
+                            </div>
+                        </div>
+                        <div class="newpsline">
+                            <div class="textinput">
+                                <input type="password" class="rePassword" id="newPassword" value="请输入新密码" class="">
+                            </div>
+                        </div>
+                        <div class="newpsline">
+                            <div class="textinput">
+                                <input type="password" class="rePassword" id="reNewPassword" value="请再次输入新密码">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </span>
+        </div>
+        <div class="ui-dialog-buttonpane ui-widget-content ui-helper-clearfix" style="border: 0px;">
+            <div class="ui-dialog-buttonset">
+                <button type="button" class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only"
+                        role="button" aria-disabled="false">
+                    <span class="ui-button-text">确定</span>
+                </button>
+            </div>
         </div>
     </div>
     <div id="footer"></div>

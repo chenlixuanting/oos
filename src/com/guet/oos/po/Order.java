@@ -1,6 +1,7 @@
 package com.guet.oos.po;
 
 import java.io.Serializable;
+import java.util.List;
 
 /**
  * 订单实体
@@ -31,11 +32,13 @@ public class Order implements Serializable {
 
     private String payType;//付款方式
 
+    private List<OrderItem> orderItems;//订单项
+
     private String creatorTime;// 创建时间
 
     private String updateTime;// 更新时间
 
-    public Order(String orId, long usId, long mgId, long daId, double totalCost, long productAmount, double deliverCost, double productCost, String orderStatus, String payType, String creatorTime, String updateTime) {
+    public Order(String orId, long usId, long mgId, long daId, double totalCost, long productAmount, double deliverCost, double productCost, String orderStatus, String payType, List<OrderItem> orderItems, String creatorTime, String updateTime) {
         this.orId = orId;
         this.usId = usId;
         this.mgId = mgId;
@@ -46,6 +49,7 @@ public class Order implements Serializable {
         this.productCost = productCost;
         this.orderStatus = orderStatus;
         this.payType = payType;
+        this.orderItems = orderItems;
         this.creatorTime = creatorTime;
         this.updateTime = updateTime;
     }
@@ -133,6 +137,14 @@ public class Order implements Serializable {
         this.payType = payType;
     }
 
+    public List<OrderItem> getOrderItems() {
+        return orderItems;
+    }
+
+    public void setOrderItems(List<OrderItem> orderItems) {
+        this.orderItems = orderItems;
+    }
+
     public String getCreatorTime() {
         return creatorTime;
     }
@@ -162,6 +174,7 @@ public class Order implements Serializable {
                 ", productCost=" + productCost +
                 ", orderStatus='" + orderStatus + '\'' +
                 ", payType='" + payType + '\'' +
+                ", orderItems=" + orderItems +
                 ", creatorTime='" + creatorTime + '\'' +
                 ", updateTime='" + updateTime + '\'' +
                 '}';

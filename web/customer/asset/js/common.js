@@ -17,3 +17,20 @@ Date.prototype.Format = function (fmt) { //author: meizz
         if (new RegExp("(" + k + ")").test(fmt)) fmt = fmt.replace(RegExp.$1, (RegExp.$1.length == 1) ? (o[k]) : (("00" + o[k]).substr(("" + o[k]).length)));
     return fmt;
 }
+
+/**
+ * 黑幕特效
+ */
+function shortWait() {
+
+    /**
+     *拉出灰募
+     * */
+    $("body").append("<div class='ui-widget-overlay' style='width: 1920px; height: 974px; z-index: 1001;'></div>");
+
+    //200毫秒后关闭黑幕
+    setTimeout(function () {
+        $(".ui-widget-overlay").remove();
+    }, 300);
+
+}

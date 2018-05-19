@@ -19,10 +19,64 @@
             <param-value>UTF-8</param-value>
         </init-param>
     </filter>
+
     <filter-mapping>
         <filter-name>characterFilter</filter-name>
         <!-- 拦截所有的请求,为所有的请求设置编码 -->
         <url-pattern>/*</url-pattern>
+    </filter-mapping>
+
+    <filter>
+        <filter-name>userLoginFilter</filter-name>
+        <filter-class>com.guet.oos.filter.UserLoginFilter</filter-class>
+    </filter>
+
+    <!--拦截cart.jsp页面-->
+    <filter-mapping>
+        <filter-name>userLoginFilter</filter-name>
+        <url-pattern>/customer/cart.jsp</url-pattern>
+    </filter-mapping>
+
+    <!--拦截访问continueShopping.jsp-->
+    <filter-mapping>
+        <filter-name>userLoginFilter</filter-name>
+        <url-pattern>/customer/continueShopping.jsp</url-pattern>
+    </filter-mapping>
+
+    <!--拦截访问customerCenter.jsp-->
+    <filter-mapping>
+        <filter-name>userLoginFilter</filter-name>
+        <url-pattern>/customer/customerCenter.jsp</url-pattern>
+    </filter-mapping>
+
+    <!--拦截访问customerConfirm.jsp-->
+    <filter-mapping>
+        <filter-name>userLoginFilter</filter-name>
+        <url-pattern>/customer/customerConfirm.jsp</url-pattern>
+    </filter-mapping>
+
+    <!--拦截访问customerFromAgree.jsp-->
+    <filter-mapping>
+        <filter-name>userLoginFilter</filter-name>
+        <url-pattern>/customer/customerFromAgree.jsp</url-pattern>
+    </filter-mapping>
+
+    <!--拦截访问pay.jsp-->
+    <filter-mapping>
+        <filter-name>userLoginFilter</filter-name>
+        <url-pattern>/customer/pay.jsp</url-pattern>
+    </filter-mapping>
+
+    <!--拦截访问regCustomer.jsp-->
+    <filter-mapping>
+        <filter-name>userLoginFilter</filter-name>
+        <url-pattern>/customer/regCustomer.jsp</url-pattern>
+    </filter-mapping>
+
+    <!--拦截访问saveCustomer.jsp-->
+    <filter-mapping>
+        <filter-name>userLoginFilter</filter-name>
+        <url-pattern>/customer/saveCustomer.jsp</url-pattern>
     </filter-mapping>
 
 </web-app>

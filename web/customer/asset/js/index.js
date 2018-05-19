@@ -76,8 +76,19 @@ $(function () {
     };
 
     $("#loginSubmit").click(function () {
+        var User = $("#mobi").val();
+        var reg = /^(\+\d{2,3}\-)?\d{11}$/;
+        if (User == "") {
+            alert("手机号码不能为空");
+            return false;
+        }
+        if (!reg.test(User)) {
+            alert("手机号输入错误");
+            return false;
+        }
         location.assign("customerFromAgree.jsp");
     });
+
 
     $.indexPage = {
         sendInfo: function (obj) {
@@ -108,7 +119,7 @@ $(function () {
                             "<p class='p_realPrice'>" +
                             "</p>" +
                             "<p style='height:22px'>" +
-                            "<span class='pro_price'>" + d[x].price.toFixed(2) + "元 / 份" + "</span>" +
+                            "<span class='pro_price'>" + d[x].price + "元 / 份" + "</span>" +
                             "</p>" +
                             "<p style='clear: both; margin-bottom: 20px!important;'>" +
                             "<input type='button' class='order_btn_start'>" +
@@ -153,7 +164,7 @@ $(function () {
                  * 修改弹出框中的数据项
                  */
                 $("#desc").html(d.describe);
-                $("span.price").html(d.price.toFixed(2));
+                $("span.price").html(d.price);
                 $(".popup_product_detail_txt h4").html(d.dishesName);
                 $(".popup_product_detail_img img").attr("src", pageUrls.customerAddress + d.picAddress);
                 $(".popup_product_detail_img img").attr("alt", d.dishesName);

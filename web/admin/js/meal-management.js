@@ -8,6 +8,23 @@ $(function () {
      */
     //当保存按钮
     $("#saveChange").on('click', function () {
+        var reg = /^([0-1][0-9]|[2][0-3]):([0-5][0-9])$/;  //时间正则表达式
+        if ($("#mealTypeName").val() == "") {
+            alert("点餐名称不能为空");
+            return false;
+        }
+        if (!reg.test($("#startTime").val())) {
+            alert("起始时间所输入的字符不符要求,标准格式：HH:MM");
+            return false;
+        }
+        if (!reg.test($("#endTime").val())) {
+            alert("终止时间所输入的字符不符要求,标准格式：HH:MM");
+            return false;
+        }
+        if ($("#mgId").val() == "") {
+            alert("管理員ID不能为空");
+            return false;
+        }
 
         //封装数据
         var addData = {
@@ -44,6 +61,7 @@ $(function () {
                 $("#dataTable").dataTable().fnDraw(false);
             }
         });
+
     });
 
     /**
@@ -110,14 +128,14 @@ $(function () {
             targets: 7,//表示是第8列，所以上面第8列没有对应数据列，就是在这里渲染的。
             render: function (obj) {
                 var id = obj.cid;
-                return "<a class='btn btn-primary btn-lg edit' style='margin-left: 110px;' id=" + id + ">编辑</a>";
+                return "<a class='btn btn-primary btn-lg edit' id=" + id + ">编辑</a>";
             }
 
         }, {//列渲染，可以添加一些操作等
             targets: 0,//表示是第8列，所以上面第8列没有对应数据列，就是在这里渲染的。
             render: function (obj) {
                 var id = obj.cid;
-                return "<input type='checkbox' class='checkbox' id=" + id + ">" + "</input>";
+                return "<input type='checkbox' class='checkbox' id=" + id + "></input>";
             }
         }],
         pagingType: "full_numbers"//分页样式的类型

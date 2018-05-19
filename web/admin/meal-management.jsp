@@ -1,11 +1,11 @@
-<%-- <%@ page import="com.guet.oos.po.Administrator" %> --%>
+<%@ page import="com.guet.oos.po.Administrator" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
          pageEncoding="UTF-8" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 
-<%-- <%
+<%
     Administrator administrator = (Administrator) request.getSession().getAttribute("administrator");
-%> --%>
+%>
 
 <html>
 <head>
@@ -38,6 +38,7 @@
           rel='stylesheet' type='text/css'/>
 
     <link rel="stylesheet" type="text/css" href="css/jquery.dataTables.css">
+    <link rel="stylesheet" type="text/css" href="css/bootstrapValidator.css">
 </head>
 <body>
 <!-- 顶部 -->
@@ -58,7 +59,7 @@
 
                 <a id="addBtn"
                    class="btn btn-success btn-lg pull-left"
-                   style="margin-left: -27px;"> 新 增 </a>
+                   style="margin-left: -26px;"> 新 增 </a>
 
                 <a id="deleteBtn" class="btn btn-danger btn-lg pull-left"
                    style="margin-left: 10px;"> 删 除 </a>
@@ -78,7 +79,7 @@
                        class="table table-hover table-striped table-bordered">
                     <thead>
                     <tr>
-                        <th class="span2 sortable"><input style="margin-left: -7px;" type="checkbox"/>全选</th>
+                        <th class="span2 sortable"><input type="checkbox"/>全选</th>
                         <th class="span2 sortable">餐点名称</th>
                         <th class="span2 sortable">起始时间</th>
                         <th class="span2 sortable">终止时间</th>
@@ -86,9 +87,10 @@
                         <th class="span2 sortable">管理员ID</th>
                         <th class="span2 sortable">创建时间</th>
                         <th class="span2 sortable">更新时间</th>
-                        <th class="span2 sortable" style="text-align: center">操作</th>
+                        <th class="span2 sortable">操作</th>
                     </tr>
                     </thead>
+
                     <tbody>
                     </tbody>
 
@@ -101,67 +103,126 @@
 <button id="modelBtn" type="button"
         class="btn btn-primary btn-lg pull-left" data-toggle="modal"
         data-target="#modelBox" style="display: none;"></button>
+<form>
+    <div class="modal fade" id="modelBox" tabindex="-1" role="dialog"
+         aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal"
+                            aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                    <h4 class="modal-title primary" id="infoModelTilte"></h4>
+                </div>
+                <div class="modal-body">
+                    <div class="row" style="text-align: center">
+                        <div class="col-lg-12">
 
-<div class="modal fade" id="modelBox" tabindex="-1" role="dialog"
-     aria-labelledby="myModalLabel">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal"
-                        aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-                <h4 class="modal-title primary" id="infoModelTilte"></h4>
-            </div>
-            <div class="modal-body">
-                <div class="row" style="text-align: center">
-                    <div class="col-lg-12">
+                            <div class="form-group">
+                                <font size="3" style="padding-right: 10px;">餐点名称:</font>
+                                <input type="text"
+                                       class="form-control"
+                                       id="mealTypeName"
+                                       name="mealTypeName"
+                                       placeholder="餐点名称">
+                            </div>
 
-                        <div class="form-group">
-                            <font size="3" style="padding-right: 10px;">餐点名称:</font>
-                            <input type="text"
-                                   class="form-control"
-                                   id="mealTypeName"
-                                   placeholder="餐点名称">
+                            <div class="form-group">
+                                <font size="3" style="padding-right: 10px;">起始时间:</font>
+                                <input type="text"
+                                       class="form-control" id="startTime"
+                                       name="startTime"
+                                       placeholder="起始时间">
+                            </div>
+
+                            <div class="form-group">
+                                <font size="3" style="padding-right: 10px;">终止时间:</font>
+                                <input type="text"
+                                       class="form-control" id="endTime"
+                                       name="endTime"
+                                       placeholder="终止时间">
+                            </div>
+
+                            <div class="form-group">
+                                <font size="3" style="padding-right: 10px;">管理员ID:</font>
+                                <input type="text"
+                                       class="form-control" id="mgId" placeholder="创建者"
+                                       name="mgId"
+                                       value="<%=administrator.getMgId()%>">
+                            </div>
+
                         </div>
-
-                        <div class="form-group">
-                            <font size="3" style="padding-right: 10px;">起始时间:</font>
-                            <input type="text"
-                                   class="form-control" id="startTime"
-                                   placeholder="起始时间">
-                        </div>
-
-                        <div class="form-group">
-                            <font size="3" style="padding-right: 10px;">终止时间:</font>
-                            <input type="text"
-                                   class="form-control" id="endTime"
-                                   placeholder="终止时间">
-                        </div>
-
-                        <div class="form-group">
-                            <font size="3" style="padding-right: 10px;">管理员ID:</font>
-                            <input type="text"
-                                   class="form-control" id="mgId" placeholder="创建者"
-                                   value="<%-- <%=administrator.getMgId()%> --%>">
-                        </div>
-
                     </div>
                 </div>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-danger" id="closeModel"
-                        data-dismiss="modal">关闭
-                </button>
-                <button type="button" class="btn btn-primary" id="saveChange">保存</button>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" id="closeModel"
+                            data-dismiss="modal">关闭
+                    </button>
+                    <button type="button" class="btn btn-primary" id="saveChange">保存</button>
+                </div>
             </div>
         </div>
     </div>
-</div>
+</form>
 
 <!-- scripts -->
 <script src="js/jquery-3.3.1.js"></script>
-<script src="http://code.jquery.com/jquery-latest.js"></script>
+<script type="text/javascript" src="js/bootstrapValidator.js"></script>
+<%--<script type="text/javascript">--%>
+<%--$(function () {--%>
+<%--console.log(111);--%>
+<%--/*校验表单*/--%>
+<%--$("form").bootstrapValidator({--%>
+<%--live: 'disabled',--%>
+<%--submitButtons: '#saveChange',--%>
+<%--feedbackIcons: {//根据验证结果显示的各种图标--%>
+<%--valid: 'glyphicon glyphicon-ok',--%>
+<%--invalid: 'glyphicon glyphicon-remove',--%>
+<%--validating: 'glyphicon glyphicon-refresh'--%>
+<%--},--%>
+<%--fields: {--%>
+<%--mealTypeName :{--%>
+<%--validators:{--%>
+<%--notEmpty:{--%>
+<%--message: '点餐名称不能为空'--%>
+<%--}--%>
+<%--}--%>
+<%--},--%>
+<%--startTime :{--%>
+<%--validators:{--%>
+<%--notEmpty:{--%>
+<%--message: '起始时间不能为空'--%>
+<%--},--%>
+<%--regexp: {//正则验证--%>
+<%--regexp: /^([0-1][0-9]|[2][0-3]):([0-5][0-9])$/,--%>
+<%--message: '所输入的字符不符要求,标准格式：HH:MM'--%>
+<%--}--%>
+<%--}--%>
+<%--},--%>
+<%--endTime :{--%>
+<%--validators:{--%>
+<%--notEmpty:{--%>
+<%--message: '终止时间不能为空'--%>
+<%--}--%>
+<%--},--%>
+<%--regexp: {//正则验证--%>
+<%--regexp: /^([0-1][0-9]|[2][0-3]):([0-5][0-9])$/,--%>
+<%--message: '所输入的字符不符要求,标准格式：HH:MM'--%>
+<%--}--%>
+<%--},--%>
+<%--mgId :{--%>
+<%--validators:{--%>
+<%--notEmpty:{--%>
+<%--message: '管理员ID不能为空'--%>
+<%--}--%>
+<%--}--%>
+<%--}--%>
+<%--}--%>
+<%--});--%>
+<%--});--%>
+<%--</script>--%>
+<%--<script src="http://code.jquery.com/jquery-latest.js"></script>--%>
 <script src="js/bootstrap.min.js"></script>
 <script src="js/jquery-ui-1.10.2.custom.min.js"></script>
 <!-- knob -->

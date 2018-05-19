@@ -1,11 +1,13 @@
-<%@ page import="com.guet.oos.po.Administrator" %><%-- <%@ page import="com.guet.oos.po.Administrator" %> --%>
+<%@ page import="com.guet.oos.po.Administrator" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
          pageEncoding="UTF-8" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 
 <%
     Administrator administrator = (Administrator) request.getSession().getAttribute("administrator");
+
     String goods_pic_addrs = (String) request.getSession().getAttribute("goods_pic_addrs");
+
     String admin_head_pic_addrs = (String) request.getSession().getAttribute("admin_head_pic_addrs");
 %>
 
@@ -42,6 +44,8 @@
           rel='stylesheet' type='text/css'/>
 
     <link rel="stylesheet" type="text/css" href="css/jquery.dataTables.css">
+
+    <link rel="stylesheet" type="text/css" href="css/bootstrapValidator.css">
 </head>
 <body>
 <!-- 顶部 -->
@@ -65,7 +69,7 @@
 
                     <a id="addBtn"
                        class="btn btn-success btn-lg pull-left"
-                       style="margin-left: -27px;"> 新 增 </a>
+                       style="margin-left: -20px;"> 新 增 </a>
 
                     <a id="deleteBtn" class="btn btn-danger btn-lg pull-left"
                        style="margin-left: 10px;"> 删 除 </a>
@@ -86,7 +90,7 @@
                        class="table table-hover table-striped table-bordered">
                     <thead>
                     <tr>
-                        <th class="span2 sortable"><input style="margin-left: -7px;" type="checkbox"/>全选</th>
+                        <th class="span2 sortable"><input type="checkbox"/>全选</th>
                         <th class="span2 sortable">菜品名称</th>
                         <th class="span2 sortable">菜品种类</th>
                         <th class="span2 sortable">单价</th>
@@ -97,6 +101,7 @@
                         <th class="span2 sortable">操作</th>
                     </tr>
                     </thead>
+
                     <tbody>
                     </tbody>
 
@@ -104,127 +109,130 @@
             </div>
         </div>
     </div>
-    <button id="modelBtn" type="button"
-            class="btn btn-primary btn-lg pull-left" data-toggle="modal"
-            data-target="#modelBox" style="display: none;"></button>
+</div>
 
-    <div class="modal fade" id="modelBox" tabindex="-1" role="dialog"
-         aria-labelledby="myModalLabel" style="width: 800px !important; left: 40% !important;">
-        <div class="modal-dialog" role="document">
+<button id="modelBtn" type="button"
+        class="btn btn-primary btn-lg pull-left" data-toggle="modal"
+        data-target="#modelBox" style="display: none;"></button>
 
-            <form action="./addDishes.action" method="post" enctype="multipart/form-data" style="margin-bottom: 0px;">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal"
-                                aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                        <h4 class="modal-title primary" id="infoModelTilte"></h4>
-                    </div>
-                    <div class="modal-body" style="max-height: max-content;">
-                        <div class="row" style="text-align: center">
-                            <div class="col-lg-12">
+<div class="modal fade" id="modelBox" tabindex="-1" role="dialog"
+     aria-labelledby="myModalLabel" style="width: 800px !important; left: 40% !important;">
+    <div class="modal-dialog" role="document">
 
-                                <div class="form-group">
-                                    <font size="3" style="padding-right: 10px;">菜品名称:</font>
-                                    <input type="text"
-                                           class="form-control"
-                                           placeholder="菜品名称" name="dishesName" id="dishesName"
-                                           style="width: 600px !important;">
-                                </div>
+        <form action="./addDishes.action" method="post" enctype="multipart/form-data">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal"
+                            aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                    <h4 class="modal-title primary" id="infoModelTilte"></h4>
+                </div>
+                <div class="modal-body">
+                    <div class="row" style="text-align: center">
+                        <div class="col-lg-12">
 
-                                <div class="form-group" id="dishesTypeBox">
-                                    <font size="3" style="padding-right: 10px;">菜品种类:</font>
-                                    <select name="dishesType" class="form-control" id="dishesType"
-                                            style="width: 615px; height: 31px;margin-bottom: 10px;">
-                                    </select>
-                                </div>
+                            <div class="form-group">
+                                <font size="3" style="padding-right: 10px;">菜品名称:</font>
+                                <input type="text"
+                                       class="form-control"
+                                       placeholder="菜品名称" name="dishesName" id="dishesName"
+                                       style="width: 600px !important;">
+                            </div>
 
-                                <div class="form-group">
-                                    <font size="3" style="padding-right: 10px;">菜品单价:</font>
-                                    <input type="text"
-                                           class="form-control"
-                                           name="price"
-                                           placeholder="单价" id="price" style="width: 600px !important;">
-                                </div>
+                            <div class="form-group" id="dishesTypeBox">
+                                <font size="3" style="padding-right: 10px;">菜品种类:</font>
+                                <select name="dishesType" class="form-control" id="dishesType"
+                                        style="width: 615px; height: 31px;margin-bottom: 10px;">
+                                </select>
+                            </div>
 
-                                <div class="form-group">
-                                    <font size="3" style="padding-right: 10px;">菜品库存:</font>
-                                    <input type="text"
-                                           class="form-control"
-                                           name="stock"
-                                           placeholder="库存" id="stock" style="width: 600px !important;">
-                                </div>
+                            <div class="form-group">
+                                <font size="3" style="padding-right: 10px;">菜品单价:</font>
+                                <input type="text"
+                                       class="form-control"
+                                       name="price"
+                                       placeholder="单价" id="price" style="width: 600px !important;">
+                            </div>
 
-                                <div class="form-group" id="createTimeDiv" style="display:none;">
-                                    <font size="3" style="padding-right: 10px;">创建时间:</font>
-                                    <input type="text"
-                                           class="form-control"
-                                           name="createTime"
-                                           placeholder="创建时间" id="createTime" style="width: 600px !important;">
-                                </div>
+                            <div class="form-group">
+                                <font size="3" style="padding-right: 10px;">菜品库存:</font>
+                                <input type="text"
+                                       class="form-control"
+                                       name="stock"
+                                       placeholder="库存" id="stock" style="width: 600px !important;">
+                            </div>
 
-                                <div class="form-group" id="updateTimeDiv" style="display:none;">
-                                    <font size="3" style="padding-right: 10px;">更新时间:</font>
-                                    <input type="text"
-                                           class="form-control"
-                                           name="updateTime"
-                                           placeholder="更新时间" id="updateTime" style="width: 600px !important;">
-                                </div>
+                            <div class="form-group" id="createTimeDiv" style="display:none;">
+                                <font size="3" style="padding-right: 10px;">创建时间:</font>
+                                <input type="text"
+                                       class="form-control"
+                                       name="createTime"
+                                       placeholder="创建时间" id="createTime" style="width: 600px !important;">
+                            </div>
 
-                                <div class="form-group">
-                                    <font size="3" style="padding-right: 10px;">管理员ID:</font>
-                                    <input type="text"
-                                           class="form-control" name="mgId" id="mgId" placeholder="创建者"
-                                           value="<%=administrator.getMgId()%>"
-                                           style="width: 600px !important;">
-                                </div>
+                            <div class="form-group" id="updateTimeDiv" style="display:none;">
+                                <font size="3" style="padding-right: 10px;">更新时间:</font>
+                                <input type="text"
+                                       class="form-control"
+                                       name="updateTime"
+                                       placeholder="更新时间" id="updateTime" style="width: 600px !important;">
+                            </div>
 
-                                <div class="form-group">
-                                    <font size="3" style="padding-right: 10px;">菜品图片预览:</font>
-                                    <div class="fileupload fileupload-new"
-                                         data-provides="fileupload">
-                                        <div class="fileupload-new thumbnail"
-                                             style="width: 480px; height: 300px;"><img
-                                                src="" alt=""
-                                                id="dishesPic"/></div>
-                                        <div class="fileupload-preview fileupload-exists thumbnail"
-                                             style="max-width: 480px; max-height: 300px; line-height: 20px;"></div>
-                                        <div id="chosePicBtnBox"><span class="btn btn-file btn-primary"><span
-                                                class="fileupload-new">选择图片</span><span
-                                                class="fileupload-exists">更换</span><input
-                                                type="file" name="headPicture"/></span>
-                                            <a href="#" class="btn btn-danger fileupload-exists"
-                                               data-dismiss="fileupload" id="removeBtn">移除</a>
-                                        </div>
+                            <div class="form-group">
+                                <font size="3" style="padding-right: 10px;">管理员ID:</font>
+                                <input type="text"
+                                       class="form-control" name="mgId" id="mgId" placeholder="创建者"
+                                       value="<%=administrator.getMgId()%>"
+                                       style="width: 600px !important;">
+                            </div>
+
+                            <div class="form-group">
+                                <font size="3" style="padding-right: 10px;">菜品图片预览:</font>
+                                <div class="fileupload fileupload-new"
+                                     data-provides="fileupload">
+                                    <div class="fileupload-new thumbnail"
+                                         style="width: 480px; height: 300px;"><img
+                                            src="" alt=""
+                                            id="dishesPic"/></div>
+                                    <div class="fileupload-preview fileupload-exists thumbnail"
+                                         style="max-width: 480px; max-height: 300px; line-height: 20px;"></div>
+                                    <div id="chosePicBtnBox"><span class="btn btn-file btn-primary"><span
+                                            class="fileupload-new">选择图片</span><span
+                                            class="fileupload-exists">更换</span><input
+                                            type="file" name="headPicture" id="headPicture"/></span>
+                                        <a href="#" class="btn btn-danger fileupload-exists"
+                                           data-dismiss="fileupload" id="removeBtn">移除</a>
                                     </div>
                                 </div>
-
-                                <div class="form-group">
-                                    <font size="3" style="padding-right: 10px;">菜品简介:</font>
-                                    <textarea class="form-control" rows="3" name="describe"
-                                              placeholder="请输入菜品简介" style="width: 600px !important;"
-                                              id="dishesInfo"></textarea>
-                                </div>
-
                             </div>
+
+                            <div class="form-group">
+                                <font size="3" style="padding-right: 10px;">菜品简介:</font>
+                                <textarea class="form-control" rows="3" name="describe"
+                                          placeholder="请输入菜品简介" style="width: 600px !important;"
+                                          id="dishesInfo"></textarea>
+                            </div>
+
                         </div>
                     </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-danger" id="closeModel"
-                                data-dismiss="modal">关闭
-                        </button>
-                        <button type="submit" class="btn btn-primary" id="saveChange">保存</button>
-                    </div>
                 </div>
-            </form>
-        </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" id="closeModel"
+                            data-dismiss="modal">关闭
+                    </button>
+                    <button type="submit" class="btn btn-primary" id="saveChange">保存</button>
+                </div>
+            </div>
+        </form>
     </div>
 </div>
 
 <!-- scripts -->
 <script src="js/jquery-3.3.1.js"></script>
-<script src="http://code.jquery.com/jquery-latest.js"></script>
+<script type="text/javascript" src="js/bootstrapValidator.js"></script>
+
+<%--<script src="http://code.jquery.com/jquery-latest.js"></script>--%>
 <script src="js/bootstrap.min.js"></script>
 <script src="js/jquery-ui-1.10.2.custom.min.js"></script>
 <!-- knob -->

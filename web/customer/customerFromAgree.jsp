@@ -109,11 +109,11 @@
                                                             <p id="add_add2" address2=address2 style="display:block">
                                                                 <input id="roadName" style="width:188px " type="text"
                                                                        class="input_4" autocomplete="off"/>
-                                                                <span class="new_add_img">
-                                                                    <a href="javascript:void(0);">
-                                                                            查询
-                                                                    </a>
-                                                                </span>
+                                                                <%--<span class="new_add_img">--%>
+                                                                <%--<a href="javascript:void(0);">--%>
+                                                                <%--查询--%>
+                                                                <%--</a>--%>
+                                                                <%--</span>--%>
                                                             </p>
                                                             <p id="add_add3" address3=address3 style="display:block">
                                                                 <input id="addressDetial" type="text" maxlength="10"

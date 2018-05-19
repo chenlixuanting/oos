@@ -49,6 +49,18 @@ public class UserLoginServlet extends HttpServlet {
 
         User user = userService.findByMobile(loginDataDto.getMobile());
 
+        if (user == null) {
+
+            response.getWriter().write(JsonReturn.buildFail(JsonReturnCode.USER_IS_NOT_EXIST).toString());
+
+            //清除Session中的UserFlag
+            if (request.getSession().getAttribute(SessionKey.USER_FLAG) != null) {
+                request.getSession().removeAttribute(SessionKey.USER_FLAG);
+            }
+
+            return;
+        }
+
         HttpSession httpSession = request.getSession();
 
         //用户存在则继续判断密码
@@ -62,6 +74,11 @@ public class UserLoginServlet extends HttpServlet {
             response.getWriter()
                     .append(JsonReturn.buildFail(JsonReturnCode.VERIFY_CODE_ERROR).toString());
         } else {
+
+            //检测Session中是否存在Temporary_User_Info如果存在则清除
+            if (request.getSession().getAttribute(SessionKey.TEMPORARY_USER_INFO) != null) {
+                request.getSession().removeAttribute(SessionKey.TEMPORARY_USER_INFO);
+            }
 
             //获取用户的默认送货地址
             DeliveryAddress deliveryAddress = deliveryAddressService.findUserDefaultDeliverAddress(user.getUsId());

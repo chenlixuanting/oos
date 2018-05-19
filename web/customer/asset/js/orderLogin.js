@@ -63,8 +63,25 @@ $(function () {
                     var flag = d.head == "true" ? true : false;
 
                     if (flag) {
+
+                        $("#loginSubmit").off("click");
+
+                        $("#loginSubmit").click(isRegister);
+
+                        $("#password_text").val("请输入密码");
+                        $("#password_text").attr("type", "text");
+                        $("#verifyCode").val("请输入验证码");
+                        // $("#mobi").val("请输入手机号");
+
+                        $("#showPwd").css("display", "none");
+                        $("#showVerifyCode").css("display", "none");
+
+                        //更新验证码
+                        $.orderLogin.refreshVerifyCode($("#verifyCodeImg"));
+
                         //跳转到continueShopping.jsp
                         location.assign("continueShopping.jsp");
+
                     } else {
 
                         if (d.body == "error0") {
@@ -89,6 +106,26 @@ $(function () {
                             $("#verifyCode").val("");
 
                             $("#verifyCode").click();
+
+                        } else if (d.body = "error3") {
+
+                            alert(codeMessage.error3);
+
+                            $("#loginSubmit").off("click");
+
+                            $("#loginSubmit").click(isRegister);
+
+                            $("#password_text").val("请输入密码");
+                            $("#password_text").attr("type", "text");
+                            $("#verifyCode").val("请输入验证码");
+                            $("#mobi").val("请输入手机号");
+
+                            $("#showPwd").css("display", "none");
+                            $("#showVerifyCode").css("display", "none");
+
+                            //更新验证码
+                            $.orderLogin.refreshVerifyCode($("#verifyCodeImg"));
+
                         }
 
                     }

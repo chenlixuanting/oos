@@ -1,11 +1,15 @@
 package com.guet.oos.dao.impl;
 
+import com.guet.oos.constant.OrderStatus;
 import com.guet.oos.dao.AbstractDAOImpl;
 import com.guet.oos.dao.OrderDao;
+import com.guet.oos.fields.OrderFields;
 import com.guet.oos.po.Order;
 
 import java.sql.Connection;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
 
@@ -103,5 +107,80 @@ public class OrderDaoImpl extends AbstractDAOImpl implements OrderDao {
     @Override
     public Integer getAllCount() {
         return null;
+    }
+
+    /**
+     * public static final String UNCONFIRMEED = "商家未接单";
+     * public static final String CONFIRMED = "商家已接单";
+     * public static final String NOT_DELIVERED = "未发货";
+     * public static final String DELIVERY_IN_PROCESS = "正在发货";
+     *
+     * @param usId
+     * @return
+     */
+
+    @Override
+    public List<Order> getUserCurrentOrderByUserId(long usId) {
+
+        String sql = "select * from order_table where usId=? and(orderStatus=? or orderStatus=? OR orderStatus=? OR orderStatus=?)";
+
+        List<Order> orders = null;
+
+        try {
+            pstmt = conn.prepareStatement(sql);
+
+            pstmt.setLong(1, usId);
+            pstmt.setString(2, OrderStatus.UNCONFIRMEED);
+            pstmt.setString(3, OrderStatus.CONFIRMED);
+            pstmt.setString(4, OrderStatus.NOT_DELIVERED);
+            pstmt.setString(5, OrderStatus.DELIVERY_IN_PROCESS);
+
+            ResultSet res = pstmt.executeQuery();
+
+            orders = encapsulationOrder(res);
+
+            return orders;
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return null;
+    }
+
+    public List<Order> encapsulationOrder(ResultSet res) {
+
+        List<Order> orders = new ArrayList<Order>();
+
+        try {
+            while (res.next()) {
+
+                Order order = new Order();
+
+                order.setOrId(res.getString(OrderFields.ORID));
+                order.setUsId(res.getLong(OrderFields.USID));
+                order.setMgId(res.getLong(OrderFields.MGID));
+                order.setDaId(res.getLong(OrderFields.DAID));
+
+                order.setTotalCost(res.getDouble(OrderFields.TOTALCOST));
+                order.setProductAmount(res.getLong(OrderFields.PRODUCTAMOUNT));
+                order.setDeliverCost(res.getDouble(OrderFields.DELIVERCOST));
+                order.setProductCost(res.getDouble(OrderFields.PRODUCTCOST));
+
+                order.setOrderStatus(res.getString(OrderFields.ORDERSTATUS));
+                order.setPayType(res.getString(OrderFields.PAYTYPE));
+                order.setCreatorTime(res.getString(OrderFields.CREATORTIME));
+                order.setUpdateTime(res.getString(OrderFields.UPDATETIME));
+
+                orders.add(order);
+
+            }
+            return orders;
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return null;
+
     }
 }

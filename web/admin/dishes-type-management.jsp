@@ -1,11 +1,11 @@
-<%-- <%@ page import="com.guet.oos.po.Administrator" %> --%>
+<%@ page import="com.guet.oos.po.Administrator" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
          pageEncoding="UTF-8" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 
-<%-- <%
+<%
     Administrator administrator = (Administrator) request.getSession().getAttribute("administrator");
-%> --%>
+%>
 
 <html>
 <head>
@@ -38,6 +38,9 @@
           rel='stylesheet' type='text/css'/>
 
     <link rel="stylesheet" type="text/css" href="css/jquery.dataTables.css">
+
+    <link rel="stylesheet" type="text/css" href="css/bootstrapValidator.css">
+
 </head>
 <body>
 <!-- 顶部 -->
@@ -58,7 +61,7 @@
 
                     <a id="addBtn"
                        class="btn btn-success btn-lg pull-left"
-                       style="margin-left: -27px;"> 新 增 </a>
+                       style="margin-left: -20px;"> 新 增 </a>
 
                     <a id="deleteBtn" class="btn btn-danger btn-lg pull-left"
                        style="margin-left: 10px;"> 删 除 </a>
@@ -79,14 +82,14 @@
                        class="table table-hover table-striped table-bordered">
                     <thead>
                     <tr>
-                        <th class="span2 sortable"><input style="margin-left: -7px;" type="checkbox"/>全选</th>
+                        <th class="span2 sortable"><input type="checkbox"/>全选</th>
                         <th class="span2 sortable">菜品种类名称</th>
                         <th class="span2 sortable">餐点类型</th>
                         <th class="span2 sortable">管理员ID</th>
 
                         <th class="span2 sortable">创建时间</th>
                         <th class="span2 sortable">更新时间</th>
-                        <th class="span2 sortable" style="text-align: center">操作</th>
+                        <th class="span2 sortable">操作</th>
                     </tr>
                     </thead>
 
@@ -102,7 +105,7 @@
 <button id="modelBtn" type="button"
         class="btn btn-primary btn-lg pull-left" data-toggle="modal"
         data-target="#modelBox" style="display: none;"></button>
-
+<form>
 <div class="modal fade" id="modelBox" tabindex="-1" role="dialog"
      aria-labelledby="myModalLabel">
     <div class="modal-dialog" role="document">
@@ -123,6 +126,7 @@
                             <input type="text"
                                    class="form-control"
                                    id="dishesTypeName"
+                                   name="dishesTypeName"
                                    placeholder="菜品种类名称">
                         </div>
 
@@ -137,7 +141,8 @@
                             <font size="3" style="padding-right: 10px;">管理员ID:</font>
                             <input type="text"
                                    class="form-control" id="mgId" placeholder="创建者"
-                                   value="<%-- <%=administrator.getMgId()%> --%>">
+                                   name="mgId"
+                                   value="<%=administrator.getMgId()%>">
                         </div>
 
                     </div>
@@ -147,15 +152,18 @@
                 <button type="button" class="btn btn-danger" id="closeModel"
                         data-dismiss="modal">关闭
                 </button>
-                <button type="button" class="btn btn-primary" id="saveChange">保存</button>
+                <button type="submit" class="btn btn-primary" id="saveChange">保存</button>
             </div>
         </div>
     </div>
 </div>
+</form>
+
 
 <!-- scripts -->
 <script src="js/jquery-3.3.1.js"></script>
-<script src="http://code.jquery.com/jquery-latest.js"></script>
+<script type="text/javascript" src="js/bootstrapValidator.js"></script>
+<%--<script src="http://code.jquery.com/jquery-latest.js"></script>--%>
 <script src="js/bootstrap.min.js"></script>
 <script src="js/jquery-ui-1.10.2.custom.min.js"></script>
 <!-- knob -->
