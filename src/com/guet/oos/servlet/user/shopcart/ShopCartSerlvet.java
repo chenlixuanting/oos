@@ -55,33 +55,34 @@ public class ShopCartSerlvet extends HttpServlet {
 
         //获取订单项信息
         String orderItemStr = request.getParameter("orderItem");
+
         JSONObject orderItemJson = JSONObject.parseObject(orderItemStr);
 
         long goodId = Long.valueOf(orderItemJson.getString("dishesId"));
         long quantity = Long.valueOf(orderItemJson.getString("quantity"));
 
         //判断用户是否登陆
-        User user = (User) httpSession.getAttribute(SessionKey.USER);
+//        User user = (User) httpSession.getAttribute(SessionKey.USER);
 
         //获取临时用户对象
-        TemporaryUserInfo temporaryUserInfo = (TemporaryUserInfo) httpSession.getAttribute(SessionKey.TEMPORARY_USER_INFO);
+//        TemporaryUserInfo temporaryUserInfo = (TemporaryUserInfo) httpSession.getAttribute(SessionKey.TEMPORARY_USER_INFO);
 
         //判断是否存在购物车
         ShopCart customerShopCart = (ShopCart) httpSession.getAttribute(SessionKey.SHOP_CART);
 
         //如果购物车为空,则判断是否登录
-        if (customerShopCart == null) {
-            //如果用户不存在且已经成为临时用户,则判断购物车是否存在,若不存在则新建购物车，否则获取已登录用户的购物车
-            if (user == null && temporaryUserInfo != null) {
-                //新建购物车
-                customerShopCart = new ShopCart();
-                customerShopCart.setCreatorTime(sf.format(new Date()));
-                customerShopCart.setUpdateTime(sf.format(new Date()));
-            } else if (user != null && temporaryUserInfo == null) {
-                //通过已登录用户的id获取其对应的购物车
-                customerShopCart = shopCartService.getShopCartByUserId(user.getUsId());
-            }
-        }
+//        if (customerShopCart == null) {
+//            //如果用户不存在且已经成为临时用户,则判断购物车是否存在,若不存在则新建购物车，否则获取已登录用户的购物车
+//            if (user == null && temporaryUserInfo != null) {
+//                //新建购物车
+//                customerShopCart = new ShopCart();
+//                customerShopCart.setCreatorTime(sf.format(new Date()));
+//                customerShopCart.setUpdateTime(sf.format(new Date()));
+//            } else if (user != null && temporaryUserInfo == null) {
+//                //通过已登录用户的id获取其对应的购物车
+//                customerShopCart = shopCartService.getShopCartByUserId(user.getUsId());
+//            }
+//        }
 
         //通过dishesId查找菜品
         Dishes dishes = dishesService.queryById(goodId);

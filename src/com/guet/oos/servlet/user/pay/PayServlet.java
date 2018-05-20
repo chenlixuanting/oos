@@ -88,7 +88,6 @@ public class PayServlet extends HttpServlet {
         }
 
         //销毁Session中shopCart
-//        httpSession.removeAttribute(SessionKey.SHOP_CART);
         ShopCart newShopCart = shopCartService.getShopCartByUserId(user.getUsId());
         httpSession.setAttribute(SessionKey.SHOP_CART, newShopCart);
 

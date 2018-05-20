@@ -40,6 +40,9 @@ $(function () {
     //当前时分秒
     var current_hms = current_time.getTime() - current_yms.getTime();
 
+    var child = "child2";
+    var childMenu = "ChildMenu2";
+
     if (breakfast_start <= current_hms && current_hms <= breakfast_end) {
         //早餐
         $.ajax({
@@ -47,7 +50,7 @@ $(function () {
             type: "POST",
             dataType: "json",
             cache: false,
-            async: true,
+            async: false,
             data: {
                 mealType: "早餐"
             },
@@ -64,12 +67,16 @@ $(function () {
         $("#breakfast").css("display", "block");
 
     } else if (lunch_start <= current_hms && current_hms <= lunch_end) {
+
+        child = "child3";
+        childMenu = "ChildMenu3";
+
         //中餐
         $.ajax({
             url: "./queryDishTypeByMealType.action",
             type: "POST",
             cache: false,
-            async: true,
+            async: false,
             dataType: "json",
             data: {
                 mealType: "正餐"
@@ -86,13 +93,17 @@ $(function () {
         });
         $("#lunch").css("display", "block");
     } else {
+
+        child = "child4";
+        childMenu = "ChildMenu4";
+
         //夜宵
         $.ajax({
             url: "./queryDishTypeByMealType.action",
             type: "POST",
             dataType: "json",
             cache: false,
-            async: true,//将ajax设置为同步加载,异步加载会出现 TDS协议流问题
+            async: false,//将ajax设置为同步加载,异步加载会出现 TDS协议流问题
             data: {
                 mealType: "夜宵"
             },
@@ -280,24 +291,14 @@ $(function () {
         location.assign("cart.jsp");
     });
 
-})
-;
+    /**
+     * 初始化订餐首页
+     */
+    $("#" + childMenu).find('li').eq(1).find('a').trigger("click");
+    $("#" + child).attr("class", "minus_sign");
+    $("#" + childMenu).css("display", "block");
 
-/**
- * 用户退出
- *
- */
-function customerExit() {
-    //发出退出请求
-    $.ajax({
-        url: "customerExit.action",
-        type: "POST",
-        dataType: "json",
-        success: function () {
-            //跳转到用户登陆界面
-        }
-    });
-}
+});
 
 /**
  * 获取临时用户地址,并显示在页面上

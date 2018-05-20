@@ -39,11 +39,6 @@ $(function () {
 
     });
 
-    // $("#password11").click(function () {
-    //     $(this).css("display", "none");
-    //     $("#password1").css("display", "block");
-    // });
-
     //返回上一步按钮
     $("#back_menu_btn1").click(function () {
         location.assign("cart.jsp");

@@ -1,4 +1,4 @@
-package com.guet.oos.servlet.user.customer;
+package com.guet.oos.servlet.user.get;
 
 import com.alibaba.fastjson.JSONObject;
 import com.guet.oos.constant.SessionKey;
@@ -31,7 +31,7 @@ public class GetShopCartInfoServlet extends HttpServlet {
      */
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-        Object shopCart = request.getSession().getAttribute(SessionKey.SHOP_CART);
+        ShopCart shopCart = (ShopCart) request.getSession().getAttribute(SessionKey.SHOP_CART);
 
         response.getWriter().write(JSONObject.toJSONString(shopCart));
 

@@ -68,12 +68,6 @@ $(function () {
         }
     });
 
-    /**
-     * 开始订餐
-     */
-    $.startOrdering = function () {
-
-    };
 
     $("#loginSubmit").click(function () {
         var User = $("#mobi").val();
@@ -102,7 +96,7 @@ $(function () {
 
                     var d = eval(data);
 
-                    //情况商品列表标签
+                    //清空商品列表标签
                     $(".product_ul").html("");
 
                     for (var x = 0; x < d.length; x++) {
@@ -122,7 +116,7 @@ $(function () {
                             "<span class='pro_price'>" + d[x].price + "元 / 份" + "</span>" +
                             "</p>" +
                             "<p style='clear: both; margin-bottom: 20px!important;'>" +
-                            "<input type='button' class='order_btn_start'>" +
+                            "<input type='button' class='order_btn_start' onclick='startOrder();'>" +
                             "</p>" +
                             "</div>" +
                             "</li>"
@@ -135,6 +129,8 @@ $(function () {
 
         }
     };
+
+    $("#startOrderBtn").click(startOrder);
 
     /**
      * 当点击图片时，显示商品的详细信息对话框
@@ -187,4 +183,15 @@ $(function () {
 
     }
 
+    /**
+     * 初始化订餐首页
+     */
+    $("#ChildMenu2").find('li').eq(0).find('a').trigger("click");
+    $("#child2").attr("class", "minus_sign");
+    $("#ChildMenu2").css("display", "block");
+
 });
+
+function startOrder() {
+    location.assign("orderLogin.jsp");
+}

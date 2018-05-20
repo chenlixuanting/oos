@@ -7,8 +7,10 @@ import com.guet.oos.dto.JsonReturn;
 import com.guet.oos.dto.LoginDataDto;
 import com.guet.oos.factory.ServiceFactory;
 import com.guet.oos.po.DeliveryAddress;
+import com.guet.oos.po.ShopCart;
 import com.guet.oos.po.User;
 import com.guet.oos.service.DeliveryAddressService;
+import com.guet.oos.service.ShopCartService;
 import com.guet.oos.service.UserService;
 
 import javax.servlet.ServletException;
@@ -31,6 +33,8 @@ public class UserLoginServlet extends HttpServlet {
 
     private DeliveryAddressService deliveryAddressService = ServiceFactory.getDeliveryAddressServiceInstance();
 
+    private ShopCartService shopCartService = ServiceFactory.getShopCartServiceInstance();
+
     /**
      * @see HttpServlet#HttpServlet()
      */
@@ -43,6 +47,14 @@ public class UserLoginServlet extends HttpServlet {
      */
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
+        HttpSession httpSession = request.getSession();
+
+        //清除Session
+        httpSession.removeAttribute(SessionKey.TEMPORARY_USER_INFO);
+        httpSession.removeAttribute(SessionKey.SHOP_CART);
+        httpSession.removeAttribute(SessionKey.USER);
+        httpSession.removeAttribute(SessionKey.USER_FLAG);
+
         String loginData = request.getParameter("loginData");
 
         LoginDataDto loginDataDto = JSONObject.parseObject(loginData, LoginDataDto.class);
@@ -50,18 +62,9 @@ public class UserLoginServlet extends HttpServlet {
         User user = userService.findByMobile(loginDataDto.getMobile());
 
         if (user == null) {
-
             response.getWriter().write(JsonReturn.buildFail(JsonReturnCode.USER_IS_NOT_EXIST).toString());
-
-            //清除Session中的UserFlag
-            if (request.getSession().getAttribute(SessionKey.USER_FLAG) != null) {
-                request.getSession().removeAttribute(SessionKey.USER_FLAG);
-            }
-
             return;
         }
-
-        HttpSession httpSession = request.getSession();
 
         //用户存在则继续判断密码
         if (!user.getPassword().equals(loginDataDto.getPassword())) {
@@ -75,11 +78,6 @@ public class UserLoginServlet extends HttpServlet {
                     .append(JsonReturn.buildFail(JsonReturnCode.VERIFY_CODE_ERROR).toString());
         } else {
 
-            //检测Session中是否存在Temporary_User_Info如果存在则清除
-            if (request.getSession().getAttribute(SessionKey.TEMPORARY_USER_INFO) != null) {
-                request.getSession().removeAttribute(SessionKey.TEMPORARY_USER_INFO);
-            }
-
             //获取用户的默认送货地址
             DeliveryAddress deliveryAddress = deliveryAddressService.findUserDefaultDeliverAddress(user.getUsId());
 
@@ -88,6 +86,11 @@ public class UserLoginServlet extends HttpServlet {
 
             //将user信息存入Session
             httpSession.setAttribute(SessionKey.USER, user);
+
+            ShopCart shopCart = shopCartService.getShopCartByUserId(user.getUsId());
+
+            //将shopcart保存到Session中
+            httpSession.setAttribute(SessionKey.SHOP_CART, shopCart);
 
             //验证通过
             response.getWriter()

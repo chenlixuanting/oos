@@ -185,7 +185,7 @@
                             <div>
                                 <div class="price_span_2"><span class="price"></span>元/份</div>
                             </div>
-                            <input type="button" id="loginBtn" class="layerorder_btn">
+                            <input type="button" id="startOrderBtn" class="layerorder_btn">
                         </div>
                     </div>
                 </div>

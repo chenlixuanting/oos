@@ -1,4 +1,3 @@
-<%@ page import="com.guet.oos.constant.SessionKey" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
          pageEncoding="UTF-8" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -62,7 +61,7 @@
                 <div class="top_menu_2">
                     <ul>
                         <li><span class="current"> 首页</span></li>
-                        <li><span><a href="javascript:;" onclick="customerExit();">重新登录</a></span></li>
+                        <li><span><a href="customerExit.action">重新登录</a></span></li>
                         <li><span><a href="customerCenter.jsp">个人中心</a></span></li>
                         <li class="last_li w5">
                             <a href="comment.jsp" target="_self">评论专区</a>
@@ -247,15 +246,6 @@
                         <div class="order_add">
                             <p>
                                 <span class="til">送餐地址：</span> <span class="modify"> </span>
-                            </p>
-                            <p>
-                                <%--上海W1(上海新国际博览中心)(龙阳路2345号上海新国际博览中心F1层)71--%>
-                                <%--<input type="hidden" id="cityNameDes" value="上海"/>--%>
-                                <%--<input type="hidden" id="mainAddressDes" value="W1(上海新国际博览中心)(龙阳路2345号上海新国际博览中心F1层)"/>--%>
-                                <%--<input type="hidden" id="supplementaladdressDes" value="W1(上海新国际博览中心)(龙阳路2345号上海新国际博览中心F1层)"/>--%>
-                                <%--<input type="hidden" id="x" value="121.565124"/>--%>
-                                <%--<input type="hidden" id="y" value="31.207368"/>--%>
-                                <%--<input type="hidden" id="addressId" value="013f9b8b-97b5-449c-8678-df3b54ead996-a0"/>--%>
                             </p>
                         </div>
                         <p style="padding: 6px 10px;">

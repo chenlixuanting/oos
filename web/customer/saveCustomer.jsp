@@ -34,7 +34,7 @@
 
 </head>
 <body>
-<form id="mainForm" action="SaveCustomer.action" method="post">
+<%--<form id="mainForm" action="SaveCustomer.action" method="post">--%>
     <!-- top -->
     <div id="top">
         <div class="top_menu">
@@ -198,6 +198,6 @@
         <span></span>
     </div>
 
-</form>
+<%--</form>--%>
 </body>
 </html>

@@ -1,5 +1,17 @@
 $(function () {
 
+    /**
+     * 禁用浏览器回退功能
+     */
+    if (window.history && window.history.pushState) {
+        $(window).on('popstate', function () {
+            window.history.pushState('forward', null, '#');
+            window.history.forward(1);
+        });
+    }
+    window.history.pushState('forward', null, '#'); //在IE中必须得有这两行
+    window.history.forward(1);
+
     // 当输入框被点击时触发事件
     // 清除输入框中内容
     $("#mobi").on('click', function () {

@@ -1,13 +1,16 @@
 package com.guet.oos.servlet.user.login;
 
 import com.alibaba.fastjson.JSONObject;
+import com.guet.oos.constant.DateTimeFormat;
 import com.guet.oos.constant.SessionKey;
 import com.guet.oos.constant.UserExist;
 import com.guet.oos.dto.JsonReturn;
 import com.guet.oos.dto.LoginDataDto;
 import com.guet.oos.dto.TemporaryUserInfo;
 import com.guet.oos.factory.ServiceFactory;
+import com.guet.oos.po.ShopCart;
 import com.guet.oos.po.User;
+import com.guet.oos.service.ShopCartService;
 import com.guet.oos.service.UserService;
 
 import javax.servlet.ServletException;
@@ -17,6 +20,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -28,6 +33,8 @@ public class UserLoginValidateServlet extends HttpServlet {
     private static final long serialVersionUID = 1L;
 
     private UserService userService = ServiceFactory.getUserServiceInstance();
+
+    private ShopCartService shopCartService = ServiceFactory.getShopCartServiceInstance();
 
     /**
      * @see HttpServlet#HttpServlet()
@@ -43,19 +50,21 @@ public class UserLoginValidateServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
+        SimpleDateFormat sf = new SimpleDateFormat(DateTimeFormat.YYYY_MM_DD_HH_MM_SS);
+
+        HttpSession httpSession = request.getSession();
+
         //清除Session
-        request.getSession().removeAttribute(SessionKey.TEMPORARY_USER_INFO);
-        request.getSession().removeAttribute(SessionKey.SHOP_CART);
-        request.getSession().removeAttribute(SessionKey.USER);
-        request.getSession().removeAttribute(SessionKey.USER_FLAG);
+        httpSession.removeAttribute(SessionKey.TEMPORARY_USER_INFO);
+        httpSession.removeAttribute(SessionKey.SHOP_CART);
+        httpSession.removeAttribute(SessionKey.USER);
+        httpSession.removeAttribute(SessionKey.USER_FLAG);
 
         String loginData = request.getParameter("mobileData");
 
         LoginDataDto loginDataDto = JSONObject.parseObject(loginData, LoginDataDto.class);
 
         User user = userService.findByMobile(loginDataDto.getMobile());
-
-        HttpSession httpSession = request.getSession();
 
         //默认将用户标记为非正式用户
         httpSession.setAttribute(SessionKey.USER_FLAG, UserExist.USER_NOT_EXIST);
@@ -77,13 +86,15 @@ public class UserLoginValidateServlet extends HttpServlet {
 
             userInfo.setAccount(loginDataDto.getMobile());
 
-            //检测Session中是否存在User
-//            if (request.getSession().getAttribute(SessionKey.USER) != null) {
-//                request.getSession().removeAttribute(SessionKey.USER);
-//            }
-
             //将新用户电话号码添加到Session中
-            request.getSession().setAttribute(SessionKey.TEMPORARY_USER_INFO, userInfo);
+            httpSession.setAttribute(SessionKey.TEMPORARY_USER_INFO, userInfo);
+
+            ShopCart temporaryShopCart = new ShopCart();
+
+            temporaryShopCart.setCreatorTime(sf.format(new Date()));
+            temporaryShopCart.setUpdateTime(sf.format(new Date()));
+
+            httpSession.setAttribute(SessionKey.SHOP_CART, temporaryShopCart);
 
             // 重定向到customerFromAgree.jsp
             response.getWriter()
