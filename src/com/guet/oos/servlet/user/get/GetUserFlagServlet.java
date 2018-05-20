@@ -1,28 +1,28 @@
-package com.guet.oos.servlet.user;
+package com.guet.oos.servlet.user.get;
 
-import com.alibaba.fastjson.JSONObject;
 import com.guet.oos.constant.SessionKey;
-import com.guet.oos.po.ShopCart;
+import com.guet.oos.dto.JsonReturn;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import java.io.IOException;
 
 /**
- * Created by Shinelon on 2018/5/17.
+ * 获取用户标记
+ * Created by Shinelon on 2018/5/18.
  */
-@WebServlet("/customer/getShopCartInfo.action")
-public class GetShopCartInfoServlet extends HttpServlet {
-
+@WebServlet("/customer/getUserFlag.action")
+public class GetUserFlagServlet extends HttpServlet {
     private static final long serialVersionUID = 1L;
 
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public GetShopCartInfoServlet() {
+    public GetUserFlagServlet() {
         super();
     }
 
@@ -31,9 +31,11 @@ public class GetShopCartInfoServlet extends HttpServlet {
      */
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-        Object shopCart = request.getSession().getAttribute(SessionKey.SHOP_CART);
+        HttpSession httpSession = request.getSession();
 
-        response.getWriter().write(JSONObject.toJSONString(shopCart));
+        String str = (String) httpSession.getAttribute(SessionKey.USER_FLAG);
+
+        response.getWriter().write(JsonReturn.buildSuccess(str).toString());
 
     }
 
@@ -41,6 +43,7 @@ public class GetShopCartInfoServlet extends HttpServlet {
      * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
      */
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        // TODO Auto-generated method stub
         doGet(request, response);
     }
 

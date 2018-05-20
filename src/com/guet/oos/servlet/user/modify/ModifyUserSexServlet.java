@@ -1,8 +1,10 @@
-package com.guet.oos.servlet.user;
+package com.guet.oos.servlet.user.modify;
 
-import com.alibaba.fastjson.JSONObject;
 import com.guet.oos.constant.SessionKey;
-import com.guet.oos.po.ShopCart;
+import com.guet.oos.dto.JsonReturn;
+import com.guet.oos.factory.ServiceFactory;
+import com.guet.oos.po.User;
+import com.guet.oos.service.UserService;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -13,16 +15,19 @@ import javax.servlet.http.HttpSession;
 import java.io.IOException;
 
 /**
- * Created by Shinelon on 2018/5/18.
+ * Created by Shinelon on 2018/5/19.
  */
-@WebServlet("/customer/SelectPayType.action")
-public class SelectPayTypeServlet extends HttpServlet {
+@WebServlet("/customer/ModifyUserSex.action")
+public class ModifyUserSexServlet extends HttpServlet {
+
     private static final long serialVersionUID = 1L;
+
+    private UserService userService = ServiceFactory.getUserServiceInstance();
 
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public SelectPayTypeServlet() {
+    public ModifyUserSexServlet() {
         super();
     }
 
@@ -31,18 +36,19 @@ public class SelectPayTypeServlet extends HttpServlet {
      */
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-        String requestData = request.getParameter("requestData");
-
-        JSONObject requestDataJson = JSONObject.parseObject(requestData);
-
         HttpSession httpSession = request.getSession();
 
-        ShopCart shopCart = (ShopCart) httpSession.getAttribute(SessionKey.SHOP_CART);
+        User user = (User) httpSession.getAttribute(SessionKey.USER);
 
-        //获取付款方式
-        shopCart.setPayType(requestDataJson.getString("payType"));
+        String newSex = request.getParameter("requestData");
 
-        httpSession.setAttribute(SessionKey.SHOP_CART, shopCart);
+        userService.updateUserSex(newSex, user.getUsId());
+
+        user.setSex(newSex);
+
+        httpSession.setAttribute(SessionKey.USER, user);
+
+        response.getWriter().write(JsonReturn.buildSuccessEmptyContent().toString());
 
     }
 

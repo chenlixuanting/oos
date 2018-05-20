@@ -1,8 +1,10 @@
-package com.guet.oos.servlet.user;
+package com.guet.oos.servlet.user.modify;
 
-import com.alibaba.fastjson.JSONObject;
 import com.guet.oos.constant.SessionKey;
-import com.guet.oos.dto.TemporaryUserInfo;
+import com.guet.oos.dto.JsonReturn;
+import com.guet.oos.factory.ServiceFactory;
+import com.guet.oos.po.User;
+import com.guet.oos.service.UserService;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -13,16 +15,20 @@ import javax.servlet.http.HttpSession;
 import java.io.IOException;
 
 /**
- * Created by Shinelon on 2018/5/17.
+ * 修改用户姓名
+ * Created by Shinelon on 2018/5/19.
  */
-@WebServlet("/customer/getTemporaryUserInfo.action")
-public class GetTemporaryUserInfoServlet extends HttpServlet {
+@WebServlet("/customer/ModifyUserName.action")
+public class ModifyUserNameServlet extends HttpServlet {
+
     private static final long serialVersionUID = 1L;
+
+    private UserService userService = ServiceFactory.getUserServiceInstance();
 
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public GetTemporaryUserInfoServlet() {
+    public ModifyUserNameServlet() {
         super();
     }
 
@@ -33,10 +39,17 @@ public class GetTemporaryUserInfoServlet extends HttpServlet {
 
         HttpSession httpSession = request.getSession();
 
-        TemporaryUserInfo userInfo = (TemporaryUserInfo) httpSession.getAttribute(SessionKey.TEMPORARY_USER_INFO);
+        User user = (User) httpSession.getAttribute(SessionKey.USER);
 
-        //将TemporaryUserInfo以json格式返回
-        response.getWriter().write(JSONObject.toJSONString(userInfo));
+        String newUserName = request.getParameter("requestData");
+
+        userService.updateUserName(newUserName, user.getUsId());
+
+        user.setUsername(newUserName);
+
+        httpSession.setAttribute(SessionKey.USER, user);
+
+        response.getWriter().write(JsonReturn.buildSuccessEmptyContent().toString());
 
     }
 

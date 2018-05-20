@@ -1,4 +1,4 @@
-package com.guet.oos.servlet.user;
+package com.guet.oos.servlet.user.customer;
 
 import com.guet.oos.constant.SessionKey;
 import com.guet.oos.dto.JsonReturn;

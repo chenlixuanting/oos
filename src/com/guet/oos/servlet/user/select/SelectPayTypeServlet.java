@@ -1,9 +1,8 @@
-package com.guet.oos.servlet.user;
+package com.guet.oos.servlet.user.select;
 
 import com.alibaba.fastjson.JSONObject;
 import com.guet.oos.constant.SessionKey;
-import com.guet.oos.dto.JsonReturn;
-import com.guet.oos.dto.TemporaryUserInfo;
+import com.guet.oos.po.ShopCart;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -14,17 +13,16 @@ import javax.servlet.http.HttpSession;
 import java.io.IOException;
 
 /**
- * Created by Shinelon on 2018/5/14.
+ * Created by Shinelon on 2018/5/18.
  */
-@WebServlet("/customer/CustomerRegAgree.action")
-public class CustomerRegAgreeServlet extends HttpServlet {
-
+@WebServlet("/customer/SelectPayType.action")
+public class SelectPayTypeServlet extends HttpServlet {
     private static final long serialVersionUID = 1L;
 
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public CustomerRegAgreeServlet() {
+    public SelectPayTypeServlet() {
         super();
     }
 
@@ -33,22 +31,19 @@ public class CustomerRegAgreeServlet extends HttpServlet {
      */
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-        String customerData = request.getParameter("customerData");
+        String requestData = request.getParameter("requestData");
 
-        //将临时用户信息封装成对象
-        TemporaryUserInfo temporaryUserInfo = (TemporaryUserInfo) JSONObject.parseObject(customerData, TemporaryUserInfo.class);
+        JSONObject requestDataJson = JSONObject.parseObject(requestData);
 
         HttpSession httpSession = request.getSession();
 
-        TemporaryUserInfo userInfo = (TemporaryUserInfo) httpSession.getAttribute(SessionKey.TEMPORARY_USER_INFO);
+        ShopCart shopCart = (ShopCart) httpSession.getAttribute(SessionKey.SHOP_CART);
 
-        temporaryUserInfo.setAccount(userInfo.getAccount());
+        //获取付款方式
+        shopCart.setPayType(requestDataJson.getString("payType"));
 
-        //将temporaryUserInfo对象保存到Session中
-        httpSession.setAttribute(SessionKey.TEMPORARY_USER_INFO, temporaryUserInfo);
+        httpSession.setAttribute(SessionKey.SHOP_CART, shopCart);
 
-        //返回Success以及temporaryUserInfo实体的Json格式数据
-        response.getWriter().write(JsonReturn.buildSuccessEmptyContent().toString());
     }
 
     /**

@@ -1,10 +1,9 @@
-package com.guet.oos.servlet.user;
+package com.guet.oos.servlet.user.customer;
 
+import com.alibaba.fastjson.JSONObject;
 import com.guet.oos.constant.SessionKey;
 import com.guet.oos.dto.JsonReturn;
-import com.guet.oos.factory.ServiceFactory;
-import com.guet.oos.po.User;
-import com.guet.oos.service.UserService;
+import com.guet.oos.dto.TemporaryUserInfo;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -15,19 +14,17 @@ import javax.servlet.http.HttpSession;
 import java.io.IOException;
 
 /**
- * Created by Shinelon on 2018/5/19.
+ * Created by Shinelon on 2018/5/14.
  */
-@WebServlet("/customer/ModifyUserSex.action")
-public class ModifyUserSexServlet extends HttpServlet {
+@WebServlet("/customer/CustomerRegAgree.action")
+public class CustomerRegAgreeServlet extends HttpServlet {
 
     private static final long serialVersionUID = 1L;
-
-    private UserService userService = ServiceFactory.getUserServiceInstance();
 
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public ModifyUserSexServlet() {
+    public CustomerRegAgreeServlet() {
         super();
     }
 
@@ -36,20 +33,22 @@ public class ModifyUserSexServlet extends HttpServlet {
      */
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
+        String customerData = request.getParameter("customerData");
+
+        //将临时用户信息封装成对象
+        TemporaryUserInfo temporaryUserInfo = (TemporaryUserInfo) JSONObject.parseObject(customerData, TemporaryUserInfo.class);
+
         HttpSession httpSession = request.getSession();
 
-        User user = (User) httpSession.getAttribute(SessionKey.USER);
+        TemporaryUserInfo userInfo = (TemporaryUserInfo) httpSession.getAttribute(SessionKey.TEMPORARY_USER_INFO);
 
-        String newSex = request.getParameter("requestData");
+        temporaryUserInfo.setAccount(userInfo.getAccount());
 
-        userService.updateUserSex(newSex, user.getUsId());
+        //将temporaryUserInfo对象保存到Session中
+        httpSession.setAttribute(SessionKey.TEMPORARY_USER_INFO, temporaryUserInfo);
 
-        user.setSex(newSex);
-
-        httpSession.setAttribute(SessionKey.USER, user);
-
+        //返回Success以及temporaryUserInfo实体的Json格式数据
         response.getWriter().write(JsonReturn.buildSuccessEmptyContent().toString());
-
     }
 
     /**

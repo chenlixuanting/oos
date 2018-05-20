@@ -1,4 +1,6 @@
-package com.guet.oos.servlet.user;
+package com.guet.oos.servlet.user.customer;
+
+import com.guet.oos.dto.JsonReturn;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -8,33 +10,37 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
 /**
- * Created by Shinelon on 2018/5/14.
+ * 用户退出
+ * Created by Shinelon on 2018/5/17.
  */
-@WebServlet("/customer/RegCustomer.action")
-public class RegCustomerServlet extends HttpServlet {
+@WebServlet("/customer/customerExit.action")
+public class CustomerExitServlet extends HttpServlet {
+
     private static final long serialVersionUID = 1L;
 
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public RegCustomerServlet() {
+    public CustomerExitServlet() {
         super();
-        // TODO Auto-generated constructor stub
     }
 
     /**
      * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
      */
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        // TODO Auto-generated method stub
-        response.getWriter().append("Served at: ").append(request.getContextPath());
+
+        //使用户Session失效
+        request.getSession().invalidate();
+
+        response.sendRedirect("orderLogin.jsp");
+
     }
 
     /**
      * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
      */
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        // TODO Auto-generated method stub
         doGet(request, response);
     }
 

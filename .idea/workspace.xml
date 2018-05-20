@@ -5,39 +5,26 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f566ee65-e8d4-499b-9f0e-d5d8d11c0464" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../oos/src/com/guet/oos/servlet/administrator/AdministratorLogoutServlet.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../oos/src/com/guet/oos/servlet/administrator/ModifyAdministratorServlet.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../oos/src/com/guet/oos/servlet/administrator/getCurrentAdminstratorInfoServlet.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../oos/src/com/guet/oos/servlet/administrator/pages/PagesAdministratorServlet.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../oos/web/admin/asset/js/personal-profile.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../oos/web/admin/asset/js/super-authority.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../oos/web/customer/asset/js/regPay.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../oos/web/customer/regPay.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../oos/.idea/workspace.xml" afterPath="$PROJECT_DIR$/../oos/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../oos/src/com/guet/oos/dao/AdministratorDao.java" afterPath="$PROJECT_DIR$/../oos/src/com/guet/oos/dao/AdministratorDao.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../oos/src/com/guet/oos/dao/impl/AdministratorDaoImpl.java" afterPath="$PROJECT_DIR$/../oos/src/com/guet/oos/dao/impl/AdministratorDaoImpl.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../oos/src/com/guet/oos/fields/AdministratorFields.java" afterPath="$PROJECT_DIR$/../oos/src/com/guet/oos/fields/AdministratorFields.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../oos/src/com/guet/oos/po/Administrator.java" afterPath="$PROJECT_DIR$/../oos/src/com/guet/oos/po/Administrator.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../oos/src/com/guet/oos/service/AdministratorService.java" afterPath="$PROJECT_DIR$/../oos/src/com/guet/oos/service/AdministratorService.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../oos/src/com/guet/oos/service/impl/AdministratorServiceImpl.java" afterPath="$PROJECT_DIR$/../oos/src/com/guet/oos/service/impl/AdministratorServiceImpl.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../oos/src/com/guet/oos/servlet/user/CustomerConfirmServlet.java" afterPath="$PROJECT_DIR$/../oos/src/com/guet/oos/servlet/user/CustomerConfirmServlet.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../oos/src/com/guet/oos/servlet/user/GetShopCartInfoServlet.java" afterPath="$PROJECT_DIR$/../oos/src/com/guet/oos/servlet/user/GetShopCartInfoServlet.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../oos/src/com/guet/oos/servlet/user/SaveCustomerServlet.java" afterPath="$PROJECT_DIR$/../oos/src/com/guet/oos/servlet/user/SaveCustomerServlet.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../oos/src/com/guet/oos/servlet/user/SelectDeliverTimeServlet.java" afterPath="$PROJECT_DIR$/../oos/src/com/guet/oos/servlet/user/SelectDeliverTimeServlet.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../oos/src/com/guet/oos/test/TestInstance.java" afterPath="$PROJECT_DIR$/../oos/src/com/guet/oos/test/TestInstance.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../oos/web/admin/css/compiled/personal-info.css" afterPath="$PROJECT_DIR$/../oos/web/admin/css/compiled/personal-info.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../oos/web/admin/nav.jsp" afterPath="$PROJECT_DIR$/../oos/web/admin/nav.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../oos/web/admin/order-confirmed.jsp" afterPath="$PROJECT_DIR$/../oos/web/admin/order-confirmed.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../oos/web/admin/personal-profile.jsp" afterPath="$PROJECT_DIR$/../oos/web/admin/personal-profile.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../oos/web/admin/super-authority.jsp" afterPath="$PROJECT_DIR$/../oos/web/admin/super-authority.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../oos/web/admin/top.jsp" afterPath="$PROJECT_DIR$/../oos/web/admin/top.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../oos/web/customer/asset/js/customer.js" afterPath="$PROJECT_DIR$/../oos/web/customer/asset/js/customer.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../oos/web/customer/asset/js/customerConfirm.js" afterPath="$PROJECT_DIR$/../oos/web/customer/asset/js/customerConfirm.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../oos/web/customer/asset/js/customerFromAgree.js" afterPath="$PROJECT_DIR$/../oos/web/customer/asset/js/customerFromAgree.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../oos/web/customer/asset/js/pay.js" afterPath="$PROJECT_DIR$/../oos/web/customer/asset/js/pay.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../oos/web/customer/asset/js/regCustomer.js" afterPath="$PROJECT_DIR$/../oos/web/customer/asset/js/regCustomer.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../oos/web/customer/asset/js/saveCustomer.js" afterPath="$PROJECT_DIR$/../oos/web/customer/asset/js/saveCustomer.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../oos/web/customer/saveCustomer.jsp" afterPath="$PROJECT_DIR$/../oos/web/customer/saveCustomer.jsp" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../oos/src/com/guet/oos/servlet/user/RegCustomerServlet.java" afterPath="" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/../oos/src/com/guet/oos/servlet/user/CustomerConfirmServlet.java" afterPath="$PROJECT_DIR$/../oos/src/com/guet/oos/servlet/user/customer/CustomerConfirmServlet.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/../oos/src/com/guet/oos/servlet/user/CustomerExitServlet.java" afterPath="$PROJECT_DIR$/../oos/src/com/guet/oos/servlet/user/customer/CustomerExitServlet.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/../oos/src/com/guet/oos/servlet/user/CustomerRegAgreeServlet.java" afterPath="$PROJECT_DIR$/../oos/src/com/guet/oos/servlet/user/customer/CustomerRegAgreeServlet.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/../oos/src/com/guet/oos/servlet/user/CustomerSelectDeliverTimeServlet.java" afterPath="$PROJECT_DIR$/../oos/src/com/guet/oos/servlet/user/customer/CustomerSelectDeliverTimeServlet.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/../oos/src/com/guet/oos/servlet/user/GetShopCartInfoServlet.java" afterPath="$PROJECT_DIR$/../oos/src/com/guet/oos/servlet/user/customer/GetShopCartInfoServlet.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/../oos/src/com/guet/oos/servlet/user/GetTemporaryUserInfoServlet.java" afterPath="$PROJECT_DIR$/../oos/src/com/guet/oos/servlet/user/get/GetTemporaryUserInfoServlet.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/../oos/src/com/guet/oos/servlet/user/GetUserCurrentOrderInfoServlet.java" afterPath="$PROJECT_DIR$/../oos/src/com/guet/oos/servlet/user/get/GetUserCurrentOrderInfoServlet.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/../oos/src/com/guet/oos/servlet/user/GetUserFlagServlet.java" afterPath="$PROJECT_DIR$/../oos/src/com/guet/oos/servlet/user/get/GetUserFlagServlet.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/../oos/src/com/guet/oos/servlet/user/GetUserInfoServlet.java" afterPath="$PROJECT_DIR$/../oos/src/com/guet/oos/servlet/user/get/GetUserInfoServlet.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/../oos/src/com/guet/oos/servlet/user/ModifyUserNameServlet.java" afterPath="$PROJECT_DIR$/../oos/src/com/guet/oos/servlet/user/modify/ModifyUserNameServlet.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/../oos/src/com/guet/oos/servlet/user/ModifyUserPasswordServlet.java" afterPath="$PROJECT_DIR$/../oos/src/com/guet/oos/servlet/user/modify/ModifyUserPasswordServlet.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/../oos/src/com/guet/oos/servlet/user/ModifyUserSexServlet.java" afterPath="$PROJECT_DIR$/../oos/src/com/guet/oos/servlet/user/modify/ModifyUserSexServlet.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/../oos/src/com/guet/oos/servlet/user/PayServlet.java" afterPath="$PROJECT_DIR$/../oos/src/com/guet/oos/servlet/user/pay/PayServlet.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/../oos/src/com/guet/oos/servlet/user/SaveCustomerServlet.java" afterPath="$PROJECT_DIR$/../oos/src/com/guet/oos/servlet/user/save/SaveCustomerServlet.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/../oos/src/com/guet/oos/servlet/user/SelectDeliverTimeServlet.java" afterPath="$PROJECT_DIR$/../oos/src/com/guet/oos/servlet/user/select/SelectDeliverTimeServlet.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/../oos/src/com/guet/oos/servlet/user/SelectPayTypeServlet.java" afterPath="$PROJECT_DIR$/../oos/src/com/guet/oos/servlet/user/select/SelectPayTypeServlet.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/../oos/src/com/guet/oos/servlet/user/ShopCartSerlvet.java" afterPath="$PROJECT_DIR$/../oos/src/com/guet/oos/servlet/user/shopcart/ShopCartSerlvet.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/../oos/src/com/guet/oos/servlet/user/UserLoginServlet.java" afterPath="$PROJECT_DIR$/../oos/src/com/guet/oos/servlet/user/login/UserLoginServlet.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/../oos/src/com/guet/oos/servlet/user/UserLoginValidateServlet.java" afterPath="$PROJECT_DIR$/../oos/src/com/guet/oos/servlet/user/login/UserLoginValidateServlet.java" />
     </list>
     <ignored path="$PROJECT_DIR$/../oos/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -123,14 +110,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/../oos/src/com/guet/oos/dto/JsonReturn.java" />
-        <option value="$PROJECT_DIR$/../oos/src/com/guet/oos/dto/JsonEntityReturn.java" />
-        <option value="$PROJECT_DIR$/../oos/web/WEB-INF/web.xml" />
-        <option value="$PROJECT_DIR$/../oos/src/com/guet/oos/filter/RegUserAccessFilter.java" />
-        <option value="$PROJECT_DIR$/../oos/src/com/guet/oos/filter/FormalUserAccessFilter.java" />
-        <option value="$PROJECT_DIR$/../oos/src/com/guet/oos/filter/UniversalFilter.java" />
-        <option value="$PROJECT_DIR$/../oos/src/com/guet/oos/servlet/user/UserLoginValidateServlet.java" />
-        <option value="$PROJECT_DIR$/../oos/web/customer/肯德基宅急送外卖网上订餐官网-KFC优惠套餐-外送菜单-送餐网.html" />
         <option value="$PROJECT_DIR$/../oos/web/customer/Customer.jsp" />
         <option value="$PROJECT_DIR$/../oos/web/customer/asset/js/orderLogin.js" />
         <option value="$PROJECT_DIR$/../oos/src/com/guet/oos/service/DeliveryAddressService.java" />
@@ -174,6 +153,14 @@
         <option value="$PROJECT_DIR$/../oos/web/customer/asset/js/pay.js" />
         <option value="$PROJECT_DIR$/../oos/src/com/guet/oos/servlet/user/SaveCustomerServlet.java" />
         <option value="$PROJECT_DIR$/../oos/web/customer/asset/js/saveCustomer.js" />
+        <option value="$PROJECT_DIR$/../oos/src/com/guet/oos/servlet/user/modify/ModifyUserSexServlet.java" />
+        <option value="$PROJECT_DIR$/../oos/src/com/guet/oos/servlet/user/customer/GetShopCartInfoServlet.java" />
+        <option value="$PROJECT_DIR$/../oos/src/com/guet/oos/servlet/user/get/GetUserInfoServlet.java" />
+        <option value="$PROJECT_DIR$/../oos/src/com/guet/oos/servlet/user/pay/PayServlet.java" />
+        <option value="$PROJECT_DIR$/../oos/src/com/guet/oos/servlet/user/save/SaveCustomerServlet.java" />
+        <option value="$PROJECT_DIR$/../oos/src/com/guet/oos/servlet/user/select/SelectPayTypeServlet.java" />
+        <option value="$PROJECT_DIR$/../oos/src/com/guet/oos/servlet/user/shopcart/ShopCartSerlvet.java" />
+        <option value="$PROJECT_DIR$/../oos/src/com/guet/oos/servlet/user/login/UserLoginValidateServlet.java" />
       </list>
     </option>
   </component>
@@ -544,6 +531,44 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="user" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="oos" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="oos" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="com" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="guet" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="oos" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="servlet" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="user" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="customer" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -1513,7 +1538,7 @@
       <workItem from="1526730218844" duration="10938000" />
       <workItem from="1526741314630" duration="10554000" />
       <workItem from="1526754580197" duration="4861000" />
-      <workItem from="1526770620370" duration="13044000" />
+      <workItem from="1526770620370" duration="13304000" />
     </task>
     <task id="LOCAL-00001" summary="Initial commit">
       <created>1526515634515</created>
@@ -1606,7 +1631,14 @@
       <option name="project" value="LOCAL" />
       <updated>1526757865091</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="Initial commit">
+      <created>1526785014722</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1526785014722</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -1642,7 +1674,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="461862000" />
+    <option name="totallyTimeSpent" value="462122000" />
   </component>
   <component name="TodoView" selected-index="4">
     <todo-panel id="selected-file">
@@ -1668,7 +1700,7 @@
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2962963" sideWeight="0.6947917" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2962963" sideWeight="0.6947917" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.17989418" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.20952381" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -1678,7 +1710,7 @@
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.23995772" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.228125" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3125" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Web" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
@@ -1748,30 +1780,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/../oos/src/com/guet/oos/fields/AdministratorFields.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="336">
-          <caret line="16" column="0" lean-forward="true" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../oos/web/admin/dishes-management.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-882">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../oos/web/admin/history-comment.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/../oos/web/admin/history-order.jsp">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-693">
@@ -1809,8 +1817,8 @@
         <state relative-caret-position="231">
           <caret line="56" column="48" lean-forward="true" selection-start-line="56" selection-start-column="48" selection-end-line="56" selection-end-column="48" />
           <folding>
-            <element signature="n#style#0;n#a#0;n#div#0;n#div#0;n#div#0;n#div#2;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#input#0;n#div#0;n#div#0;n#div#0;n#div#2;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#a#0;n#div#0;n#div#0;n#div#0;n#div#2;n#body#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="n#style#0;n#input#0;n#div#0;n#div#0;n#div#0;n#div#2;n#body#0;n#html#0;n#!!top" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1863,7 +1871,7 @@
         <state relative-caret-position="231">
           <caret line="20" column="25" lean-forward="false" selection-start-line="20" selection-start-column="25" selection-end-line="20" selection-end-column="25" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="imports" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1891,9 +1899,9 @@
         <state relative-caret-position="1383">
           <caret line="68" column="18" lean-forward="false" selection-start-line="68" selection-start-column="18" selection-end-line="68" selection-end-column="18" />
           <folding>
-            <element signature="n#style#0;n#a#0;n#div#0;n#div#0;n#div#0;n#div#2;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#input#0;n#div#0;n#div#0;n#div#0;n#div#2;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#input#0;n#th#0;n#tr#0;n#thead#0;n#table#0;n#div#1;n#div#0;n#div#0;n#div#2;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#a#0;n#div#0;n#div#0;n#div#0;n#div#2;n#body#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="n#style#0;n#input#0;n#div#0;n#div#0;n#div#0;n#div#2;n#body#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="n#style#0;n#input#0;n#th#0;n#tr#0;n#thead#0;n#table#0;n#div#1;n#div#0;n#div#0;n#div#2;n#body#0;n#html#0;n#!!top" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1903,19 +1911,9 @@
         <state relative-caret-position="546">
           <caret line="65" column="49" lean-forward="true" selection-start-line="65" selection-start-column="49" selection-end-line="65" selection-end-column="49" />
           <folding>
-            <element signature="n#style#0;n#a#0;n#div#0;n#div#0;n#div#0;n#div#2;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#input#0;n#div#0;n#div#0;n#div#0;n#div#2;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#input#0;n#th#0;n#tr#0;n#thead#0;n#table#0;n#div#1;n#div#0;n#div#0;n#div#2;n#body#0;n#html#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../oos/src/com/guet/oos/servlet/user/CustomerConfirmServlet.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="252">
-          <caret line="33" column="51" lean-forward="true" selection-start-line="33" selection-start-column="51" selection-end-line="33" selection-end-column="51" />
-          <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="n#style#0;n#a#0;n#div#0;n#div#0;n#div#0;n#div#2;n#body#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="n#style#0;n#input#0;n#div#0;n#div#0;n#div#0;n#div#2;n#body#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="n#style#0;n#input#0;n#th#0;n#tr#0;n#thead#0;n#table#0;n#div#1;n#div#0;n#div#0;n#div#2;n#body#0;n#html#0;n#!!top" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1960,42 +1958,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../oos/src/com/guet/oos/servlet/user/ShopCartSerlvet.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="357">
-          <caret line="54" column="0" lean-forward="true" selection-start-line="54" selection-start-column="0" selection-end-line="54" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/../oos/web/customer/asset/js/orderLogin.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="105">
           <caret line="5" column="39" lean-forward="true" selection-start-line="5" selection-start-column="39" selection-end-line="5" selection-end-column="39" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../oos/src/com/guet/oos/servlet/user/GetTemporaryUserInfoServlet.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-15">
-          <caret line="18" column="13" lean-forward="false" selection-start-line="18" selection-start-column="13" selection-end-line="18" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../oos/src/com/guet/oos/servlet/user/SelectDeliverTimeServlet.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="363">
-          <caret line="40" column="50" lean-forward="true" selection-start-line="40" selection-start-column="50" selection-end-line="40" selection-end-column="50" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../oos/src/com/guet/oos/servlet/user/SelectPayTypeServlet.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-210">
-          <caret line="18" column="13" lean-forward="false" selection-start-line="18" selection-start-column="13" selection-end-line="18" selection-end-column="13" />
           <folding />
         </state>
       </provider>
@@ -2043,14 +2009,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../oos/src/com/guet/oos/servlet/user/GetUserInfoServlet.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-99">
-          <caret line="18" column="13" lean-forward="false" selection-start-line="18" selection-start-column="13" selection-end-line="18" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/../oos/web/customer/asset/js/customer.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-4586">
@@ -2059,46 +2017,6 @@
             <marker date="1526780354503" expanded="true" signature="2473:2517" ph="..." />
             <marker date="1526780354503" expanded="true" signature="4917:4967" ph="..." />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../oos/src/com/guet/oos/servlet/user/ModifyUserNameServlet.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-315">
-          <caret line="21" column="13" lean-forward="false" selection-start-line="21" selection-start-column="13" selection-end-line="21" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../oos/src/com/guet/oos/servlet/user/ModifyUserPasswordServlet.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-399">
-          <caret line="21" column="13" lean-forward="false" selection-start-line="21" selection-start-column="13" selection-end-line="21" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../oos/src/com/guet/oos/servlet/user/ModifyUserSexServlet.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="357">
-          <caret line="46" column="28" lean-forward="true" selection-start-line="46" selection-start-column="28" selection-end-line="46" selection-end-column="28" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../oos/src/com/guet/oos/servlet/user/PayServlet.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1149">
-          <caret line="29" column="13" lean-forward="false" selection-start-line="29" selection-start-column="13" selection-end-line="29" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../oos/src/com/guet/oos/servlet/user/RegCustomerServlet.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-99">
-          <caret line="13" column="13" lean-forward="false" selection-start-line="13" selection-start-column="13" selection-end-line="13" selection-end-column="13" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -2127,30 +2045,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../oos/src/com/guet/oos/servlet/user/CustomerExitServlet.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="483">
-          <caret line="35" column="41" lean-forward="false" selection-start-line="35" selection-start-column="31" selection-end-line="35" selection-end-column="41" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../oos/src/com/guet/oos/servlet/user/CustomerSelectDeliverTimeServlet.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="44">
-          <caret line="27" column="7" lean-forward="true" selection-start-line="27" selection-start-column="7" selection-end-line="27" selection-end-column="7" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../oos/src/com/guet/oos/servlet/user/GetUserFlagServlet.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="233">
-          <caret line="32" column="0" lean-forward="true" selection-start-line="32" selection-start-column="0" selection-end-line="32" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/../oos/src/com/guet/oos/constant/UserExist.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="126">
@@ -2167,16 +2061,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../oos/src/com/guet/oos/servlet/user/SaveCustomerServlet.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="189">
-          <caret line="57" column="0" lean-forward="false" selection-start-line="57" selection-start-column="0" selection-end-line="57" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/../oos/web/customer/asset/js/regPay.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="273">
@@ -2189,14 +2073,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="210">
           <caret line="10" column="0" lean-forward="true" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../oos/src/com/guet/oos/servlet/user/CustomerRegAgreeServlet.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="5" column="42" lean-forward="true" selection-start-line="5" selection-start-column="42" selection-end-line="5" selection-end-column="42" />
           <folding />
         </state>
       </provider>
@@ -2217,10 +2093,166 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../oos/src/com/guet/oos/servlet/user/GetShopCartInfoServlet.java">
+    <entry file="file://$PROJECT_DIR$/../oos/src/com/guet/oos/servlet/user/modify/ModifyUserSexServlet.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="317">
-          <caret line="38" column="0" lean-forward="true" selection-start-line="38" selection-start-column="0" selection-end-line="38" selection-end-column="0" />
+        <state relative-caret-position="168">
+          <caret line="20" column="13" lean-forward="false" selection-start-line="20" selection-start-column="13" selection-end-line="20" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../oos/src/com/guet/oos/servlet/user/modify/ModifyUserNameServlet.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="21">
+          <caret line="21" column="13" lean-forward="false" selection-start-line="21" selection-start-column="13" selection-end-line="21" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../oos/src/com/guet/oos/servlet/user/modify/ModifyUserPasswordServlet.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="21">
+          <caret line="21" column="13" lean-forward="false" selection-start-line="21" selection-start-column="13" selection-end-line="21" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../oos/src/com/guet/oos/servlet/user/customer/CustomerExitServlet.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="156">
+          <caret line="16" column="13" lean-forward="false" selection-start-line="16" selection-start-column="13" selection-end-line="16" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../oos/src/com/guet/oos/servlet/user/customer/CustomerRegAgreeServlet.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-9">
+          <caret line="19" column="13" lean-forward="false" selection-start-line="19" selection-start-column="13" selection-end-line="19" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../oos/src/com/guet/oos/servlet/user/customer/CustomerSelectDeliverTimeServlet.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-9">
+          <caret line="21" column="13" lean-forward="false" selection-start-line="21" selection-start-column="13" selection-end-line="21" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../oos/src/com/guet/oos/servlet/user/customer/GetShopCartInfoServlet.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="168">
+          <caret line="17" column="13" lean-forward="false" selection-start-line="17" selection-start-column="13" selection-end-line="17" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../oos/src/com/guet/oos/servlet/user/customer/CustomerConfirmServlet.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="114">
+          <caret line="18" column="13" lean-forward="false" selection-start-line="18" selection-start-column="13" selection-end-line="18" selection-end-column="13" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../oos/src/com/guet/oos/servlet/user/get/GetUserCurrentOrderInfoServlet.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-9">
+          <caret line="24" column="13" lean-forward="false" selection-start-line="24" selection-start-column="13" selection-end-line="24" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../oos/src/com/guet/oos/servlet/user/get/GetUserFlagServlet.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="18" column="13" lean-forward="false" selection-start-line="18" selection-start-column="13" selection-end-line="18" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../oos/src/com/guet/oos/servlet/user/get/GetUserInfoServlet.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="168">
+          <caret line="18" column="13" lean-forward="false" selection-start-line="18" selection-start-column="13" selection-end-line="18" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../oos/src/com/guet/oos/servlet/user/get/GetTemporaryUserInfoServlet.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="156">
+          <caret line="18" column="13" lean-forward="false" selection-start-line="18" selection-start-column="13" selection-end-line="18" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../oos/src/com/guet/oos/servlet/user/pay/PayServlet.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="21">
+          <caret line="29" column="13" lean-forward="false" selection-start-line="29" selection-start-column="13" selection-end-line="29" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../oos/src/com/guet/oos/servlet/user/RegCustomerServlet.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="168">
+          <caret line="13" column="13" lean-forward="false" selection-start-line="13" selection-start-column="13" selection-end-line="13" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../oos/src/com/guet/oos/servlet/user/save/SaveCustomerServlet.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="189">
+          <caret line="28" column="13" lean-forward="false" selection-start-line="28" selection-start-column="13" selection-end-line="28" selection-end-column="13" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../oos/src/com/guet/oos/servlet/user/select/SelectPayTypeServlet.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="18" column="13" lean-forward="false" selection-start-line="18" selection-start-column="13" selection-end-line="18" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../oos/src/com/guet/oos/servlet/user/shopcart/ShopCartSerlvet.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="168">
+          <caret line="31" column="13" lean-forward="false" selection-start-line="31" selection-start-column="13" selection-end-line="31" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../oos/src/com/guet/oos/servlet/user/select/SelectDeliverTimeServlet.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="72">
+          <caret line="19" column="13" lean-forward="false" selection-start-line="19" selection-start-column="13" selection-end-line="19" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../oos/src/com/guet/oos/servlet/user/login/UserLoginValidateServlet.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="21">
+          <caret line="26" column="13" lean-forward="false" selection-start-line="26" selection-start-column="13" selection-end-line="26" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../oos/src/com/guet/oos/servlet/user/login/UserLoginServlet.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="21">
+          <caret line="25" column="13" lean-forward="false" selection-start-line="25" selection-start-column="13" selection-end-line="25" selection-end-column="13" />
           <folding />
         </state>
       </provider>

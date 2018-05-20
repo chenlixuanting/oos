@@ -1,4 +1,4 @@
-package com.guet.oos.servlet.user;
+package com.guet.oos.servlet.user.save;
 
 import com.alibaba.fastjson.JSONObject;
 import com.guet.oos.constant.SessionKey;

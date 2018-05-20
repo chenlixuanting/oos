@@ -1,4 +1,4 @@
-package com.guet.oos.servlet.user;
+package com.guet.oos.servlet.user.modify;
 
 import com.alibaba.fastjson.JSONObject;
 import com.guet.oos.constant.JsonReturnCode;
