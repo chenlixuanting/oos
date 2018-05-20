@@ -13,4 +13,5 @@ public interface AdministratorService {
 
     public List<Administrator> findByUsername(String username);
 
+    public boolean updateAdministratorPassword(long mgId, String newPassword);
 }

@@ -17,8 +17,6 @@ public class Administrator implements Serializable {
 
     private String password;// 密码
 
-    private String picAddress;// 管理员头像地址
-
     private boolean maximumAuthority;// 最高权限
 
     private String creator;// 创建者
@@ -27,11 +25,10 @@ public class Administrator implements Serializable {
 
     private String updateTime;// 更新时间
 
-    public Administrator(long mgId, String username, String password, String picAddress, boolean maximumAuthority, String creator, String creatorTime, String updateTime) {
+    public Administrator(long mgId, String username, String password, boolean maximumAuthority, String creator, String creatorTime, String updateTime) {
         this.mgId = mgId;
         this.username = username;
         this.password = password;
-        this.picAddress = picAddress;
         this.maximumAuthority = maximumAuthority;
         this.creator = creator;
         this.creatorTime = creatorTime;
@@ -63,14 +60,6 @@ public class Administrator implements Serializable {
 
     public void setPassword(String password) {
         this.password = password;
-    }
-
-    public String getPicAddress() {
-        return picAddress;
-    }
-
-    public void setPicAddress(String picAddress) {
-        this.picAddress = picAddress;
     }
 
     public boolean isMaximumAuthority() {
@@ -111,7 +100,6 @@ public class Administrator implements Serializable {
                 "mgId=" + mgId +
                 ", username='" + username + '\'' +
                 ", password='" + password + '\'' +
-                ", picAddress='" + picAddress + '\'' +
                 ", maximumAuthority=" + maximumAuthority +
                 ", creator='" + creator + '\'' +
                 ", creatorTime='" + creatorTime + '\'' +

@@ -9,11 +9,10 @@ $(function () {
         type: "POST",
         dataType: "json",
         success: function (data) {
+
             var d = eval(data);
 
-            if (d != null) {
-                $("#input_box_iphone").html(d.mobile);
-            }
+            $("#input_box_iphone").html(d.mobile);
 
         }
     });
@@ -78,14 +77,14 @@ $(function () {
 
                     alert(codeMessage.success0);
 
-                    location.assign("pay.jsp");
+                    location.assign("regPay.jsp");
                 } else {
 
                     //提示注册用户失败
                     alert(codeMessage.error5);
 
                     //跳转到登陆界面
-                    location.assign("orderLogin.jsp");
+                    location.replace("orderLogin.jsp");
                 }
             }
         });

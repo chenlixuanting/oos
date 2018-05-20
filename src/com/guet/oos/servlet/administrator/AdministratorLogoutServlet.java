@@ -1,8 +1,4 @@
-package com.guet.oos.servlet.user;
-
-import com.alibaba.fastjson.JSONObject;
-import com.guet.oos.constant.SessionKey;
-import com.guet.oos.po.ShopCart;
+package com.guet.oos.servlet.administrator;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -12,17 +8,17 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
 /**
- * Created by Shinelon on 2018/5/17.
+ * Created by Shinelon on 2018/5/20.
  */
-@WebServlet("/customer/getShopCartInfo.action")
-public class GetShopCartInfoServlet extends HttpServlet {
+@WebServlet("/admin/AdministratorLogout.action")
+public class AdministratorLogoutServlet extends HttpServlet {
 
     private static final long serialVersionUID = 1L;
 
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public GetShopCartInfoServlet() {
+    public AdministratorLogoutServlet() {
         super();
     }
 
@@ -31,9 +27,11 @@ public class GetShopCartInfoServlet extends HttpServlet {
      */
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-        Object shopCart = request.getSession().getAttribute(SessionKey.SHOP_CART);
+        //销毁Session
+        request.getSession().invalidate();
 
-        response.getWriter().write(JSONObject.toJSONString(shopCart));
+        //跳转到登陆界面
+        response.sendRedirect("signin.jsp");
 
     }
 
@@ -41,6 +39,7 @@ public class GetShopCartInfoServlet extends HttpServlet {
      * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
      */
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        // TODO Auto-generated method stub
         doGet(request, response);
     }
 

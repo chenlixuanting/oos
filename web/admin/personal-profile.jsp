@@ -37,14 +37,6 @@
     <div class="container-fluid">
         <div class="settings-wrapper" id="pad-wrapper">
 
-            <div class="span3 avatar-box">
-                <div class="personal-image">
-                    <img src="img/personal-info.png" class="avatar img-circle">
-                    <p>更换头像</p>
-                    <input type="file">
-                </div>
-            </div>
-
             <div class="span7 personal-info">
                 <div class="alert alert-info">
                     <i class="icon-lightbulb"></i>
@@ -53,41 +45,46 @@
                 </div>
                 <h5 class="personal-title">管理员个人信息</h5>
 
-                <form>
-                    <div class="field-box">
-                        <label>姓名:</label>
-                        <input class="span5 inline-input" type="text" value="Alejandra">
-                    </div>
-                    <div class="field-box">
-                        <label>账号:</label>
-                        <input class="span5 inline-input" type="text" value="Galvan">
-                    </div>
-                    <div class="field-box">
-                        <label>密码:</label>
-                        <input class="span5 inline-input" type="text" value="Design Co.">
-                    </div>
-                    <div class="field-box">
-                        <label>Email:</label>
-                        <input class="span5 inline-input" type="text" value="alejandra@design.com">
-                    </div>
-                    <div class="field-box">
-                        <label>管理员ID:</label>
-                        <input class="span5 inline-input" type="text" value="alegalvan">
-                    </div>
-                    <div class="field-box">
-                        <label>新密码:</label>
-                        <input class="span5 inline-input" type="password" value="">
-                    </div>
-                    <div class="field-box">
-                        <label>再次确认新密码:</label>
-                        <input class="span5 inline-input" type="password" value="">
-                    </div>
-                    <div class="span6 field-box actions">
-                        <input type="button" class="btn-glow primary" value="更改设置">
-                        <span>或</span>
-                        <input type="reset" value="取消" class="reset">
-                    </div>
-                </form>
+                <div class="field-box">
+                    <label>管理员ID:</label>
+                    <input class="span5 inline-input" id="mgId" type="text" disabled="disabled">
+                </div>
+
+                <div class="field-box">
+                    <label>账号:</label>
+                    <input class="span5 inline-input" type="text" id="username" disabled="disabled">
+                </div>
+
+                <div class="field-box">
+                    <label>密码:</label>
+                    <input class="span5 inline-input" type="text" id="password" disabled="disabled">
+                </div>
+
+                <div class="field-box">
+                    <label>创建者:</label>
+                    <input class="span5 inline-input" type="text" id="creator" disabled="disabled">
+                </div>
+
+                <div class="field-box">
+                    <label>是否具备最高权限:</label>
+                    <input class="span5 inline-input" type="text" id="maximumAuthority" disabled="disabled">
+                </div>
+
+                <div class="field-box">
+                    <label>新密码:</label>
+                    <input class="span5 inline-input" id="newPassword" type="password">
+                </div>
+
+                <div class="field-box">
+                    <label>再次确认新密码:</label>
+                    <input class="span5 inline-input" id="reNewPassword" type="password">
+                </div>
+
+                <div class="span6 field-box actions">
+                    <input type="button" class="btn-glow primary" id="submit" value="更改设置">
+                    <span>或</span>
+                    <input type="reset" value="取消" id="reset" class="reset">
+                </div>
             </div>
         </div>
     </div>
@@ -96,6 +93,7 @@
 <script src="http://code.jquery.com/jquery-latest.js"></script>
 <script src="js/bootstrap.min.js"></script>
 <script src="js/theme.js"></script>
+<script type="text/javascript" src="asset/js/personal-profile.js"></script>
 
 </body>
 </html>

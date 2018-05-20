@@ -3,17 +3,17 @@
  */
 $(function () {
 
-    $.ajax({
-
-        url: "getUserFlag.action",
-        type: "POST",
-        dataType: "json",
-        success: function (data) {
-
-            var d = eval(data);
-
-        }
-    });
+    /**
+     * 禁用浏览器回退功能
+     */
+    if (window.history && window.history.pushState) {
+        $(window).on('popstate', function () {
+            window.history.pushState('forward', null, '#');
+            window.history.forward(1);
+        });
+    }
+    window.history.pushState('forward', null, '#'); //在IE中必须得有这两行
+    window.history.forward(1);
 
     /**
      * 获取用户的购物车

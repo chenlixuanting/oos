@@ -11,4 +11,5 @@ public interface AdministratorDao extends IDAO<Long, Administrator> {
 
     public List<Administrator> findByUsername(String username);
 
+    public boolean updateAdministratorPassword(long mgId, String newPassword);
 }

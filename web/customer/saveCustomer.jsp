@@ -34,7 +34,7 @@
 
 </head>
 <body>
-<form id="mainForm" action="">
+<form id="mainForm" action="SaveCustomer.action" method="post">
     <!-- top -->
     <div id="top">
         <div class="top_menu">
@@ -78,6 +78,7 @@
         <div class="clear"></div>
     </div>
     <div id="content">
+        <%--<form action="SaveCustomer.action" method="post" enctype="application/x-www-form-urlencoded">--%>
         <div class="confirmation_order">
             <div class="confirmation_order_title">
                 <img src="images/step_3.gif" border="0" usemap="#Map"/>
@@ -120,10 +121,11 @@
                     </ul>
                     <ul id="password_new">
                         <li id="setPassword">
-                            <div class="userinfo_til"><span class="red">*</span> <span class="pr_num_jiange">密码</span>：
+                            <div class="userinfo_til"><span class="red">*</span> <span
+                                    class="pr_num_jiange">密码</span>：
                             </div>
                             <div class="input_box">
-                                <input type="password" id="password" name='userPassword' maxlength="16"
+                                <input type="password" id="password" name='password' maxlength="16"
                                        style="display:block;" value='请输入密码'/>
                                 <%--<input type="text" id="password11" value='请输入密码'/>--%>
                             </div>
@@ -161,9 +163,10 @@
                 <!--协议结束-->
             </div>
             <input type="button" class="b_shang" id="back_menu_btn1"/>
-            <input type="button" class="b_xia" id="submit_btn"/>
+            <input type="submit" class="b_xia" id="submit_btn" value=""/>
             <div class="clear"></div>
         </div>
+        <%--</form>--%>
     </div>
     <input id="user_flag" value="true" style="display: none;"/>
 

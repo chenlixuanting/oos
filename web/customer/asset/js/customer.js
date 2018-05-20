@@ -27,19 +27,10 @@ $(function () {
 
             var d = eval(data);
 
-            if (d != "null") {
+            var json = eval(d.defaultDeliverAddress);
 
-                var json = eval(d.defaultDeliverAddress);
-
-                //初始化页面地址
-                initDeliverAddress(json);
-
-            } else {
-
-                alert("用户未登录!");
-
-                location.assign("orderLogin.jsp");
-            }
+            //初始化页面地址
+            initDeliverAddress(json);
 
         }
     });

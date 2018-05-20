@@ -2,8 +2,6 @@ package com.guet.oos.servlet.user;
 
 import com.alibaba.fastjson.JSONObject;
 import com.guet.oos.constant.SessionKey;
-import com.guet.oos.dto.JsonEntityReturn;
-import com.guet.oos.dto.JsonReturn;
 import com.guet.oos.dto.TemporaryUserInfo;
 
 import javax.servlet.ServletException;
@@ -35,11 +33,7 @@ public class CustomerConfirmServlet extends HttpServlet {
 
         HttpSession session = request.getSession();
 
-        Object temporaryUserInfo = session.getAttribute(SessionKey.TEMPORARY_USER_INFO);
-
-        if (temporaryUserInfo == null) {
-            response.getWriter().write("null");
-        }
+        TemporaryUserInfo temporaryUserInfo = (TemporaryUserInfo) session.getAttribute(SessionKey.TEMPORARY_USER_INFO);
 
         //返回Success以及temporaryUserInfo实体的Json格式数据
         response.getWriter().write(JSONObject.toJSONString(temporaryUserInfo));

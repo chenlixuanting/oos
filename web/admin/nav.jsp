@@ -89,7 +89,7 @@
     </li>
 
     <li>
-        <a href="./logout">
+        <a href="AdministratorLogout.action">
             <i class="icon-share-alt"></i>
             <span>退出</span>
         </a>

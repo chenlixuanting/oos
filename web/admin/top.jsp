@@ -72,7 +72,7 @@
 	            </a>
 	        </li>
 	        <li class="settings hidden-phone">
-	            <a href="signin.jsp" role="button">
+                <a href="AdministratorLogout.action" role="button">
 	                <i class="icon-share-alt"></i>
 	            </a>
 	        </li>

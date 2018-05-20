@@ -24,17 +24,16 @@ public class AdministratorDaoImpl extends AbstractDAOImpl implements Administrat
     @Override
     public boolean doCreate(Administrator vo) {
 
-        String sql = "insert into administrator_table(username,password,picAddress,maximumAuthority,creator,creatorTime,updateTime) values(?,?,?,?,?,?,?)";
+        String sql = "insert into administrator_table(username,password,maximumAuthority,creator,creatorTime,updateTime) values(?,?,?,?,?,?)";
 
         try {
             super.pstmt = super.conn.prepareStatement(sql);
             super.pstmt.setString(1, vo.getUsername());
             super.pstmt.setString(2, vo.getPassword());
-            super.pstmt.setString(3, vo.getPicAddress());
-            super.pstmt.setBoolean(4, vo.isMaximumAuthority());
-            super.pstmt.setString(5, vo.getCreator());
-            super.pstmt.setString(6, vo.getCreatorTime());
-            super.pstmt.setString(7, vo.getUpdateTime());
+            super.pstmt.setBoolean(3, vo.isMaximumAuthority());
+            super.pstmt.setString(4, vo.getCreator());
+            super.pstmt.setString(5, vo.getCreatorTime());
+            super.pstmt.setString(6, vo.getUpdateTime());
             pstmt.execute();
         } catch (Exception e) {
             e.printStackTrace();
@@ -105,7 +104,6 @@ public class AdministratorDaoImpl extends AbstractDAOImpl implements Administrat
                 a.setMaximumAuthority(res.getBoolean(AdministratorFields.MAXIMUM_AUTHORITY));
                 a.setMgId(res.getLong(AdministratorFields.MGID));
                 a.setPassword(res.getString(AdministratorFields.PASSWORD));
-                a.setPicAddress(res.getString(AdministratorFields.PIC_ADDRESS));
                 a.setUpdateTime(res.getString(AdministratorFields.UPDATETIME));
                 a.setUsername(res.getString(AdministratorFields.USERNAME));
                 admins.add(a);
@@ -116,5 +114,23 @@ public class AdministratorDaoImpl extends AbstractDAOImpl implements Administrat
         }
 
         return admins;
+    }
+
+    @Override
+    public boolean updateAdministratorPassword(long mgId, String newPassword) {
+
+        String sql = "update administrator_table set password=? where mgId=?";
+
+        try {
+            pstmt = conn.prepareStatement(sql);
+            pstmt.setLong(2, mgId);
+            pstmt.setString(1, newPassword);
+            pstmt.executeUpdate();
+            return true;
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return false;
     }
 }

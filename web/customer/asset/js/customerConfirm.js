@@ -27,17 +27,8 @@ $(function () {
 
             var d = eval(data);
 
-            if (d != "null") {
-
-                //初始化页面地址
-                initDeliverAddress(d);
-
-            } else {
-
-                alert("用户未登录!");
-
-                location.assign("orderLogin.jsp");
-            }
+            //初始化页面地址
+            initDeliverAddress(d);
 
         }
     });
@@ -48,8 +39,6 @@ $(function () {
     $("#nextStep").click(function () {
 
         var timeStr = inputDate.val() + " " + inputHour.val() + "时" + inputMinute.val() + "分";
-
-        // alert(timeStr);
 
         // 保存用户所选择的发货的时间
         $.ajax({
@@ -63,17 +52,8 @@ $(function () {
 
                 var d = eval(data);
 
-                var flag = d.head == "true" ? true : false;
-
-                if (flag) {
-
-                    //跳转到购物页面
-                    location.assign("regCustomer.jsp");
-                } else {
-                    alert("用户未登录!");
-                    location.assign("orderLogin.jsp");
-
-                }
+                //跳转到购物页面
+                location.assign("regCustomer.jsp");
 
             }
         });

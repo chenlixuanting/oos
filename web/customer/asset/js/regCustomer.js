@@ -267,13 +267,8 @@ $(function () {
 
             var d = eval(data);
 
-            if (d != "null") {
-                //初始化页面地址
-                addAddress(d);
-            } else {
-                alert("用户未登录!");
-                location.assign("orderLogin.jsp");
-            }
+            //初始化页面地址
+            addAddress(d);
 
         }
     });
@@ -331,11 +326,6 @@ function updateShopCart() {
 
             //添加购物车成功,修改相应页面
             var d = eval(data);
-
-            if (d == "null") {
-                alert("用户未登录!");
-                location.assign("orderLogin.jsp");
-            }
 
             //清空购物车的信息
             $("#cart_menus").html("");

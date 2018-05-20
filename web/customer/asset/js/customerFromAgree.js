@@ -14,7 +14,6 @@ $(function () {
      * 请求CustomerRegAgree.action保存新用户的信息
      */
     $("#saveAddressBtn").click(
-
         function () {
             /*校验*/
             var cityName = $("#cityName").val();
@@ -68,7 +67,7 @@ $(function () {
                 success: function (data) {
 
                     var d = eval(data);
-                    console.log(111);
+
                     if (d.head) {
                         location.assign("customerConfirm.jsp");
                     } else {

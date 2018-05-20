@@ -1,28 +1,30 @@
-package com.guet.oos.servlet.user;
+package com.guet.oos.servlet.administrator;
 
 import com.alibaba.fastjson.JSONObject;
 import com.guet.oos.constant.SessionKey;
-import com.guet.oos.po.ShopCart;
+import com.guet.oos.po.Administrator;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import java.io.IOException;
 
 /**
- * Created by Shinelon on 2018/5/17.
+ * 将当前管理员的信息以json格式的形式返回
+ * <p>
+ * Created by Shinelon on 2018/5/20.
  */
-@WebServlet("/customer/getShopCartInfo.action")
-public class GetShopCartInfoServlet extends HttpServlet {
-
+@WebServlet("/admin/getCurrentAdministratorInfo.action")
+public class getCurrentAdminstratorInfoServlet extends HttpServlet {
     private static final long serialVersionUID = 1L;
 
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public GetShopCartInfoServlet() {
+    public getCurrentAdminstratorInfoServlet() {
         super();
     }
 
@@ -31,9 +33,11 @@ public class GetShopCartInfoServlet extends HttpServlet {
      */
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-        Object shopCart = request.getSession().getAttribute(SessionKey.SHOP_CART);
+        HttpSession httpSession = request.getSession();
 
-        response.getWriter().write(JSONObject.toJSONString(shopCart));
+        Administrator currentAdministrator = (Administrator) httpSession.getAttribute(SessionKey.ADMINISTRATOR);
+
+        response.getWriter().write(JSONObject.toJSONString(currentAdministrator));
 
     }
 
@@ -41,6 +45,7 @@ public class GetShopCartInfoServlet extends HttpServlet {
      * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
      */
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        // TODO Auto-generated method stub
         doGet(request, response);
     }
 

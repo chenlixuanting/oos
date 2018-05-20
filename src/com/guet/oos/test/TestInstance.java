@@ -52,7 +52,6 @@ public class TestInstance {
 
         administrator.setUsername("admin");
         administrator.setUpdateTime(sf.format(new Date()));
-        administrator.setPicAddress("123.png");
         administrator.setPassword("admin");
         administrator.setMaximumAuthority(true);
         administrator.setCreatorTime(sf.format(new Date()));

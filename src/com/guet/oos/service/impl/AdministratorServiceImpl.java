@@ -35,4 +35,9 @@ public class AdministratorServiceImpl implements AdministratorService {
     public List<Administrator> findByUsername(String username) {
         return administratorDao.findByUsername(username);
     }
+
+    @Override
+    public boolean updateAdministratorPassword(long mgId, String newPassword) {
+        return administratorDao.updateAdministratorPassword(mgId, newPassword);
+    }
 }
