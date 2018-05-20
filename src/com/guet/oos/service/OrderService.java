@@ -13,4 +13,11 @@ public interface OrderService {
 
     public List<Order> getUserCurrentOrderByUserId(long usId);
 
+    public int getAllCount();
+
+    public List<Order> getList(int start, int length);
+
+    public List<Order> getCurrentOrderList(int start, int length);
+
+    public int currentOrderCount();
 }

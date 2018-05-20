@@ -131,6 +131,13 @@ $(function () {
      */
     $(".subBtn").click(function () {
 
+        var selectPayType = $("input[name='payType'][checked='checked']").length;
+
+        if (selectPayType == 0) {
+            alert("您还未选择付款方式！");
+            return;
+        }
+
         $.ajax({
             url: "Pay.action?" + new Date().getTime(),
             type: "POST",

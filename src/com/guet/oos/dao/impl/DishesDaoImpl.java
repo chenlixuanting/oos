@@ -127,13 +127,9 @@ public class DishesDaoImpl extends AbstractDAOImpl implements DishesDao {
     @Override
     public List<Dishes> getList(int start, int length) {
 
-        int num1 = length + start;
-
-        int num2 = start;
-
         List<Dishes> dishesList = null;
 
-        String sql = "select top " + num1 + " * from dishes_table where dsId not in (select top " + num2 +
+        String sql = "select top " + length + " * from dishes_table where dsId not in (select top " + start +
                 " dsId from dishes_table)";
 
         try {

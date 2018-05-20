@@ -3,18 +3,6 @@
  */
 $(function () {
 
-    $.ajax({
-
-        url: "getUserFlag.action",
-        type: "POST",
-        dataType: "json",
-        success: function (data) {
-
-            var d = eval(data);
-
-        }
-    });
-
     /**
      * 获取用户的购物车
      */

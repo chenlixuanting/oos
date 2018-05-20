@@ -23,22 +23,40 @@ public class User implements Serializable {
 
     private DeliveryAddress defaultDeliverAddress;//默认送货地址
 
+    private String deliverAddress;//默认送货地址
+
     private String creatorTime;// 创建时间
 
     private String updateTime;// 修改时间
 
-    public User(long usId, String mobile, String password, String username, String sex, DeliveryAddress defaultDeliverAddress, String creatorTime, String updateTime) {
+    public User(long usId, String mobile, String password, String username, String sex, DeliveryAddress defaultDeliverAddress, String deliverAddress, String creatorTime, String updateTime) {
         this.usId = usId;
         this.mobile = mobile;
         this.password = password;
         this.username = username;
         this.sex = sex;
         this.defaultDeliverAddress = defaultDeliverAddress;
+        this.deliverAddress = deliverAddress;
         this.creatorTime = creatorTime;
         this.updateTime = updateTime;
     }
 
     public User() {
+    }
+
+    @Override
+    public String toString() {
+        return "User{" +
+                "usId=" + usId +
+                ", mobile='" + mobile + '\'' +
+                ", password='" + password + '\'' +
+                ", username='" + username + '\'' +
+                ", sex='" + sex + '\'' +
+                ", defaultDeliverAddress=" + defaultDeliverAddress +
+                ", deliverAddress='" + deliverAddress + '\'' +
+                ", creatorTime='" + creatorTime + '\'' +
+                ", updateTime='" + updateTime + '\'' +
+                '}';
     }
 
     public long getUsId() {
@@ -89,6 +107,14 @@ public class User implements Serializable {
         this.defaultDeliverAddress = defaultDeliverAddress;
     }
 
+    public String getDeliverAddress() {
+        return deliverAddress;
+    }
+
+    public void setDeliverAddress(String deliverAddress) {
+        this.deliverAddress = deliverAddress;
+    }
+
     public String getCreatorTime() {
         return creatorTime;
     }
@@ -103,19 +129,5 @@ public class User implements Serializable {
 
     public void setUpdateTime(String updateTime) {
         this.updateTime = updateTime;
-    }
-
-    @Override
-    public String toString() {
-        return "User{" +
-                "usId=" + usId +
-                ", mobile='" + mobile + '\'' +
-                ", password='" + password + '\'' +
-                ", username='" + username + '\'' +
-                ", sex='" + sex + '\'' +
-                ", defaultDeliverAddress=" + defaultDeliverAddress +
-                ", creatorTime='" + creatorTime + '\'' +
-                ", updateTime='" + updateTime + '\'' +
-                '}';
     }
 }

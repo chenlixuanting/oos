@@ -75,49 +75,51 @@ $(function () {
         searching: false,//搜索
         iDisplayLength: displayRowsEachPage,
         language: {
-
             paginate: {//分页的样式内容。
                 previous: "上一页",
                 next: "下一页",
                 first: "第一页",
                 last: "最后"
             },
-
             zeroRecords: "没有内容",//table tbody内容为空时，tbody的内容。
             //下面三者构成了总体的左下角的内容。
             info: "总共_PAGES_ 页，显示第_START_ 到第 _END_ ，筛选之后得到 _TOTAL_ 条，初始_MAX_ 条 ",//左下角的信息显示，大写的词为关键字。
             infoEmpty: "0条记录",//筛选为空时左下角的显示。
             infoFiltered: ""//筛选之后的左下角筛选提示，
         },
+
+        /**
+         <th class="span2 sortable">订单号</th>
+         <th class="span2 sortable">用户名</th>
+         <th class="span2 sortable">收获地址</th>
+         <th class="span2 sortable">支出总金额</th>
+         <th class="span2 sortable">商品数量</th>
+         <th class="span2 sortable">配送费用</th>
+         <th class="span4 sortable">商品开销</th>
+         <th class="span2 sortable">付款方式</th>
+         <th class="span2 sortable">创建时间</th>
+         <th class="span2 sortable">更新时间</th>
+         */
         processing: true,//设置为true,就会有表格加载时的提示
         serverSide: true,
-        sAjaxSource: "./pagesAdministrator.action",//这个是请求的地址
+        sAjaxSource: "./pagesCurrentOrder.action",//这个是请求的地址
         fnServerData: retrieveData, // 获取数据的处理函数
         columns: [
             {data: null},
+            {data: "orId"},
             {data: "username"},
-            {data: "password"},
-            {data: "maximumAuthority"},
-            {data: "creator"},
+            {data: "receiverAddress"},
+            {data: "totalCost"},
+            {data: "productAmount"},
+            {data: "deliverCost"},
+            {data: "productCost"},
+            {data: "orderStatus"},
+            {data: "payType"},
             {data: "creatorTime"},
             {data: "updateTime"},
             {data: null}],
         columnDefs: [{//列渲染，可以添加一些操作等
-            targets: 7,//表示是第8列，所以上面第8列没有对应数据列，就是在这里渲染的。
-            render: function (obj) {
-                var id = obj.cid;
-                return "<a class='btn btn-primary btn-lg edit' id=" + id + ">编辑</a>";
-            }
-
-        }, {//列渲染，可以添加一些操作等
-            targets: 0,//表示是第8列，所以上面第8列没有对应数据列，就是在这里渲染的。
-            render: function (obj) {
-                var id = obj.cid;
-                return "<input type='checkbox' class='checkbox' id=" + id + "></input>";
-            }
-        }],
-        columnDefs: [{//列渲染，可以添加一些操作等
-            targets: 7,//表示是第8列，所以上面第8列没有对应数据列，就是在这里渲染的。
+            targets: 12,//表示是第8列，所以上面第8列没有对应数据列，就是在这里渲染的。
             render: function (obj) {
                 var id = obj.cid;
                 return "<a class='btn btn-primary btn-lg edit' id=" + id + ">编辑</a>";
@@ -150,5 +152,3 @@ $(function () {
     }
 
 });
-
-

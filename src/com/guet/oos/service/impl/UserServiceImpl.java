@@ -67,4 +67,24 @@ public class UserServiceImpl implements UserService {
         return userDao.updateUserPassword(newPassword, usId);
     }
 
+    @Override
+    public User findByUserId(long usId) {
+        return userDao.findById(usId);
+    }
+
+    @Override
+    public List<User> getAllUser() {
+        return userDao.getAllUser();
+    }
+
+    @Override
+    public int getAllCount() {
+        return userDao.getAllCount();
+    }
+
+    @Override
+    public List<User> getList(int start, int length) {
+        return userDao.getList(start, length);
+    }
+
 }

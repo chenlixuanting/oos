@@ -16,7 +16,6 @@ public class UserDaoImpl extends AbstractDAOImpl implements UserDao {
 
     public UserDaoImpl(Connection conn) {
         super(conn);
-        // TODO Auto-generated constructor stub
     }
 
     /**
@@ -57,7 +56,26 @@ public class UserDaoImpl extends AbstractDAOImpl implements UserDao {
 
     @Override
     public User findById(Long id) {
-        // TODO Auto-generated method stub
+
+        String sql = "select * from user_table where usId=?";
+
+        User user = null;
+
+        try {
+            pstmt = conn.prepareStatement(sql);
+
+            pstmt.setLong(1, id);
+
+            ResultSet res = pstmt.executeQuery();
+
+            user = encapsualtionUser(res).get(0);
+
+            return user;
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
         return null;
     }
 
@@ -86,6 +104,26 @@ public class UserDaoImpl extends AbstractDAOImpl implements UserDao {
 
     @Override
     public Integer getAllCount() {
+
+        String sql = "select count(*) from user_table";
+
+        try {
+            pstmt = conn.prepareStatement(sql);
+
+            ResultSet res = pstmt.executeQuery();
+
+            int total = 0;
+
+            while (res.next()) {
+                total += res.getInt(1);
+            }
+
+            return total;
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
         return null;
     }
 
@@ -94,7 +132,7 @@ public class UserDaoImpl extends AbstractDAOImpl implements UserDao {
 
         String sql = "select * from user_table where mobile = ?";
 
-        List<User> users = new ArrayList<User>();
+        List<User> users = null;
 
         try {
             super.pstmt = super.conn.prepareStatement(sql);
@@ -102,6 +140,21 @@ public class UserDaoImpl extends AbstractDAOImpl implements UserDao {
 
             ResultSet res = super.pstmt.executeQuery();
 
+            users = encapsualtionUser(res);
+
+            return users;
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return null;
+    }
+
+    public List<User> encapsualtionUser(ResultSet res) {
+
+        List<User> users = new ArrayList<User>();
+
+        try {
             while (res.next()) {
                 User u = new User();
                 u.setUsId(res.getLong(UserFields.USID));
@@ -113,11 +166,13 @@ public class UserDaoImpl extends AbstractDAOImpl implements UserDao {
                 u.setUpdateTime(res.getString(UserFields.UPDATETIME));
                 users.add(u);
             }
+
+            return users;
         } catch (SQLException e) {
             e.printStackTrace();
         }
 
-        return users;
+        return null;
     }
 
     @Override
@@ -174,6 +229,49 @@ public class UserDaoImpl extends AbstractDAOImpl implements UserDao {
 
         return true;
 
+    }
+
+    @Override
+    public List<User> getAllUser() {
+
+        String sql = "select * from user_table";
+
+        List<User> users = null;
+
+        try {
+            pstmt = conn.prepareStatement(sql);
+
+            ResultSet res = pstmt.executeQuery();
+
+            users = encapsualtionUser(res);
+
+            return users;
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return null;
+    }
+
+    @Override
+    public List<User> getList(int start, int length) {
+
+        List<User> users = null;
+
+        String sql = "select top " + length + " * from user_table where usId not in (select top " + start +
+                " usId from user_table)";
+
+        try {
+            pstmt = conn.prepareStatement(sql);
+            ResultSet res = pstmt.executeQuery();
+            users = encapsualtionUser(res);
+            return users;
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return null;
     }
 
 }

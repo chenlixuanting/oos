@@ -106,7 +106,27 @@ public class OrderDaoImpl extends AbstractDAOImpl implements OrderDao {
 
     @Override
     public Integer getAllCount() {
-        return null;
+
+        String sql = "select count(*) from order_table";
+
+        try {
+            pstmt = conn.prepareStatement(sql);
+
+            ResultSet res = pstmt.executeQuery();
+
+            int total = 0;
+
+            while (res.next()) {
+                total += res.getInt(1);
+            }
+
+            return total;
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return 0;
     }
 
     /**
@@ -146,6 +166,78 @@ public class OrderDaoImpl extends AbstractDAOImpl implements OrderDao {
         }
 
         return null;
+    }
+
+    @Override
+    public List<Order> getList(int start, int length) {
+
+        List<Order> orders = null;
+
+        String sql = "select top " + length + " * from order_table where orId not in (select top " + start +
+                " orId from order_table)";
+
+        try {
+            pstmt = conn.prepareStatement(sql);
+
+            ResultSet res = super.pstmt.executeQuery();
+
+            orders = encapsulationOrder(res);
+
+            return orders;
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return null;
+    }
+
+    @Override
+    public List<Order> getCurrentOrderList(int start, int length, String orderStatus) {
+
+        String sql = "select top " + length + " * from order_table where orderStatus='" + orderStatus + "' and (orId not in(select top " + start + "orId from order_table where orderStatus='" + orderStatus + "'order by orId))";
+
+        List<Order> orders = null;
+
+        try {
+            pstmt = conn.prepareStatement(sql);
+            ResultSet res = pstmt.executeQuery();
+
+            orders = encapsulationOrder(res);
+
+            return orders;
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return null;
+    }
+
+    @Override
+    public int currentOrderCount(String orderStatus) {
+
+        String sql = "select count(*) from order_table where orderStatus=?";
+
+        try {
+            pstmt = conn.prepareStatement(sql);
+
+            pstmt.setString(1, orderStatus);
+
+            ResultSet res = pstmt.executeQuery();
+
+            int total = 0;
+
+            while (res.next()) {
+                total += res.getInt(1);
+            }
+
+            return total;
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return 0;
     }
 
     public List<Order> encapsulationOrder(ResultSet res) {

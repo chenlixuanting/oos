@@ -3,8 +3,11 @@ package com.guet.oos.service.impl;
 import com.guet.oos.dao.AdministratorDao;
 import com.guet.oos.factory.DAOFactory;
 import com.guet.oos.po.Administrator;
+import com.guet.oos.po.Dishes;
 import com.guet.oos.service.AdministratorService;
 
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.List;
 
 /**
@@ -39,5 +42,27 @@ public class AdministratorServiceImpl implements AdministratorService {
     @Override
     public boolean updateAdministratorPassword(long mgId, String newPassword) {
         return administratorDao.updateAdministratorPassword(mgId, newPassword);
+    }
+
+    /**
+     * 统计总共有多少条管理员记录
+     *
+     * @return
+     */
+    @Override
+    public int getAllCount() {
+        return administratorDao.getAllCount();
+    }
+
+    /**
+     * 分页查询
+     *
+     * @param start
+     * @param length
+     * @return
+     */
+    @Override
+    public List<Administrator> getList(int start, int length) {
+        return administratorDao.getList(start, length);
     }
 }

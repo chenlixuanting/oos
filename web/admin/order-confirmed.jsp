@@ -4,7 +4,7 @@
 <html>
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <title>待确认订单</title>
+    <title>待确认的订单</title>
 
     <!-- bootstrap -->
     <link href="css/bootstrap/bootstrap.css" rel="stylesheet"/>
@@ -72,11 +72,32 @@
                        class="table table-hover table-striped table-bordered">
                     <thead>
                     <tr>
+
+                        <%--
+                            {data: null},
+                            {data: "orId"},
+                            {data: "username"},
+                            {data: "receiverAddress"},
+                            {data: "totalCost"},
+                            {data: "productAmount"},
+                            {data: "deliverCost"},
+                            {data: "productCost"},
+                            {data: "orderStatus"},
+                            {data: "payType"},
+                            {data: "creatorTime"},
+                            {data: "updateTime"},
+                            {data: null}],
+                        --%>
                         <th class="span2 sortable"><input style="margin-left: -7px;" type="checkbox"/>全选</th>
-                        <th class="span2 sortable">账号</th>
-                        <th class="span2 sortable">密码</th>
-                        <th class="span4 sortable">最高权限</th>
-                        <th class="span2 sortable">创建者</th>
+                        <th class="span2 sortable">订单号</th>
+                        <th class="span2 sortable">用户名</th>
+                        <th class="span2 sortable">收获地址</th>
+                        <th class="span2 sortable">支出总金额</th>
+                        <th class="span2 sortable">商品数量</th>
+                        <th class="span2 sortable">配送费用</th>
+                        <th class="span4 sortable">商品开销</th>
+                        <th class="span2 sortable">订单状态</th>
+                        <th class="span2 sortable">付款方式</th>
                         <th class="span2 sortable">创建时间</th>
                         <th class="span2 sortable">更新时间</th>
                         <th class="span2 sortable">操作</th>
@@ -162,7 +183,6 @@
     </div>
 </div>
 
-
 <!-- scripts -->
 <script src="js/jquery-3.3.1.js"></script>
 <script src="http://code.jquery.com/jquery-latest.js"></script>
@@ -177,6 +197,7 @@
 <script src="js/theme.js"></script>
 <script src="js/jquery.dataTables.min.js" type="text/javascript"></script>
 <script src="js/dataTables.bootstrap.min.js" type="text/javascript"></script>
-<script src="js/commen.js"></script>
+<%--<script src="js/commen.js"></script>--%>
+<script src="asset/js/order-confirmed.js"></script>
 </body>
 </html>

@@ -3,8 +3,10 @@ package com.guet.oos.servlet.administrator.pages;
 import com.alibaba.fastjson.JSONObject;
 import com.guet.oos.dto.Page;
 import com.guet.oos.factory.ServiceFactory;
-import com.guet.oos.po.Administrator;
-import com.guet.oos.service.AdministratorService;
+import com.guet.oos.po.DeliveryAddress;
+import com.guet.oos.po.User;
+import com.guet.oos.service.DeliveryAddressService;
+import com.guet.oos.service.UserService;
 import com.guet.oos.utils.PageUtils;
 
 import javax.servlet.ServletException;
@@ -16,19 +18,21 @@ import java.io.IOException;
 import java.util.List;
 
 /**
- * Created by Shinelon on 2018/5/20.
+ * Created by Shinelon on 2018/5/21.
  */
-@WebServlet("/admin/pagesAdministrator.action")
-public class PagesAdministratorServlet extends HttpServlet {
+@WebServlet("/admin/pagesUser.action")
+public class PagesUserServlet extends HttpServlet {
 
     private static final long serialVersionUID = 1L;
 
-    private AdministratorService administratorService = ServiceFactory.getAdministratorServiceInstance();
+    private UserService userService = ServiceFactory.getUserServiceInstance();
+
+    private DeliveryAddressService deliveryAddressService = ServiceFactory.getDeliveryAddressServiceInstance();
 
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public PagesAdministratorServlet() {
+    public PagesUserServlet() {
         super();
     }
 
@@ -42,11 +46,16 @@ public class PagesAdministratorServlet extends HttpServlet {
         //解析分页数据，并封装成Page实体
         Page pageData = PageUtils.parse(aoData);
 
-        int iTotalRecords = administratorService.getAllCount();
+        int iTotalRecords = userService.getAllCount();
 
-        List<Administrator> list = administratorService.getList(pageData.getiDisplayStart(), pageData.getiDisplayLength());
+        List<User> users = userService.getList(pageData.getiDisplayStart(), pageData.getiDisplayLength());
 
-        JSONObject data = PageUtils.encPageJsonObj(pageData.getsEcho(), iTotalRecords, iTotalRecords, list);
+        for (User u : users) {
+            DeliveryAddress deliveryAddress = deliveryAddressService.findUserDefaultDeliverAddress(u.getUsId());
+            u.setDeliverAddress(deliveryAddress.getReceiverAddress());
+        }
+
+        JSONObject data = PageUtils.encPageJsonObj(pageData.getsEcho(), iTotalRecords, iTotalRecords, users);
 
         response.getWriter().write(JSONObject.toJSONString(data));
 

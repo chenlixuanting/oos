@@ -80,7 +80,27 @@ public class AdministratorDaoImpl extends AbstractDAOImpl implements Administrat
 
     @Override
     public Integer getAllCount() {
-        return null;
+
+        String sql = "select count(*) from administrator_table";
+
+        try {
+            pstmt = conn.prepareStatement(sql);
+
+            int total = 0;
+
+            ResultSet res = pstmt.executeQuery();
+
+            while (res.next()) {
+                total += res.getInt(1);
+            }
+
+            return total;
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return 0;
     }
 
     @Override
@@ -132,5 +152,65 @@ public class AdministratorDaoImpl extends AbstractDAOImpl implements Administrat
         }
 
         return false;
+    }
+
+    @Override
+    public List<Administrator> getList(int start, int length) {
+
+        int num1 = length + start;
+
+        int num2 = start;
+
+        List<Administrator> administrators = null;
+
+        String sql = "select top " + num1 + " * from administrator_table where mgId not in (select top " + num2 +
+                " mgId from administrator_table)";
+
+        try {
+            pstmt = conn.prepareStatement(sql);
+
+            ResultSet res = super.pstmt.executeQuery();
+
+            administrators = encapsulationAdministrator(res);
+
+            return administrators;
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return null;
+    }
+
+    /**
+     * 将封装管理员记录
+     *
+     * @param res
+     * @return
+     */
+    public List<Administrator> encapsulationAdministrator(ResultSet res) {
+
+        List<Administrator> administrators = new ArrayList<Administrator>();
+
+        try {
+            while (res.next()) {
+                Administrator administrator = new Administrator();
+                administrator.setMgId(res.getLong(AdministratorFields.MGID));
+                administrator.setUsername(res.getString(AdministratorFields.USERNAME));
+                administrator.setPassword(res.getString(AdministratorFields.PASSWORD));
+                administrator.setMaximumAuthority(res.getBoolean(AdministratorFields.MAXIMUM_AUTHORITY));
+                administrator.setCreator(res.getString(AdministratorFields.CREATOR));
+                administrator.setCreatorTime(res.getString(AdministratorFields.CREATORTIME));
+                administrator.setUpdateTime(res.getString(AdministratorFields.UPDATETIME));
+                administrators.add(administrator);
+            }
+
+            return administrators;
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return null;
+
     }
 }

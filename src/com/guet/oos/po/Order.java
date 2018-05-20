@@ -16,9 +16,13 @@ public class Order implements Serializable {
 
     private long usId;// 用户ID
 
+    private String username;//用户名
+
     private long mgId;// 管理员ID
 
     private long daId;// 收货地址ID
+
+    private String receiverAddress;//收货地址
 
     private double totalCost;// 总支出金额
 
@@ -38,11 +42,13 @@ public class Order implements Serializable {
 
     private String updateTime;// 更新时间
 
-    public Order(String orId, long usId, long mgId, long daId, double totalCost, long productAmount, double deliverCost, double productCost, String orderStatus, String payType, List<OrderItem> orderItems, String creatorTime, String updateTime) {
+    public Order(String orId, long usId, String username, long mgId, long daId, String receiverAddress, double totalCost, long productAmount, double deliverCost, double productCost, String orderStatus, String payType, List<OrderItem> orderItems, String creatorTime, String updateTime) {
         this.orId = orId;
         this.usId = usId;
+        this.username = username;
         this.mgId = mgId;
         this.daId = daId;
+        this.receiverAddress = receiverAddress;
         this.totalCost = totalCost;
         this.productAmount = productAmount;
         this.deliverCost = deliverCost;
@@ -73,6 +79,14 @@ public class Order implements Serializable {
         this.usId = usId;
     }
 
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
     public long getMgId() {
         return mgId;
     }
@@ -87,6 +101,14 @@ public class Order implements Serializable {
 
     public void setDaId(long daId) {
         this.daId = daId;
+    }
+
+    public String getReceiverAddress() {
+        return receiverAddress;
+    }
+
+    public void setReceiverAddress(String receiverAddress) {
+        this.receiverAddress = receiverAddress;
     }
 
     public double getTotalCost() {
@@ -166,8 +188,10 @@ public class Order implements Serializable {
         return "Order{" +
                 "orId='" + orId + '\'' +
                 ", usId=" + usId +
+                ", username='" + username + '\'' +
                 ", mgId=" + mgId +
                 ", daId=" + daId +
+                ", receiverAddress='" + receiverAddress + '\'' +
                 ", totalCost=" + totalCost +
                 ", productAmount=" + productAmount +
                 ", deliverCost=" + deliverCost +

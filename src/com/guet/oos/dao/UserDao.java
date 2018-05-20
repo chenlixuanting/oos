@@ -21,4 +21,8 @@ public interface UserDao extends IDAO<Long, User> {
 
     public boolean updateUserPassword(String newPassword, long usId);
 
+    public List<User> getAllUser();
+
+    public List<User> getList(int start, int length);
+
 }

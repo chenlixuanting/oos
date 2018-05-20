@@ -146,7 +146,7 @@ public class DishesTypeDaoImpl extends AbstractDAOImpl implements DishesTypeDao 
     @Override
     public List<DishesType> getList(int start, int length) {
 
-        int num1 = length + start;
+        int num1 = length;
 
         int num2 = start;
 

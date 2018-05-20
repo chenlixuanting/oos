@@ -25,8 +25,8 @@
 		<!-- 连接池最少的连接数 -->
 		<property name="minPoolSize">3</property>
 
-		<!-- 连接池中最多有20个连接 -->
-		<property name="maxPoolSize">20</property>
+        <!-- 连接池中最多有1000个连接 -->
+        <property name="maxPoolSize">1000</property>
 
 		<property name="checkoutTimeout">60000</property>
 

@@ -48,7 +48,6 @@
     <div class="container-fluid">
         <div id="pad-wrapper" class="users-list">
 
-
             <div class="row-fluid span12 pull-right">
 
                 <a id="addBtn"
@@ -65,7 +64,6 @@
                 <input id="searchBox"
                        type="text" class="span2 pull-right "
                        style="margin-top: 1px;"/>
-
             </div>
 
             <div class="row-fluid table">
@@ -111,7 +109,6 @@
             <div class="modal-body">
                 <div class="row" style="text-align: center">
                     <div class="col-lg-12">
-
 
                         <div class="form-group">
                             <label for="cid">CID</label> <input type="text"
@@ -163,7 +160,6 @@
     </div>
 </div>
 
-
 <!-- scripts -->
 <script src="js/jquery-3.3.1.js"></script>
 <script src="http://code.jquery.com/jquery-latest.js"></script>
@@ -178,6 +174,6 @@
 <script src="js/theme.js"></script>
 <script src="js/jquery.dataTables.min.js" type="text/javascript"></script>
 <script src="js/dataTables.bootstrap.min.js" type="text/javascript"></script>
-<script src="js/commen.js"></script>
+<script src="asset/js/super-authority.js"></script>
 </body>
 </html>

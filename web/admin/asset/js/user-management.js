@@ -1,5 +1,5 @@
 /**
- * Created by Shinelon on 2018/5/20.
+ * Created by Shinelon on 2018/5/21.
  */
 $(function () {
 
@@ -83,6 +83,19 @@ $(function () {
                 last: "最后"
             },
 
+            /*
+             *
+             <%--
+             private long usId;// 用户Id
+             private String username;// 用户真实姓名
+             private String mobile;// 手机号码
+             private String password;// 密码
+             private String sex;// 性别
+             private String deliverAddress;//默认送货地址
+             private String creatorTime;// 创建时间
+             private String updateTime;// 修改时间
+             --%>
+             * */
             zeroRecords: "没有内容",//table tbody内容为空时，tbody的内容。
             //下面三者构成了总体的左下角的内容。
             info: "总共_PAGES_ 页，显示第_START_ 到第 _END_ ，筛选之后得到 _TOTAL_ 条，初始_MAX_ 条 ",//左下角的信息显示，大写的词为关键字。
@@ -91,33 +104,20 @@ $(function () {
         },
         processing: true,//设置为true,就会有表格加载时的提示
         serverSide: true,
-        sAjaxSource: "./pagesAdministrator.action",//这个是请求的地址
+        sAjaxSource: "./pagesUser.action",//这个是请求的地址
         fnServerData: retrieveData, // 获取数据的处理函数
         columns: [
             {data: null},
             {data: "username"},
+            {data: "mobile"},
             {data: "password"},
-            {data: "maximumAuthority"},
-            {data: "creator"},
+            {data: "sex"},
+            {data: "deliverAddress"},
             {data: "creatorTime"},
             {data: "updateTime"},
             {data: null}],
         columnDefs: [{//列渲染，可以添加一些操作等
-            targets: 7,//表示是第8列，所以上面第8列没有对应数据列，就是在这里渲染的。
-            render: function (obj) {
-                var id = obj.cid;
-                return "<a class='btn btn-primary btn-lg edit' id=" + id + ">编辑</a>";
-            }
-
-        }, {//列渲染，可以添加一些操作等
-            targets: 0,//表示是第8列，所以上面第8列没有对应数据列，就是在这里渲染的。
-            render: function (obj) {
-                var id = obj.cid;
-                return "<input type='checkbox' class='checkbox' id=" + id + "></input>";
-            }
-        }],
-        columnDefs: [{//列渲染，可以添加一些操作等
-            targets: 7,//表示是第8列，所以上面第8列没有对应数据列，就是在这里渲染的。
+            targets: 8,//表示是第8列，所以上面第8列没有对应数据列，就是在这里渲染的。
             render: function (obj) {
                 var id = obj.cid;
                 return "<a class='btn btn-primary btn-lg edit' id=" + id + ">编辑</a>";
@@ -150,5 +150,3 @@ $(function () {
     }
 
 });
-
-
