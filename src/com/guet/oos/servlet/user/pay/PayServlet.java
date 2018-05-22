@@ -7,6 +7,7 @@ import com.guet.oos.po.Order;
 import com.guet.oos.po.OrderItem;
 import com.guet.oos.po.ShopCart;
 import com.guet.oos.po.User;
+import com.guet.oos.service.DishesService;
 import com.guet.oos.service.OrderItemService;
 import com.guet.oos.service.OrderService;
 import com.guet.oos.service.ShopCartService;
@@ -36,6 +37,8 @@ public class PayServlet extends HttpServlet {
     private OrderItemService orderItemService = ServiceFactory.getOrderItemServiceInstance();
 
     private ShopCartService shopCartService = ServiceFactory.getShopCartServiceInstance();
+
+    private DishesService dishesService = ServiceFactory.getDishesServiceInstance();
 
     /**
      * @see HttpServlet#HttpServlet()
@@ -85,6 +88,16 @@ public class PayServlet extends HttpServlet {
             oi.setOrId(orId);
             oi.setScId(ShopCartConstant.PURCHASED);
             orderItemService.createOrderItem(oi);
+
+            //获取原库存
+            long stock = dishesService.queryDishesStockByDishesId(oi.getDsId());
+
+            //计算新库存
+            long newStock = stock - oi.getQuantity();
+
+            //获取订单项所属的餐品，将其减去相应的数量
+            dishesService.updateDishesStoreByDishesId(oi.getDsId(), newStock);
+
         }
 
         //销毁Session中shopCart

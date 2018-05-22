@@ -81,8 +81,6 @@
                     <div class="address_manage">
                         <!-- 用户欢迎栏 -->
                         <p class="title_span">欢迎您，请填送餐地址:</p>
-                        <!-- 判断不在送餐范围内焦点是否落到隔日预约单的位置 -->
-                        <input id="theOtherDayDefault" type="hidden" value=""/>
                         <!-- 用户信息栏 -->
                         <div class=" info_table">
                             <div id="addAddress">
@@ -116,11 +114,6 @@
                                                             <p id="add_add2" address2=address2 style="display:block">
                                                                 <input id="roadName" style="width:188px " type="text"
                                                                        class="input_4" autocomplete="off"/>
-                                                                <%--<span class="new_add_img">--%>
-                                                                <%--<a href="javascript:void(0);">--%>
-                                                                <%--查询--%>
-                                                                <%--</a>--%>
-                                                                <%--</span>--%>
                                                             </p>
                                                             <p id="add_add3" address3=address3 style="display:block">
                                                                 <input id="addressDetial" type="text" maxlength="10"
@@ -161,26 +154,6 @@
             </div>
         </div>
     </div>
-    <!-- alert 弹出层 -->
-    <div id="dialog-message-alert" title="友情提示" closeBtn="true" style="display: none;">
-        <span></span>
-    </div>
-    <!-- dialog-bind-phone 弹出层 -->
-    <div id="dialog-bind-phone" title="友情提示" closeBtn="true" style="display: none;">
-        <span></span>
-    </div>
-    <!-- confirm 弹出层 -->
-    <div id="dialog-message-confirm" title="友情提示" closeBtn="true" style="display: none;">
-        <span></span>
-    </div>
-    <!-- alert_back 弹出层 -->
-    <div id="dialog-message-alert-back" title="友情提示" closeBtn="true" style="display: none;">
-        <span></span>
-    </div>
-    <!-- 弹出层 -->
-    <div id="dialog-message" title="友情提示：" closeBtn="false" style="display: none;">
-        <span></span>
-    </div>
 </div>
 <!--弹出层开始-->
 <div id="layer_box"></div>
@@ -188,7 +161,6 @@
 </body>
 
 <!-- 地图弹出层 -->
-
 <script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=OMHt7FA3ciGcVCAMDOAbAeUf9nZ0idKZ"></script>
 <script type="text/javascript">
     // 百度地图API功能
@@ -230,9 +202,9 @@
 
 
     $("#query_city").click(function () {
-        console.log(111);
         $("#allmap").css({display: "block"});
     });
 </script>
+
 <!-- 地图弹出层 -->
 </html>

@@ -786,7 +786,7 @@ h6 {
 }
 
 .right_order .validate_user_line .validate_user_smscode {
-    background: url("../images/point/point_regist_email_pic_unable.png") no-repeat;
+    background: url("../images/point_regist_email_pic_unable.png") no-repeat;
     background-position: 5px center;
 }
 

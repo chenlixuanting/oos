@@ -1,7 +1,11 @@
-package com.guet.oos.servlet.user.customer;
+package com.guet.oos.servlet.user.select;
 
 import com.guet.oos.constant.SessionKey;
 import com.guet.oos.dto.JsonReturn;
+import com.guet.oos.factory.ServiceFactory;
+import com.guet.oos.po.DeliveryAddress;
+import com.guet.oos.po.User;
+import com.guet.oos.service.DeliveryAddressService;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -12,18 +16,19 @@ import javax.servlet.http.HttpSession;
 import java.io.IOException;
 
 /**
- * 用户退出
- * Created by Shinelon on 2018/5/17.
+ * Created by Shinelon on 2018/5/22.
  */
-@WebServlet("/customer/customerExit.action")
-public class CustomerExitServlet extends HttpServlet {
+@WebServlet("/customer/SelectDeliverAddress.action")
+public class SelectDeliverAddressServlet extends HttpServlet {
 
     private static final long serialVersionUID = 1L;
+
+    private DeliveryAddressService deliveryAddressService = ServiceFactory.getDeliveryAddressServiceInstance();
 
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public CustomerExitServlet() {
+    public SelectDeliverAddressServlet() {
         super();
     }
 
@@ -32,18 +37,19 @@ public class CustomerExitServlet extends HttpServlet {
      */
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-        //使用户Session失效
-//        request.getSession().invalidate();
+        String adId = request.getParameter("requestData");
+
+        DeliveryAddress address = deliveryAddressService.findById(Long.valueOf(adId));
 
         HttpSession httpSession = request.getSession();
 
-        httpSession.removeAttribute(SessionKey.SHOP_CART);
-        httpSession.removeAttribute(SessionKey.USER);
-        httpSession.removeAttribute(SessionKey.USER_FLAG);
-        httpSession.removeAttribute(SessionKey.TEMPORARY_USER_INFO);
-        httpSession.removeAttribute(SessionKey.VALIDATE_CODE);
+        User user = (User) httpSession.getAttribute(SessionKey.USER);
 
-        response.sendRedirect("orderLogin.jsp");
+        user.setDefaultDeliverAddress(address);
+
+        httpSession.setAttribute(SessionKey.USER, user);
+
+        response.getWriter().write(JsonReturn.buildSuccessEmptyContent().toString());
 
     }
 
@@ -51,6 +57,7 @@ public class CustomerExitServlet extends HttpServlet {
      * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
      */
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        // TODO Auto-generated method stub
         doGet(request, response);
     }
 

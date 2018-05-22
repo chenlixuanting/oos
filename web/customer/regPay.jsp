@@ -29,6 +29,7 @@
     <!-- 加载JS -->
     <script type="text/javascript" src="js/quote/jquery-3.2.1.min.js"></script>
     <script type="text/javascript" src="asset/js/regPay.js"></script>
+    <script type="text/javascript" src="asset/js/property_cn.js"></script>
 
 </head>
 <body>

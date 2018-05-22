@@ -24,5 +24,9 @@ var codeMessage = {
     error3: "用户名不存在!",
     error4: "两次密码输入不一致!",
     error5: "注册失败!",
+    error6: "订购数量不能小于1!",
+    error7: "订购数量不能超过199",
+    error8: "您未选择付款方式!",
     success0: "注册成功!",
+
 };

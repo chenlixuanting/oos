@@ -42,7 +42,6 @@ public class FormalUserAccessFilter implements Filter {
         if (httpSession.getAttribute(SessionKey.USER) != null) {
             chain.doFilter(request, response);
         } else {
-            ((HttpServletRequest) request).getSession().invalidate();
             ((HttpServletResponse) response).sendRedirect("orderLogin.jsp");
         }
 

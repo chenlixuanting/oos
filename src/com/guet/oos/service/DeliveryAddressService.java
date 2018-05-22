@@ -4,6 +4,8 @@ import com.guet.oos.dto.TemporaryUserInfo;
 import com.guet.oos.po.DeliveryAddress;
 import com.guet.oos.po.User;
 
+import java.util.List;
+
 /**
  * Created by Shinelon on 2018/5/18.
  */
@@ -16,4 +18,8 @@ public interface DeliveryAddressService {
     public DeliveryAddress findUserDefaultDeliverAddress(long usId);
 
     public boolean userDefaultDeliverTime(long usId, String newTime);
+
+    public List<DeliveryAddress> getDeliverAddressByUserId(long usId);
+
+    public DeliveryAddress findById(long daId);
 }

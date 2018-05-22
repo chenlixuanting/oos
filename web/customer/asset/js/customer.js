@@ -7,6 +7,19 @@ $(function () {
     var inputHour = $("#input_hour");
     var inputMinute = $("#input_minute");
 
+    /**
+     * 禁用浏览器回退功能
+     */
+    if (window.history && window.history.pushState) {
+        $(window).on('popstate', function () {
+            window.history.pushState('forward', null, 'customer.jsp');
+            window.history.forward(1);
+        });
+    }
+    window.history.pushState('forward', null, 'customer.jsp'); //在IE中必须得有这两行
+    window.history.forward(1);
+
+    //初始化时间为30分钟后的收货时间
     inputDate.val(getPutOffDayDate(putOffMinutes(30)));
     inputHour.val(getPutOffHoursHour(putOffMinutes(30)));
     inputMinute.val(getPutOffMinutesMinute(putOffMinutes(30)));
@@ -17,56 +30,24 @@ $(function () {
     initDeliverTime();
 
     /**
-     * 发生ajax请求CustomerConfirm.action获取临时用户的详细信息
+     * 收货地址初始化
      */
-    $.ajax({
-        url: "getUserInfo.action",
-        type: "POST",
-        dataType: "json",
-        success: function (data) {
-
-            var d = eval(data);
-
-            var json = eval(d.defaultDeliverAddress);
-
-            //初始化页面地址
-            initDeliverAddress(json);
-
-        }
-    });
+    initDeliverAddress();
 
     /**
-     * 选择送达时间
+     * 下一步按钮
      */
     $("#nextStep").click(function () {
 
-        var timeStr = inputDate.val() + " " + inputHour.val() + "时" + inputMinute.val() + "分";
+        var flag = ModiyDeliverAddress() && ModifyDeliverTime();
 
-        // 保存用户所选择的发货的时间
-        $.ajax({
-            url: "CustomerSelectDeliverTime.action",
-            type: "POST",
-            dataType: "json",
-            data: {
-                deliverTime: timeStr
-            },
-            success: function (data) {
+        if (flag) {
+            //跳转到购物页面
+            location.assign("continueShopping.jsp");
+        } else {
+            // location.assign("customerCenter.jsp");
+        }
 
-                var d = eval(data);
-
-                var flag = d.head == "true" ? true : false;
-
-                if (flag) {
-                    //跳转到购物页面
-                    location.assign("continueShopping.jsp");
-                } else {
-                    alert("用户未登录!");
-                    location.assign("orderLogin.jsp");
-
-                }
-
-            }
-        });
     });
 
     /**
@@ -165,28 +146,109 @@ $(function () {
         }
     });
 
-    /**
-     * 添加新地址
-     */
-    $(".editAddressBtn").click(function () {
-        $("#addAddress").css("display", "block");
-    });
-
-    /**
-     * 删除地址
-     */
-    $(".deleteAddressBtn").click(function () {
-    });
-
 });
 
 //初始化页面地址
-function initDeliverAddress(d) {
-    $("div[class='cityName']").append(
-        "<a name=selAddressLink style='text-decoration: none;display: block;width: 493px;' href='javascript:;'>"
-        + d.receiverAddress +
-        "</a>"
-    );
+function initDeliverAddress() {
+
+    $.ajax({
+        url: "getUserDeliverAddress.action",
+        type: "POST",
+        dataType: "json",
+        success: function (data) {
+
+            var d = eval(data);
+
+            $(".info_table_1").html("");
+
+            for (var x = 0; x < d.length; x++) {
+                $(".info_table_1").append(
+                    "<li id='" + d[x].daId + "' class='selectcolor td_no_border'>" +
+                    "<div style='width: 20px; float: left; margin-top: 12px;'>" +
+                    "<input name='selAddressId' type='radio' value='" + d[x].daId + "' disabled='disabled'>" +
+                    "</div>" +
+                    "<div style='float:left' class='cityName'>" +
+                    "<a name=selAddressLink onclick='selectDeliverAddress(this);' style='text-decoration: none;display: block;width: 493px;' href='javascript:;'>"
+                    + d[x].receiverAddress +
+                    "</a>" +
+                    "</div>" +
+                    "</li>"
+                );
+            }
+
+        }
+    });
+
+}
+
+function selectDeliverAddress(obj) {
+    //点击地址的文字则选择相应的地址作为送货地址
+    $(obj).parent().prev().find('input').eq(0).attr("checked", "checked");
+}
+
+
+//更改收货时间
+function ModifyDeliverTime() {
+
+    var result = false;
+
+    var inputDate = $("#input_date");
+    var inputHour = $("#input_hour");
+    var inputMinute = $("#input_minute");
+
+    var timeStr = inputDate.val() + " " + inputHour.val() + "时" + inputMinute.val() + "分";
+
+    alert(timeStr);
+
+    // 保存用户所选择的发货的时间
+    $.ajax({
+        url: "CustomerSelectDeliverTime.action",
+        type: "POST",
+        dataType: "json",
+        async: false,
+        data: {
+            deliverTime: timeStr
+        },
+        success: function (data) {
+            var d = eval(data);
+            result = d.head == "true" ? true : false;
+        }
+    });
+
+    return result;
+
+}
+
+//更改收货地址
+function ModiyDeliverAddress() {
+
+    var result = false;
+
+    var isCheckAddress = $("input[name='selAddressId'][checked='checked']").length;
+
+    if (isCheckAddress == 0) {
+        alert("您还没有选择送餐地址!");
+        return result;
+    }
+
+    var beChecked = $("input[name='selAddressId'][checked='checked']").val();
+
+    $.ajax({
+        url: "SelectDeliverAddress.action",
+        type: "POST",
+        dataType: "json",
+        async: false,
+        data: {
+            requestData: beChecked
+        },
+        success: function (data) {
+            var d = eval(data);
+            result = d.head == "true" ? true : false;
+        }
+
+    });
+
+    return result;
 }
 
 //初始化送达时间

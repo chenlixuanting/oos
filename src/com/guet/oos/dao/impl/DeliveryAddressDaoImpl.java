@@ -27,20 +27,18 @@ public class DeliveryAddressDaoImpl extends AbstractDAOImpl implements DeliveryA
 
         String sql = "select * from delivery_address_table where usId=?";
 
-        List<DeliveryAddress> deliveryAddressList;
+        List<DeliveryAddress> deliveryAddressList = null;
 
         try {
             pstmt = conn.prepareStatement(sql);
             pstmt.setLong(1, usId);
-
             ResultSet res = pstmt.executeQuery();
-            deliveryAddressList = encapsulationDeliveryAddrss(res);
-            return deliveryAddressList;
+            deliveryAddressList = encapsulationDeliveryAddrssList(res);
         } catch (SQLException e) {
             e.printStackTrace();
-            return null;
         }
 
+        return deliveryAddressList;
     }
 
     @Override
@@ -101,7 +99,25 @@ public class DeliveryAddressDaoImpl extends AbstractDAOImpl implements DeliveryA
 
     @Override
     public DeliveryAddress findById(Long id) {
-        return null;
+
+        String sql = "select * from delivery_address_table where daId=?";
+
+        DeliveryAddress address = null;
+
+        try {
+            pstmt = conn.prepareStatement(sql);
+
+            pstmt.setLong(1, id);
+
+            ResultSet res = pstmt.executeQuery();
+
+            address = encapsulationDeliver(res);
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return address;
     }
 
     @Override
@@ -129,7 +145,7 @@ public class DeliveryAddressDaoImpl extends AbstractDAOImpl implements DeliveryA
         return null;
     }
 
-    public List<DeliveryAddress> encapsulationDeliveryAddrss(ResultSet res) {
+    public List<DeliveryAddress> encapsulationDeliveryAddrssList(ResultSet res) {
 
         List<DeliveryAddress> deliveryAddresses = new ArrayList<DeliveryAddress>();
 
@@ -154,4 +170,17 @@ public class DeliveryAddressDaoImpl extends AbstractDAOImpl implements DeliveryA
         }
 
     }
+
+    public DeliveryAddress encapsulationDeliver(ResultSet res) {
+
+        List<DeliveryAddress> addresses = encapsulationDeliveryAddrssList(res);
+
+        if (addresses.size() == 0) {
+            return null;
+        } else {
+            return addresses.get(0);
+        }
+
+    }
+
 }

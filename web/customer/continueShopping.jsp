@@ -154,33 +154,39 @@
                         <!-- 产品区域 -->
                         <div class="popup_product_detail">
                             <div>
+
                                 <div class="popup_product_detail_img">
                                     <img src=""
                                          alt="">
                                 </div>
+
                                 <div class="popup_product_detail_txt">
                                     <h4></h4>
                                     <div class="detail_txt">
                                         <p id="desc"></p>
                                     </div>
                                 </div>
+
                                 <div class="price_span_1">
                                     <span class="product_number">
-                                        <a class="doMinus" href="javascript:;">
+                                        <a class="doMinus" onclick="sub(this);" href="javascript:;">
                                             <img src="images/minus_icon_3.gif">
                                         </a>
-                                        <input type="text" value="1" maxlength="2" class="pro_number_input2">
-                                        <a class="doPlus" href="javascript:;">
+
+                                        <input type="text" value="1" maxlength="2" dsId="" class="pro_number_input2">
+
+                                        <a class="doPlus" onclick="add(this);" href="javascript:;">
                                             <img src="images/add_icon_3.gif">
                                         </a>
                                     </span>
                                 </div>
+
                             </div>
                             <div>
                             </div>
                             <div class="clear"></div>
                             <p class="popup_btn" style="padding-top: 0px;">
-                                <a class="orderBtn" href="javascript:;" onclick="">
+                                <a class="orderBtn" href="javascript:;" onclick="orderModelBtn();">
                                     <img src="images/popup_btn_2.png">
                                 </a>
                             </p>
@@ -202,7 +208,9 @@
                     <!--菜单 -->
                     <div class="prod_show" style="width: 600px">
                         <input type="hidden" id="ptpListStr" value=""/>
-                        <ul class="product_ul"></ul>
+                        <ul class="product_ul">
+
+                        </ul>
                     </div>
                     <!-- banner -->
                 </div>
@@ -251,14 +259,6 @@
                                 <span class="til">送餐地址：</span> <span class="modify"> </span>
                             </p>
                             <p>
-                                <%--上海W1(上海新国际博览中心)(龙阳路2345号上海新国际博览中心F1层)71--%>
-                                <%--<input type="hidden" id="cityNameDes" value="上海"/>--%>
-                                <%--<input type="hidden" id="mainAddressDes" value="W1(上海新国际博览中心)(龙阳路2345号上海新国际博览中心F1层)"/>--%>
-                                <%--<input type="hidden" id="supplementaladdressDes" value="W1(上海新国际博览中心)(龙阳路2345号上海新国际博览中心F1层)"/>--%>
-                                <%--<input type="hidden" id="x" value="121.565124"/>--%>
-                                <%--<input type="hidden" id="y" value="31.207368"/>--%>
-                                <%--<input type="hidden" id="addressId" value="013f9b8b-97b5-449c-8678-df3b54ead996-a0"/>--%>
-                            </p>
                         </div>
                         <p style="padding: 6px 10px;">
                             <span class="span_3">提醒：根据您最终提交订单时间，送餐时间可能略有调整。</span>

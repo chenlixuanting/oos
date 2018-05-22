@@ -9,7 +9,6 @@
 %>
 <html>
 <head>
-    <base href="<%=basePath%>">
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <meta name="keywords" content="美味家"/>
@@ -26,22 +25,20 @@
 
     <!-- 加载JS -->
     <script type="text/javascript" src="js/quote/jquery-3.2.1.min.js"></script>
+    <script type="text/javascript" src="asset/js/comment.js"></script>
 
 </head>
 <body>
 <div class="con">
+
     <!-- 标题 -->
     <div id="top">
-        <input type="hidden" id="page_flag" value="customerCenter"/>
-        <input type="hidden" id="seoPath" value="http://www.4008823823.com.cn/kfcios"/>
-        <input type="hidden" value="" id="topFlag" name="topFlag"/>
-        <div class="logo"></div>
         <div class="top_menu">
             <div class="top_menu_1">
                 <input type="hidden" id="isLogin" value="true"/>
                 <input type="hidden" id="loginFlag" value="true"/>
                 <span class="span_1 fl_l" id="logon">
-                        欢迎<span class="customerName" id="customerName">张鹏 先生</span>
+                        欢迎&nbsp;<span class="customerName" id="customerName"></span>
                         !
                         <i class="loginExit">退出</i>
                     </span>
@@ -57,10 +54,10 @@
                 <ul>
                     <li class="w1">
                         <span>
-                            <a href="regCustomer.jsp">订餐首页</a>
+                            <a href="continueShopping.jsp">订餐首页</a>
                         </span>
                     </li>
-                    <li class="w2"><span><a href="orderLogin.jsp">开始订餐</a></span></li>
+                    <li class="w2"><span><a href="customerExit.action">重新登录</a></span></li>
                     <li class="w3"><span><a href="customerCenter.jsp">个人中心</a></span></li>
                     <li class="last_li w5">
                         <span class="current"><a href="comment.jsp">评论专区</a></span></li>
@@ -76,20 +73,19 @@
         <div class="post_comment" id="post_comm">
             <h3 id="post_comment"><span>愿您的每句评论，都能给大家的生活添色彩，带来共鸣，带来思索，带来快乐。</span></h3>
             <div class="add_comm" style="margin-top: 8px;">
-
-                <textarea name="txtBody" id="commentContent" cols="60" rows="5" class="ipt-txt"
+                <textarea name="txtBody" id="commentContent" usId="" cols="60" rows="5" class="ipt-txt"
                           placeholder="美味之家有您参与更精彩！" style=""></textarea>
-
                 <input type="submit" name="btnComment" value="发表评论" id="btnComment" class="button">
                 <span id="commentMessage"></span>
             </div>
+
             <script>
                 var commentpage = 1;
                 var commentpageLatest = 1;
                 var hpage = 1;
             </script>
-            <div class="comm_list" id="commentlist">
 
+            <div class="comm_list" id="commentlist">
                 <h3>
                     <span class="icon2">
                         <input type="radio" name="commentorder" id="commentnew" checked="checked">

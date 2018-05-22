@@ -8,11 +8,11 @@ $(function () {
      */
     if (window.history && window.history.pushState) {
         $(window).on('popstate', function () {
-            window.history.pushState('forward', null, '#');
+            window.history.pushState('forward', null, 'regPay.jsp');
             window.history.forward(1);
         });
     }
-    window.history.pushState('forward', null, '#'); //在IE中必须得有这两行
+    window.history.pushState('forward', null, 'regPay.jsp'); //在IE中必须得有这两行
     window.history.forward(1);
 
     /**
@@ -23,6 +23,7 @@ $(function () {
         type: "POST",
         dataType: "json",
         success: function (data) {
+
             var d = eval(data);
 
             // {
@@ -134,7 +135,7 @@ $(function () {
         var selectPayType = $("input[name='payType'][checked='checked']").length;
 
         if (selectPayType == 0) {
-            alert("您还未选择付款方式！");
+            alert(property.error7);
             return;
         }
 

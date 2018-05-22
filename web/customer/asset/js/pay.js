@@ -119,6 +119,13 @@ $(function () {
      */
     $(".subBtn").click(function () {
 
+        var selectPayType = $("input[name='payType'][checked='checked']").length;
+
+        if (selectPayType == 0) {
+            alert(property.error7);
+            return;
+        }
+
         $.ajax({
             url: "Pay.action?" + new Date().getTime(),
             type: "POST",

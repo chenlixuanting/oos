@@ -193,6 +193,37 @@ public class ShopCart implements Serializable {
     }
 
     /**
+     * 删除菜单项
+     *
+     * @param dsId
+     */
+    public void delOrderItem(long dsId) {
+
+        for (int x = 0; x < orderItems.size(); x++) {
+            if (dsId == orderItems.get(x).getDsId()) {
+
+                //将订单项从购物车中移除
+                orderItems.remove(x);
+
+                //重新计算商品总支出金额
+                productCost = checkout();
+
+                //重新计算商品数量
+                productAmount = countProducts();
+
+                //重新计算运费
+                deliverCost = calcDeliverCost();
+
+                //重新计算总支出金额
+                totalCost = calcTotalCost();
+
+                break;
+            }
+        }
+
+    }
+
+    /**
      * 计算总支出
      *
      * @return

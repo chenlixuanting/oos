@@ -27,13 +27,13 @@ public class DishesTypeDaoImpl extends AbstractDAOImpl implements DishesTypeDao 
         String sql = "insert into dishes_type_table(dishesTypeName,mealTypeName,mgId,createTime,updateTime) values(?,?,?,?,?)";
 
         try {
-            super.pstmt = super.conn.prepareStatement(sql);
+            pstmt = conn.prepareStatement(sql);
 
-            super.pstmt.setString(1, vo.getDishesTypeName());
-            super.pstmt.setString(2, vo.getMealTypeName());
-            super.pstmt.setLong(3, vo.getMgId());
-            super.pstmt.setString(4, vo.getCreateTime());
-            super.pstmt.setString(5, vo.getUpdateTime());
+            pstmt.setString(1, vo.getDishesTypeName());
+            pstmt.setString(2, vo.getMealTypeName());
+            pstmt.setLong(3, vo.getMgId());
+            pstmt.setString(4, vo.getCreateTime());
+            pstmt.setString(5, vo.getUpdateTime());
 
             return super.pstmt.execute();
         } catch (SQLException e) {

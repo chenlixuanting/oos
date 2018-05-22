@@ -68,7 +68,7 @@ public class UserDaoImpl extends AbstractDAOImpl implements UserDao {
 
             ResultSet res = pstmt.executeQuery();
 
-            user = encapsualtionUser(res).get(0);
+            user = encapsulationUser(res);
 
             return user;
 
@@ -140,7 +140,7 @@ public class UserDaoImpl extends AbstractDAOImpl implements UserDao {
 
             ResultSet res = super.pstmt.executeQuery();
 
-            users = encapsualtionUser(res);
+            users = encapsulationUserList(res);
 
             return users;
         } catch (SQLException e) {
@@ -150,7 +150,7 @@ public class UserDaoImpl extends AbstractDAOImpl implements UserDao {
         return null;
     }
 
-    public List<User> encapsualtionUser(ResultSet res) {
+    public List<User> encapsulationUserList(ResultSet res) {
 
         List<User> users = new ArrayList<User>();
 
@@ -173,6 +173,18 @@ public class UserDaoImpl extends AbstractDAOImpl implements UserDao {
         }
 
         return null;
+    }
+
+    public User encapsulationUser(ResultSet res) {
+
+        List<User> userList = encapsulationUserList(res);
+
+        if (userList.size() != 0) {
+            return userList.get(0);
+        } else {
+            return null;
+        }
+
     }
 
     @Override
@@ -240,13 +252,9 @@ public class UserDaoImpl extends AbstractDAOImpl implements UserDao {
 
         try {
             pstmt = conn.prepareStatement(sql);
-
             ResultSet res = pstmt.executeQuery();
-
-            users = encapsualtionUser(res);
-
+            users = encapsulationUserList(res);
             return users;
-
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -265,7 +273,7 @@ public class UserDaoImpl extends AbstractDAOImpl implements UserDao {
         try {
             pstmt = conn.prepareStatement(sql);
             ResultSet res = pstmt.executeQuery();
-            users = encapsualtionUser(res);
+            users = encapsulationUserList(res);
             return users;
         } catch (SQLException e) {
             e.printStackTrace();

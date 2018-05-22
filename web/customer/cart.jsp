@@ -78,7 +78,7 @@
                     <div class="confirmation_order_title">
                         <img src="images/step_2.gif" border="0" usemap="#Map"/>
                         <map name="Map" id="Map">
-                            <area shape="rect" coords="6,2,322,29" class="step1" href="regCustomer.jsp"/>
+                            <area shape="rect" coords="6,2,322,29" class="step1" href="continueShopping.jsp"/>
                         </map>
                     </div>
                     <!-- 订单明细和优惠 -->

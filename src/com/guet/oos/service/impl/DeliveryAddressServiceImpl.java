@@ -67,4 +67,14 @@ public class DeliveryAddressServiceImpl implements DeliveryAddressService {
         return deliveryAddressDao.userDefaultDeliverTime(usId, newTime);
     }
 
+    @Override
+    public List<DeliveryAddress> getDeliverAddressByUserId(long usId) {
+        return deliveryAddressDao.findByUserId(usId);
+    }
+
+    @Override
+    public DeliveryAddress findById(long daId) {
+        return deliveryAddressDao.findById(daId);
+    }
+
 }

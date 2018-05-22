@@ -12,4 +12,9 @@ public interface DishesDao extends IDAO<Long, Dishes> {
     public List<Dishes> getList(int start, int length);
 
     public List<Dishes> getSecifyColumnSpecifyWord(String col1, String word);
+
+    public boolean updateDishesStoreByDishesId(long dsId, long number);
+
+    public long queryDishesStockByDishesId(long dsId);
+
 }

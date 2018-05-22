@@ -29,6 +29,7 @@
     <!-- 加载JS -->
     <script type="text/javascript" src="js/quote/jquery-3.2.1.min.js"></script>
     <script type="text/javascript" src="asset/js/pay.js"></script>
+    <script type="text/javascript" src="asset/js/property_cn.js"></script>
 
 </head>
 <body>
@@ -70,7 +71,7 @@
                 <img src="images/step_3.gif" border="0" usemap="#Map">
                 <map name="Map" id="Map">
                     <area shape="rect" coords="12,3,323,29" class="step1"
-                          href="regCustomer.jsp">
+                          href="continueShopping.jsp">
                     <area shape="rect" coords="352,3,660,29" class="step2"
                           href="cart.jsp">
                 </map>
@@ -105,7 +106,7 @@
                             <input name="payType" type="radio" value="支付宝支付">支付宝支付
                         </li>
                         <li class="online">
-                            <input name="payType" type="radio" checked="checked" value="货到付款">货到付款
+                            <input name="payType" type="radio" value="货到付款">货到付款
                         </li>
                     </ul>
                 </div>

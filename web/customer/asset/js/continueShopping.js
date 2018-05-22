@@ -3,50 +3,53 @@
  */
 $(function () {
 
-    $.ajax({
-        url: "getShopCartInfo.action",
-        type: "POST",
-        dataType: "json",
-        success: function (data) {
+    // $.ajax({
+    //     url: "getShopCartInfo.action",
+    //     type: "POST",
+    //     dataType: "json",
+    //     success: function (data) {
+    //
+    //         //添加购物车成功,修改相应页面
+    //         var d = eval(data);
+    //
+    //         //清空购物车的信息
+    //         $("#cart_menus").html("");
+    //
+    //         //购物车中商品信息
+    //         for (var x = 0; x < data.orderItems.length; x++) {
+    //             $("#cart_menus").append("<li>" +
+    //                 "<div class='pro_title'>" + data.orderItems[x].dishesName + "</div>" +
+    //                 "<div class='del'>" +
+    //                 "<a href='javascript:void(0);'></a></div>" +
+    //                 "<div class='pro_numbers'><a href='javascript:void(0);' style='cursor: pointer;'class='doMinus'>" +
+    //                 "<img src='images/minus_icon_2s.gif' >" +
+    //                 "</a>" +
+    //                 "<input type='text' class='pro_numbers_input' value='" + data.orderItems[x].quantity + "' maxlength='2'disabled='disabled' onkeyup='this.value=this.value.replace(/D/g,'');'>" +
+    //                 "<a href='javascript:void(0);' style='cursor: pointer;' class='doPlus'>" +
+    //                 "<img src='images/plus_icon_2s.gif'>" +
+    //                 "</a>" +
+    //                 "</div>" +
+    //                 "<div class='price'>" + data.orderItems[x].productCost.toFixed(2) + "</div>" +
+    //                 "</li>");
+    //         }
+    //
+    //         //修改购物车中商品数量
+    //         $("#tatalnum").html(d.productAmount);
+    //
+    //         //修改费用信息
+    //         $("#productCost").html(d.productCost.toFixed(2));
+    //
+    //         //修改运费信息,保留两位小数
+    //         $("#deliverCost").html(d.deliverCost.toFixed(2));
+    //
+    //         //修改总费用
+    //         $("#totalCost").html(d.totalCost.toFixed(2));
+    //
+    //     }
+    // });
 
-            //添加购物车成功,修改相应页面
-            var d = eval(data);
-
-            //清空购物车的信息
-            $("#cart_menus").html("");
-
-            //购物车中商品信息
-            for (var x = 0; x < data.orderItems.length; x++) {
-                $("#cart_menus").append("<li>" +
-                    "<div class='pro_title'>" + data.orderItems[x].dishesName + "</div>" +
-                    "<div class='del'>" +
-                    "<a href='javascript:void(0);'></a></div>" +
-                    "<div class='pro_numbers'><a href='javascript:void(0);' style='cursor: pointer;'class='doMinus'>" +
-                    "<img src='images/minus_icon_2s.gif' >" +
-                    "</a>" +
-                    "<input type='text' class='pro_numbers_input' value='" + data.orderItems[x].quantity + "' maxlength='2'disabled='disabled' onkeyup='this.value=this.value.replace(/D/g,'');'>" +
-                    "<a href='javascript:void(0);' style='cursor: pointer;' class='doPlus'>" +
-                    "<img src='images/plus_icon_2s.gif'>" +
-                    "</a>" +
-                    "</div>" +
-                    "<div class='price'>" + data.orderItems[x].productCost.toFixed(2) + "</div>" +
-                    "</li>");
-            }
-
-            //修改购物车中商品数量
-            $("#tatalnum").html(d.productAmount);
-
-            //修改费用信息
-            $("#productCost").html(d.productCost.toFixed(2));
-
-            //修改运费信息,保留两位小数
-            $("#deliverCost").html(d.deliverCost.toFixed(2));
-
-            //修改总费用
-            $("#totalCost").html(d.totalCost.toFixed(2));
-
-        }
-    });
+    //初始化购物信息
+    updateShopCart();
 
     /**
      * 页面加载时,自动加载对应餐点产品
@@ -121,7 +124,7 @@ $(function () {
             async: false,
             dataType: "json",
             data: {
-                mealType: "正餐"
+                mealType: "午餐"
             },
             success: function (data) {
 
@@ -193,17 +196,17 @@ $(function () {
                             "<p>" +
                             "<span class='pro_price' style='margin-top: -15px;'>" + d[x].price.toFixed(2) + "元 / 份" + "</span>" +
                             "<span class='pro_number'>" +
-                            "<a href='javascript:;'>" +
+                            "<a href='javascript:;' onclick='sub(this);'>" +
                             "<img src='images/minus_icon_2.gif'>" +
                             "</a>" +
-                            "<input type='text' id=" + d[x].dsId + " value='1' maxlength='2' class='pro_number_input'>" +
-                            "<a href='javascript:;'>" +
+                            "<input type='text' dsId=" + d[x].dsId + " value='1' maxlength='2' class='pro_number_input'>" +
+                            "<a href='javascript:;' onclick='add(this);'>" +
                             "<img src='images/add_icon_2.gif'>" +
                             "</a>" +
                             "</span>" +
                             "</p>" +
                             "<p class='p_clear_both'>" +//对价格进行四舍五入处理
-                            "<input type='button' class='mealdealDeatil_j order_btn' onclick='$.regCustomerPage.addToBuyCart(this)' dsId=" + d[x].dsId + ">" +
+                            "<input type='button' class='mealdealDeatil_j order_btn' onclick='mainWindowOrderBtn();'>" +
                             "</p>" +
                             "</div>" +
                             "</li>"
@@ -243,6 +246,7 @@ $(function () {
                     $(".popup_product_detail_txt h4").html(d.dishesName);
                     $(".popup_product_detail_img img").attr("src", pageUrls.customerAddress + d.picAddress);
                     $(".popup_product_detail_img img").attr("alt", d.dishesName);
+                    $(".pro_number_input2").attr("dsId", d.dsId);
 
                     /**
                      * 显示弹出框
@@ -268,7 +272,7 @@ $(function () {
 
             var orderItem = {
                 dishesId: dsId,
-                quantity: $("#" + dsId).val()
+                quantity: $(obj).val()
             };
 
             $.ajax({
@@ -355,6 +359,118 @@ $(function () {
 // }
 
 /**
+ * 加号按钮,点击一次商品数目加1
+ */
+function add(obj) {
+
+    var preInput = $(obj).prev();
+
+    var quantityOrdered = parseInt(preInput.val());
+
+    if (quantityOrdered >= 199) {
+        alert(codeMessage.error7);
+        return false;
+    }
+
+    var number = quantityOrdered + 1;
+
+    //将数量加1
+    preInput.val(number);
+
+    return true;
+}
+
+/**
+ * 减号按钮,点击一次商品数目减1
+ */
+function sub(obj) {
+
+    var preInput = $(obj).next();
+
+    var quantityOrdered = parseInt(preInput.val());
+
+    if (quantityOrdered <= 1) {
+        alert(codeMessage.error6);
+        return false;
+    }
+
+    var number = quantityOrdered - 1;
+
+    //将数量加1
+    preInput.val(number);
+
+    return true;
+}
+
+/**
+ * 主页面的订购按钮添加购物事件
+ */
+function mainWindowOrderBtn() {
+    $.regCustomerPage.addToBuyCart($(".pro_number_input"));
+}
+
+
+/**
+ * 给弹出黑幕的订购按钮添加放购物事件
+ */
+function orderModelBtn() {
+    $.regCustomerPage.addToBuyCart($(".pro_number_input2"));
+    $('.ui-dialog').css("display", "none");
+    $(".pro_number_input2").val(1);
+}
+
+/**
+ * 购物车加号按钮事件
+ * @param obj
+ */
+function shopCartAdd(obj) {
+    if (add(obj)) {
+        $(".pro_numbers_input").val(1);
+        $.regCustomerPage.addToBuyCart($(".pro_numbers_input"));
+    }
+
+}
+
+/**
+ * 购物车减好按钮
+ * @param obj
+ */
+function shopCartSub(obj) {
+
+    if (sub(obj)) {
+        $(".pro_numbers_input").val(-1);
+        $.regCustomerPage.addToBuyCart($(".pro_numbers_input"));
+    }
+
+}
+
+/**
+ * 删除购物车中的商品
+ */
+function delDishesFromCart() {
+
+    var result = confirm("你真的要删除该餐品吗?");
+
+    if (result) {
+
+        var dsId = $(".pro_numbers_input").attr("dsId");
+
+        $.ajax({
+            url: "delOrderItemFromShopCart.action",
+            type: "POST",
+            dataType: "json",
+            data: {
+                requestData: dsId
+            },
+            success: function (data) {
+                updateShopCart();
+            }
+        });
+    }
+
+}
+
+/**
  * 更新购物车信息
  *
  * @param data
@@ -378,12 +494,12 @@ function updateShopCart() {
                 $("#cart_menus").append("<li>" +
                     "<div class='pro_title'>" + data.orderItems[x].dishesName + "</div>" +
                     "<div class='del'>" +
-                    "<a href='javascript:void(0);'></a></div>" +
-                    "<div class='pro_numbers'><a href='javascript:void(0);' style='cursor: pointer;'class='doMinus'>" +
+                    "<a href='javascript:void(0);' onclick='delDishesFromCart();'></a></div>" +
+                    "<div class='pro_numbers'><a href='javascript:void(0);' onclick='shopCartSub(this);' style='cursor: pointer;'class='doMinus'>" +
                     "<img src='images/minus_icon_2s.gif' >" +
                     "</a>" +
-                    "<input type='text' class='pro_numbers_input' value='" + data.orderItems[x].quantity + "' maxlength='2'disabled='disabled' onkeyup='this.value=this.value.replace(/D/g,'');'>" +
-                    "<a href='javascript:void(0);' style='cursor: pointer;' class='doPlus'>" +
+                    "<input type='text' class='pro_numbers_input' dsId='" + data.orderItems[x].dsId + "'value='" + data.orderItems[x].quantity + "' maxlength='2'disabled='disabled'>" +
+                    "<a href='javascript:void(0);' style='cursor: pointer;' onclick='shopCartAdd(this);' class='doPlus'>" +
                     "<img src='images/plus_icon_2s.gif'>" +
                     "</a>" +
                     "</div>" +

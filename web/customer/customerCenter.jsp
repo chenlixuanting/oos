@@ -123,6 +123,7 @@
                             </span>
                         </div>
                     </div>
+
                     <div class="linebox">
                         <h5><span class="jiange">性别</span>：</h5>
                         <div class="text sexor-js" id="sexSelect">
@@ -138,6 +139,7 @@
                             </span>
                         </div>
                     </div>
+
                     <!--基本信息修改/-->
                     <div class="userline"></div>
                     <!--设置密码-->
@@ -170,6 +172,8 @@
                     <!-- 加载外部JS -->
                     <form id="mainForm" action=""></form>
                     <div class="orderList_area">
+
+                        <%--当前订单--%>
                         <div id="orderList_now" style="display: block;">
                             <h4 style="text-decoration: underline;cursor:pointer">
                                 <span style="float:left;width:140px">当前订单</span>
@@ -184,10 +188,11 @@
                                     <div class="orderList_option">操作</div>
                                 </li>
                                 <div id="orderList">
-
                                 </div>
                             </ul>
                         </div>
+
+                        <%--历史订单--%>
                         <div id="orderList_history" style="display: none;">
                             <h4>
                                 <span class="backOrderList" style="cursor:pointer">订单查询</span> --&gt;
@@ -208,6 +213,8 @@
                             </ul>
                             <div id="Pagination_history" class="center redStyle"></div>
                         </div>
+
+                        <%--订单详情--%>
                         <div id="order_item_detail" style="display:none">
                             <h4 style="text-decoration: underline;">
                                 <span>订单详情</span>
@@ -298,30 +305,12 @@
                                 <div id="address_1">
                                     <div class="fl_l" style="width: 100%; padding-bottom: 30px">
                                         <ul style="width: 100%" class="info_table_1">
-                                            <li id="df8ddc82-fe24-41b6-b7cb-3bfc331c3737-a0">
-                                                <div style="width: 20px; display: none">
-                                                    <input name="selAddressId" type="radio"
-                                                           value="df8ddc82-fe24-41b6-b7cb-3bfc331c3737-a0"
-                                                           deliverytime="" storeclosedflag="0"/>
-                                                    <input id="chooseAddrFlag" type="hidden" value="true"/>
-                                                    <input name="supportonlinepay" type="hidden" value="false"/>
-                                                    <input name="nCityCode" type="hidden" value="00010"/>
-                                                    <input name="nCityName" type="hidden" value="上海"/>
-                                                    <input name="nMainaddress" type="hidden"
-                                                           value="cb5f4a40947b05365a43a13966c3c8038e22640412af9b0a457e0e4ac56fa707fb6fd8ba600398e19ffa9eb3490c99f5d65b03560962a13d89dbe0a1a9468db4b5ee070a297ddda09895d8c58fd50694053bf369796b10c2"/>
-                                                    <input name="nMainaddressDescription" type="hidden"
-                                                           value="W1(上海新国际博览中心)(龙阳路2345号上海新国际博览中心F1层)"/>
-                                                    <input name="nSupplementaladdress" type="hidden"
-                                                           value="5061e24ad152baf0"/>
-                                                    <input name="nSupplementaladdressDescription" type="hidden"
-                                                           value="71"/>
-                                                    <input name="nStoreId" type="hidden" value="        "/>
-                                                    <input name="coordinate_x" type="hidden" value="121.565124"/>
-                                                    <input name="coordinate_y" type="hidden" value="31.207368"/>
-                                                    <input name="gender" type="hidden" value="0"/>
-                                                    <input name="name" type="hidden" value="sd"/>
-                                                    <input name="phone" type="hidden" value="18245698745"/>
+                                            <li id="0" class="selectcolor td_no_border">
+                                                <div style="width: 20px; float: left; margin-top: 12px;">
+                                                    <input name="selAddressId" type="radio" value="0" checked="checked">
                                                 </div>
+                                                <div style="float:left" class="cityName"></div>
+
                                                 <div class="cityName">
                                                     <a name="selAddressLink"
                                                        style="text-decoration: none; display: block; float: left"
@@ -337,9 +326,6 @@
                                                         <div class="deleteAddress">
                                                             删除
                                                         </div>
-                                                        <div class="editAddress">
-                                                            编辑<span>|</span>
-                                                        </div>
                                                         <div class="setDefaultAddress">
                                                             设为默认
                                                             <span>|</span>
@@ -351,6 +337,7 @@
                                                     </div>
                                                 </div>
                                             </li>
+
                                         </ul>
                                     </div>
                                     <div class="clear"></div>
@@ -358,18 +345,20 @@
                                 <!--送餐地址结束-->
                             </div>
                         </div>
+
                         <div>
                             <a href="javascript:" id="addAddressBtn"
                                style="color: #c6000a; padding: 5px 10px;">使用新地址</a>
                         </div>
+
+                        <%--添加新的订餐地址--%>
                         <div id="addAddress" style="display: none;">
                             <div style="width: 120px;">
                                 <span class="span_2">送餐城市：</span>
-                                <span class="span_2" address2="" style="display:none">路名/小区名：</span>
-                                <span class="span_2" address3="" style="display:none">请继续填全：</span>
-                                <span class="span_2" address4="" style="display:none">请继续填全：</span>
-                                <span class="span_2" address5="">联系人：</span>
-                                <span class="span_2" address6="">联系电话：</span>
+                                <span class="span_2" address2=address2 style="display:block">路名/小区名：</span>
+                                <span class="span_2" address3=address3 style="display:block">请继续填全：</span>
+                                <span class="span_2" address5=address5>联系人：</span>
+                                <span class="span_2" address6=address6>联系电话：</span>
                             </div>
                             <div style="width: 560px">
                                 <div id="import_addr_tip">
@@ -384,54 +373,39 @@
                                                     <input id="editCityCode" type="hidden"/>
                                                     <div class="add_address">
                                                         <p>
-                                                            <span class="new_tel_input">
-                                                                <input id="cityName" type="text" class="input_5"
-                                                                       autocomplete="off"
-                                                                       style="color: rgb(173, 173, 173);"/>
-                                                                <span class="add_icon"
-                                                                      id="query_city"></span> <span
-                                                                    class="location"></span>
-                                                            </span>
+                                                                <span class="new_tel_input" style="width: 315px;">
+                                                                    <input id="cityName" type="text" class="input_5"
+                                                                           style="width: 270px;"
+                                                                           autocomplete="off"/>
+                                                                    <span class="add_icon" id="query_city"></span>
+                                                                    <span class="location"></span>
+                                                                    <div id="allmap"
+                                                                         style="display: none;width: 473px;height: 200px;position: absolute;top: 35px;"></div>
+                                                                </span>
                                                         </p>
-                                                        <p id="add_add2" address2="" style="display:none">
-                                                            <input id="address2"
-                                                                   style="width: 188px; color: rgb(173, 173, 173);"
-                                                                   type="text" class="input_4" autocomplete="off"/>
-                                                            <span class="new_add_img">
-                                                                    <a href="javascript:void(0);">
-                                                                        查询
-                                                                    </a>
-                                                            </span>
+                                                        <p id="add_add2" address2=address2 style="display:block">
+                                                            <input id="roadName" style="width:188px " type="text"
+                                                                   class="input_4" autocomplete="off"/>
                                                         </p>
-                                                        <p id="add_add3" address3="" style="display:none">
-                                                            <input id="address3" type="text" maxlength="10"
-                                                                   class="input_3" autocomplete="off"
-                                                                   style="color: rgb(173, 173, 173);"/>
+                                                        <p id="add_add3" address3=address3 style="display:block">
+                                                            <input id="addressDetial" type="text" maxlength="10"
+                                                                   class="input_3" autocomplete="off"/>
                                                         </p>
-                                                        <p id="add_add4" address4="" style="display:none">
-                                                            <input id="address4" type="text" maxlength="10"
-                                                                   class="input_3" autocomplete="off"
-                                                                   style="color: rgb(173, 173, 173);"/>
-                                                        </p>
-                                                        <p id="add_add5" address5="">
+                                                        <p id="add_add5" address5=address5>
                                                             <input id="linkman" type="text" class="input_4"
-                                                                   style="width: 188px; color: rgb(173, 173, 173);"
-                                                                   autocomplete="off"/>&nbsp;&nbsp;
-                                                            <input id="gender0" name="gender" type="radio" value="0"
-                                                                   checked=""/>&nbsp;先生
+                                                                   style="width:188px" autocomplete="off"/>&nbsp;&nbsp;
+                                                            <input id="male" name="gender" type="radio"
+                                                                   checked=checked value="先生"/>&nbsp;先生
                                                             &nbsp;&nbsp;
-                                                            <input id="gender1" name="gender" type="radio"
-                                                                   value="1"/>&nbsp;女士
+                                                            <input id="female" name="gender" type="radio"
+                                                                   value="女士"/>&nbsp;女士
                                                         </p>
-                                                        <p id="add_add6" address6="">
+                                                        <p id="add_add6" address6=address6>
                                                             <input id="linkphone" name="linkphone" type="text"
-                                                                   style="width: 188px; color: rgb(173, 173, 173);"
-                                                                   maxlength="11" class="input_4"
-                                                                   autocomplete="off"/>
-                                                            <span class="new_add_boxs1">
-                                                                <a id="saveAddressBtn"
-                                                                   href="javascript:;">保存</a>
-                                                            </span>
+                                                                   style="width:188px" maxlength="11"
+                                                                   class="input_4" autocomplete="off"/>
+                                                            <span class="new_add_boxs1"><a id="saveAddressBtn"
+                                                                                           href="javascript:;">保存</a></span>
                                                         </p>
                                                         <p>
                                                             <span class="new_add_map">如此处与路名/小区名填写内容有矛盾，视为无效订单<br/>此处仅支持中文输入地址。</span>
@@ -494,6 +468,7 @@
                 </div>
             </span>
         </div>
+
         <div class="ui-dialog-buttonpane ui-widget-content ui-helper-clearfix" style="border: 0px;">
             <div class="ui-dialog-buttonset">
                 <button type="button" class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only"
@@ -502,8 +477,56 @@
                 </button>
             </div>
         </div>
+
     </div>
     <div id="footer"></div>
 </div>
 </body>
+
+<!-- 地图弹出层 -->
+<script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=OMHt7FA3ciGcVCAMDOAbAeUf9nZ0idKZ"></script>
+<script type="text/javascript">
+    // 百度地图API功能
+    var map = new BMap.Map("allmap");
+    var point = new BMap.Point(116.331398, 39.897445);
+    map.centerAndZoom(point, 12);
+    map.enableScrollWheelZoom(true);     //开启鼠标滚轮缩放
+    var geoc = new BMap.Geocoder();
+
+    var geolocation = new BMap.Geolocation();//定位
+    geolocation.getCurrentPosition(function (r) {
+        if (this.getStatus() == BMAP_STATUS_SUCCESS) {
+            var mk = new BMap.Marker(r.point);
+            map.addOverlay(mk);
+            map.panTo(r.point);  //把位置更新至当前位置
+            var pt = r.point;
+            geoc.getLocation(pt, function (rs) {
+                var addComp = rs.addressComponents;
+                //alert(addComp.province + ", " + addComp.city + ", " + addComp.district + ", " + addComp.street + ", " + addComp.streetNumber);
+            });
+        }
+        else {
+            alert('failed' + this.getStatus());
+        }
+    });
+
+    map.addEventListener("click", function (e) {       //点击获取坐标
+        var pt = e.point;
+        geoc.getLocation(pt, function (rs) {
+            var addComp = rs.addressComponents;
+            if (confirm("你选择的地址是否为" + addComp.province + ", " + addComp.city + ", " + addComp.district + ", " + addComp.street + ", " + addComp.streetNumber)) {
+                $("#cityName").attr("value", addComp.province + addComp.city + addComp.district + addComp.street + addComp.streetNumber);
+                $("#allmap").css({display: "none"});
+            }
+            //alert(addComp.province + ", " + addComp.city + ", " + addComp.district + ", " + addComp.street + ", " + addComp.streetNumber);
+            //addComp.province + addComp.city + addComp.district + addComp.street + addComp.streetNumber ;
+        });
+    });
+
+
+    $("#query_city").click(function () {
+        $("#allmap").css({display: "block"});
+    });
+</script>
+
 </html>

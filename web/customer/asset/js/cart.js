@@ -12,7 +12,7 @@ $(function () {
     });
 
     /**
-     * 获取用户标志并判断上一步和下一步按钮的逻辑
+     * 获取用户标志并判断上一步和下一步按钮的逻辑,和修改引导流程中超链接指向continueShopping.jsp还是regCustomer.jsp
      */
     $.ajax({
         url: "getUserFlag.action",
@@ -30,6 +30,8 @@ $(function () {
                 $("#step_pay").click(function () {
                     location.assign("saveCustomer.jsp");
                 });
+
+                $("area[shape='rect']").attr("href", "regCustomer.jsp");
             }
 
         }

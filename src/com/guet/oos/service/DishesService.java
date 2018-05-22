@@ -19,4 +19,8 @@ public interface DishesService {
 
     public List<Dishes> getSpecifyColumnSpecifyWord(String col1, String word);
 
+    public boolean updateDishesStoreByDishesId(long dsId, long number);
+
+    public long queryDishesStockByDishesId(long dsId);
+
 }

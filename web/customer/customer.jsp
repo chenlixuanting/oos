@@ -7,6 +7,7 @@
 
     String basePath = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort()
             + path + "/customer/";
+
 %>
 
 <html>
@@ -53,14 +54,20 @@
                 <ul>
                     <li class="w1">
                         <span>
-					        <a href="index.jsp">首页</a>
+					        <a href="continueShopping.jsp">开始订餐</a>
 						</span>
                     </li>
                     <li class="w2">
-                        <span>开始订餐</span>
+                        <span>
+                            <a href="customerExit.action">重新登录</a>
+                        </span>
                     </li>
                     <li class="w3">
-                        <span>个人中心</span>
+                        <span>
+                            <a href="customerCenter.jsp">
+                                个人中心
+                            </a>
+                        </span>
                     </li>
                     <li class="w4">
                         <span>
@@ -87,85 +94,6 @@
                         <!-- 用户信息栏 -->
                         <div class=" info_table">
 
-                            <%-- 添加送餐地址 --%>
-                            <div id="addAddress" style="display: none;">
-                                <div style="width:11%;float:left"><span class="span_2">送餐城市：</span>
-                                    <span class="span_2" address2="" style="display: block;">路名/小区名：</span>
-                                    <span class="span_2" address3="" style="display: block;">请继续填全：</span>
-                                    <span class="span_2" address5="">联系人：</span>
-                                    <span class="span_2" address6="">联系电话：</span>
-                                </div>
-                                <div style="width:760px">
-                                    <div id="import_addr_tip"></div>
-
-                                    <a href="javascript:;" style="display: none;" onclick="" id="addressAdd">新增</a>
-
-                                    <!--添加送餐地址开始-->
-                                    <div style="position: relative; height: 100px; z-index:1;">
-                                        <div class="fl_l">
-                                            <div class="info_table_1">
-                                                <div>
-                                                    <div style="border: none;">
-                                                        <input id="editAddressId" type="hidden" value="0">
-                                                        <input id="editCityCode" type="hidden" value="00013">
-                                                        <div class="add_address">
-
-                                                            <p>
-                                                                <span class="new_tel_input">
-                                                                <input id="cityName" type="text" class="input_5"
-                                                                       autocomplete="off"
-                                                                       style="color: rgb(115, 115, 115);">
-                                                                <span class="add_icon" id="query_city"></span>
-                                                                <span class="location"></span>
-                                                                </span>
-                                                            </p>
-
-                                                            <p id="add_add2" address2="" style="display: block;">
-                                                                <input id="address2"
-                                                                       style="width: 188px; color: rgb(115, 115, 115);"
-                                                                       type="text" class="input_4" autocomplete="off">
-                                                                <span class="new_add_img"><a href="javascript:void(0);">查询</a></span>
-                                                            </p>
-
-                                                            <p id="add_add3" address3="" style="display: block;">
-                                                                <input id="address3" type="text" maxlength="10"
-                                                                       class="input_3" autocomplete="off"
-                                                                       style="color: rgb(115, 115, 115);">
-                                                            </p>
-
-                                                            <p id="add_add5" address5="">
-                                                                <input id="linkman" type="text" class="input_4"
-                                                                       style="width: 188px; color: rgb(115, 115, 115);"
-                                                                       autocomplete="off">&nbsp;&nbsp;
-                                                                <input id="gender0" name="gender" type="radio" value="0"
-                                                                       checked="checked">&nbsp;先生
-                                                                &nbsp;&nbsp;
-                                                                <input id="gender1" name="gender" type="radio"
-                                                                       value="1">&nbsp;女士
-                                                            </p>
-
-                                                            <p id="add_add6" address6="">
-                                                                <input id="linkphone" name="linkphone" type="text"
-                                                                       style="width: 188px; color: rgb(115, 115, 115);"
-                                                                       maxlength="11" class="input_4"
-                                                                       autocomplete="off">
-                                                                <span class="new_add_boxs1">
-                                                                    <a id="saveAddressBtn" href="javascript:;">保存</a>
-                                                                </span>
-                                                            </p>
-                                                            <p>
-                                                                <span class="new_add_map">如此处与路名/小区名填写内容有矛盾，视为无效订单<br>此处仅支持中文输入地址。</span>
-                                                            </p>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="clear"></div>
-                                    </div> <!--添加送餐地址结束-->
-                                </div>
-                            </div>
-
                             <%-- 地址选择 --%>
                             <div id="adderssArea" style="padding-bottom: 20px;" class="line_back">
                                 <div class="address_span"><span class="span_1" id="span1">送餐地址：</span></div>
@@ -182,43 +110,18 @@
                                 <!--送餐地址开始-->
                                 <div id="address_1" style="">
                                     <div class="fl_l">
+
                                         <ul class="info_table_1">
-                                            <li id="0" class="selectcolor td_no_border">
-                                                <div style="width: 20px; float: left; margin-top: 12px;">
-                                                    <input name="selAddressId" type="radio" value="0" checked="checked">
-                                                    <input name="supportonlinepay" type="hidden" value="true">
-                                                    <input name="nCityCode" type="hidden" value="00013">
-                                                    <input name="nCityName" type="hidden" value="北京">
-                                                    <input name="nMainaddress" type="hidden"
-                                                           value="六铺炕1区(安德里中街与旧鼓楼外大街交叉口西北150米)">
-                                                    <input name="nMainaddressDescription" type="hidden"
-                                                           value="六铺炕1区(安德里中街与旧鼓楼外大街交叉口西北150米)">
-                                                    <input name="nSupplementaladdress" type="hidden" value="12">
-                                                    <input name="nSupplementaladdressDescription" type="hidden"
-                                                           value="12">
-                                                    <input name="coordinate_x" type="hidden" value="">
-                                                    <input name="coordinate_y" type="hidden" value="">
-                                                    <input name="addressDESFlag" type="hidden" value="1">
-                                                    <input name="gender" type="hidden" value="0">
-                                                    <input name="name" type="hidden" value="12">
-                                                    <input name="phone" type="hidden" value="13347573463">
-                                                </div>
 
-                                                <div style="float:left" class="cityName">
-                                                </div>
+                                            <%--<li id="0" class="selectcolor td_no_border">--%>
+                                            <%--<div style="width: 20px; float: left; margin-top: 12px;">--%>
+                                            <%--<input name="selAddressId" type="radio" value="0" checked="checked">--%>
+                                            <%--</div>--%>
+                                            <%--<div style="float:left" class="cityName"></div>--%>
+                                            <%--</li>--%>
 
-                                                <div style="float:right">
-                                                    <a href="javascript:void(0);"
-                                                       class="editAddressBtn" newaddressflag="1"
-                                                       tip="六铺炕1区(安德里中街与旧鼓楼外大街交叉口西北150米)"></a><a
-                                                        href="javascript:;" class="deleteAddressBtn"
-                                                        tip="六铺炕1区(安德里中街与旧鼓楼外大街交叉口西北150米)"></a>
-                                                </div>
-                                            </li>
                                         </ul>
-                                    </div>
-                                    <div class=" fl_l">
-                                        <a href="javascript:;" class="ml20px mt5px" id="addAddressBtn">新增</a>
+
                                     </div>
                                     <div class="clear"></div>
                                 </div> <!--送餐地址结束-->
@@ -235,7 +138,7 @@
                                                    type="radio"
                                                    tip="inTime"
                                                    checked="checked"
-                                                   style="vertical-align:middle;margin:-4px 0 0;">
+                                                   style="vertical-align:middle;margin:-4px 0 0;" disabled="disabled">
                                             <a name="sendfoodtimeLink" href="javascript:void(0);"
                                                style="text-decoration: none;" timeType="1">
                                                 <span>成功提交订单后，预计</span>
@@ -249,7 +152,8 @@
                                         <%--隔天送达--%>
                                         <div style="position:relative;width: 100%;height: 30px;margin-left: 93px;display:block">
                                             <div class="fl_l">
-                                                <input class="sendfoodtime-style" name="sendfoodtime" type="radio">
+                                                <input class="sendfoodtime-style" name="sendfoodtime" type="radio"
+                                                       disabled="disabled">
                                                 <a name="sendfoodtimeLink" href="javascript:void(0);"
                                                    style="text-decoration: none;" timeType="2">
                                                     <span>预约当日稍晚时间送餐。</span>
@@ -293,7 +197,7 @@
                                         <div style="position:relative;width: 100%;height: 30px;margin-left: 93px;display:block">
                                             <div class="fl_l">
                                                 <input class="sendfoodtime-style" name="sendfoodtime" type="radio"
-                                                       bookingtype="2">
+                                                       bookingtype="2" disabled="disabled">
                                                 <a name="sendfoodtimeLink" href="javascript:void(0);"
                                                    style="text-decoration:none;" timeType="3"><span>隔日预约单。</span>
                                                 </a>
@@ -379,35 +283,6 @@
             </div>
         </div>
     </div>
-
-    <!-- alert 弹出层 -->
-    <div id="dialog-message-alert" title="友情提示" closebtn="true" style="display: none;">
-        <span></span>
-    </div>
-
-    <!-- dialog-bind-phone 弹出层 -->
-    <div id="dialog-bind-phone" title="友情提示" closebtn="true" style="display: none;">
-        <span></span>
-    </div>
-
-    <!-- confirm 弹出层 -->
-    <div id="dialog-message-confirm" title="友情提示" closebtn="true" style="display: none;">
-        <span></span>
-    </div>
-
-    <!-- alert_back 弹出层 -->
-    <div id="dialog-message-alert-back" title="友情提示" closebtn="true" style="display: none;">
-        <span></span>
-    </div>
-
-    <!-- 弹出层 -->
-    <div id="dialog-message" title="友情提示：" closebtn="false" style="display: none;">
-        <span></span>
-    </div>
-
-    <!--弹出层开始-->
-    <div id="layer_box"></div>
-
 </div>
 </body>
 </html>

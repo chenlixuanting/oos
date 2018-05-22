@@ -33,6 +33,7 @@
     <script type="text/javascript" src="asset/js/common.js"></script>
     <script type="text/javascript" src="asset/js/orderLogin.js"></script>
     <script type="text/javascript" src="asset/js/property_cn.js"></script>
+    <script type="text/javascript" src="asset/js/pageToUrls.js"></script>
 </head>
 <body>
 <form id="mainForm" name="myForm" action="" method="post">
@@ -93,17 +94,22 @@
                             <input id="verifyCode"
                                    class="validate_user_input validate_user_smscode"/>
                             <div class="validate_btn">
-                                <img src="./getRandVerifyCode.action" onclick="$.orderLogin.refreshVerifyCode(this);"
+                                <img src="getRandVerifyCode.action" onclick="$.orderLogin.refreshVerifyCode(this);"
                                      id="verifyCodeImg"/>
                             </div>
                         </div>
                     </div>
                 </li>
-                <li><span class="Loginother"> <span class="me"><input
-                        type="checkbox"/>记住我</span> <span class="wangji"
-                                                          style="display: none"><a
-                        href="javascript:void(0)">忘记密码？</a></span>
-					</span></li>
+                <li>
+                    <span class="Loginother">
+                        <span class="me">
+                            <input type="checkbox"/>记住我
+                        </span>
+                        <span class="wangji" style="display: none">
+                            <a href="javascript:void(0)">忘记密码？</a>
+                        </span>
+					</span>
+                </li>
             </ul>
             <input type="button" id="loginSubmit" class="layerorder_btn"/>
             <div class="lotishi">

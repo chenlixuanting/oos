@@ -10,7 +10,6 @@ import com.guet.oos.dto.TemporaryUserInfo;
 import com.guet.oos.factory.ServiceFactory;
 import com.guet.oos.po.ShopCart;
 import com.guet.oos.po.User;
-import com.guet.oos.service.ShopCartService;
 import com.guet.oos.service.UserService;
 
 import javax.servlet.ServletException;
@@ -22,7 +21,6 @@ import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
-import java.util.List;
 
 /**
  * 用户手机号码验证
@@ -33,8 +31,6 @@ public class UserLoginValidateServlet extends HttpServlet {
     private static final long serialVersionUID = 1L;
 
     private UserService userService = ServiceFactory.getUserServiceInstance();
-
-    private ShopCartService shopCartService = ServiceFactory.getShopCartServiceInstance();
 
     /**
      * @see HttpServlet#HttpServlet()

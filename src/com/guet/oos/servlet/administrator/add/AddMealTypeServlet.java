@@ -66,9 +66,9 @@ public class AddMealTypeServlet extends HttpServlet {
         boolean flag = MealTypeService.createMealType(mealType);
 
         if (flag) {
-            response.getWriter().write(JsonReturn.buildFail("餐点创建失败").toString());
+            response.getWriter().write(JsonReturn.buildFail("餐点创建成功").toString());
         } else {
-            response.getWriter().write(JsonReturn.buildSuccess("餐点创建失成功").toString());
+            response.getWriter().write(JsonReturn.buildSuccess("餐点创建失败").toString());
         }
 
     }

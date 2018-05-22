@@ -43,11 +43,15 @@ public class CustomerSelectDeliverTimeServlet extends HttpServlet {
 
         User user = (User) session.getAttribute(SessionKey.USER);
 
-        deliveryAddressService.userDefaultDeliverTime(user.getUsId(), timeStr);
+//        deliveryAddressService.userDefaultDeliverTime(user.getUsId(), timeStr);
+//        DeliveryAddress deliveryAddress = deliveryAddressService.findUserDefaultDeliverAddress(user.getUsId());
+//        user.setDefaultDeliverAddress(deliveryAddress);
 
-        DeliveryAddress deliveryAddress = deliveryAddressService.findUserDefaultDeliverAddress(user.getUsId());
+        DeliveryAddress address = user.getDefaultDeliverAddress();
 
-        user.setDefaultDeliverAddress(deliveryAddress);
+        address.setReceiverTime(timeStr);
+
+        user.setDefaultDeliverAddress(address);
 
         session.setAttribute(SessionKey.USER, user);
 

@@ -171,6 +171,53 @@ public class DishesDaoImpl extends AbstractDAOImpl implements DishesDao {
         return dishesList;
     }
 
+    @Override
+    public boolean updateDishesStoreByDishesId(long dsId, long number) {
+
+        String sql = "update dishes_table set stock=? where dsId=?";
+
+        try {
+            pstmt = conn.prepareStatement(sql);
+
+            pstmt.setLong(1, number);
+            pstmt.setLong(2, dsId);
+
+            pstmt.executeUpdate();
+
+            return true;
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return false;
+    }
+
+    @Override
+    public long queryDishesStockByDishesId(long dsId) {
+
+        String sql = "select stock from dishes_table where dsId=?";
+
+        try {
+            pstmt = conn.prepareStatement(sql);
+            pstmt.setLong(1, dsId);
+            ResultSet res = pstmt.executeQuery();
+
+            int stock = 0;
+
+            while (res.next()) {
+                stock += res.getLong(1);
+            }
+
+            return stock;
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return 0;
+    }
+
     private List<Dishes> encapsulationDishes(ResultSet res) throws SQLException {
 
         List<Dishes> dishesList = new ArrayList<Dishes>();

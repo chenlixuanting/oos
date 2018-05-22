@@ -38,4 +38,15 @@ public class DishesServiceImpl implements DishesService {
     public List<Dishes> getSpecifyColumnSpecifyWord(String col1, String word) {
         return dishesDao.getSecifyColumnSpecifyWord(col1, word);
     }
+
+    @Override
+    public boolean updateDishesStoreByDishesId(long dsId, long number) {
+        return dishesDao.updateDishesStoreByDishesId(dsId, number);
+    }
+
+    @Override
+    public long queryDishesStockByDishesId(long dsId) {
+        return dishesDao.queryDishesStockByDishesId(dsId);
+    }
+
 }
