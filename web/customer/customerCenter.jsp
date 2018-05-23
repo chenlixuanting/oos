@@ -33,7 +33,7 @@
 
     <%-- CSS样式 --%>
     <style type="text/css">
-        .pages2, .pages3 {
+        .pages1, .pages3 {
             display: none;
         }
     </style>
@@ -89,8 +89,8 @@
             <!--左侧菜单-->
             <div class="user_menu user_menu_js">
                 <ul>
-                    <li class="libg01 link1"><a id="l1" url="" class="on">个人信息</a></li>
-                    <li class="libg03 link2"><a id="l2" url="">订单查询</a></li>
+                    <li class="libg01 link1"><a id="l1" url="">个人信息</a></li>
+                    <li class="libg03 link2"><a id="l2" url="" class="on">订单查询</a></li>
                     <li class="libg02 link3"><a id="l3" url="">地址管理</a></li>
                 </ul>
             </div>
@@ -186,8 +186,7 @@
                                     <div class="orderList_status">状态</div>
                                     <div class="orderList_option">操作</div>
                                 </li>
-                                <div id="orderList">
-                                </div>
+                                <div id="orderList"></div>
                             </ul>
                         </div>
 
@@ -215,15 +214,18 @@
 
                         <%--订单详情--%>
                             <div id="order_item_detail" style="display:none;">
-                            <h4 style="text-decoration: underline;">
+
+                                <h4 style="text-decoration: underline;">
                                 <span>订单详情</span>
                                 <span id="close_details" class="close_details">关闭详情 </span>
                             </h4>
+
                             <div class="orderList_details_area">
                                 <div class="orderList_detail_status">订单已提交</div>
                                 <div class="orderList_detail_time">预计05-02 21:00送达</div>
                             </div>
-                            <div class="query_order_details">
+
+                                <div class="query_order_details">
                                 <div class="personal_info">
                                     <p><span class="personal_info_title">个人信息</span></p>
                                     <p><span class="personal_info_span_1">顾客姓名：</span>
@@ -262,8 +264,8 @@
                                     <div class="total_price_div">
                                         <p>
                                             <span class="price_span_query">
-												<em class="ft_b">小 计：</em>10.0元 | 
-												<em class="ft_b">外送费：</em>9.0元 
+												<em class="ft_b">小 计：</em>10.0元 |
+												<em class="ft_b">外送费：</em>9.0元
                                             </span>
                                         </p>
                                         <p>
@@ -277,7 +279,8 @@
                                         <span class="personal_info_span_2">货到现金付款&nbsp;&nbsp;</span></p>
                                 </div>
                             </div>
-                        </div>
+
+                            </div>
                     </div>
                     <div class="noyor noyor-js" style="display:none">
                         <p>很抱歉，没有查到订单记录。</p>

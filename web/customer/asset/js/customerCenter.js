@@ -9,6 +9,9 @@ $(function () {
     //初始化用户送餐地址
     initAddressPage();
 
+    //初始化订单页面
+    initOrderSearch();
+
     /*姓名修改按钮*/
     $(".xgname-js").click(function () {
         $(".oldname-js").css("display", "none");
@@ -143,11 +146,6 @@ $(function () {
         }
     );
 
-    /*操作用户地址*/
-    // $("#operateDeliverAddress").click(function () {
-    //
-    // });
-
     /*性别修改按钮*/
     $(".xgsex-js").click(function () {
 
@@ -201,33 +199,25 @@ $(function () {
     });
 
     $('.link3').click(function () {
+
+        //初始化地址管理页面
+        initAddressPage();
+
         $('.pages3').show().siblings().hide();
         $('#l1').removeClass("on");
         $('#l2').removeClass("on");
         $('#l3').addClass("on");
     });
 
-    //进入详情
-    $('#details').click(function () {
-        $('#order_item_detail').show().siblings().hide();
-
-    });
-
     //关闭详情
     $('#close_details').click(function () {
         $('#orderList_now').show().siblings().hide();
-
     });
 
     //进入历史订单
     $('#tohistory').click(function () {
         $('#orderList_history').show().siblings().hide();
 
-    });
-
-    //再来一单
-    $('#another_order').click(function () {
-        location.replace("continueShopping.jsp");
     });
 
     $("#newPassword").click(resetInputBox);
@@ -327,24 +317,6 @@ $(function () {
 });
 
 /**
- * 清空输入框
- */
-function resetInputBox() {
-    $(this).val("");
-}
-
-/**
- * 清空地址录入栏
- */
-function resetAddressInputBox() {
-    $("#cityName").val("");
-    $("#roadName").val("");
-    $("#addressDetial").val("");
-    $("#linkman").val("");
-    $("#linkphone").val("");
-}
-
-/**
  * 初始化个人中心页面内容
  */
 function initPage() {
@@ -380,6 +352,43 @@ function initPage() {
         }
     });
 
+}
+
+//更换性别
+function changeSex(obj) {
+
+    var value = $(obj).attr("value");
+
+    if (value == "0") {
+
+        $("a[value='1']").removeClass('on');
+        $("a[value='1']").addClass("newsex-js");
+        $("a[value='1']").attr("value", "0");
+
+        $(obj).removeClass("newsex-js");
+        $(obj).addClass("on");
+        $(obj).attr("value", "1");
+
+    }
+
+}
+
+/**
+ * 清空输入框
+ */
+function resetInputBox() {
+    $(this).val("");
+}
+
+/**
+ * 清空地址录入栏
+ */
+function resetAddressInputBox() {
+    $("#cityName").val("");
+    $("#roadName").val("");
+    $("#addressDetial").val("");
+    $("#linkman").val("");
+    $("#linkphone").val("");
 }
 
 //初始化订单查询页面
@@ -423,8 +432,8 @@ function initOrderSearch() {
                     "<div class='orderList_format orderList_price'>" + d[x].totalCost + "</div>" +
                     "<div class='orderList_format orderList_status'>" + d[x].orderStatus + "</div>" +
                     "<div class='orderList_format orderList_option'>" +
-                    "<div id='details' class='orderItem_details'>订单详情</div>" +
-                    "<div id='another_order' class='another_order'>再来一单</div>" +
+                    "<div id='details' class='orderItem_details' orId='" + d[x].orId + "' onclick='orderDetail(this);'>订单详情</div>" +
+                    "<div id='another_order' class='another_order' onclick='orderAgain();'>再来一单</div>" +
                     "</div>" +
                     "</li>"
                 );
@@ -434,9 +443,80 @@ function initOrderSearch() {
     });
 }
 
+//数字添0操作
+function fullZone(value) {
+    var d = new String(value);
+    return d.length < 2 ? "0" + d : d;
+}
+
+//查看订单详情
+function orderDetail(obj) {
+
+    /**
+     * {
+        "body": {
+                "creatorTime": "2018-05-23 10:58:24",
+                "daId": 85,
+                "deliverCost": 9,
+                "mgId": 0,
+                "orId": "716a548b-7c57-4440-a62f-3072b6a0624c",
+                "orderItems": [{
+                    "creatorTime": "2018-05-23 10:58:19",
+                    "dishesName": "1元新奥尔良烤翅",
+                    "dsId": 65,
+                    "oiId": 144,
+                    "orId": "716a548b-7c57-4440-a62f-3072b6a0624c",
+                    "price": 1,
+                    "productCost": 1,
+                    "quantity": 1,
+                    "scId": -1,
+                    "updateTime": "2018-05-23 10:58:19"
+                }],
+                "orderStatus": "商家未接单",
+                "payType": "货到付款",
+                "productAmount": 1,
+                "productCost": 1,
+                "totalCost": 10,
+                "updateTime": "2018-05-23 10:58:24",
+                "usId": 60
+            },
+        "head": true
+        }
+     */
+
+    //进入详情
+    $.ajax({
+        url: "getUserCurrentOneOrderInfo.action",
+        type: "POST",
+        dataType: "json",
+        data: {
+            requestData: $(obj).attr("orId")
+        },
+        success: function (data) {
+
+            var d = eval(data);
+
+            if (d.head) {
+
+            } else {
+                alert("查看订单详情失败!");
+            }
+
+        }
+    });
+
+    $('#order_item_detail').css("display", "block");
+    $("#orderList_now").css("display", "none");
+
+}
+
+//再来一单
+function orderAgain() {
+    location.assign("continueShopping.jsp");
+}
+
 //初始化用户地址页面
 function initAddressPage() {
-
 
     /**
      * [{
@@ -475,13 +555,13 @@ function initAddressPage() {
                     "<div class='cityName'>" +
                     "<a name='selAddressLink'" +
                     "style='text-decoration: none; display: block; float: left'" +
-                    "href='javascript:void(0);'>" + d[x].receiverAddress + (d[x].default ? '<span class="showDefault">(默认)</span>' : '') +
+                    "href='javascript:void(0);'>" + d[x].receiverAddress + "&nbsp;&nbsp;&nbsp;<br/>" + (d[x].default ? '<span class="showDefault">(默认)</span>' : '') +
                     "</a>" +
                     "<div class='addressOptions'>" +
                     "<div class='setDefaultAddress' daId='" + d[x].daId + "' onclick='setAsDefaultDeliverAddress(this);'>" +
                     "设为默认" +
                     "</div>" +
-                    "<div class='useThisAddress' daId='" + d[x].daId + "'>" +
+                    "<div class='useThisAddress' daId='" + d[x].daId + "' onclick='setAsCurrentDeliverAddress(this);'>" +
                     "使用此地址订餐" +
                     "<span>|</span>" +
                     "</div>" +
@@ -517,39 +597,33 @@ function setAsDefaultDeliverAddress(obj) {
             }
         }
     });
+
 }
 
 //设置为送餐地址
 function setAsCurrentDeliverAddress(obj) {
 
-}
+    //发送ajax请求
+    $.ajax({
+        url: "SelectDeliverAddress.action",
+        type: "POST",
+        dataType: "json",
+        data: {
+            requestData: $(obj).attr("daId")
+        },
+        success: function (data) {
 
-//更换性别
-function changeSex(obj) {
+            var d = eval(data);
 
-    var value = $(obj).attr("value");
+            if (d.head) {
+                alert("设置当前订餐地址成功!");
+            } else {
+                alert("设置当前订餐地址失败!");
+            }
 
-    if (value == "0") {
+        }
+    });
 
-        $("a[value='1']").removeClass('on');
-        $("a[value='1']").addClass("newsex-js");
-        $("a[value='1']").attr("value", "0");
-
-        $(obj).removeClass("newsex-js");
-        $(obj).addClass("on");
-        $(obj).attr("value", "1");
-
-    }
-
-}
-
-//选为默认地址
-// <span class="showDefault">(默认)</span>
-
-//数字添0操作
-function fullZone(value) {
-    var d = new String(value);
-    return d.length < 2 ? "0" + d : d;
 }
 
 //使用新的订餐地址

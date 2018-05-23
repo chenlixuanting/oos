@@ -1,5 +1,6 @@
 package com.guet.oos.servlet.user.select;
 
+import com.alibaba.fastjson.JSONObject;
 import com.guet.oos.constant.SessionKey;
 import com.guet.oos.dto.JsonReturn;
 import com.guet.oos.factory.ServiceFactory;
@@ -37,9 +38,9 @@ public class SelectDeliverAddressServlet extends HttpServlet {
      */
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-        String adId = request.getParameter("requestData");
+        String daId = request.getParameter("requestData");
 
-        DeliveryAddress address = deliveryAddressService.findById(Long.valueOf(adId));
+        DeliveryAddress address = deliveryAddressService.findById(Long.valueOf(daId));
 
         HttpSession httpSession = request.getSession();
 
@@ -49,7 +50,7 @@ public class SelectDeliverAddressServlet extends HttpServlet {
 
         httpSession.setAttribute(SessionKey.USER, user);
 
-        response.getWriter().write(JsonReturn.buildSuccessEmptyContent().toString());
+        response.getWriter().write(JSONObject.toJSONString(JsonReturn.buildSuccessEmptyContent()));
 
     }
 

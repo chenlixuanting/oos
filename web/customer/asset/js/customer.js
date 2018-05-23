@@ -245,7 +245,7 @@ function ModiyDeliverAddress() {
         },
         success: function (data) {
             var d = eval(data);
-            result = d.head == "true" ? true : false;
+            result = d.head;
         }
 
     });
