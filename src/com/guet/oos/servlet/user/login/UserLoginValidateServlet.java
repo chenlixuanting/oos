@@ -62,14 +62,8 @@ public class UserLoginValidateServlet extends HttpServlet {
 
         User user = userService.findByMobile(loginDataDto.getMobile());
 
-        //默认将用户标记为非正式用户
-        httpSession.setAttribute(SessionKey.USER_FLAG, UserExist.USER_NOT_EXIST);
-
         // 用户存在
         if (user != null) {
-
-            //将用户标记为正式用户
-            httpSession.setAttribute(SessionKey.USER_FLAG, UserExist.USER_EXIST);
 
             // 将bean.String转成成json格式数据，响应ajax
             response.getWriter()
@@ -81,6 +75,9 @@ public class UserLoginValidateServlet extends HttpServlet {
             TemporaryUserInfo userInfo = new TemporaryUserInfo();
 
             userInfo.setAccount(loginDataDto.getMobile());
+
+            //默认将用户标记为非正式用户
+            httpSession.setAttribute(SessionKey.USER_FLAG, UserExist.USER_NOT_EXIST);
 
             //将新用户电话号码添加到Session中
             httpSession.setAttribute(SessionKey.TEMPORARY_USER_INFO, userInfo);

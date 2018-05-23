@@ -174,6 +174,5 @@
 	<script src="js/theme.js"></script>
 	<script src="js/jquery.dataTables.min.js" type="text/javascript"></script>
 	<script src="js/dataTables.bootstrap.min.js" type="text/javascript"></script>
-	<script src="js/commen.js"></script>
 </body>
 </html>

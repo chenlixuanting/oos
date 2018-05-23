@@ -45,7 +45,6 @@
 
     <link rel="stylesheet" type="text/css" href="css/jquery.dataTables.css">
 
-    <link rel="stylesheet" type="text/css" href="css/bootstrapValidator.css">
 </head>
 <body>
 <!-- 顶部 -->

@@ -3,6 +3,7 @@ package com.guet.oos.servlet.user.login;
 import com.alibaba.fastjson.JSONObject;
 import com.guet.oos.constant.JsonReturnCode;
 import com.guet.oos.constant.SessionKey;
+import com.guet.oos.constant.UserExist;
 import com.guet.oos.dto.JsonReturn;
 import com.guet.oos.dto.LoginDataDto;
 import com.guet.oos.factory.ServiceFactory;
@@ -49,12 +50,6 @@ public class UserLoginServlet extends HttpServlet {
 
         HttpSession httpSession = request.getSession();
 
-        //清除Session
-        httpSession.removeAttribute(SessionKey.TEMPORARY_USER_INFO);
-        httpSession.removeAttribute(SessionKey.SHOP_CART);
-        httpSession.removeAttribute(SessionKey.USER);
-        httpSession.removeAttribute(SessionKey.USER_FLAG);
-
         String loginData = request.getParameter("loginData");
 
         LoginDataDto loginDataDto = JSONObject.parseObject(loginData, LoginDataDto.class);
@@ -77,6 +72,9 @@ public class UserLoginServlet extends HttpServlet {
             response.getWriter()
                     .append(JSONObject.toJSONString(JsonReturn.buildFail(JsonReturnCode.VERIFY_CODE_ERROR)));
         } else {
+
+            //将用户标记为正式用户
+            httpSession.setAttribute(SessionKey.USER_FLAG, UserExist.USER_EXIST);
 
             //获取用户的默认送货地址
             DeliveryAddress deliveryAddress = deliveryAddressService.findUserDefaultDeliverAddress(user.getUsId());

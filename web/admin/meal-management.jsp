@@ -38,7 +38,6 @@
           rel='stylesheet' type='text/css'/>
 
     <link rel="stylesheet" type="text/css" href="css/jquery.dataTables.css">
-    <link rel="stylesheet" type="text/css" href="css/bootstrapValidator.css">
 </head>
 <body>
 <!-- 顶部 -->
@@ -168,61 +167,6 @@
 
 <!-- scripts -->
 <script src="js/jquery-3.3.1.js"></script>
-<script type="text/javascript" src="js/bootstrapValidator.js"></script>
-<%--<script type="text/javascript">--%>
-<%--$(function () {--%>
-<%--console.log(111);--%>
-<%--/*校验表单*/--%>
-<%--$("form").bootstrapValidator({--%>
-<%--live: 'disabled',--%>
-<%--submitButtons: '#saveChange',--%>
-<%--feedbackIcons: {//根据验证结果显示的各种图标--%>
-<%--valid: 'glyphicon glyphicon-ok',--%>
-<%--invalid: 'glyphicon glyphicon-remove',--%>
-<%--validating: 'glyphicon glyphicon-refresh'--%>
-<%--},--%>
-<%--fields: {--%>
-<%--mealTypeName :{--%>
-<%--validators:{--%>
-<%--notEmpty:{--%>
-<%--message: '点餐名称不能为空'--%>
-<%--}--%>
-<%--}--%>
-<%--},--%>
-<%--startTime :{--%>
-<%--validators:{--%>
-<%--notEmpty:{--%>
-<%--message: '起始时间不能为空'--%>
-<%--},--%>
-<%--regexp: {//正则验证--%>
-<%--regexp: /^([0-1][0-9]|[2][0-3]):([0-5][0-9])$/,--%>
-<%--message: '所输入的字符不符要求,标准格式：HH:MM'--%>
-<%--}--%>
-<%--}--%>
-<%--},--%>
-<%--endTime :{--%>
-<%--validators:{--%>
-<%--notEmpty:{--%>
-<%--message: '终止时间不能为空'--%>
-<%--}--%>
-<%--},--%>
-<%--regexp: {//正则验证--%>
-<%--regexp: /^([0-1][0-9]|[2][0-3]):([0-5][0-9])$/,--%>
-<%--message: '所输入的字符不符要求,标准格式：HH:MM'--%>
-<%--}--%>
-<%--},--%>
-<%--mgId :{--%>
-<%--validators:{--%>
-<%--notEmpty:{--%>
-<%--message: '管理员ID不能为空'--%>
-<%--}--%>
-<%--}--%>
-<%--}--%>
-<%--}--%>
-<%--});--%>
-<%--});--%>
-<%--</script>--%>
-<%--<script src="http://code.jquery.com/jquery-latest.js"></script>--%>
 <script src="js/bootstrap.min.js"></script>
 <script src="js/jquery-ui-1.10.2.custom.min.js"></script>
 <!-- knob -->

@@ -72,22 +72,6 @@
                        class="table table-hover table-striped table-bordered">
                     <thead>
                     <tr>
-
-                        <%--
-                            {data: null},
-                            {data: "orId"},
-                            {data: "username"},
-                            {data: "receiverAddress"},
-                            {data: "totalCost"},
-                            {data: "productAmount"},
-                            {data: "deliverCost"},
-                            {data: "productCost"},
-                            {data: "orderStatus"},
-                            {data: "payType"},
-                            {data: "creatorTime"},
-                            {data: "updateTime"},
-                            {data: null}],
-                        --%>
                         <th class="span2 sortable"><input style="margin-left: -7px;" type="checkbox"/>全选</th>
                         <th class="span2 sortable">订单号</th>
                         <th class="span2 sortable">用户名</th>
@@ -197,7 +181,6 @@
 <script src="js/theme.js"></script>
 <script src="js/jquery.dataTables.min.js" type="text/javascript"></script>
 <script src="js/dataTables.bootstrap.min.js" type="text/javascript"></script>
-<%--<script src="js/commen.js"></script>--%>
 <script src="asset/js/order-confirmed.js"></script>
 </body>
 </html>

@@ -45,6 +45,10 @@ function initNav() {
 
                     $("area[shape='rect']").attr("href", "continueShopping.jsp");
 
+                    $("#nav1").attr("href", "continueShopping.jsp");
+
+                    $("#nav3").attr("href", "customerCenter.jsp");
+
                 } else {
 
                     $("#step1").click(function () {
@@ -56,6 +60,11 @@ function initNav() {
                     });
 
                     $("area[shape='rect']").attr("href", "regCustomer.jsp");
+
+                    $("#nav1").attr("href", "index.jsp");
+
+                    $("#nav3").attr("href", "customerExit.action");
+
                 }
 
             } else {

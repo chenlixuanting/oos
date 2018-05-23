@@ -42,7 +42,7 @@ public class GetUserFlagServlet extends HttpServlet {
 
         String userFlagStr = (String) httpSession.getAttribute(SessionKey.USER_FLAG);
 
-        if (StringUtils.isEmpty(userFlagStr)) {
+        if (!StringUtils.isEmpty(userFlagStr)) {
 
             Boolean userFlag = Boolean.valueOf(userFlagStr);
 

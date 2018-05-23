@@ -2,60 +2,6 @@
  * Created by Shinelon on 2018/5/1.
  */
 $(function () {
-    /*校验表单*/
-    $("form").bootstrapValidator({
-        live: 'disabled',// 'disabled'
-        submitButtons: '#saveChange',
-        feedbackIcons: {//根据验证结果显示的各种图标
-            valid: 'glyphicon glyphicon-ok',
-            invalid: 'glyphicon glyphicon-remove',
-            validating: 'glyphicon glyphicon-refresh'
-        },
-        fields: {
-            dishesName: {
-                validators: {
-                    notEmpty: {
-                        message: '菜品名称不能为空'
-                    }
-                }
-            },
-            dishesType: {
-                validators: {
-                    notEmpty: {
-                        message: '菜品种类不能为空'
-                    }
-                }
-            },
-            price: {
-                validators: {
-                    notEmpty: {
-                        message: '菜品单价不能为空'
-                    }
-                }
-            },
-            stock: {
-                validators: {
-                    notEmpty: {
-                        message: '库存不能为空'
-                    }
-                }
-            },
-            headPicture: {
-                validators: {
-                    notEmpty: {
-                        message: '图片不能为空'
-                    }
-                }
-            },
-            describe: {
-                validators: {
-                    notEmpty: {
-                        message: '简介不能为空'
-                    }
-                }
-            }
-        }
-    });
     $("#saveChange").on('click', function () {
         /*校验表单*/
         var reg1 = /^([1-9]\d*|0)(\.\d{1,2})?$/;

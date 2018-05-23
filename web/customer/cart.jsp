@@ -29,7 +29,7 @@
     <script type="text/javascript" src="js/quote/jquery-3.2.1.min.js"></script>
     <script type="text/javascript" src="asset/js/cart.js"></script>
     <script type="text/javascript" src="asset/js/property_cn.js"></script>
-    <script type="text/javascript" src="asset/js/comment.js"></script>
+    <script type="text/javascript" src="asset/js/common.js"></script>
 
 </head>
 <body>
@@ -61,7 +61,7 @@
                     </li>
                     <li>
                         <span>
-                            <a href="" id="nav2">重新登录</a>
+                            <a href="customerExit.action" id="nav2">重新登录</a>
                         </span>
                     </li>
                     <li>

@@ -5,23 +5,22 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f566ee65-e8d4-499b-9f0e-d5d8d11c0464" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../oos/web/WEB-INF/lib/spring-core-3.2.3.RELEASE.jar" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../oos/src/com/guet/oos/constant/ReturnMessage.java" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../oos/web/admin/css/bootstrapValidator.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../oos/web/admin/js/bootstrapValidator.js" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../oos/.idea/workspace.xml" afterPath="$PROJECT_DIR$/../oos/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../oos/src/com/guet/oos/constant/UserExist.java" afterPath="$PROJECT_DIR$/../oos/src/com/guet/oos/constant/UserExist.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../oos/src/com/guet/oos/servlet/user/customer/CustomerExitServlet.java" afterPath="$PROJECT_DIR$/../oos/src/com/guet/oos/servlet/user/customer/CustomerExitServlet.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../oos/src/com/guet/oos/servlet/user/get/GetUserFlagServlet.java" afterPath="$PROJECT_DIR$/../oos/src/com/guet/oos/servlet/user/get/GetUserFlagServlet.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../oos/src/com/guet/oos/servlet/user/get/GetUserInfoServlet.java" afterPath="$PROJECT_DIR$/../oos/src/com/guet/oos/servlet/user/get/GetUserInfoServlet.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../oos/src/com/guet/oos/test/TestInstance.java" afterPath="$PROJECT_DIR$/../oos/src/com/guet/oos/test/TestInstance.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../oos/src/com/guet/oos/servlet/user/login/UserLoginServlet.java" afterPath="$PROJECT_DIR$/../oos/src/com/guet/oos/servlet/user/login/UserLoginServlet.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../oos/src/com/guet/oos/servlet/user/login/UserLoginValidateServlet.java" afterPath="$PROJECT_DIR$/../oos/src/com/guet/oos/servlet/user/login/UserLoginValidateServlet.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../oos/web/admin/dishes-management.jsp" afterPath="$PROJECT_DIR$/../oos/web/admin/dishes-management.jsp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../oos/web/admin/dishes-type-management.jsp" afterPath="$PROJECT_DIR$/../oos/web/admin/dishes-type-management.jsp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../oos/web/admin/history-order.jsp" afterPath="$PROJECT_DIR$/../oos/web/admin/history-order.jsp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../oos/web/admin/js/dishes-management.js" afterPath="$PROJECT_DIR$/../oos/web/admin/js/dishes-management.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../oos/web/admin/meal-management.jsp" afterPath="$PROJECT_DIR$/../oos/web/admin/meal-management.jsp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../oos/web/admin/order-confirmed.jsp" afterPath="$PROJECT_DIR$/../oos/web/admin/order-confirmed.jsp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../oos/web/admin/uncomment-management.jsp" afterPath="$PROJECT_DIR$/../oos/web/admin/uncomment-management.jsp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../oos/web/admin/user-management.jsp" afterPath="$PROJECT_DIR$/../oos/web/admin/user-management.jsp" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../oos/web/customer/asset/js/cart.js" afterPath="$PROJECT_DIR$/../oos/web/customer/asset/js/cart.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../oos/web/customer/asset/js/common.js" afterPath="$PROJECT_DIR$/../oos/web/customer/asset/js/common.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../oos/web/customer/asset/js/continueShopping.js" afterPath="$PROJECT_DIR$/../oos/web/customer/asset/js/continueShopping.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../oos/web/customer/asset/js/customerCenter.js" afterPath="$PROJECT_DIR$/../oos/web/customer/asset/js/customerCenter.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../oos/web/customer/asset/js/pay.js" afterPath="$PROJECT_DIR$/../oos/web/customer/asset/js/pay.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../oos/web/customer/cart.jsp" afterPath="$PROJECT_DIR$/../oos/web/customer/cart.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../oos/web/customer/continueShopping.jsp" afterPath="$PROJECT_DIR$/../oos/web/customer/continueShopping.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../oos/web/customer/customerCenter.jsp" afterPath="$PROJECT_DIR$/../oos/web/customer/customerCenter.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../oos/web/customer/pay.jsp" afterPath="$PROJECT_DIR$/../oos/web/customer/pay.jsp" />
     </list>
     <ignored path="$PROJECT_DIR$/../oos/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -38,118 +37,101 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="cart.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/../oos/web/customer/asset/js/cart.js">
+      <file leaf-file-name="index.jsp" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/../oos/web/admin/index.jsp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="147">
-              <caret line="25" column="34" lean-forward="true" selection-start-line="25" selection-start-column="34" selection-end-line="25" selection-end-column="34" />
-              <folding>
-                <marker date="1527069421569" expanded="true" signature="3121:3126" ph="¥" />
-                <marker date="1527069421569" expanded="true" signature="3285:3290" ph="¥" />
-                <marker date="1527069421569" expanded="true" signature="3885:3897" ph="..." />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="customer.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/../oos/web/customer/asset/js/customer.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="67">
-              <caret line="239" column="21" lean-forward="true" selection-start-line="239" selection-start-column="21" selection-end-line="239" selection-end-column="21" />
-              <folding>
-                <marker date="1527067835146" expanded="true" signature="2063:2107" ph="..." />
-                <marker date="1527067835146" expanded="true" signature="4615:4658" ph="..." />
-                <marker date="1527067835146" expanded="true" signature="4839:4849" ph="..." />
-                <marker date="1527067835146" expanded="true" signature="4961:5011" ph="..." />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="common.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/../oos/web/customer/asset/js/common.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="393">
-              <caret line="38" column="7" lean-forward="true" selection-start-line="38" selection-start-column="7" selection-end-line="38" selection-end-column="7" />
-              <folding>
-                <marker date="1527068688316" expanded="true" signature="889:933" ph="..." />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="cart.jsp" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/../oos/web/customer/cart.jsp">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="630">
-              <caret line="105" column="22" lean-forward="true" selection-start-line="105" selection-start-column="22" selection-end-line="105" selection-end-column="22" />
-              <folding>
-                <element signature="n#style#0;n#div#0;n#div#1;n#div#0;n#div#1;n#form#0;n#body#0;n#!!top" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="GetUserFlagServlet.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/../oos/src/com/guet/oos/servlet/user/get/GetUserFlagServlet.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="252">
-              <caret line="40" column="42" lean-forward="true" selection-start-line="40" selection-start-column="42" selection-end-line="40" selection-end-column="42" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="UserLoginValidateServlet.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/../oos/src/com/guet/oos/servlet/user/login/UserLoginValidateServlet.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="525">
-              <caret line="68" column="27" lean-forward="true" selection-start-line="68" selection-start-column="27" selection-end-line="68" selection-end-column="27" />
+            <state relative-caret-position="441">
+              <caret line="73" column="0" lean-forward="true" selection-start-line="73" selection-start-column="0" selection-end-line="73" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="CustomerExitServlet.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/../oos/src/com/guet/oos/servlet/user/customer/CustomerExitServlet.java">
+      <file leaf-file-name="meal-management.jsp" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/../oos/web/admin/meal-management.jsp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-349">
-              <caret line="13" column="7" lean-forward="true" selection-start-line="13" selection-start-column="7" selection-end-line="13" selection-end-column="7" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="UserExist.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/../oos/src/com/guet/oos/constant/UserExist.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="231">
-              <caret line="11" column="0" lean-forward="true" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
+            <state relative-caret-position="441">
+              <caret line="180" column="23" lean-forward="false" selection-start-line="180" selection-start-column="23" selection-end-line="180" selection-end-column="23" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="GetUserInfoServlet.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/../oos/src/com/guet/oos/servlet/user/get/GetUserInfoServlet.java">
+      <file leaf-file-name="nav.jsp" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/../oos/web/admin/nav.jsp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="303">
-              <caret line="41" column="0" lean-forward="true" selection-start-line="41" selection-start-column="0" selection-end-line="41" selection-end-column="0" />
+            <state relative-caret-position="210">
+              <caret line="108" column="17" lean-forward="true" selection-start-line="108" selection-start-column="17" selection-end-line="108" selection-end-column="17" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="TestInstance.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/../oos/src/com/guet/oos/test/TestInstance.java">
+      <file leaf-file-name="order-confirmed.jsp" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/../oos/web/admin/order-confirmed.jsp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="294">
-              <caret line="67" column="0" lean-forward="true" selection-start-line="67" selection-start-column="0" selection-end-line="67" selection-end-column="0" />
+            <state relative-caret-position="441">
+              <caret line="183" column="51" lean-forward="true" selection-start-line="183" selection-start-column="51" selection-end-line="183" selection-end-column="51" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="personal-profile.jsp" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/../oos/web/admin/personal-profile.jsp">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="441">
+              <caret line="96" column="0" lean-forward="true" selection-start-line="96" selection-start-column="0" selection-end-line="96" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="signin.jsp" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/../oos/web/admin/signin.jsp">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-2037">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="super-authority.jsp" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/../oos/web/admin/super-authority.jsp">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="441">
+              <caret line="176" column="20" lean-forward="true" selection-start-line="176" selection-start-column="20" selection-end-line="176" selection-end-column="20" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="top.jsp" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/../oos/web/admin/top.jsp">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="420">
+              <caret line="79" column="6" lean-forward="true" selection-start-line="78" selection-start-column="9" selection-end-line="79" selection-end-column="6" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="uncomment-management.jsp" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/../oos/web/admin/uncomment-management.jsp">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="315">
+              <caret line="169" column="24" lean-forward="true" selection-start-line="169" selection-start-column="24" selection-end-line="169" selection-end-column="24" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="user-management.jsp" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/../oos/web/admin/user-management.jsp">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="441">
+              <caret line="164" column="0" lean-forward="true" selection-start-line="164" selection-start-column="0" selection-end-line="164" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -228,15 +210,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/../oos/src/com/guet/oos/servlet/user/add/AddUserDeliverAddress.java" />
-        <option value="$PROJECT_DIR$/../oos/src/com/guet/oos/servlet/Template.java" />
-        <option value="$PROJECT_DIR$/../oos/src/com/guet/oos/servlet/user/add/AddUserDeliverAddressServlet.java" />
-        <option value="$PROJECT_DIR$/../oos/src/com/guet/oos/servlet/user/customer/CustomerSelectDeliverTimeServlet.java" />
-        <option value="$PROJECT_DIR$/../oos/src/com/guet/oos/servlet/user/add/AddCommentServlet.java" />
-        <option value="$PROJECT_DIR$/../oos/src/com/guet/oos/servlet/user/check/CheckUserLoginServlet.java" />
-        <option value="$PROJECT_DIR$/../oos/web/customer/comment.jsp" />
-        <option value="$PROJECT_DIR$/../oos/src/com/guet/oos/po/Comment.java" />
-        <option value="$PROJECT_DIR$/../oos/src/com/guet/oos/dao/CommentDao.java" />
         <option value="$PROJECT_DIR$/../oos/src/com/guet/oos/dao/impl/CommentDaoImpl.java" />
         <option value="$PROJECT_DIR$/../oos/src/com/guet/oos/service/impl/CommentServiceImpl.java" />
         <option value="$PROJECT_DIR$/../oos/web/customer/asset/js/comment.js" />
@@ -249,7 +222,6 @@
         <option value="$PROJECT_DIR$/../oos/src/com/guet/oos/dto/JsonReturn.java" />
         <option value="$PROJECT_DIR$/../oos/web/customer/asset/js/index.js" />
         <option value="$PROJECT_DIR$/../oos/web/customer/asset/js/orderLogin.js" />
-        <option value="$PROJECT_DIR$/../oos/src/com/guet/oos/servlet/user/login/UserLoginServlet.java" />
         <option value="$PROJECT_DIR$/../oos/src/com/guet/oos/dao/impl/UserDaoImpl.java" />
         <option value="$PROJECT_DIR$/../oos/src/com/guet/oos/dao/UserDao.java" />
         <option value="$PROJECT_DIR$/../oos/src/com/guet/oos/service/impl/UserServiceImpl.java" />
@@ -275,10 +247,20 @@
         <option value="$PROJECT_DIR$/../oos/web/customer/asset/js/customer.js" />
         <option value="$PROJECT_DIR$/../oos/src/com/guet/oos/constant/UserExist.java" />
         <option value="$PROJECT_DIR$/../oos/src/com/guet/oos/test/TestInstance.java" />
-        <option value="$PROJECT_DIR$/../oos/src/com/guet/oos/servlet/user/get/GetUserFlagServlet.java" />
         <option value="$PROJECT_DIR$/../oos/web/customer/asset/js/common.js" />
-        <option value="$PROJECT_DIR$/../oos/web/customer/cart.jsp" />
+        <option value="$PROJECT_DIR$/../oos/src/com/guet/oos/servlet/user/login/UserLoginValidateServlet.java" />
+        <option value="$PROJECT_DIR$/../oos/src/com/guet/oos/servlet/user/get/GetUserFlagServlet.java" />
         <option value="$PROJECT_DIR$/../oos/web/customer/asset/js/cart.js" />
+        <option value="$PROJECT_DIR$/../oos/web/customer/cart.jsp" />
+        <option value="$PROJECT_DIR$/../oos/src/com/guet/oos/servlet/user/login/UserLoginServlet.java" />
+        <option value="$PROJECT_DIR$/../oos/web/admin/js/dishes-management.js" />
+        <option value="$PROJECT_DIR$/../oos/web/admin/dishes-management.jsp" />
+        <option value="$PROJECT_DIR$/../oos/web/admin/dishes-type-management.jsp" />
+        <option value="$PROJECT_DIR$/../oos/web/admin/history-order.jsp" />
+        <option value="$PROJECT_DIR$/../oos/web/admin/meal-management.jsp" />
+        <option value="$PROJECT_DIR$/../oos/web/admin/order-confirmed.jsp" />
+        <option value="$PROJECT_DIR$/../oos/web/admin/uncomment-management.jsp" />
+        <option value="$PROJECT_DIR$/../oos/web/admin/user-management.jsp" />
       </list>
     </option>
   </component>
@@ -623,6 +605,32 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="web" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="admin" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="oos" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="oos" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="web" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="admin" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="js" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -1718,7 +1726,7 @@
       <workItem from="1527004607057" duration="7519000" />
       <workItem from="1527039529474" duration="9646000" />
       <workItem from="1527053228954" duration="7317000" />
-      <workItem from="1527065796648" duration="4490000" />
+      <workItem from="1527065796648" duration="6557000" />
     </task>
     <task id="LOCAL-00001" summary="Initial commit">
       <created>1526515634515</created>
@@ -1860,7 +1868,14 @@
       <option name="project" value="LOCAL" />
       <updated>1527053265804</updated>
     </task>
-    <option name="localTasksCounter" value="21" />
+    <task id="LOCAL-00021" summary="Initial commit">
+      <created>1527071877465</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1527071877465</updated>
+    </task>
+    <option name="localTasksCounter" value="22" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -1896,7 +1911,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="591623000" />
+    <option name="totallyTimeSpent" value="593690000" />
   </component>
   <component name="TodoView" selected-index="4">
     <todo-panel id="selected-file">
@@ -1923,7 +1938,7 @@
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2899471" sideWeight="0.6947917" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2984127" sideWeight="0.6947917" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.17989418" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.20952381" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -1933,8 +1948,9 @@
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.26349208" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.18802084" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.171875" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Web" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4021164" sideWeight="0.49166667" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -1943,7 +1959,6 @@
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Spring" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4021164" sideWeight="0.49166667" order="1" side_tool="false" content_ui="tabs" />
     </layout>
     <layout-to-restore>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -1994,7 +2009,7 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="187" />
+      <option name="time" value="189" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -2003,147 +2018,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/../oos/web/customer/asset/js/property_cn.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="588">
-          <caret line="28" column="10" lean-forward="false" selection-start-line="28" selection-start-column="4" selection-end-line="28" selection-end-column="10" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../oos/web/customer/asset/js/regPay.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2688">
-          <caret line="128" column="0" lean-forward="false" selection-start-line="128" selection-start-column="0" selection-end-line="128" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../oos/web/customer/regPay.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="630">
-          <caret line="30" column="55" lean-forward="false" selection-start-line="30" selection-start-column="55" selection-end-line="30" selection-end-column="55" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../oos/src/com/guet/oos/dto/JsonReturn.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="134">
-          <caret line="26" column="20" lean-forward="true" selection-start-line="26" selection-start-column="20" selection-end-line="26" selection-end-column="20" />
-          <folding>
-            <element signature="e#309#310#0" expanded="false" />
-            <element signature="e#336#337#0" expanded="false" />
-            <element signature="e#377#378#0" expanded="false" />
-            <element signature="e#409#410#0" expanded="false" />
-            <element signature="e#440#441#0" expanded="false" />
-            <element signature="e#467#468#0" expanded="false" />
-            <element signature="e#507#508#0" expanded="false" />
-            <element signature="e#539#540#0" expanded="false" />
-            <element signature="e#580#581#0" expanded="false" />
-            <element signature="e#610#611#0" expanded="false" />
-            <element signature="e#648#649#0" expanded="false" />
-            <element signature="e#675#676#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../oos/src/com/guet/oos/servlet/user/login/UserLoginServlet.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="743">
-          <caret line="93" column="0" lean-forward="true" selection-start-line="93" selection-start-column="0" selection-end-line="93" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../oos/web/customer/asset/js/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="253">
-          <caret line="350" column="0" lean-forward="true" selection-start-line="350" selection-start-column="0" selection-end-line="350" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../oos/web/customer/asset/js/orderLogin.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="246">
-          <caret line="70" column="18" lean-forward="true" selection-start-line="70" selection-start-column="18" selection-end-line="70" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../oos/src/com/guet/oos/po/Order.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="10" column="13" lean-forward="false" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../oos/src/com/guet/oos/dao/impl/UserDaoImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1575">
-          <caret line="281" column="0" lean-forward="false" selection-start-line="281" selection-start-column="0" selection-end-line="281" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../oos/src/com/guet/oos/dao/UserDao.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="378">
-          <caret line="20" column="0" lean-forward="false" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../oos/src/com/guet/oos/po/DeliveryAddress.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="315">
-          <caret line="15" column="28" lean-forward="false" selection-start-line="15" selection-start-column="28" selection-end-line="15" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../oos/src/com/guet/oos/dao/DeliveryAddressDao.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="315">
-          <caret line="17" column="1" lean-forward="false" selection-start-line="17" selection-start-column="1" selection-end-line="17" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../oos/src/com/guet/oos/dao/impl/DeliveryAddressDaoImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="798">
-          <caret line="81" column="34" lean-forward="false" selection-start-line="81" selection-start-column="34" selection-end-line="81" selection-end-column="34" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../oos/src/com/guet/oos/service/impl/DeliveryAddressServiceImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="609">
-          <caret line="79" column="13" lean-forward="false" selection-start-line="79" selection-start-column="13" selection-end-line="79" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../oos/src/com/guet/oos/service/DeliveryAddressService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="483">
-          <caret line="27" column="1" lean-forward="false" selection-start-line="27" selection-start-column="1" selection-end-line="27" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../oos/src/com/guet/oos/servlet/user/get/GetUserDeliverAddressServlet.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="546">
-          <caret line="41" column="25" lean-forward="false" selection-start-line="41" selection-start-column="25" selection-end-line="41" selection-end-column="25" />
-          <folding>
-            <element signature="imports" expanded="false" />
-            <element signature="e#1001#1002#0" expanded="false" />
-            <element signature="e#1024#1025#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../oos/src/com/guet/oos/service/impl/UserServiceImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="777">
-          <caret line="88" column="0" lean-forward="false" selection-start-line="88" selection-start-column="0" selection-end-line="88" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/../oos/src/com/guet/oos/service/UserService.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="84">
@@ -2399,9 +2273,86 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/../oos/src/com/guet/oos/constant/UserExist.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="231">
+          <caret line="11" column="0" lean-forward="true" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../oos/src/com/guet/oos/servlet/user/customer/CustomerExitServlet.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="15" column="3" lean-forward="true" selection-start-line="15" selection-start-column="3" selection-end-line="15" selection-end-column="3" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../oos/src/com/guet/oos/servlet/user/login/UserLoginServlet.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="147">
+          <caret line="49" column="0" lean-forward="true" selection-start-line="49" selection-start-column="0" selection-end-line="49" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../oos/src/com/guet/oos/servlet/user/login/UserLoginValidateServlet.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="291">
+          <caret line="52" column="19" lean-forward="true" selection-start-line="52" selection-start-column="19" selection-end-line="52" selection-end-column="19" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../oos/web/admin/js/dishes-management.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1047">
+          <caret line="138" column="11" lean-forward="true" selection-start-line="138" selection-start-column="11" selection-end-line="138" selection-end-column="11" />
+          <folding>
+            <marker date="1527074744543" expanded="true" signature="3158:3164" ph="&amp;nbsp;" />
+            <marker date="1527074744543" expanded="true" signature="3164:3170" ph="&amp;nbsp;" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../oos/src/com/guet/oos/servlet/user/get/GetUserFlagServlet.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="378">
+          <caret line="50" column="16" lean-forward="true" selection-start-line="50" selection-start-column="16" selection-end-line="50" selection-end-column="16" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../oos/web/customer/cart.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="294">
+          <caret line="32" column="0" lean-forward="true" selection-start-line="32" selection-start-column="0" selection-end-line="32" selection-end-column="0" />
+          <folding>
+            <element signature="n#style#0;n#div#0;n#div#1;n#div#0;n#div#1;n#form#0;n#body#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../oos/web/customer/asset/js/common.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="424">
+          <caret line="38" column="7" lean-forward="true" selection-start-line="38" selection-start-column="7" selection-end-line="38" selection-end-column="7" />
+          <folding>
+            <marker date="1527068688316" expanded="true" signature="889:933" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/../oos/web/customer/asset/js/customer.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="67">
+        <state relative-caret-position="319">
           <caret line="239" column="21" lean-forward="true" selection-start-line="239" selection-start-column="21" selection-end-line="239" selection-end-column="21" />
           <folding>
             <marker date="1527067835146" expanded="true" signature="2063:2107" ph="..." />
@@ -2412,71 +2363,138 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../oos/web/customer/cart.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="630">
-          <caret line="105" column="22" lean-forward="true" selection-start-line="105" selection-start-column="22" selection-end-line="105" selection-end-column="22" />
-          <folding>
-            <element signature="n#style#0;n#div#0;n#div#1;n#div#0;n#div#1;n#form#0;n#body#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../oos/web/customer/asset/js/common.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="393">
-          <caret line="38" column="7" lean-forward="true" selection-start-line="38" selection-start-column="7" selection-end-line="38" selection-end-column="7" />
-          <folding>
-            <marker date="1527068688316" expanded="true" signature="889:933" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/../oos/web/customer/asset/js/cart.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="147">
-          <caret line="25" column="34" lean-forward="true" selection-start-line="25" selection-start-column="34" selection-end-line="25" selection-end-column="34" />
+        <state relative-caret-position="420">
+          <caret line="59" column="23" lean-forward="true" selection-start-line="59" selection-start-column="23" selection-end-line="59" selection-end-column="23" />
           <folding>
-            <marker date="1527069421569" expanded="true" signature="3121:3126" ph="¥" />
-            <marker date="1527069421569" expanded="true" signature="3285:3290" ph="¥" />
-            <marker date="1527069421569" expanded="true" signature="3885:3897" ph="..." />
+            <marker date="1527072661790" expanded="true" signature="3388:3393" ph="¥" />
+            <marker date="1527072661790" expanded="true" signature="3552:3557" ph="¥" />
+            <marker date="1527072661790" expanded="true" signature="4152:4164" ph="..." />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../oos/src/com/guet/oos/servlet/user/customer/CustomerExitServlet.java">
+    <entry file="file://$PROJECT_DIR$/../oos/web/admin/js/commen.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-349">
-          <caret line="13" column="7" lean-forward="true" selection-start-line="13" selection-start-column="7" selection-end-line="13" selection-end-column="7" />
+        <state relative-caret-position="-4424">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <marker date="1524980703970" expanded="true" signature="6269:6275" ph="&amp;nbsp;" />
+            <marker date="1524980703970" expanded="true" signature="6275:6281" ph="&amp;nbsp;" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../oos/src/com/guet/oos/constant/UserExist.java">
+    <entry file="file://$PROJECT_DIR$/../oos/web/admin/dishes-management.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="231">
-          <caret line="11" column="0" lean-forward="true" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
+        <state relative-caret-position="273">
+          <caret line="240" column="20" lean-forward="true" selection-start-line="240" selection-start-column="20" selection-end-line="240" selection-end-column="20" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../oos/src/com/guet/oos/servlet/user/login/UserLoginValidateServlet.java">
+    <entry file="file://$PROJECT_DIR$/../oos/web/admin/dishes-type-management.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="525">
-          <caret line="68" column="27" lean-forward="true" selection-start-line="68" selection-start-column="27" selection-end-line="68" selection-end-column="27" />
+        <state relative-caret-position="378">
+          <caret line="171" column="48" lean-forward="true" selection-start-line="171" selection-start-column="48" selection-end-line="171" selection-end-column="48" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../oos/src/com/guet/oos/servlet/user/get/GetUserFlagServlet.java">
+    <entry file="file://$PROJECT_DIR$/../oos/web/admin/history-comment.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="252">
-          <caret line="40" column="42" lean-forward="true" selection-start-line="40" selection-start-column="42" selection-end-line="40" selection-end-column="42" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+        <state relative-caret-position="483">
+          <caret line="184" column="7" lean-forward="true" selection-start-line="184" selection-start-column="7" selection-end-line="184" selection-end-column="7" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../oos/web/admin/history-order.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="504">
+          <caret line="162" column="0" lean-forward="false" selection-start-line="162" selection-start-column="0" selection-end-line="162" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../oos/web/admin/index.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="441">
+          <caret line="73" column="0" lean-forward="true" selection-start-line="73" selection-start-column="0" selection-end-line="73" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../oos/web/admin/meal-management.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="441">
+          <caret line="180" column="23" lean-forward="false" selection-start-line="180" selection-start-column="23" selection-end-line="180" selection-end-column="23" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../oos/web/admin/nav.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="210">
+          <caret line="108" column="17" lean-forward="true" selection-start-line="108" selection-start-column="17" selection-end-line="108" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../oos/web/admin/order-confirmed.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="441">
+          <caret line="183" column="51" lean-forward="true" selection-start-line="183" selection-start-column="51" selection-end-line="183" selection-end-column="51" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../oos/web/admin/personal-profile.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="441">
+          <caret line="96" column="0" lean-forward="true" selection-start-line="96" selection-start-column="0" selection-end-line="96" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../oos/web/admin/signin.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-2037">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../oos/web/admin/super-authority.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="441">
+          <caret line="176" column="20" lean-forward="true" selection-start-line="176" selection-start-column="20" selection-end-line="176" selection-end-column="20" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../oos/web/admin/top.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="420">
+          <caret line="79" column="6" lean-forward="true" selection-start-line="78" selection-start-column="9" selection-end-line="79" selection-end-column="6" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../oos/web/admin/uncomment-management.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="315">
+          <caret line="169" column="24" lean-forward="true" selection-start-line="169" selection-start-column="24" selection-end-line="169" selection-end-column="24" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../oos/web/admin/user-management.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="441">
+          <caret line="164" column="0" lean-forward="true" selection-start-line="164" selection-start-column="0" selection-end-line="164" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
