@@ -84,20 +84,40 @@ $(function () {
 /**
  * 增加用户
  */
-function addUser() {
-
-    //清除添加用户模态框数据
-    resetAddModel();
+function addUserBtn() {
 
     //打开添加用户模态框
-    oppenAddModel();
+    openAddModel();
+
+}
+
+/**
+ * 保存新增用户信息
+ */
+function saveAddUser() {
+
+    //将新增用户信息封装成js对象
+    var user = encapsulAddUser();
+
+    //发送新增用户请求
+    sendAddUserRequest(user);
+
+}
+
+/**
+ * 保存编辑用户信息
+ */
+function saveEditUser() {
 
 }
 
 /**
  * 打开添加用户模态框
  */
-function oppenAddModel() {
+function openAddModel() {
+
+    //清除添加用户模态框数据
+    resetAddModel();
 
     $("#addModelBtn").click();
 }
@@ -106,13 +126,17 @@ function oppenAddModel() {
  * 关闭添加用户模态框
  */
 function closeAddModel() {
-    oppenAddModel();
+
+    //清除添加用户模态框数据
+    resetAddModel();
+
+    openAddModel();
 }
 
 /**
  * 打开编辑用户模态框
  */
-function oppenEditModel() {
+function openEditModel() {
     $("#editModelBtn").click();
 }
 
@@ -120,13 +144,13 @@ function oppenEditModel() {
  * 关闭编辑用户模态框
  */
 function closeEditModel() {
-    oppenEditModel();
+    openEditModel();
 }
 
 /**
  * 打开查看用户模态框
  */
-function oppenCheckModel() {
+function openCheckModel() {
     $("#checkModelBtn").click();
 }
 
@@ -134,7 +158,7 @@ function oppenCheckModel() {
  * 关闭查看用户模态框
  */
 function closeCheckModel() {
-    oppenCheckModel();
+    openCheckModel();
 }
 
 /**
@@ -159,6 +183,91 @@ function resetCheckModel() {
  * 封装新增用户信息为js对象
  */
 function encapsulAddUser() {
+
+    /**
+     private long usId;// 用户Id
+     private String mobile;// 手机号码
+     private String password;// 密码
+     private String username;// 用户真实姓名
+     private String sex;// 性别
+     private DeliveryAddress defaultDeliverAddress;//默认送货地址
+     private String deliverAddress;//默认送货地址
+     private String creatorTime;// 创建时间
+     private String updateTime;// 修改时间
+     * @type {{}}
+     */
+
+    /**
+     <div class="form-group">
+     <font size="3"
+     style="padding-right: 10px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;收货人姓名:</font>
+     <input type="text"
+     class="form-control"
+     placeholder="收货人姓名"
+     name="addUserDefaultReceiverName"
+     id="addUserDefaultReceiverName"
+     style="width: 600px !important;">
+     </div>
+
+     <div class="form-group">
+     <font size="3"
+     style="padding-right: 10px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;收货人电话:</font>
+     <input type="text"
+     class="form-control"
+     placeholder="收货人电话"
+     name="addUserDefaultReceiverMobile"
+     id="addUserDefaultReceiverMobile"
+     style="width: 600px !important;">
+     </div>
+
+     <div class="form-group">
+     <font size="3"
+     style="padding-right: 10px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;收货人性别:</font>
+     <select name="addUserReceiverSex" class="form-control" id="addUserReceiverSex"
+     style="width: 615px; height: 31px;margin-bottom: 10px;">
+     <option value="先生">先生</option>
+     <option value="女士">女士</option>
+     </select>
+     </div>
+
+     <div class="form-group">
+     <font size="3"
+     style="padding-right: 10px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;收货人地址:</font>
+     <input type="text"
+     class="form-control"
+     placeholder="收货人地址"
+     name="addUserDefaultReceiverAddress"
+     id="addUserDefaultReceiverAddress"
+     style="width: 600px !important;">
+     </div>
+     */
+
+    /**
+     private long daId;// 收货地址ID
+     private long usId;//用户ID
+     private String receiverName;// 收货人姓名
+     private String receiverMobile;// 收货人电话
+     private String receiverAddress;// 收货人地址
+     private String receiverTime;//收货时间
+     private boolean isDefault;//是否为默认地址
+     private String createTime;// 创建时间
+     private String updateTime;// 更新时间
+     * @type {{username: (*), mobile: (*), password: (*), sex: (*)}}
+     */
+
+    var user = {
+        username: $("#addUsername").val(),
+        mobile: $("#addUserMobile").val(),
+        password: $("#addUserPassword").val(),
+        sex: $("#addUserSex").val(),
+        receiverName: $("#addUserDefaultReceiverName").val(),
+        receiverMobile: $("#addUserDefaultReceiverMobile").val(),
+        receiverAddress: $("#addUserDefaultReceiverAddress").val(),
+
+    };
+
+    return user;
+
 }
 
 /**
@@ -171,6 +280,19 @@ function encapsualEditUser() {
  * 发送添加用户ajax请求
  */
 function sendAddUserRequest(user) {
+
+    $.ajax({
+        url: "addUser.action",
+        dataType: "json",
+        type: "POST",
+        data: {
+            requestData: JSON.stringify(user)
+        },
+        success: function (data) {
+
+        }
+    });
+
 }
 
 /**

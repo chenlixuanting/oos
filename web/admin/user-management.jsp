@@ -23,14 +23,6 @@
     <!-- this page specific styles -->
     <link rel="stylesheet" href="css/compiled/index.css" type="text/css" media="screen"/>
 
-    <!-- open sans font -->
-    <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800'
-          rel='stylesheet' type='text/css'/>
-
-    <!-- lato font -->
-    <link href='http://fonts.googleapis.com/css?family=Lato:300,400,700,900,300italic,400italic,700italic,900italic'
-          rel='stylesheet' type='text/css'/>
-
     <link rel="stylesheet" type="text/css" href="css/jquery.dataTables.css">
 </head>
 <body>
@@ -51,7 +43,7 @@
 
                 <a id="addBtn"
                    class="btn btn-success btn-lg pull-left"
-                   style="margin-left: -22px;" onclick="addUser();"> 新 增 </a>
+                   style="margin-left: -22px;" onclick="addUserBtn();"> 新 增 </a>
 
                 <a id="deleteBtn" class="btn btn-danger btn-lg pull-left"
                    style="margin-left: 10px;"> 删 除 </a>
@@ -123,26 +115,24 @@
 
                         <div class="form-group">
                             <font size="3" style="padding-right: 10px;">&nbsp;&nbsp;&nbsp;&nbsp;
-                                &nbsp;&nbsp;&nbsp;&nbsp;手机号码:</font>
+                                &nbsp;&nbsp;&nbsp;&nbsp;用户电话:</font>
                             <input type="text"
                                    class="form-control"
-                                   placeholder="手机号码" name="addUserMobile" id="addUserMobile"
+                                   placeholder="用户电话" name="addUserMobile" id="addUserMobile"
                                    style="width: 600px !important;">
                         </div>
 
                         <div class="form-group">
-                            <font size="3" style="padding-right: 10px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;密码:</font>
+                            <font size="3" style="padding-right: 10px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;用户密码:</font>
                             <input type="text"
                                    class="form-control"
-                                   placeholder="密码" name="addUserPassword" id="addUserPassword"
+                                   placeholder="用户密码" name="addUserPassword" id="addUserPassword"
                                    style="width: 600px !important;">
                         </div>
 
                         <div class="form-group">
-                            <font size="3" style="padding-right: 10px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;性别:</font>
-                            <select name="dishesType" class="form-control" id="dishesType"
+                            <font size="3" style="padding-right: 10px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;用户性别:</font>
+                            <select name="addUserSex" class="form-control" id="addUserSex"
                                     style="width: 615px; height: 31px;margin-bottom: 10px;">
                                 <option value="先生">先生</option>
                                 <option value="女士">女士</option>
@@ -150,11 +140,40 @@
                         </div>
 
                         <div class="form-group">
-                            <font size="3" style="padding-right: 10px;">默认送货地址:</font>
+                            <font size="3"
+                                  style="padding-right: 10px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;收货人姓名:</font>
                             <input type="text"
                                    class="form-control"
-                                   placeholder="默认送货地址" name="addUserDefaultDeliverAddress"
-                                   id="addUserDefaultDeliverAddress"
+                                   placeholder="收货人姓名"
+                                   name="addUserDefaultReceiverName"
+                                   id="addUserDefaultReceiverName"
+                                   style="width: 600px !important;">
+                        </div>
+
+                        <div class="form-group">
+                            <font size="3"
+                                  style="padding-right: 10px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;收货人电话:</font>
+                            <input type="text"
+                                   class="form-control"
+                                   placeholder="收货人电话"
+                                   name="addUserDefaultReceiverMobile"
+                                   id="addUserDefaultReceiverMobile"
+                                   style="width: 600px !important;">
+                        </div>
+
+                        <div class="form-group">
+                            <font size="3"
+                                  style="padding-right: 10px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;收货时间:</font>
+                        </div>
+
+                        <div class="form-group">
+                            <font size="3"
+                                  style="padding-right: 10px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;收货人地址:</font>
+                            <input type="text"
+                                   class="form-control"
+                                   placeholder="收货人地址"
+                                   name="addUserDefaultReceiverAddress"
+                                   id="addUserDefaultReceiverAddress"
                                    style="width: 600px !important;">
                         </div>
 
@@ -162,10 +181,8 @@
                 </div>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-danger" id="addCloseModel"
-                        data-dismiss="modal">关闭
-                </button>
-                <button type="submit" class="btn btn-primary" id="addSaveModel">保存</button>
+                <button type="button" class="btn btn-danger" id="addCloseModel" onclick="closeAddModel();">关闭</button>
+                <button type="submit" class="btn btn-primary" id="addSaveModel" onclick="saveAddUser();">保存</button>
             </div>
         </div>
     </div>
@@ -205,9 +222,7 @@
                     </div>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-danger" id="checkCloseModel"
-                            data-dismiss="modal">关闭
-                    </button>
+                    <button type="button" class="btn btn-danger" id="checkCloseModel" data-dismiss="modal">关闭</button>
                 </div>
             </div>
         </form>
@@ -248,8 +263,7 @@
                     </div>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-danger" id="editCloseModel"
-                            data-dismiss="modal">关闭
+                    <button type="button" class="btn btn-danger" id="editCloseModel" data-dismiss="modal">关闭
                     </button>
                     <button type="submit" class="btn btn-primary" id="editSaveModel">保存</button>
                 </div>
