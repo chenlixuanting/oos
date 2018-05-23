@@ -77,5 +77,11 @@ $(function () {
                 }
             });
         }
-    )
+    );
+
+    //给日历按钮绑定事件，点击则清空地址栏
+    $(".add_icon").click(function () {
+        $("#cityName").val("");
+    });
+
 });

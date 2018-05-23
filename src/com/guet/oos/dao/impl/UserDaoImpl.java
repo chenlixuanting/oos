@@ -87,13 +87,11 @@ public class UserDaoImpl extends AbstractDAOImpl implements UserDao {
 
     @Override
     public List<User> findBySplit(String column, String keyWord, Integer currentPage, Integer lineSize) {
-        // TODO Auto-generated method stub
         return null;
     }
 
     @Override
     public Integer getAllCount(String column, String keyWord) {
-        // TODO Auto-generated method stub
         return null;
     }
 

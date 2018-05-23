@@ -28,8 +28,8 @@
 
     <!-- 加载JS -->
     <script type="text/javascript" src="js/quote/jquery-3.2.1.min.js"></script>
-    <script type="text/javascript" src="asset/js/regPay.js"></script>
     <script type="text/javascript" src="asset/js/property_cn.js"></script>
+    <script type="text/javascript" src="asset/js/regPay.js"></script>
 
 </head>
 <body>
@@ -102,9 +102,6 @@
                     <span class="donation_account"></span>
                     <!-- <p> -->
                     <ul>
-                        <li>
-                            <input name="payType" type="radio" value="支付宝支付">支付宝支付
-                        </li>
                         <li class="online">
                             <input name="payType" type="radio" value="货到付款">货到付款
                         </li>

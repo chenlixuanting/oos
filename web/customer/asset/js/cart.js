@@ -37,6 +37,43 @@ $(function () {
         }
     });
 
+    refreshCartPage();
+
+});
+
+//从cart.jsp页面中删除订单项
+function removeOrderItem(obj) {
+
+    if (confirm("你确定要删除该订单项吗?")) {
+        $.ajax({
+            url: "delOrderItemFromShopCart.action",
+            type: "POST",
+            dataType: "json",
+            data: {
+                requestData: $(obj).attr("dsId")
+            },
+            success: function (data) {
+
+                var d = eval(data);
+
+                var flag = d.head == "true" ? true : false;
+
+                if (flag) {
+                    //刷新cart.jsp页面
+                    refreshCartPage();
+                } else {
+                    alert("删除该订单项失败!");
+                }
+
+            }
+        });
+    }
+
+}
+
+//刷新购物车页面
+function refreshCartPage() {
+
     /**
      * 获取购物车的信息
      */
@@ -47,6 +84,20 @@ $(function () {
         success: function (data) {
 
             var d = eval(data);
+
+            //清空商品显示列表
+            $(".order_detail_table").html("");
+
+            //添加表头
+            $(".order_detail_table").append(
+                "<tr>" +
+                "<th width='6%'>序号</th>" +
+                "<th width='20%'>品名</th>" +
+                "<th width='9%'>单价</th>" +
+                "<th width='10%'>数量</th>" +
+                "<th width='9%'>小计</th>" +
+                "<th width='8%'>全部取消</th>"
+            );
 
             //循环添加商品项信息
             for (var x = 0; x < data.orderItems.length; x++) {
@@ -59,26 +110,20 @@ $(function () {
                     "<td>&yen;" + data.orderItems[x].productCost.toFixed(2) + "</td>" +
                     "<td>" +
                     "<img src='images/delete_icon_3.png'/>" +
-                    "<a class='oiCancel' href='javascript:void(0)'>取消</a>" +
-                    "</td>" +
-                    "<td>&nbsp;</td>" +
-                    "</tr>"
+                    "<a class='oiCancel' onclick='removeOrderItem(this);' dsId='" + data.orderItems[x].dsId + "'href='javascript:void(0)'>取消</a>" +
+                    "</td>"
                 );
             }
 
-            //修改pay页面的支出金额
-            $(".coupon_code").append(
-                "<span>" +
+            $(".detail_price_span").html(
                 "<em class='ft_b'>小　计：</em>" + d.productCost.toFixed(2) + "元 |" +
                 "<em class='ft_b'>外送费：</em>" + d.deliverCost.toFixed(2) + "元" +
-                "<strong style='color: #F00;'></strong>" +
-                "</span>" +
-                "<span class='total_price_span' style='margin-top: -20px;margin-left: -46px'>" +
-                "<em class='ft_b'>总金额：</em>" + d.totalCost.toFixed(2) + "元" +
-                "</span>"
+                "<strong style='color: #F00;'></strong>"
             );
+
+            $(".total_price_span").html("<em class='ft_b'>总金额：</em>" + d.totalCost.toFixed(2) + "元");
 
         }
     });
 
-});
+}

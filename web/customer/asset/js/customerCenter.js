@@ -3,7 +3,11 @@
  */
 $(function () {
 
+    //初始化个人中心页面
     initPage();
+
+    //初始化用户送餐地址
+    initAddressPage();
 
     /*姓名修改按钮*/
     $(".xgname-js").click(function () {
@@ -139,6 +143,11 @@ $(function () {
         }
     );
 
+    /*操作用户地址*/
+    // $("#operateDeliverAddress").click(function () {
+    //
+    // });
+
     /*性别修改按钮*/
     $(".xgsex-js").click(function () {
 
@@ -225,11 +234,6 @@ $(function () {
 
     $("#reNewPassword").click(resetInputBox);
 
-    //使用新的订餐地址
-    $("#addAddressBtn").click(function () {
-        $("#addAddress").css("display", "block");
-    });
-
     $("input[name='gender']").click(
         function () {
             $("input[name='gender'][checked='checked']").removeAttr("checked");
@@ -296,8 +300,14 @@ $(function () {
                     var d = eval(data);
 
                     if (d.head) {
-                        // location.assign("customerConfirm.jsp");
+
+                        //清空地址框中的内容
+                        resetAddressInputBox();
+
                         $("#addAddress").css("display", "none");
+
+                        initAddressPage();
+
                         alert("新增地址成功!");
                         //刷新地址选择项
                     } else {
@@ -307,7 +317,12 @@ $(function () {
                 }
             });
         }
-    )
+    );
+
+    //给日历按钮绑定事件，点击则清空地址栏
+    $(".add_icon").click(function () {
+        $("#cityName").val("");
+    });
 
 });
 
@@ -319,7 +334,18 @@ function resetInputBox() {
 }
 
 /**
- * 初始化页面内容
+ * 清空地址录入栏
+ */
+function resetAddressInputBox() {
+    $("#cityName").val("");
+    $("#roadName").val("");
+    $("#addressDetial").val("");
+    $("#linkman").val("");
+    $("#linkphone").val("");
+}
+
+/**
+ * 初始化个人中心页面内容
  */
 function initPage() {
 
@@ -358,37 +384,6 @@ function initPage() {
 
 //初始化订单查询页面
 function initOrderSearch() {
-
-    /**
-     * [{
-        "creatorTime": "2018-05-19 15:04:21",
-        "daId": 4,
-        "deliverCost": 18,
-        "mgId": 0,
-        "orId": "5c2ddb11-5f91-4c56-b436-6c6be1af413f",
-        "orderStatus": "商家未接单",
-        "payType": "货到付款",
-        "productAmount": 14,
-        "productCost": 562.05,
-        "totalCost": 580.05,
-        "updateTime": "2018-05-19 15:04:21",
-        "usId": 4
-    }, {
-        "creatorTime": "2018-05-18 18:03:22",
-        "daId": 4,
-        "deliverCost": 18,
-        "mgId": 0,
-        "orId": "c625876c-0d73-42d2-b5c3-83b2c8143182",
-        "orderStatus": "商家未接单",
-        "payType": "货到付款",
-        "productAmount": 5,
-        "productCost": 268.55,
-        "totalCost": 286.55,
-        "updateTime": "2018-05-18 18:03:22",
-        "usId": 4
-    }]
-     */
-
     $.ajax({
         url: "getUserCurrentOrderInfo.action",
         type: "POST",
@@ -437,9 +432,99 @@ function initOrderSearch() {
 
         }
     });
+}
+
+//初始化用户地址页面
+function initAddressPage() {
+
+
+    /**
+     * [{
+        "createTime": "2018-05-21 09:23:47",
+        "daId": 56,
+        "default": true,
+        "receiverAddress": "广西壮族自治区桂林市雁山区 世纪花园北区(水芝苑C单元402) 陈宣锦 先生 13347573463",
+        "receiverMobile": "13347573463",
+        "receiverName": "陈宣锦",
+        "receiverTime": "undefined undefined时undefined分",
+        "updateTime": "2018-05-21 09:23:47",
+        "usId": 56
+      }]
+     */
+
+    $.ajax({
+        url: "getUserDeliverAddress.action",
+        type: "POST",
+        dataType: "json",
+        success: function (data) {
+
+            var userDeliverAddress = $("#operateDeliverAddress");
+
+            var d = eval(data);
+
+            //清空标签中的内容
+            userDeliverAddress.html("");
+
+            for (var x = 0; x < d.length; x++) {
+                userDeliverAddress.append(
+                    "<li id='" + d[x].daId + "' class=''>" +
+                    "<div style='width: 20px; float: left; margin-top: 12px;'>" +
+                    "<input name='selAddressId' type='radio' value='0'" + (d[x].default ? 'checked' : '') + ">" +
+                    "</div>" +
+                    "<div style='float:left' class='cityName'></div>" +
+                    "<div class='cityName'>" +
+                    "<a name='selAddressLink'" +
+                    "style='text-decoration: none; display: block; float: left'" +
+                    "href='javascript:void(0);'>" + d[x].receiverAddress + (d[x].default ? '<span class="showDefault">(默认)</span>' : '') +
+                    "</a>" +
+                    "<div class='addressOptions'>" +
+                    "<div class='setDefaultAddress' daId='" + d[x].daId + "' onclick='setAsDefaultDeliverAddress(this);'>" +
+                    "设为默认" +
+                    "</div>" +
+                    "<div class='useThisAddress' daId='" + d[x].daId + "'>" +
+                    "使用此地址订餐" +
+                    "<span>|</span>" +
+                    "</div>" +
+                    "</div>" +
+                    "</li>"
+                );
+            }
+        }
+    });
 
 }
 
+//设为默认
+function setAsDefaultDeliverAddress(obj) {
+
+    //发送ajax请求
+    $.ajax({
+        url: "SetUserDefaultDeliverAddress.action",
+        type: "POST",
+        dataType: "json",
+        data: {
+            requestData: $(obj).attr("daId")
+        },
+        success: function (data) {
+
+            var d = eval(data);
+
+            if (d.head) {
+                //重新初始化页面地址
+                initAddressPage();
+            } else {
+                alert("操作失败!");
+            }
+        }
+    });
+}
+
+//设置为送餐地址
+function setAsCurrentDeliverAddress(obj) {
+
+}
+
+//更换性别
 function changeSex(obj) {
 
     var value = $(obj).attr("value");
@@ -458,8 +543,29 @@ function changeSex(obj) {
 
 }
 
+//选为默认地址
+// <span class="showDefault">(默认)</span>
+
+//数字添0操作
 function fullZone(value) {
     var d = new String(value);
     return d.length < 2 ? "0" + d : d;
+}
+
+//使用新的订餐地址
+function addDeliverAddress(obj) {
+
+    //清空地址录入栏
+    resetAddressInputBox();
+
+    $(obj).attr("value", -parseInt($(obj).attr("value")));
+
+    if ($(obj).attr("value") > 0) {
+        //使用新的订餐地址
+        $("#addAddress").css("display", "block");
+    } else {
+        $("#addAddress").css("display", "none");
+    }
+
 }
 

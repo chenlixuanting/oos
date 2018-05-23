@@ -1,11 +1,12 @@
-package com.guet.oos.servlet.user.get;
+package com.guet.oos.servlet.user.set;
 
 import com.alibaba.fastjson.JSONObject;
 import com.guet.oos.constant.SessionKey;
+import com.guet.oos.dto.JsonReturn;
 import com.guet.oos.factory.ServiceFactory;
-import com.guet.oos.po.DeliveryAddress;
 import com.guet.oos.po.User;
 import com.guet.oos.service.DeliveryAddressService;
+import com.guet.oos.service.UserService;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -13,15 +14,12 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.util.List;
 
 /**
- * 用户用户的收货地址
- * <p>
- * Created by Shinelon on 2018/5/22.
+ * Created by Shinelon on 2018/5/23.
  */
-@WebServlet("/customer/getUserDeliverAddress.action")
-public class GetUserDeliverAddressServlet extends HttpServlet {
+@WebServlet("/customer/SetUserDefaultDeliverAddress.action")
+public class SetUserDefaultDeliverAddressServlet extends HttpServlet {
 
     private static final long serialVersionUID = 1L;
 
@@ -30,7 +28,7 @@ public class GetUserDeliverAddressServlet extends HttpServlet {
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public GetUserDeliverAddressServlet() {
+    public SetUserDefaultDeliverAddressServlet() {
         super();
     }
 
@@ -39,12 +37,16 @@ public class GetUserDeliverAddressServlet extends HttpServlet {
      */
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-        //从Session中获取User
+        String dsIdStr = request.getParameter("requestData");
+
+        long daId = Long.valueOf(dsIdStr);
+
         User user = (User) request.getSession().getAttribute(SessionKey.USER);
 
-        List<DeliveryAddress> addressList = deliveryAddressService.getDeliverAddressByUserId(user.getUsId());
+        //更新数据库
+        deliveryAddressService.setUserDefaultDeliverAddress(user.getUsId(), daId);
 
-        response.getWriter().write(JSONObject.toJSONString(addressList));
+        response.getWriter().write(JSONObject.toJSONString(JsonReturn.buildSuccessEmptyContent()));
 
     }
 

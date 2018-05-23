@@ -62,20 +62,20 @@ public class UserLoginServlet extends HttpServlet {
         User user = userService.findByMobile(loginDataDto.getMobile());
 
         if (user == null) {
-            response.getWriter().write(JsonReturn.buildFail(JsonReturnCode.USER_IS_NOT_EXIST).toString());
+            response.getWriter().write(JSONObject.toJSONString(JsonReturn.buildFail(JsonReturnCode.USER_IS_NOT_EXIST)));
             return;
         }
 
         //用户存在则继续判断密码
         if (!user.getPassword().equals(loginDataDto.getPassword())) {
             response.getWriter()
-                    .append(JsonReturn.buildFail(JsonReturnCode.PASSWORD_ERROR).toString());
+                    .append(JSONObject.toJSONString(JsonReturn.buildFail(JsonReturnCode.PASSWORD_ERROR)));
 
             //密码正确继续判断验证码
         } else if (!((String) request.getSession().getAttribute(
                 SessionKey.VALIDATE_CODE)).equalsIgnoreCase((loginDataDto.getVerifyCode()))) {
             response.getWriter()
-                    .append(JsonReturn.buildFail(JsonReturnCode.VERIFY_CODE_ERROR).toString());
+                    .append(JSONObject.toJSONString(JsonReturn.buildFail(JsonReturnCode.VERIFY_CODE_ERROR)));
         } else {
 
             //获取用户的默认送货地址
@@ -94,7 +94,7 @@ public class UserLoginServlet extends HttpServlet {
 
             //验证通过
             response.getWriter()
-                    .append(JsonReturn.buildSuccessEmptyContent().toString());
+                    .append(JSONObject.toJSONString(JsonReturn.buildSuccessEmptyContent()));
         }
 
     }

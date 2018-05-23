@@ -163,7 +163,7 @@ function initDeliverAddress() {
 
             for (var x = 0; x < d.length; x++) {
                 $(".info_table_1").append(
-                    "<li id='" + d[x].daId + "' class='selectcolor td_no_border'>" +
+                    "<li id='" + d[x].daId + "' class=''>" +
                     "<div style='width: 20px; float: left; margin-top: 12px;'>" +
                     "<input name='selAddressId' type='radio' value='" + d[x].daId + "' disabled='disabled'>" +
                     "</div>" +
@@ -182,6 +182,10 @@ function initDeliverAddress() {
 }
 
 function selectDeliverAddress(obj) {
+
+    //取消之前选中的地址
+    $("input[name='selAddressId'][checked='checked']").removeAttr("checked");
+
     //点击地址的文字则选择相应的地址作为送货地址
     $(obj).parent().prev().find('input').eq(0).attr("checked", "checked");
 }
@@ -197,8 +201,6 @@ function ModifyDeliverTime() {
     var inputMinute = $("#input_minute");
 
     var timeStr = inputDate.val() + " " + inputHour.val() + "时" + inputMinute.val() + "分";
-
-    alert(timeStr);
 
     // 保存用户所选择的发货的时间
     $.ajax({

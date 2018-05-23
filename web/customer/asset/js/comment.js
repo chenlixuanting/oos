@@ -25,6 +25,26 @@ $(function () {
             return;
         }
 
+        var requestData = {
+            usId: $("#commentContent").attr("dsId"),
+            commentContent: $("#commentContent").val(),
+        };
+
+        $.ajax({
+            url: "CheckUserLogin.action",
+            type: "POST",
+            dataType: "json",
+            data: {
+                requestData: JSON.stringify(requestData),
+            },
+            success: function (data) {
+
+                var d = eval(data);
+
+            }
+        })
+        ;
+
     });
 
 });

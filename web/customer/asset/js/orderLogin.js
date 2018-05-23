@@ -72,9 +72,8 @@ $(function () {
                 success: function (data) {
 
                     var d = eval(data);
-                    var flag = d.head == "true" ? true : false;
 
-                    if (flag) {
+                    if (d.head) {
 
                         $("#loginSubmit").off("click");
 

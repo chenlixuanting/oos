@@ -8,7 +8,6 @@
     String basePath = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort()
             + path + "/customer/";
 %>
-
 <html>
 <head>
     <base href="<%=basePath%>">
@@ -215,7 +214,7 @@
                         </div>
 
                         <%--订单详情--%>
-                        <div id="order_item_detail" style="display:none">
+                            <div id="order_item_detail" style="display:none;">
                             <h4 style="text-decoration: underline;">
                                 <span>订单详情</span>
                                 <span id="close_details" class="close_details">关闭详情 </span>
@@ -304,40 +303,7 @@
                             <div class="address_lists">
                                 <div id="address_1">
                                     <div class="fl_l" style="width: 100%; padding-bottom: 30px">
-                                        <ul style="width: 100%" class="info_table_1">
-                                            <li id="0" class="selectcolor td_no_border">
-                                                <div style="width: 20px; float: left; margin-top: 12px;">
-                                                    <input name="selAddressId" type="radio" value="0" checked="checked">
-                                                </div>
-                                                <div style="float:left" class="cityName"></div>
-
-                                                <div class="cityName">
-                                                    <a name="selAddressLink"
-                                                       style="text-decoration: none; display: block; float: left"
-                                                       href="javascript:void(0);">
-                                                        上海&nbsp;&nbsp;&nbsp;&nbsp;W1(上海新国际博览中心)(龙阳路2345号上海新国际博览中心F1层)71
-                                                        <br/>
-                                                        sd
-                                                        先生
-                                                        &nbsp;&nbsp;
-                                                        18245698745
-                                                    </a>
-                                                    <div class="addressOptions">
-                                                        <div class="deleteAddress">
-                                                            删除
-                                                        </div>
-                                                        <div class="setDefaultAddress">
-                                                            设为默认
-                                                            <span>|</span>
-                                                        </div>
-                                                        <div class="useThisAddress">
-                                                            使用此地址订餐
-                                                            <span>|</span>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </li>
-
+                                        <ul style="width: 100%" class="info_table_1" id="operateDeliverAddress">
                                         </ul>
                                     </div>
                                     <div class="clear"></div>
@@ -348,7 +314,7 @@
 
                         <div>
                             <a href="javascript:" id="addAddressBtn"
-                               style="color: #c6000a; padding: 5px 10px;">使用新地址</a>
+                               style="color: #c6000a; padding: 5px 10px;" value="-1" onclick="addDeliverAddress(this);">使用新地址</a>
                         </div>
 
                         <%--添加新的订餐地址--%>
@@ -373,15 +339,15 @@
                                                     <input id="editCityCode" type="hidden"/>
                                                     <div class="add_address">
                                                         <p>
-                                                                <span class="new_tel_input" style="width: 315px;">
-                                                                    <input id="cityName" type="text" class="input_5"
-                                                                           style="width: 270px;"
-                                                                           autocomplete="off"/>
-                                                                    <span class="add_icon" id="query_city"></span>
-                                                                    <span class="location"></span>
-                                                                    <div id="allmap"
-                                                                         style="display: none;width: 473px;height: 200px;position: absolute;top: 35px;"></div>
-                                                                </span>
+                                                            <span class="new_tel_input" style="width: 315px;">
+                                                                <input id="cityName" type="text" class="input_5"
+                                                                       style="width: 270px;"
+                                                                       autocomplete="off"/>
+                                                                <span class="location" id="query_city"></span>
+                                                                <span class="add_icon"></span>
+                                                                <div id="allmap"
+                                                                     style="display: none;width: 473px;height: 200px;position: absolute;top: 35px;"></div>
+                                                            </span>
                                                         </p>
                                                         <p id="add_add2" address2=address2 style="display:block">
                                                             <input id="roadName" style="width:188px " type="text"
@@ -456,12 +422,12 @@
                         </div>
                         <div class="newpsline">
                             <div class="textinput">
-                                <input type="password" class="rePassword" id="newPassword" value="请输入新密码" class="">
+                                <input type="text" class="rePassword" id="newPassword" value="请输入新密码" class="">
                             </div>
                         </div>
                         <div class="newpsline">
                             <div class="textinput">
-                                <input type="password" class="rePassword" id="reNewPassword" value="请再次输入新密码">
+                                <input type="text" class="rePassword" id="reNewPassword" value="请再次输入新密码">
                             </div>
                         </div>
                     </div>
@@ -486,6 +452,7 @@
 <!-- 地图弹出层 -->
 <script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=OMHt7FA3ciGcVCAMDOAbAeUf9nZ0idKZ"></script>
 <script type="text/javascript">
+
     // 百度地图API功能
     var map = new BMap.Map("allmap");
     var point = new BMap.Point(116.331398, 39.897445);
@@ -515,7 +482,8 @@
         geoc.getLocation(pt, function (rs) {
             var addComp = rs.addressComponents;
             if (confirm("你选择的地址是否为" + addComp.province + ", " + addComp.city + ", " + addComp.district + ", " + addComp.street + ", " + addComp.streetNumber)) {
-                $("#cityName").attr("value", addComp.province + addComp.city + addComp.district + addComp.street + addComp.streetNumber);
+                //要使用val()来设置地址,若设置attr("value","")--->则没有效果
+                $("#cityName").val(addComp.province + addComp.city + addComp.district + addComp.street + addComp.streetNumber);
                 $("#allmap").css({display: "none"});
             }
             //alert(addComp.province + ", " + addComp.city + ", " + addComp.district + ", " + addComp.street + ", " + addComp.streetNumber);
@@ -523,10 +491,10 @@
         });
     });
 
-
     $("#query_city").click(function () {
         $("#allmap").css({display: "block"});
     });
+
 </script>
 
 </html>

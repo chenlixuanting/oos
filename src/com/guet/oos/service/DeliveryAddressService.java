@@ -22,4 +22,7 @@ public interface DeliveryAddressService {
     public List<DeliveryAddress> getDeliverAddressByUserId(long usId);
 
     public DeliveryAddress findById(long daId);
+
+    public boolean setUserDefaultDeliverAddress(long usId, long daId);
+
 }

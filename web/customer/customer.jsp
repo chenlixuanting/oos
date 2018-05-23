@@ -110,18 +110,8 @@
                                 <!--送餐地址开始-->
                                 <div id="address_1" style="">
                                     <div class="fl_l">
-
                                         <ul class="info_table_1">
-
-                                            <%--<li id="0" class="selectcolor td_no_border">--%>
-                                            <%--<div style="width: 20px; float: left; margin-top: 12px;">--%>
-                                            <%--<input name="selAddressId" type="radio" value="0" checked="checked">--%>
-                                            <%--</div>--%>
-                                            <%--<div style="float:left" class="cityName"></div>--%>
-                                            <%--</li>--%>
-
                                         </ul>
-
                                     </div>
                                     <div class="clear"></div>
                                 </div> <!--送餐地址结束-->
@@ -187,6 +177,7 @@
                                                         </select>
                                                     </div>
                                                     <span>分送到</span>
+                                                    <input type="hidden" name="isSecondDay" value="false">
                                                     <input type="hidden" name="isSecondDay" value="false">
                                                 </div>
                                             </div>

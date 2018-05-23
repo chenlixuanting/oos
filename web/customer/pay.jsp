@@ -102,9 +102,6 @@
                     <span class="donation_account"></span>
                     <!-- <p> -->
                     <ul>
-                        <li>
-                            <input name="payType" type="radio" value="支付宝支付">支付宝支付
-                        </li>
                         <li class="online">
                             <input name="payType" type="radio" value="货到付款">货到付款
                         </li>

@@ -15,6 +15,30 @@ public class JsonReturn implements Serializable {
 
     private String body;
 
+    public boolean isHead() {
+        return head;
+    }
+
+    public void setHead(boolean head) {
+        this.head = head;
+    }
+
+    public String getBody() {
+        return body;
+    }
+
+    public void setBody(String body) {
+        this.body = body;
+    }
+
+    public static boolean isSUCCESS() {
+        return SUCCESS;
+    }
+
+    public static boolean isFAIL() {
+        return FAIL;
+    }
+
     private static final boolean SUCCESS = true;
 
     private static final boolean FAIL = false;

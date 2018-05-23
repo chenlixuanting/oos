@@ -77,4 +77,9 @@ public class DeliveryAddressServiceImpl implements DeliveryAddressService {
         return deliveryAddressDao.findById(daId);
     }
 
+    @Override
+    public boolean setUserDefaultDeliverAddress(long usId, long daId) {
+        return deliveryAddressDao.updateUserDefaultDeliverAddress(usId, daId);
+    }
+
 }

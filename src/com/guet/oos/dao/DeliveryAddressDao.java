@@ -13,4 +13,6 @@ public interface DeliveryAddressDao extends IDAO<Long, DeliveryAddress> {
 
     public boolean userDefaultDeliverTime(long usId, String newTime);
 
+    public boolean updateUserDefaultDeliverAddress(long usId, long daId);
+
 }

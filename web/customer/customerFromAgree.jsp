@@ -105,8 +105,8 @@
                                                                     <input id="cityName" type="text" class="input_5"
                                                                            style="width: 270px;"
                                                                            autocomplete="off"/>
-                                                                    <span class="add_icon" id="query_city"></span>
-                                                                    <span class="location"></span>
+                                                                    <span class="add_icon"></span>
+                                                                    <span class="location" id="query_city"></span>
                                                                     <div id="allmap"
                                                                          style="display: none;width: 473px;height: 200px;position: absolute;top: 35px;"></div>
                                                                 </span>
@@ -192,7 +192,8 @@
         geoc.getLocation(pt, function (rs) {
             var addComp = rs.addressComponents;
             if (confirm("你选择的地址是否为" + addComp.province + ", " + addComp.city + ", " + addComp.district + ", " + addComp.street + ", " + addComp.streetNumber)) {
-                $("#cityName").attr("value", addComp.province + addComp.city + addComp.district + addComp.street + addComp.streetNumber);
+                //要使用val()来设置地址,若设置attr("value","")--->则没有效果
+                $("#cityName").val(addComp.province + addComp.city + addComp.district + addComp.street + addComp.streetNumber);
                 $("#allmap").css({display: "none"});
             }
             //alert(addComp.province + ", " + addComp.city + ", " + addComp.district + ", " + addComp.street + ", " + addComp.streetNumber);

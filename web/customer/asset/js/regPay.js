@@ -135,7 +135,7 @@ $(function () {
         var selectPayType = $("input[name='payType'][checked='checked']").length;
 
         if (selectPayType == 0) {
-            alert(property.error7);
+            alert(codeMessage.error8);
             return;
         }
 

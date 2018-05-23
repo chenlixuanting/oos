@@ -86,20 +86,11 @@
                         <!-- 订单详细  -->
                         <div class="order_detail_1">
                             <table width="100%" border="1" class="order_detail_table">
-                                <tr>
-                                    <th width="6%">序号</th>
-                                    <th width="20%">品名</th>
-                                    <th width="9%">单价</th>
-                                    <th width="10%">数量</th>
-                                    <th width="9%">小计</th>
-                                    <th width="8%">
-                                        <a href="javascript:;" id="clearProduct" style="color:#363435;">全部取消</a>
-                                    </th>
-                                    <th width="10%" class="right_th">详细</th>
-                                </tr>
                             </table>
                         </div>
                         <div class="coupon_code" style="margin-bottom: 37px;*margin-bottom: 40px;">
+                            <span class="detail_price_span"></span>
+                            <span class='total_price_span' style='margin-top: -20px;margin-left: -46px'></span>
                         </div>
                     </div>
                     <div class="clear"></div>
