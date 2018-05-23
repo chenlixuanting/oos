@@ -270,6 +270,27 @@
         </div>
         <div class="clear"></div>
     </div>
+
+    <!-- alert 弹出层 -->
+    <div id="dialog-message-alert" title="友情提示" closebtn="true" style="display: none;">
+        <span></span>
+    </div>
+
+    <!-- dialog-bind-phone 弹出层 -->
+    <div id="dialog-bind-phone" title="友情提示" closebtn="true" style="display: none;">
+        <span></span>
+    </div>
+
+    <!-- confirm 弹出层 -->
+    <div id="dialog-message-confirm" title="友情提示" closebtn="true" style="display: none;">
+        <span></span>
+    </div>
+
+    <!-- alert_back 弹出层 -->
+    <div id="dialog-message-alert-back" title="友情提示" closebtn="true" style="display: none;">
+        <span></span>
+    </div>
+
 </form>
 </body>
 </html>

@@ -240,43 +240,16 @@
                                 <div class="order_info" style="border-bottom: 1px #e0e3e5 solid;">
                                     <p><span class="personal_info_title">订单详情</span></p>
                                     <table width="100%" border="1" class="query_order_table_1">
-                                        <tbody>
-                                        <tr>
-                                            <th width="8%">序号</th>
-                                            <th width="20%">品名</th>
-                                            <th width="10%">单价</th>
-                                            <th width="8%">数量</th>
-                                            <th width="12%">优惠价</th>
-                                            <th width="10%">小计</th>
-                                            <th>优惠备注</th>
-                                        </tr>
-                                        <tr>
-                                            <td align="left">1</td>
-                                            <td>1元波纹薯条(中)</td>
-                                            <td><span class="ft_color_red">￥1.0</span></td>
-                                            <td>1</td>
-                                            <td></td>
-                                            <td><span class="ft_color_red">￥1.0</span></td>
-                                            <td></td>
-                                        </tr>
+                                        <tbody id="orderItemTable">
                                         </tbody>
                                     </table>
                                     <div class="total_price_div">
-                                        <p>
-                                            <span class="price_span_query">
-												<em class="ft_b">小 计：</em>10.0元 |
-												<em class="ft_b">外送费：</em>9.0元
-                                            </span>
-                                        </p>
-                                        <p>
-                                            <span class="total_price_span_query">
-                                                <em class="ft_b">总金额：</em>10.0元
-                                            </span>
-                                        </p>
                                     </div>
                                     <div class="hr_1"></div>
-                                    <p><span class="personal_info_span_3">支付方式：</span>
-                                        <span class="personal_info_span_2">货到现金付款&nbsp;&nbsp;</span></p>
+                                    <p>
+                                        <span class="personal_info_span_3">支付方式：</span>
+                                        <span class="personal_info_span_2" id="orderPayType">货到现金付款&nbsp;&nbsp;</span>
+                                    </p>
                                 </div>
                             </div>
 

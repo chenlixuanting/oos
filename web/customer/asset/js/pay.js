@@ -11,6 +11,7 @@ $(function () {
         type: "POST",
         dataType: "json",
         success: function (data) {
+
             var d = eval(data);
 
             // {
@@ -47,35 +48,23 @@ $(function () {
         dataType: "json",
         success: function (data) {
 
-            // {
-            //     "creatorTime": "2018-05-18 12:33:04",
-            //     "defaultDeliverAddress": {
-            //     "createTime": "2018-05-18 12:33:04",
-            //         "daId": 1,
-            //         "default": true,
-            //         "receiverAddress": "广西壮族自治区南宁市良庆区 世纪花园北区(水芝苑C单元402) 陈宣锦 先生 18477062310",
-            //         "receiverMobile": "18477062310",
-            //         "receiverName": "陈宣锦",
-            //         "receiverTime": "2018年5月18日 周五 13时00分",
-            //         "updateTime": "2018-05-18 12:33:04",
-            //         "usId": 1
-            // },
-            //     "mobile": "13347573463",
-            //     "password": "123",
-            //     "sex": "先生",
-            //     "updateTime": "2018-05-18 12:33:04",
-            //     "usId": 1,
-            //     "username": "陈宣锦"
-            // }
-
             var d = eval(data);
-            var defaultDeliverAddress = eval(d.defaultDeliverAddress);
+            var body = eval(d.body);
 
-            $("#deliverName").html("<span class='info_span_1' >顾客姓名：</span>" + defaultDeliverAddress.receiverName);
-            $("#deliverAddress").html("<span class='info_span_1' >送餐地址：</span>" + defaultDeliverAddress.receiverAddress);
-            $("#mobile").html("<span class='info_span_1'>联系电话：</span>" + defaultDeliverAddress.receiverMobile);
-            $("#deliveryTime").html(defaultDeliverAddress.receiverTime);
-            $("#customerName").html(d.username);
+            if (d.head) {
+
+                var defaultDeliverAddress = eval(body.defaultDeliverAddress);
+
+                $("#deliverName").html("<span class='info_span_1' >顾客姓名：</span>" + defaultDeliverAddress.receiverName);
+                $("#deliverAddress").html("<span class='info_span_1' >送餐地址：</span>" + defaultDeliverAddress.receiverAddress);
+                $("#mobile").html("<span class='info_span_1'>联系电话：</span>" + defaultDeliverAddress.receiverMobile);
+                $("#deliveryTime").html(defaultDeliverAddress.receiverTime);
+                $("#customerName").html(body.username);
+
+            } else {
+                alert(d.body);
+                location.replace("customerExit.action");
+            }
 
         }
     });

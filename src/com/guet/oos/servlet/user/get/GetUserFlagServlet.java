@@ -1,7 +1,11 @@
 package com.guet.oos.servlet.user.get;
 
+import com.alibaba.fastjson.JSONObject;
+import com.guet.oos.constant.ReturnMessage;
 import com.guet.oos.constant.SessionKey;
+import com.guet.oos.dto.JsonEntityReturn;
 import com.guet.oos.dto.JsonReturn;
+import org.springframework.util.StringUtils;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -10,6 +14,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
+import java.io.Writer;
 
 /**
  * 获取用户标记
@@ -33,9 +38,21 @@ public class GetUserFlagServlet extends HttpServlet {
 
         HttpSession httpSession = request.getSession();
 
-        String str = (String) httpSession.getAttribute(SessionKey.USER_FLAG);
+        Writer out = response.getWriter();
 
-        response.getWriter().write(JsonReturn.buildSuccess(str).toString());
+        String userFlagStr = (String) httpSession.getAttribute(SessionKey.USER_FLAG);
+
+        if (StringUtils.isEmpty(userFlagStr)) {
+
+            Boolean userFlag = Boolean.valueOf(userFlagStr);
+
+            out.write(JSONObject.toJSONString(JsonEntityReturn.buildSuccess(userFlag)));
+
+        } else {
+
+            out.write(JSONObject.toJSONString(JsonEntityReturn.buildFail(ReturnMessage.SERVER_INNER_ERROR)));
+
+        }
 
     }
 

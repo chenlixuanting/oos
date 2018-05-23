@@ -1,7 +1,6 @@
 package com.guet.oos.servlet.user.customer;
 
 import com.guet.oos.constant.SessionKey;
-import com.guet.oos.dto.JsonReturn;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -32,17 +31,16 @@ public class CustomerExitServlet extends HttpServlet {
      */
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-        //使用户Session失效
-//        request.getSession().invalidate();
-
         HttpSession httpSession = request.getSession();
 
+        //移除Session中的属性
         httpSession.removeAttribute(SessionKey.SHOP_CART);
         httpSession.removeAttribute(SessionKey.USER);
         httpSession.removeAttribute(SessionKey.USER_FLAG);
         httpSession.removeAttribute(SessionKey.TEMPORARY_USER_INFO);
         httpSession.removeAttribute(SessionKey.VALIDATE_CODE);
 
+        //重定向到orderLogin.jsp
         response.sendRedirect("orderLogin.jsp");
 
     }

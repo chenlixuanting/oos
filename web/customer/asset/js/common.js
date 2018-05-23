@@ -34,3 +34,11 @@ function shortWait() {
     }, 300);
 
 }
+
+/**
+ * 用户退出
+ */
+function userExit() {
+    location.replace("customerExit.action");
+}
+

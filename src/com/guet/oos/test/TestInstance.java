@@ -66,15 +66,16 @@ public class TestInstance {
     @Test
     public void creatorShopCart() {
 
-        ShopCart shopCart = new ShopCart();
+//        ShopCart shopCart = new ShopCart();
+//
+//        shopCart.setUsId(3);
+//        shopCart.setTotalCost(0.0);
+//        shopCart.setProductAmount(0);
+//        shopCart.setCreatorTime(sf.format(new Date()));
+//        shopCart.setUpdateTime(sf.format(new Date()));
+//        System.out.println(shopCartService.createShopCart(shopCart));
 
-        shopCart.setUsId(3);
-        shopCart.setTotalCost(0.0);
-        shopCart.setProductAmount(0);
-        shopCart.setCreatorTime(sf.format(new Date()));
-        shopCart.setUpdateTime(sf.format(new Date()));
-
-        System.out.println(shopCartService.createShopCart(shopCart));
+//        User user = (User) null;
 
     }
 

@@ -331,23 +331,37 @@ function initPage() {
         success: function (data) {
 
             var d = eval(data);
-            var str;
 
-            $(".customerName").html(" " + d.username + " " + d.sex);
-            $("#customerName").html(" " + d.username + " " + d.sex);
-            $("#bindMobile").html("您当前绑定手机号码：" + d.mobile);
+            if (d.head) {
 
-            //判断性别
-            if (d.sex == property.male) {
-                str = "<a href='javascript:void(0);' class='on' value = '1' gender='0' onclick='changeSex(this)'>先生</a>" +
-                    "<a href='javascript:void(0);' class='newsex-js' value='0' gender='1' onclick='changeSex(this)' style='display: none;'>女士</a>"
+                var str;
+                var body = eval(d.body);
+
+                $(".customerName").html(" " + body.username + " " + body.sex);
+                $("#customerName").html(" " + body.username + " " + body.sex);
+                $("#bindMobile").html("您当前绑定手机号码：" + d.body.mobile);
+
+                //判断性别
+                if (body.sex == property.male) {
+                    str = "<a href='javascript:void(0);' class='on' value = '1' gender='0' onclick='changeSex(this)'>先生</a>" +
+                        "<a href='javascript:void(0);' class='newsex-js' value='0' gender='1' onclick='changeSex(this)' style='display: none;'>女士</a>"
+                } else {
+                    str = "<a href='javascript:void(0);' class='newsex-js' value='0' gender='0' onclick='changeSex(this)' style='display: none;'>先生</a>" +
+                        "<a href='javascript:void(0);' class='on' gender='1' value='1' onclick='changeSex(this)'>女士</a>"
+                }
+
+                $("#sexSelect").html(str);
+                $("input[name='validate_emailorphone']").val(body.mobile);
+
             } else {
-                str = "<a href='javascript:void(0);' class='newsex-js' value='0' gender='0' onclick='changeSex(this)' style='display: none;'>先生</a>" +
-                    "<a href='javascript:void(0);' class='on' gender='1' value='1' onclick='changeSex(this)'>女士</a>"
-            }
 
-            $("#sexSelect").html(str);
-            $("input[name='validate_emailorphone']").val(d.mobile);
+                //输出提示信息
+                alert(d.body);
+
+                //用户退出
+                location.replace("customerExit.action");
+
+            }
 
         }
     });
@@ -484,7 +498,19 @@ function orderDetail(obj) {
         }
      */
 
-    //进入详情
+    //获取当前用户信息用户信息详情
+    // $.ajax({
+    //     url: "getUserInfo.action",
+    //     type: "POST",
+    //     dataType: "json",
+    //     success: function (data) {
+    //
+    //         var d = eval(data);
+    //
+    //     }
+    // });
+
+    //餐品详情
     $.ajax({
         url: "getUserCurrentOneOrderInfo.action",
         type: "POST",
@@ -497,6 +523,57 @@ function orderDetail(obj) {
             var d = eval(data);
 
             if (d.head) {
+
+                var body = eval(d.body);
+
+                //设置订单状态
+                $(".orderList_detail_status").html(body.orderStatus);
+
+                //设置送达时间
+                $(".orderList_detail_time").html();
+
+                //设置付款方式
+                $("#orderPayType").html(body.payType);
+
+                var orderItems = eval(body.orderItems);
+
+                $("#orderItemTable").html("");
+
+                $("#orderItemTable").append(
+                    "<tr>" +
+                    "<th width='20%'>序号</th>" +
+                    "<th width='20%'>品名</th>" +
+                    "<th width='20%'>单价</th>" +
+                    "<th width='20%'>数量</th>" +
+                    "<th width='20%'>小计</th>" +
+                    "</tr>"
+                );
+
+                for (var x = 0; x < orderItems.length; x++) {
+                    $("#orderItemTable").append(
+                        "<tr>" +
+                        "<td align='left'>" + (x + 1) + "</td>" +
+                        "<td>" + orderItems[x].dishesName + "</td>" +
+                        "<td><span class='ft_color_red'>￥" + orderItems[x].price.toFixed(1) + "</span></td>" +
+                        "<td>" + orderItems[x].quantity + "</td>" +
+                        "<td><span class='ft_color_red'>￥" + orderItems[x].productCost.toFixed(1) + "</span></td>" +
+                        "</tr>"
+                    );
+                }
+
+                $(".total_price_div").html(
+                    "<p>" +
+                    "<span class='price_span_query'>" +
+                    "<em class='ft_b'>小 计：</em>" + (parseFloat(body.totalCost) - parseFloat(body.deliverCost)).toFixed(1) + "元 |" +
+                    "<em class='ft_b'>外送费：</em>" + body.deliverCost.toFixed(1) + "元" +
+                    "</span>" +
+                    "</p>" +
+                    "<p>" +
+                    "<span class='total_price_span_query'>" +
+                    "<em class='ft_b'>总金额：</em>" + body.totalCost.toFixed(1) + "元" +
+                    "</span>" +
+                    "</p>"
+                );
 
             } else {
                 alert("查看订单详情失败!");

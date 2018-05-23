@@ -3,13 +3,18 @@
  */
 $(function () {
 
-    $("#step1").click(function () {
-        location.assign("continueShopping.jsp");
-    });
+    //初始化导航条
+    initNav();
 
-    $("#step_pay").click(function () {
-        location.assign("pay.jsp");
-    });
+    //刷新购物车页面
+    refreshCartPage();
+
+});
+
+/**
+ * 初始化导航条
+ */
+function initNav() {
 
     /**
      * 获取用户标志并判断上一步和下一步按钮的逻辑,和修改引导流程中超链接指向continueShopping.jsp还是regCustomer.jsp
@@ -22,24 +27,48 @@ $(function () {
 
             var d = eval(data);
 
-            if (d.body == property.notExist) {
-                $("#step1").click(function () {
-                    location.assign("regCustomer.jsp");
-                });
+            if (d.head) {
 
-                $("#step_pay").click(function () {
-                    location.assign("saveCustomer.jsp");
-                });
+                var body = eval(d.body);
 
-                $("area[shape='rect']").attr("href", "regCustomer.jsp");
+                alert(body);
+
+                if (body) {
+
+                    $("#step1").click(function () {
+                        location.assign("continueShopping.jsp");
+                    });
+
+                    $("#step_pay").click(function () {
+                        location.assign("pay.jsp");
+                    });
+
+                    $("area[shape='rect']").attr("href", "continueShopping.jsp");
+
+                } else {
+
+                    $("#step1").click(function () {
+                        location.assign("regCustomer.jsp");
+                    });
+
+                    $("#step_pay").click(function () {
+                        location.assign("saveCustomer.jsp");
+                    });
+
+                    $("area[shape='rect']").attr("href", "regCustomer.jsp");
+                }
+
+            } else {
+
+                alert(d.body);
+
+                //用户退出
+                userExit();
             }
-
         }
     });
 
-    refreshCartPage();
-
-});
+}
 
 //从cart.jsp页面中删除订单项
 function removeOrderItem(obj) {

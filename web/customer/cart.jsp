@@ -29,6 +29,7 @@
     <script type="text/javascript" src="js/quote/jquery-3.2.1.min.js"></script>
     <script type="text/javascript" src="asset/js/cart.js"></script>
     <script type="text/javascript" src="asset/js/property_cn.js"></script>
+    <script type="text/javascript" src="asset/js/comment.js"></script>
 
 </head>
 <body>
@@ -54,12 +55,20 @@
             <div class="top_menu_2">
                 <ul>
                     <li class="w1">
-                            <span>
-                                <a href="index.jsp">首页</a>
-                            </span>
+                        <span>
+                            <a href="" id="nav1">订餐首页</a>
+                        </span>
                     </li>
-                    <li><span><a href="orderLogin.jsp">开始订餐</a></span></li>
-                    <li><span><a href="customerCenter.jsp">个人中心</a></span></li>
+                    <li>
+                        <span>
+                            <a href="" id="nav2">重新登录</a>
+                        </span>
+                    </li>
+                    <li>
+                        <span>
+                            <a href="" id="nav3">个人中心</a>
+                        </span>
+                    </li>
                     <li class="last_li w5">
                         <a href="comment.jsp" target="_self">评论专区</a>
                     </li>
@@ -104,35 +113,5 @@
         </div>
     </div>
 </form>
-
-<!-- footer -->
-<!-- 弹出层 -->
-<!--
-<div id="dialog-message" title="友情提示" closeBtn="false" style="display: none;">
-    <span></span>
-</div>
- -->
-<!-- alert 弹出层 -->
-<div id="dialog-message-alert" title="友情提示" closeBtn="true" style="display: none;">
-    <span></span>
-</div>
-<!-- dialog-bind-phone 弹出层 -->
-<div id="dialog-bind-phone" title="友情提示" closeBtn="true" style="display: none;">
-    <span></span>
-</div>
-<!-- confirm 弹出层 -->
-<div id="dialog-message-confirm" title="友情提示" closeBtn="true" style="display: none;">
-    <span></span>
-</div>
-<!-- alert_back 弹出层 -->
-<div id="dialog-message-alert-back" title="友情提示" closeBtn="true" style="display: none;">
-    <span></span>
-</div>
-<script type="text/javascript">
-</script>
-<div id="dialog-loading" closeBtn="false" style="display: none;">
-    <span></span>
-</div>
-<div id="popup-captcha"></div>
 </body>
 </html>

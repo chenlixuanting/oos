@@ -3,51 +3,6 @@
  */
 $(function () {
 
-    // $.ajax({
-    //     url: "getShopCartInfo.action",
-    //     type: "POST",
-    //     dataType: "json",
-    //     success: function (data) {
-    //
-    //         //添加购物车成功,修改相应页面
-    //         var d = eval(data);
-    //
-    //         //清空购物车的信息
-    //         $("#cart_menus").html("");
-    //
-    //         //购物车中商品信息
-    //         for (var x = 0; x < data.orderItems.length; x++) {
-    //             $("#cart_menus").append("<li>" +
-    //                 "<div class='pro_title'>" + data.orderItems[x].dishesName + "</div>" +
-    //                 "<div class='del'>" +
-    //                 "<a href='javascript:void(0);'></a></div>" +
-    //                 "<div class='pro_numbers'><a href='javascript:void(0);' style='cursor: pointer;'class='doMinus'>" +
-    //                 "<img src='images/minus_icon_2s.gif' >" +
-    //                 "</a>" +
-    //                 "<input type='text' class='pro_numbers_input' value='" + data.orderItems[x].quantity + "' maxlength='2'disabled='disabled' onkeyup='this.value=this.value.replace(/D/g,'');'>" +
-    //                 "<a href='javascript:void(0);' style='cursor: pointer;' class='doPlus'>" +
-    //                 "<img src='images/plus_icon_2s.gif'>" +
-    //                 "</a>" +
-    //                 "</div>" +
-    //                 "<div class='price'>" + data.orderItems[x].productCost.toFixed(2) + "</div>" +
-    //                 "</li>");
-    //         }
-    //
-    //         //修改购物车中商品数量
-    //         $("#tatalnum").html(d.productAmount);
-    //
-    //         //修改费用信息
-    //         $("#productCost").html(d.productCost.toFixed(2));
-    //
-    //         //修改运费信息,保留两位小数
-    //         $("#deliverCost").html(d.deliverCost.toFixed(2));
-    //
-    //         //修改总费用
-    //         $("#totalCost").html(d.totalCost.toFixed(2));
-    //
-    //     }
-    // });
-
     //初始化购物信息
     updateShopCart();
 
@@ -323,9 +278,44 @@ $(function () {
 
             var d = eval(data);
 
-            //初始化页面地址
-            // addAddress(d);
-            $(".order_add").find("p").eq(1).append(eval(d.defaultDeliverAddress).receiverAddress);
+            /**
+             * {
+                "body": {
+                    "creatorTime": "2018-05-22 21:10:34",
+                    "defaultDeliverAddress": {
+                        "createTime": "2018-05-22 21:11:28",
+                        "daId": 79,
+                        "default": false,
+                        "receiverAddress": "去我单位 13347573463(去我的期望) 去我单位 先生 13347573463",
+                        "receiverMobile": "13347573463",
+                        "receiverName": "去我单位",
+                        "receiverTime": "2018年5月23日 周三 17时00分",
+                        "updateTime": "2018-05-22 21:11:28",
+                        "usId": 60
+                    },
+                    "mobile": "13347573463",
+                    "password": "123123",
+                    "sex": "先生",
+                    "updateTime": "2018-05-22 21:10:34",
+                    "usId": 60,
+                    "username": "13347573463"
+                },
+                "head": true
+            }
+             */
+
+            if (d.head) {
+                //初始化页面地址
+                $(".order_add").find("p").eq(1).append(eval(d.body.defaultDeliverAddress).receiverAddress);
+            } else {
+
+                //显示提示信息
+                alert(d.body);
+
+                //跳转到首页
+                location.replace("customerExit.action");
+            }
+
         }
     });
 
@@ -344,19 +334,6 @@ $(function () {
     $("#" + childMenu).css("display", "block");
 
 });
-
-
-/**
- * 获取临时用户地址,并显示在页面上
- *
- * @param d
- */
-// function addAddress(d) {
-//     //标号从0开始
-//     $(".order_add").find("p").eq(1).append(
-//         d.cityName + "&nbsp;" + d.roadName + "(" + d.addressDetial + ")"
-//     );
-// }
 
 /**
  * 加号按钮,点击一次商品数目加1
