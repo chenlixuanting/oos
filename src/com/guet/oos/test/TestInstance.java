@@ -50,12 +50,12 @@ public class TestInstance {
 
         Administrator administrator = new Administrator();
 
-        administrator.setUsername("admin");
+        administrator.setUsername("root");
         administrator.setUpdateTime(sf.format(new Date()));
-        administrator.setPassword("admin");
-        administrator.setMaximumAuthority(true);
+        administrator.setPassword("root");
+        administrator.setMaximumAuthority(false);
         administrator.setCreatorTime(sf.format(new Date()));
-        administrator.setCreator("system");
+        administrator.setCreator("admin");
 
         System.out.println(administratorService.creatorAdministrator(administrator));
     }

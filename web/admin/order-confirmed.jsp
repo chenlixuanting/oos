@@ -32,6 +32,13 @@
           rel='stylesheet' type='text/css'/>
 
     <link rel="stylesheet" type="text/css" href="css/jquery.dataTables.css">
+
+    <style type="text/css">
+        .dataTable {
+            text-align: center;
+        }
+    </style>
+
 </head>
 <body>
 <!-- 顶部 -->
@@ -51,11 +58,8 @@
             <div class="row-fluid span12 pull-right">
 
                 <a id="addBtn"
-                   class="btn btn-success btn-lg pull-left"
-                   style="margin-left: -26px;"> 新 增 </a>
-
-                <a id="deleteBtn" class="btn btn-danger btn-lg pull-left"
-                   style="margin-left: 10px;"> 删 除 </a>
+                   class="btn btn-danger btn-lg pull-left"
+                   style="margin-left: -26px;"> 删除</a>
 
                 <a id="searchBtn"
                    class="btn btn-primary btn-lg pull-right"
@@ -68,15 +72,14 @@
             </div>
 
             <div class="row-fluid table">
-                <table id="dataTable"
-                       class="table table-hover table-striped table-bordered">
+                <table id="dataTable" class="table table-hover table-striped table-bordered dataTable">
                     <thead>
                     <tr>
                         <th class="span2 sortable"><input style="margin-left: -7px;" type="checkbox"/>全选</th>
                         <th class="span2 sortable">订单号</th>
                         <th class="span2 sortable">用户名</th>
                         <th class="span2 sortable">收获地址</th>
-                        <th class="span2 sortable">支出总金额</th>
+                        <th class="span2 sortable">总金额</th>
                         <th class="span2 sortable">商品数量</th>
                         <th class="span2 sortable">配送费用</th>
                         <th class="span4 sortable">商品开销</th>
@@ -87,83 +90,77 @@
                         <th class="span2 sortable">操作</th>
                     </tr>
                     </thead>
-
-                    <tbody>
-                    </tbody>
-
+                    <tbody></tbody>
                 </table>
             </div>
         </div>
     </div>
 </div>
 
-<button id="infoBtn" type="button"
+<button id="modelBtn" type="button"
         class="btn btn-primary btn-lg pull-left" data-toggle="modal"
-        data-target="#infoModel" style="display: none;"></button>
+        data-target="#modelBox" style="display: none;"></button>
 
-<div class="modal fade" id="infoModel" tabindex="-1" role="dialog"
-     aria-labelledby="myModalLabel">
+<div class="modal fade" id="modelBox" tabindex="-1" role="dialog"
+     aria-labelledby="myModalLabel" style="width: 800px !important; left: 40% !important;">
     <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal"
-                        aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-                <h4 class="modal-title" id="infoModelTilte"></h4>
-            </div>
-            <div class="modal-body">
-                <div class="row" style="text-align: center">
-                    <div class="col-lg-12">
 
+        <form action="./addDishes.action" method="post" enctype="multipart/form-data" style="margin-bottom: 0px;">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal"
+                            aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                    <h4 class="modal-title primary" id="infoModelTilte"></h4>
+                </div>
+                <div class="modal-body" style="max-height: none;">
+                    <div class="row" style="text-align: center">
+                        <div class="col-lg-12">
 
-                        <div class="form-group">
-                            <label for="cid">CID</label> <input type="text"
-                                                                class="form-control" id="cid" placeholder="序号">
+                            <div class="form-group">
+                                <font size="3" style="padding-right: 10px;">菜品单价:</font>
+                                <input type="text"
+                                       class="form-control"
+                                       name="price"
+                                       placeholder="单价" id="price" style="width: 600px !important;">
+                            </div>
+
+                            <div class="form-group">
+                                <font size="3" style="padding-right: 10px;">菜品库存:</font>
+                                <input type="text"
+                                       class="form-control"
+                                       name="stock"
+                                       placeholder="库存" id="stock" style="width: 600px !important;">
+                            </div>
+
+                            <div class="form-group" id="createTimeDiv" style="display:none;">
+                                <font size="3" style="padding-right: 10px;">创建时间:</font>
+                                <input type="text"
+                                       class="form-control"
+                                       name="createTime"
+                                       placeholder="创建时间" id="createTime" style="width: 600px !important;">
+                            </div>
+
+                            <div class="form-group" id="updateTimeDiv" style="display:none;">
+                                <font size="3" style="padding-right: 10px;">更新时间:</font>
+                                <input type="text"
+                                       class="form-control"
+                                       name="updateTime"
+                                       placeholder="更新时间" id="updateTime" style="width: 600px !important;">
+                            </div>
+
                         </div>
-
-                        <div class="form-group">
-                            <label for="customername">投保人姓名</label> <input type="text"
-                                                                           class="form-control" id="customername"
-                                                                           placeholder="投保人姓名">
-                        </div>
-
-                        <div class="form-group">
-                            <label for="sex">性别</label> <input type="text"
-                                                               class="form-control" id="sex" placeholder="性别">
-                        </div>
-
-                        <div class="form-group">
-                            <label for="mobile">电话号码</label> <input type="text"
-                                                                    class="form-control" id="mobile" placeholder="电话号码">
-                        </div>
-
-                        <div class="form-group">
-                            <label for="polName">险种</label> <input type="text"
-                                                                   class="form-control" id="polName" placeholder="险种">
-                        </div>
-
-                        <div class="form-group">
-                            <label for="clerkId">业务员</label> <input type="text"
-                                                                    class="form-control" id="clerkId" placeholder="业务员">
-                        </div>
-
-                        <div class="form-group">
-                            <label for="purchaseTime">购买时间</label> <input type="text"
-                                                                          class="form-control" id="purchaseTime"
-                                                                          placeholder="购买时间">
-                        </div>
-
                     </div>
                 </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" id="closeModel"
+                            data-dismiss="modal">关闭
+                    </button>
+                    <button type="submit" class="btn btn-primary" id="saveChange">保存</button>
+                </div>
             </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-danger" id="closeModel"
-                        data-dismiss="modal">关闭
-                </button>
-                <button type="button" class="btn btn-primary" id="saveChange">保存</button>
-            </div>
-        </div>
+        </form>
     </div>
 </div>
 
@@ -172,8 +169,10 @@
 <script src="http://code.jquery.com/jquery-latest.js"></script>
 <script src="js/bootstrap.min.js"></script>
 <script src="js/jquery-ui-1.10.2.custom.min.js"></script>
+
 <!-- knob -->
 <script src="js/jquery.knob.js"></script>
+
 <!-- flot charts -->
 <script src="js/jquery.flot.js"></script>
 <script src="js/jquery.flot.stack.js"></script>

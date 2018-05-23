@@ -4,76 +4,14 @@
 $(function () {
 
     /**
-     * 神一般的错误!每次都给$("#saveChange").on('click', function () 一个新的事件，，导致第二次时一次性发生两次请求
-     */
-        //当保存按钮
-        //封装数据
-    var addData = {
-            mealTypeName: $("#mealTypeName").val(),
-            startTime: $("#startTime").val(),
-            endTime: $("#endTime").val(),
-            mgId: $("#mgId").val(),
-        };
-
-    // //发生ajax请求
-    // $.ajax({
-    //     url: "./addMealType.action",
-    //     type: "POST",
-    //     dataType: "json",
-    //     data: {
-    //         addData: JSON.stringify(addData)
-    //     },
-    //     success: function (data) {
-    //
-    //         var d = eval(data);
-    //
-    //         var flag = d.head == "true" ? true : false;
-    //
-    //         if (flag) {
-    //             alert("新增成功");
-    //         } else {
-    //             alert(d.body);
-    //         }
-    //
-    //         //关闭模态框
-    //         $("#modelBtn").click();
-    //
-    //         //dataTable当前页重绘
-    //         $("#dataTable").dataTable().fnDraw(false);
-    //     }
-    // });
-
-    /**
-     * 新增
-     */
-    $("#addBtn").on('click', function () {
-
-        //清空模态框中的内容
-        $("#mealTypeName").val("");
-        $("#startTime").val("");
-        $("#endTime").val("");
-
-        //更改模态框标题
-        $("#infoModelTilte").html("新增");
-
-        //弹出模态框
-        $("#modelBtn").click();
-
-    });
-
-//每页显示指定行
-    var displayRowsEachPage = 10;
-
-    /**
      * 加载DataTable
      */
     var table = $("#dataTable").dataTable({
 
         ordering: false,//是否启用排序
         bLengthChange: false,
-        // bPaginate: true,  //是否显示分页
         searching: false,//搜索
-        iDisplayLength: displayRowsEachPage,
+        iDisplayLength: 10,//每页显示10行
         language: {
 
             paginate: {//分页的样式内容。
@@ -82,20 +20,6 @@ $(function () {
                 first: "第一页",
                 last: "最后"
             },
-
-            /*
-             *
-             <%--
-             private long usId;// 用户Id
-             private String username;// 用户真实姓名
-             private String mobile;// 手机号码
-             private String password;// 密码
-             private String sex;// 性别
-             private String deliverAddress;//默认送货地址
-             private String creatorTime;// 创建时间
-             private String updateTime;// 修改时间
-             --%>
-             * */
             zeroRecords: "没有内容",//table tbody内容为空时，tbody的内容。
             //下面三者构成了总体的左下角的内容。
             info: "总共_PAGES_ 页，显示第_START_ 到第 _END_ ，筛选之后得到 _TOTAL_ 条，初始_MAX_ 条 ",//左下角的信息显示，大写的词为关键字。
@@ -120,7 +44,7 @@ $(function () {
             targets: 8,//表示是第8列，所以上面第8列没有对应数据列，就是在这里渲染的。
             render: function (obj) {
                 var id = obj.cid;
-                return "<a class='btn btn-primary btn-lg edit' id=" + id + ">编辑</a>";
+                return "<a class='btn btn-primary btn-lg edit' id=" + id + ">查看</a>" + "<a class='btn btn-danger btn-lg edit' style='margin-left: 10px;' id=" + id + ">编辑</a>";
             }
 
         }, {//列渲染，可以添加一些操作等
@@ -134,6 +58,12 @@ $(function () {
 
     });
 
+    /**
+     * dataTable对调数据处理函数
+     * @param sSource111
+     * @param aoData111
+     * @param fnCallback111
+     */
     function retrieveData(sSource111, aoData111, fnCallback111) {
         $.ajax({
             url: sSource111,//这个就是请求地址对应sAjaxSource
@@ -150,3 +80,107 @@ $(function () {
     }
 
 });
+
+/**
+ * 增加用户
+ */
+function addUser() {
+
+    //清除添加用户模态框数据
+    resetAddModel();
+
+    //打开添加用户模态框
+    oppenAddModel();
+
+}
+
+/**
+ * 打开添加用户模态框
+ */
+function oppenAddModel() {
+
+    $("#addModelBtn").click();
+}
+
+/**
+ * 关闭添加用户模态框
+ */
+function closeAddModel() {
+    oppenAddModel();
+}
+
+/**
+ * 打开编辑用户模态框
+ */
+function oppenEditModel() {
+    $("#editModelBtn").click();
+}
+
+/**
+ * 关闭编辑用户模态框
+ */
+function closeEditModel() {
+    oppenEditModel();
+}
+
+/**
+ * 打开查看用户模态框
+ */
+function oppenCheckModel() {
+    $("#checkModelBtn").click();
+}
+
+/**
+ * 关闭查看用户模态框
+ */
+function closeCheckModel() {
+    oppenCheckModel();
+}
+
+/**
+ * 清除添加用户模态框数据
+ */
+function resetAddModel() {
+}
+
+/**
+ * 清除编辑用户模态框数据
+ */
+function resetEditModel() {
+}
+
+/**
+ * 清除查看用户模态框数据
+ */
+function resetCheckModel() {
+}
+
+/**
+ * 封装新增用户信息为js对象
+ */
+function encapsulAddUser() {
+}
+
+/**
+ * 封装编辑用户信息为js对象
+ */
+function encapsualEditUser() {
+}
+
+/**
+ * 发送添加用户ajax请求
+ */
+function sendAddUserRequest(user) {
+}
+
+/**
+ * 发送查看用户ajax请求
+ */
+function sendCheckUserRequest(usId) {
+}
+
+/**
+ * 发送编辑用户的ajax请求
+ */
+function sendEditUserRequest(user) {
+}

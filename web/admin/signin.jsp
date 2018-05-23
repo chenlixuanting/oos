@@ -73,15 +73,14 @@
 
 
 <div class="row-fluid login-wrapper">
-    <a href="index.html">
-        <img class="logo" src="img/logo-white.png"/>
-    </a>
+
+    <a href="#"></a>
 
     <div class="span4 box">
         <div class="content-wrap">
             <h6>管理员登录</h6>
-            <input class="span12" id="username" type="text" placeholder="E-mail address"/>
-            <input class="span12" id="password" type="password" placeholder="Your password"/>
+            <input class="span12" id="username" type="text" placeholder="您的账号"/>
+            <input class="span12" id="password" type="password" placeholder="您的密码"/>
             <a href="#" class="forgot">忘记密码?</a>
             <div class="remember">
                 <input id="remember-me" type="checkbox"/>

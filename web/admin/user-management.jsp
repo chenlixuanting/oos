@@ -51,7 +51,7 @@
 
                 <a id="addBtn"
                    class="btn btn-success btn-lg pull-left"
-                   style="margin-left: -26px;"> 新 增 </a>
+                   style="margin-left: -22px;" onclick="addUser();"> 新 增 </a>
 
                 <a id="deleteBtn" class="btn btn-danger btn-lg pull-left"
                    style="margin-left: 10px;"> 删 除 </a>
@@ -66,13 +66,12 @@
 
             </div>
 
-
             <div class="row-fluid table">
                 <table id="dataTable"
                        class="table table-hover table-striped table-bordered">
                     <thead>
                     <tr>
-                        <th class="span2 sortable"><input type="checkbox"/>全选</th>
+                        <th class="span2 sortable"><input type="checkbox" style="margin-left: -8px;"/>全选</th>
                         <th class="span2 sortable">用户姓名</th>
                         <th class="span2 sortable">手机号码</th>
                         <th class="span2 sortable">密码</th>
@@ -84,8 +83,7 @@
                     </tr>
                     </thead>
 
-                    <tbody>
-                    </tbody>
+                    <tbody></tbody>
 
                 </table>
             </div>
@@ -93,73 +91,170 @@
     </div>
 </div>
 
-<button id="infoBtn" type="button"
+<%--新增模态框--%>
+<button id="addModelBtn" type="button"
         class="btn btn-primary btn-lg pull-left" data-toggle="modal"
-        data-target="#infoModel" style="display: none;"></button>
+        data-target="#addModel" style="display: none;"></button>
 
-<div class="modal fade" id="infoModel" tabindex="-1" role="dialog"
-     aria-labelledby="myModalLabel">
+<div class="modal fade" id="addModel" tabindex="-1" role="dialog"
+     aria-labelledby="myModalLabel" style="width: 800px !important; left: 40% !important;">
     <div class="modal-dialog" role="document">
+
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal"
                         aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
-                <h4 class="modal-title" id="infoModelTilte"></h4>
+                <h4 class="modal-title primary" id="addModelTitle">新增</h4>
             </div>
-            <div class="modal-body">
+            <div class="modal-body" style="max-height: none;">
                 <div class="row" style="text-align: center">
                     <div class="col-lg-12">
 
-
                         <div class="form-group">
-                            <label for="cid">CID</label> <input type="text"
-                                                                class="form-control" id="cid" placeholder="序号">
+                            <font size="3" style="padding-right: 10px;">&nbsp;&nbsp;&nbsp;&nbsp;
+                                &nbsp;&nbsp;&nbsp;&nbsp;用户姓名:</font>
+                            <input type="text"
+                                   class="form-control"
+                                   placeholder="用户姓名" name="addUsername" id="addUsername"
+                                   style="width: 600px !important;">
                         </div>
 
                         <div class="form-group">
-                            <label for="customername">投保人姓名</label> <input type="text"
-                                                                           class="form-control" id="customername"
-                                                                           placeholder="投保人姓名">
+                            <font size="3" style="padding-right: 10px;">&nbsp;&nbsp;&nbsp;&nbsp;
+                                &nbsp;&nbsp;&nbsp;&nbsp;手机号码:</font>
+                            <input type="text"
+                                   class="form-control"
+                                   placeholder="手机号码" name="addUserMobile" id="addUserMobile"
+                                   style="width: 600px !important;">
                         </div>
 
                         <div class="form-group">
-                            <label for="sex">性别</label> <input type="text"
-                                                               class="form-control" id="sex" placeholder="性别">
+                            <font size="3" style="padding-right: 10px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;密码:</font>
+                            <input type="text"
+                                   class="form-control"
+                                   placeholder="密码" name="addUserPassword" id="addUserPassword"
+                                   style="width: 600px !important;">
                         </div>
 
                         <div class="form-group">
-                            <label for="mobile">电话号码</label> <input type="text"
-                                                                    class="form-control" id="mobile" placeholder="电话号码">
+                            <font size="3" style="padding-right: 10px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;性别:</font>
+                            <select name="dishesType" class="form-control" id="dishesType"
+                                    style="width: 615px; height: 31px;margin-bottom: 10px;">
+                                <option value="先生">先生</option>
+                                <option value="女士">女士</option>
+                            </select>
                         </div>
 
                         <div class="form-group">
-                            <label for="polName">险种</label> <input type="text"
-                                                                   class="form-control" id="polName" placeholder="险种">
-                        </div>
-
-                        <div class="form-group">
-                            <label for="clerkId">业务员</label> <input type="text"
-                                                                    class="form-control" id="clerkId" placeholder="业务员">
-                        </div>
-
-                        <div class="form-group">
-                            <label for="purchaseTime">购买时间</label> <input type="text"
-                                                                          class="form-control" id="purchaseTime"
-                                                                          placeholder="购买时间">
+                            <font size="3" style="padding-right: 10px;">默认送货地址:</font>
+                            <input type="text"
+                                   class="form-control"
+                                   placeholder="默认送货地址" name="addUserDefaultDeliverAddress"
+                                   id="addUserDefaultDeliverAddress"
+                                   style="width: 600px !important;">
                         </div>
 
                     </div>
                 </div>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-danger" id="closeModel"
+                <button type="button" class="btn btn-danger" id="addCloseModel"
                         data-dismiss="modal">关闭
                 </button>
-                <button type="button" class="btn btn-primary" id="saveChange">保存</button>
+                <button type="submit" class="btn btn-primary" id="addSaveModel">保存</button>
             </div>
         </div>
+    </div>
+</div>
+
+<%--查看模态框--%>
+<button id="checkModelBtn" type="button"
+        class="btn btn-primary btn-lg pull-left" data-toggle="modal"
+        data-target="#checkModel" style="display: none;"></button>
+
+<div class="modal fade" id="checkModel" tabindex="-1" role="dialog"
+     aria-labelledby="myModalLabel" style="width: 800px !important; left: 40% !important;">
+    <div class="modal-dialog" role="document">
+
+        <form action="./addDishes.action" method="post" enctype="multipart/form-data" style="margin-bottom: 0px;">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal"
+                            aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                    <h4 class="modal-title primary" id="checkModelTitle"></h4>
+                </div>
+                <div class="modal-body" style="max-height: none;">
+                    <div class="row" style="text-align: center">
+                        <div class="col-lg-12">
+
+                            <div class="form-group">
+                                <font size="3" style="padding-right: 10px;">菜品名称:</font>
+                                <input type="text"
+                                       class="form-control"
+                                       placeholder="菜品名称" name="dishesName" id="dishesName"
+                                       style="width: 600px !important;">
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" id="checkCloseModel"
+                            data-dismiss="modal">关闭
+                    </button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+<%--编辑模态框--%>
+<button id="editModelBtn" type="button"
+        class="btn btn-primary btn-lg pull-left" data-toggle="modal"
+        data-target="#editModel" style="display: none;"></button>
+
+<div class="modal fade" id="editModel" tabindex="-1" role="dialog"
+     aria-labelledby="myModalLabel" style="width: 800px !important; left: 40% !important;">
+    <div class="modal-dialog" role="document">
+
+        <form action="./addDishes.action" method="post" enctype="multipart/form-data" style="margin-bottom: 0px;">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal"
+                            aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                    <h4 class="modal-title primary" id="editModelTitle"></h4>
+                </div>
+                <div class="modal-body" style="max-height: none;">
+                    <div class="row" style="text-align: center">
+                        <div class="col-lg-12">
+
+                            <div class="form-group">
+                                <font size="3" style="padding-right: 10px;">菜品名称:</font>
+                                <input type="text"
+                                       class="form-control"
+                                       placeholder="菜品名称" name="dishesName" id="dishesName"
+                                       style="width: 600px !important;">
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" id="editCloseModel"
+                            data-dismiss="modal">关闭
+                    </button>
+                    <button type="submit" class="btn btn-primary" id="editSaveModel">保存</button>
+                </div>
+            </div>
+        </form>
     </div>
 </div>
 

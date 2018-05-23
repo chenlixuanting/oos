@@ -6,47 +6,11 @@ $(function () {
     /**
      * 神一般的错误!每次都给$("#saveChange").on('click', function () 一个新的事件，，导致第二次时一次性发生两次请求
      */
-        //当保存按钮
-        //封装数据
-    var addData = {
-            mealTypeName: $("#mealTypeName").val(),
-            startTime: $("#startTime").val(),
-            endTime: $("#endTime").val(),
-            mgId: $("#mgId").val(),
-        };
-
-    // //发生ajax请求
-    // $.ajax({
-    //     url: "./addMealType.action",
-    //     type: "POST",
-    //     dataType: "json",
-    //     data: {
-    //         addData: JSON.stringify(addData)
-    //     },
-    //     success: function (data) {
-    //
-    //         var d = eval(data);
-    //
-    //         var flag = d.head == "true" ? true : false;
-    //
-    //         if (flag) {
-    //             alert("新增成功");
-    //         } else {
-    //             alert(d.body);
-    //         }
-    //
-    //         //关闭模态框
-    //         $("#modelBtn").click();
-    //
-    //         //dataTable当前页重绘
-    //         $("#dataTable").dataTable().fnDraw(false);
-    //     }
-    // });
 
     /**
      * 新增
      */
-    $("#addBtn").on('click', function () {
+    $("#addBtn").click(function () {
 
         //清空模态框中的内容
         $("#mealTypeName").val("");
@@ -58,11 +22,7 @@ $(function () {
 
         //弹出模态框
         $("#modelBtn").click();
-
     });
-
-//每页显示指定行
-    var displayRowsEachPage = 10;
 
     /**
      * 加载DataTable
@@ -73,7 +33,7 @@ $(function () {
         bLengthChange: false,
         // bPaginate: true,  //是否显示分页
         searching: false,//搜索
-        iDisplayLength: displayRowsEachPage,
+        iDisplayLength: 10,//指定也显示10条
         language: {
             paginate: {//分页的样式内容。
                 previous: "上一页",
@@ -87,19 +47,6 @@ $(function () {
             infoEmpty: "0条记录",//筛选为空时左下角的显示。
             infoFiltered: ""//筛选之后的左下角筛选提示，
         },
-
-        /**
-         <th class="span2 sortable">订单号</th>
-         <th class="span2 sortable">用户名</th>
-         <th class="span2 sortable">收获地址</th>
-         <th class="span2 sortable">支出总金额</th>
-         <th class="span2 sortable">商品数量</th>
-         <th class="span2 sortable">配送费用</th>
-         <th class="span4 sortable">商品开销</th>
-         <th class="span2 sortable">付款方式</th>
-         <th class="span2 sortable">创建时间</th>
-         <th class="span2 sortable">更新时间</th>
-         */
         processing: true,//设置为true,就会有表格加载时的提示
         serverSide: true,
         sAjaxSource: "./pagesCurrentOrder.action",//这个是请求的地址
@@ -122,7 +69,9 @@ $(function () {
             targets: 12,//表示是第8列，所以上面第8列没有对应数据列，就是在这里渲染的。
             render: function (obj) {
                 var id = obj.cid;
-                return "<a class='btn btn-primary btn-lg edit' id=" + id + ">编辑</a>";
+                return "<a class='btn btn-primary btn-small edit' id=" + id + ">" +
+                    "&nbsp;&nbsp;&nbsp;&nbsp;编辑&nbsp;&nbsp;&nbsp;&nbsp;</a>" +
+                    "<a class='btn btn-danger btn-small edit' style='margin-top: 5px;' id=" + id + ">确认订单</a>";
             }
 
         }, {//列渲染，可以添加一些操作等

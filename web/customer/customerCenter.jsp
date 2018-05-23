@@ -196,10 +196,6 @@
                                 <span class="backOrderList" style="cursor:pointer">订单查询</span> --&gt;
                                 <span style="text-decoration: underline">历史订单</span>
                             </h4>
-                            <div class="orderList_tab_area">
-                                <div id="orderList_tab_within" class="orderList_tab orderList_tab_cur">近三个月内订单</div>
-                                <div id="orderList_tab_not_within" class="orderList_tab">更多订单</div>
-                            </div>
                             <ul class="orderList_ul">
                                 <li class="orderList_li orderList_header">
                                     <div class="orderList_date">下单时间</div>

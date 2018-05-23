@@ -181,6 +181,8 @@ $(function () {
         //初始化个人信息页面
         initPage();
 
+        $(".user_menu").height(490);
+
         $('.pages1').show().siblings().hide();
         $('#l1').addClass("on");
         $('#l2').removeClass("on");
@@ -203,6 +205,8 @@ $(function () {
         //初始化地址管理页面
         initAddressPage();
 
+        $(".user_menu").height(490);
+
         $('.pages3').show().siblings().hide();
         $('#l1').removeClass("on");
         $('#l2').removeClass("on");
@@ -211,6 +215,10 @@ $(function () {
 
     //关闭详情
     $('#close_details').click(function () {
+
+        //初始化订单详情页
+        initOrderSearch();
+
         $('#orderList_now').show().siblings().hide();
     });
 
@@ -313,6 +321,12 @@ $(function () {
     $(".add_icon").click(function () {
         $("#cityName").val("");
     });
+
+    $(".backOrderList").click(
+        function () {
+            location.assign("customerCenter.jsp");
+        }
+    );
 
 });
 
@@ -417,6 +431,9 @@ function initOrderSearch() {
 
             $("#orderList").html("");
 
+            //设置导航条长度
+            $(".user_menu").height((d.length * 129) + 85);
+
             for (var x = 0; x < d.length; x++) {
 
                 var date = new Date(d[x].creatorTime);
@@ -509,6 +526,9 @@ function orderDetail(obj) {
     //
     //     }
     // });
+
+    //设置导航条高度
+    $(".user_menu").height(490);
 
     //餐品详情
     $.ajax({
