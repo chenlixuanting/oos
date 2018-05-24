@@ -1,16 +1,12 @@
 package com.guet.oos.servlet.user.pay;
 
+import com.alibaba.fastjson.JSONObject;
 import com.guet.oos.constant.*;
+import com.guet.oos.dto.JsonEntityReturn;
 import com.guet.oos.dto.JsonReturn;
 import com.guet.oos.factory.ServiceFactory;
-import com.guet.oos.po.Order;
-import com.guet.oos.po.OrderItem;
-import com.guet.oos.po.ShopCart;
-import com.guet.oos.po.User;
-import com.guet.oos.service.DishesService;
-import com.guet.oos.service.OrderItemService;
-import com.guet.oos.service.OrderService;
-import com.guet.oos.service.ShopCartService;
+import com.guet.oos.po.*;
+import com.guet.oos.service.*;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -52,13 +48,15 @@ public class PayServlet extends HttpServlet {
      */
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-        SimpleDateFormat sf = new SimpleDateFormat(DateTimeFormat.YYYY_MM_DD_HH_MM_SS);
-
         HttpSession httpSession = request.getSession();
+
+        SimpleDateFormat sf = new SimpleDateFormat(DateTimeFormat.YYYY_MM_DD_HH_MM_SS);
 
         ShopCart shopCart = (ShopCart) httpSession.getAttribute(SessionKey.SHOP_CART);
 
         User user = (User) httpSession.getAttribute(SessionKey.USER);
+
+        DeliveryAddress deliveryAddress = user.getDefaultDeliverAddress();
 
         Order order = new Order();
 
@@ -76,6 +74,7 @@ public class PayServlet extends HttpServlet {
         order.setOrderStatus(OrderStatus.UNCONFIRMEED);
         order.setCreatorTime(sf.format(new Date()));
         order.setUpdateTime(sf.format(new Date()));
+        order.setReceiverTime(deliveryAddress.getReceiverTime());
 
         //保存order到数据库中
         orderService.createOrder(order);
@@ -107,7 +106,7 @@ public class PayServlet extends HttpServlet {
         //更改用户标志
         httpSession.setAttribute(SessionKey.USER_FLAG, UserExist.USER_EXIST);
 
-        response.getWriter().write(JsonReturn.buildSuccessEmptyContent().toString());
+        response.getWriter().write(JSONObject.toJSONString(JsonEntityReturn.buildSuccessEmptyContent()));
 
     }
 

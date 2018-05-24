@@ -198,51 +198,6 @@ function encapsulAddUser() {
      */
 
     /**
-     <div class="form-group">
-     <font size="3"
-     style="padding-right: 10px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;收货人姓名:</font>
-     <input type="text"
-     class="form-control"
-     placeholder="收货人姓名"
-     name="addUserDefaultReceiverName"
-     id="addUserDefaultReceiverName"
-     style="width: 600px !important;">
-     </div>
-
-     <div class="form-group">
-     <font size="3"
-     style="padding-right: 10px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;收货人电话:</font>
-     <input type="text"
-     class="form-control"
-     placeholder="收货人电话"
-     name="addUserDefaultReceiverMobile"
-     id="addUserDefaultReceiverMobile"
-     style="width: 600px !important;">
-     </div>
-
-     <div class="form-group">
-     <font size="3"
-     style="padding-right: 10px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;收货人性别:</font>
-     <select name="addUserReceiverSex" class="form-control" id="addUserReceiverSex"
-     style="width: 615px; height: 31px;margin-bottom: 10px;">
-     <option value="先生">先生</option>
-     <option value="女士">女士</option>
-     </select>
-     </div>
-
-     <div class="form-group">
-     <font size="3"
-     style="padding-right: 10px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;收货人地址:</font>
-     <input type="text"
-     class="form-control"
-     placeholder="收货人地址"
-     name="addUserDefaultReceiverAddress"
-     id="addUserDefaultReceiverAddress"
-     style="width: 600px !important;">
-     </div>
-     */
-
-    /**
      private long daId;// 收货地址ID
      private long usId;//用户ID
      private String receiverName;// 收货人姓名
@@ -263,7 +218,7 @@ function encapsulAddUser() {
         receiverName: $("#addUserDefaultReceiverName").val(),
         receiverMobile: $("#addUserDefaultReceiverMobile").val(),
         receiverAddress: $("#addUserDefaultReceiverAddress").val(),
-
+        receiverSex: $("#addUserReceiverSex").val()
     };
 
     return user;

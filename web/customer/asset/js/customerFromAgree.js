@@ -66,12 +66,16 @@ $(function () {
                 },
                 success: function (data) {
 
-                    var d = eval(data);
+                    var returnData = eval(data);
 
-                    if (d.head) {
+                    if (returnData.head) {
+
+                        //跳转到下一个页面
                         location.assign("customerConfirm.jsp");
                     } else {
 
+                        //提示错误信息
+                        alert(returnData.body);
                     }
 
                 }

@@ -6,7 +6,6 @@ import com.guet.oos.dto.JsonReturn;
 import com.guet.oos.factory.ServiceFactory;
 import com.guet.oos.po.User;
 import com.guet.oos.service.DeliveryAddressService;
-import com.guet.oos.service.UserService;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;

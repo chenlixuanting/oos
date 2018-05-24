@@ -93,7 +93,7 @@ public class DeliveryAddressDaoImpl extends AbstractDAOImpl implements DeliveryA
     @Override
     public boolean doCreate(DeliveryAddress vo) {
 
-        String sql = "insert into delivery_address_table(usId,receiverName,receiverMobile,receiverAddress,receiverTime,isDefault,createTime,updateTime) values(?,?,?,?,?,?,?,?)";
+        String sql = "insert into delivery_address_table(usId,receiverName,receiverMobile,receiverAddress,receiverTime,isDefault,createTime,updateTime,receiverSex) values(?,?,?,?,?,?,?,?,?)";
 
         try {
             pstmt = conn.prepareStatement(sql);
@@ -106,6 +106,7 @@ public class DeliveryAddressDaoImpl extends AbstractDAOImpl implements DeliveryA
             pstmt.setBoolean(6, vo.isDefault());
             pstmt.setString(7, vo.getCreateTime());
             pstmt.setString(8, vo.getUpdateTime());
+            pstmt.setString(9, vo.getReceiverSex());
 
             pstmt.execute();
 
@@ -192,6 +193,7 @@ public class DeliveryAddressDaoImpl extends AbstractDAOImpl implements DeliveryA
                 address.setDefault(res.getBoolean(DeliverAddressFields.IS_DEFAULT));
                 address.setCreateTime(res.getString(DeliverAddressFields.CREATE_TIME));
                 address.setUpdateTime(res.getString(DeliverAddressFields.UPDATE_TIME));
+                address.setReceiverSex(res.getString(DeliverAddressFields.RECEIVER_SEX));
                 deliveryAddresses.add(address);
             }
             return deliveryAddresses;

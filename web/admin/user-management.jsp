@@ -163,7 +163,12 @@
 
                         <div class="form-group">
                             <font size="3"
-                                  style="padding-right: 10px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;收货时间:</font>
+                                  style="padding-right: 10px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;收货人性别:</font>
+                            <select name="addUserReceiverSex" class="form-control" id="addUserReceiverSex"
+                                    style="width: 615px; height: 31px;margin-bottom: 10px;">
+                                <option value="先生">先生</option>
+                                <option value="女士">女士</option>
+                            </select>
                         </div>
 
                         <div class="form-group">

@@ -97,7 +97,7 @@
                     <li>
                         <div class="userinfo_til"><span class="red">*</span> 客户姓名：</div>
                         <div class="input_box">
-                            <input id="username" type="text" name="username" validTip='客户姓名'/>
+                            <input id="username" type="text" name="username" value='客户姓名'/>
                         </div>
                         <div class="radio_box">
                             <input id="gender" name="gender" type="hidden" value="0"/>
@@ -123,12 +123,10 @@
                                 class="pr_num_jiange">密码</span>：
                         </div>
                         <div class="input_box">
-                            <input type="password" id="password" name='password' maxlength="16"
+                            <input type="text" id="password" name='password' maxlength="16"
                                    style="display:block;" value='请输入密码'/>
                         </div>
                         <div class="passwordCanSee">
-                            <img src="images/passwordSee.png" class="passwordSee"/>
-                            <img src="images/passwordNotSee.png" class="passwordNotSee"/>
                         </div>
                         <div class="radio_edit">请输入6~16位密码</div>
                     </li>

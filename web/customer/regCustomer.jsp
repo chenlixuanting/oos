@@ -163,11 +163,11 @@
                                 </div>
                                 <div class="price_span_1">
                                     <span class="product_number">
-                                        <a class="doMinus" href="javascript:;">
+                                        <a class="doMinus" href="javascript:;" onclick="sub(this);">
                                             <img src="images/minus_icon_3.gif">
                                         </a>
-                                        <input type="text" value="1" maxlength="2" class="pro_number_input2">
-                                        <a class="doPlus" href="javascript:;">
+                                        <input type="text" value="1" maxlength="2" dsId="" class="pro_number_input2">
+                                        <a class="doPlus" href="javascript:;" onclick="add(this);">
                                             <img src="images/add_icon_3.gif">
                                         </a>
                                     </span>
@@ -177,7 +177,7 @@
                             </div>
                             <div class="clear"></div>
                             <p class="popup_btn" style="padding-top: 0px;">
-                                <a class="orderBtn" href="javascript:;" onclick="">
+                                <a class="orderBtn" href="javascript:;" onclick="orderModelBtn();">
                                     <img src="images/popup_btn_2.png">
                                 </a>
                             </p>
@@ -218,8 +218,7 @@
                         </div>
                         <div class=" sub_right_order_main">
                             <div class="order_detail">
-                                <ul id="cart_menus">
-                                </ul>
+                                <ul id="cart_menus"></ul>
                             </div>
                         </div>
                         <div class="total">
@@ -245,7 +244,7 @@
                         </p>
                         <div class="order_add">
                             <p>
-                                <span class="til">送餐地址：</span> <span class="modify"> </span>
+                                <span class="til">送餐地址：</span> <span></span>
                             </p>
                         </div>
                         <p style="padding: 6px 10px;">

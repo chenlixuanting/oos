@@ -24,29 +24,20 @@ $(function () {
         dataType: "json",
         success: function (data) {
 
-            var d = eval(data);
+            //{"body":{"deliverCost":0,"orderItems":[],"productAmount":0,"productCost":0,"totalCost":0},"head":true}
 
-            // {
-            //     "deliverCost": 9,
-            //     "orderItems": [{
-            //     "creatorTime": "2018-05-18 12:32:51",
-            //     "dishesName": "披萨",
-            //     "dsId": 21,
-            //     "oiId": 0,
-            //     "orId": 0,
-            //     "price": 12.55,
-            //     "productCost": 12.55,
-            //     "quantity": 1,
-            //     "scId": 0,
-            //     "updateTime": "2018-05-18 12:32:51"
-            // }],
-            //     "productAmount": 1,
-            //     "productCost": 12.55,
-            //     "totalCost": 21.55
-            // }
+            //添加购物车成功,修改相应页面
+            var returnData = eval(data);
 
-            $("#totalCost").html(d.totalCost.toFixed(2) + "元");
+            if (returnData.head) {
 
+                $("#totalCost").html(returnData.body.totalCost.toFixed(2) + "元");
+
+            } else {
+
+                //提示错误信息
+                alert(returnData.body);
+            }
         }
 
     });
@@ -81,14 +72,26 @@ $(function () {
             //     "username": "陈宣锦"
             // }
 
-            var d = eval(data);
-            var defaultDeliverAddress = eval(d.defaultDeliverAddress);
+            var returnData = eval(data);
 
-            $("#deliverName").html("<span class='info_span_1' >顾客姓名：</span>" + defaultDeliverAddress.receiverName);
-            $("#deliverAddress").html("<span class='info_span_1' >送餐地址：</span>" + defaultDeliverAddress.receiverAddress);
-            $("#mobile").html("<span class='info_span_1'>联系电话：</span>" + defaultDeliverAddress.receiverMobile);
-            $("#deliveryTime").html(defaultDeliverAddress.receiverTime);
-            $("#customerName").html(d.username);
+            if (returnData.head) {
+
+                var body = eval(returnData.body);
+
+                var defaultDeliverAddress = eval(body.defaultDeliverAddress);
+
+                $("#deliverName").html("<span class='info_span_1' >顾客姓名：</span>" + defaultDeliverAddress.receiverName);
+                $("#deliverAddress").html("<span class='info_span_1' >送餐地址：</span>" + defaultDeliverAddress.receiverAddress);
+                $("#mobile").html("<span class='info_span_1'>联系电话：</span>" + defaultDeliverAddress.receiverMobile);
+                $("#deliveryTime").html(defaultDeliverAddress.receiverTime);
+                $("#customerName").html(body.username);
+
+            } else {
+
+                //提示信息
+                alert(returnData.body);
+
+            }
 
         }
     });
@@ -100,9 +103,7 @@ $(function () {
         $.ajax({
             url: "customerExit.action",
             type: "post",
-            dataType: "json",
-            success: function () {
-            }
+            dataType: "json"
         });
     });
 
@@ -122,7 +123,15 @@ $(function () {
             dataType: "json",
             data: {
                 requestData: JSON.stringify(requestData)
-            }, success: function (data) {
+            },
+            success: function (data) {
+
+                var returnData = eval(data);
+
+                if (!returnData.head) {
+                    alert(returnData.body);
+                }
+
             }
         });
     });

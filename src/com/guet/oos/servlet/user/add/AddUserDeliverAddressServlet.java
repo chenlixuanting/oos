@@ -46,7 +46,7 @@ public class AddUserDeliverAddressServlet extends HttpServlet {
 
         JSONObject requestDataJson = JSONObject.parseObject(requestData);
 
-        String cityName = requestDataJson.getString("username");
+        String cityName = requestDataJson.getString("cityName");
         String roadName = requestDataJson.getString("mobile");
         String addressDetial = requestDataJson.getString("addressDetial");
         String sex = requestDataJson.getString("sex");

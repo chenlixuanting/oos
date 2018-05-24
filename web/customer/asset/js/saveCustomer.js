@@ -10,9 +10,19 @@ $(function () {
         dataType: "json",
         success: function (data) {
 
-            var d = eval(data);
+            var returnData = eval(data);
 
-            $("#input_box_iphone").html(d.mobile);
+            if (returnData.head) {
+
+                var body = eval(returnData.body);
+
+                $("#input_box_iphone").html(body.mobile);
+
+            } else {
+
+                alert(returnData.body);
+
+            }
 
         }
     });
@@ -47,6 +57,8 @@ $(function () {
     //确定并保存个人信息按钮
     $("#submit_btn").click(function () {
 
+        $("#submit_btn")
+
         var customerData = {
             deliverName: $("#username").val(),
             password: $("#password").val(),
@@ -63,16 +75,14 @@ $(function () {
             },
             success: function (data) {
 
-                var d = eval(data);
+                var returnData = eval(data);
 
-                var flag = d.head == "true" ? true : false;
+                if (returnData.head) {
 
-                //跳转到pay.jsp
-                if (flag) {
-
+                    //跳转到pay.jsp
                     alert(codeMessage.success0);
-
                     location.assign("regPay.jsp");
+
                 } else {
 
                     //提示注册用户失败
@@ -84,6 +94,20 @@ $(function () {
             }
         });
 
+    });
+
+    $("#username").click(function () {
+        $("#username").val("");
+    });
+
+    //当鼠标悬停在查看密码图标上时
+    $("#password").focus(function () {
+        $("#password").attr("type", "text");
+    });
+
+    //当鼠标离开时
+    $("#password").blur(function () {
+        $("#password").attr("type", "password");
     });
 
 });

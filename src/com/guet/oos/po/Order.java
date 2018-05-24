@@ -24,6 +24,8 @@ public class Order implements Serializable {
 
     private String receiverAddress;//收货地址
 
+    private String receiverTime;//收货时间
+
     private double totalCost;// 总支出金额
 
     private long productAmount;// 商品数量
@@ -42,13 +44,14 @@ public class Order implements Serializable {
 
     private String updateTime;// 更新时间
 
-    public Order(String orId, long usId, String username, long mgId, long daId, String receiverAddress, double totalCost, long productAmount, double deliverCost, double productCost, String orderStatus, String payType, List<OrderItem> orderItems, String creatorTime, String updateTime) {
+    public Order(String orId, long usId, String username, long mgId, long daId, String receiverAddress, String receiverTime, double totalCost, long productAmount, double deliverCost, double productCost, String orderStatus, String payType, List<OrderItem> orderItems, String creatorTime, String updateTime) {
         this.orId = orId;
         this.usId = usId;
         this.username = username;
         this.mgId = mgId;
         this.daId = daId;
         this.receiverAddress = receiverAddress;
+        this.receiverTime = receiverTime;
         this.totalCost = totalCost;
         this.productAmount = productAmount;
         this.deliverCost = deliverCost;
@@ -109,6 +112,14 @@ public class Order implements Serializable {
 
     public void setReceiverAddress(String receiverAddress) {
         this.receiverAddress = receiverAddress;
+    }
+
+    public String getReceiverTime() {
+        return receiverTime;
+    }
+
+    public void setReceiverTime(String receiverTime) {
+        this.receiverTime = receiverTime;
     }
 
     public double getTotalCost() {
@@ -192,6 +203,7 @@ public class Order implements Serializable {
                 ", mgId=" + mgId +
                 ", daId=" + daId +
                 ", receiverAddress='" + receiverAddress + '\'' +
+                ", receiverTime='" + receiverTime + '\'' +
                 ", totalCost=" + totalCost +
                 ", productAmount=" + productAmount +
                 ", deliverCost=" + deliverCost +

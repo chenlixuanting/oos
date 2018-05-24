@@ -59,7 +59,7 @@ $(function () {
                 var d = eval(data);
 
                 for (var x = 0; x < d.length; x++) {
-                    $("#ChildMenu2").append("<li><a onclick='$.regCustomerPage.sendInfo(this);'" + d[x] + ">" + d[x] + "</a></li>");
+                    $("#ChildMenu2").append("<li><a onclick='$.regCustomerPage.sendInfo(this);'>" + d[x] + "</a></li>");
                 }
             }
         });

@@ -2,8 +2,10 @@ package com.guet.oos.servlet.user.login;
 
 import com.alibaba.fastjson.JSONObject;
 import com.guet.oos.constant.JsonReturnCode;
+import com.guet.oos.constant.ReturnMessage;
 import com.guet.oos.constant.SessionKey;
 import com.guet.oos.constant.UserExist;
+import com.guet.oos.dto.JsonEntityReturn;
 import com.guet.oos.dto.JsonReturn;
 import com.guet.oos.dto.LoginDataDto;
 import com.guet.oos.factory.ServiceFactory;
@@ -13,6 +15,7 @@ import com.guet.oos.po.User;
 import com.guet.oos.service.DeliveryAddressService;
 import com.guet.oos.service.ShopCartService;
 import com.guet.oos.service.UserService;
+import org.springframework.util.StringUtils;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -21,6 +24,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
+import java.io.Writer;
 
 /**
  * Created by Shinelon on 2018/5/11.
@@ -48,51 +52,101 @@ public class UserLoginServlet extends HttpServlet {
      */
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-        HttpSession httpSession = request.getSession();
-
         String loginData = request.getParameter("loginData");
 
-        LoginDataDto loginDataDto = JSONObject.parseObject(loginData, LoginDataDto.class);
+        Writer out = response.getWriter();
 
-        User user = userService.findByMobile(loginDataDto.getMobile());
+        //获取Session
+        HttpSession httpSession = request.getSession();
 
-        if (user == null) {
-            response.getWriter().write(JSONObject.toJSONString(JsonReturn.buildFail(JsonReturnCode.USER_IS_NOT_EXIST)));
+        String verifyCode = (String) httpSession.getAttribute(SessionKey.VALIDATE_CODE);
+
+        //判断请求参数是否为空
+        if (StringUtils.isEmpty(verifyCode)) {
+
+            //若为空则返回提示信息
+            out.write(JSONObject.toJSONString(JsonEntityReturn.buildFail(ReturnMessage.SERVER_INNER_ERROR)));
+
+            //结束
             return;
         }
 
-        //用户存在则继续判断密码
-        if (!user.getPassword().equals(loginDataDto.getPassword())) {
-            response.getWriter()
-                    .append(JSONObject.toJSONString(JsonReturn.buildFail(JsonReturnCode.PASSWORD_ERROR)));
+        //判断请求参数是否为空
+        if (StringUtils.isEmpty(loginData)) {
 
-            //密码正确继续判断验证码
-        } else if (!((String) request.getSession().getAttribute(
-                SessionKey.VALIDATE_CODE)).equalsIgnoreCase((loginDataDto.getVerifyCode()))) {
-            response.getWriter()
-                    .append(JSONObject.toJSONString(JsonReturn.buildFail(JsonReturnCode.VERIFY_CODE_ERROR)));
+            //为空则返回提示新
+            out.write(JSONObject.toJSONString(JsonEntityReturn.buildFail(ReturnMessage.REQUEST_PARAMTER_EMPTY)));
+
         } else {
 
-            //将用户标记为正式用户
-            httpSession.setAttribute(SessionKey.USER_FLAG, UserExist.USER_EXIST);
 
-            //获取用户的默认送货地址
-            DeliveryAddress deliveryAddress = deliveryAddressService.findUserDefaultDeliverAddress(user.getUsId());
+            //封装成json格式数据
+            LoginDataDto loginDataDto = JSONObject.parseObject(loginData, LoginDataDto.class);
 
-            //将用户的的默认地址保存到Session中
-            user.setDefaultDeliverAddress(deliveryAddress);
+            User user = userService.findByMobile(loginDataDto.getMobile());
 
-            //将user信息存入Session
-            httpSession.setAttribute(SessionKey.USER, user);
+            //判断user是否为空
+            if (StringUtils.isEmpty(user)) {
 
-            ShopCart shopCart = shopCartService.getShopCartByUserId(user.getUsId());
+                //若为空则返回提示信息
+                response.getWriter().write(JSONObject.toJSONString(JsonEntityReturn.buildFail(ReturnMessage.USER_ACCOUNT_IS_NOT_EXIST)));
 
-            //将shopcart保存到Session中
-            httpSession.setAttribute(SessionKey.SHOP_CART, shopCart);
+                //结束
+                return;
 
-            //验证通过
-            response.getWriter()
-                    .append(JSONObject.toJSONString(JsonReturn.buildSuccessEmptyContent()));
+            } else {
+
+                //用户存在则继续判断密码
+                if (!user.getPassword().equals(loginDataDto.getPassword())) {
+
+                    //提示密码输入错误
+                    response.getWriter()
+                            .append(JSONObject.toJSONString(JsonEntityReturn.buildFail(ReturnMessage.PASSWORD_ERROR)));
+
+                    //密码正确继续判断验证码
+                } else if (!verifyCode.equalsIgnoreCase((loginDataDto.getVerifyCode()))) {
+
+                    //提示验证码输入错误
+                    response.getWriter()
+                            .append(JSONObject.toJSONString(JsonEntityReturn.buildFail(ReturnMessage.VERIFYCODE_ERROR)));
+
+                } else {
+
+                    //将用户标记为正式用户
+                    httpSession.setAttribute(SessionKey.USER_FLAG, UserExist.USER_EXIST);
+
+                    //获取用户的默认送货地址
+                    DeliveryAddress deliveryAddress = deliveryAddressService.findUserDefaultDeliverAddress(user.getUsId());
+
+                    //获取用户的购物车
+                    ShopCart shopCart = shopCartService.getShopCartByUserId(user.getUsId());
+
+                    //判断从数据库中获取到的购物车和默认送货地址是否为空
+                    if (StringUtils.isEmpty(deliveryAddress) || StringUtils.isEmpty(shopCart)) {
+
+                        //若为空则提示错误信息
+                        out.write(JSONObject.toJSONString(JsonEntityReturn.buildFail(ReturnMessage.SERVER_INNER_ERROR)));
+
+                        //结束
+                        return;
+
+                    } else {
+
+                        //将用户的的默认地址保存到Session中
+                        user.setDefaultDeliverAddress(deliveryAddress);
+
+                        //将user信息存入Session
+                        httpSession.setAttribute(SessionKey.USER, user);
+
+                        //将shopcart保存到Session中
+                        httpSession.setAttribute(SessionKey.SHOP_CART, shopCart);
+
+                        //验证通过
+                        out.write(JSONObject.toJSONString(JsonEntityReturn.buildSuccessEmptyContent()));
+
+                    }
+                }
+            }
         }
 
     }

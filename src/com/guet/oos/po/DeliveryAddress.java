@@ -21,6 +21,8 @@ public class DeliveryAddress implements Serializable {
 
     private String receiverAddress;// 收货人地址
 
+    private String receiverSex;//收货人性别
+
     private String receiverTime;//收货时间
 
     private boolean isDefault;//是否为默认地址
@@ -29,12 +31,14 @@ public class DeliveryAddress implements Serializable {
 
     private String updateTime;// 更新时间
 
-    public DeliveryAddress(long daId, long usId, String receiverName, String receiverMobile, String receiverAddress, String receiverTime, boolean isDefault, String createTime, String updateTime) {
+    public DeliveryAddress(long daId, long usId, String receiverName, String receiverMobile, String receiverAddress,
+                           String receiverSex, String receiverTime, boolean isDefault, String createTime, String updateTime) {
         this.daId = daId;
         this.usId = usId;
         this.receiverName = receiverName;
         this.receiverMobile = receiverMobile;
         this.receiverAddress = receiverAddress;
+        this.receiverSex = receiverSex;
         this.receiverTime = receiverTime;
         this.isDefault = isDefault;
         this.createTime = createTime;
@@ -84,6 +88,14 @@ public class DeliveryAddress implements Serializable {
         this.receiverAddress = receiverAddress;
     }
 
+    public String getReceiverSex() {
+        return receiverSex;
+    }
+
+    public void setReceiverSex(String receiverSex) {
+        this.receiverSex = receiverSex;
+    }
+
     public String getReceiverTime() {
         return receiverTime;
     }
@@ -124,10 +136,12 @@ public class DeliveryAddress implements Serializable {
                 ", receiverName='" + receiverName + '\'' +
                 ", receiverMobile='" + receiverMobile + '\'' +
                 ", receiverAddress='" + receiverAddress + '\'' +
+                ", receiverSex='" + receiverSex + '\'' +
                 ", receiverTime='" + receiverTime + '\'' +
                 ", isDefault=" + isDefault +
                 ", createTime='" + createTime + '\'' +
                 ", updateTime='" + updateTime + '\'' +
                 '}';
     }
+
 }

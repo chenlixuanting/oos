@@ -1,8 +1,12 @@
 package com.guet.oos.servlet.user.select;
 
+import com.alibaba.fastjson.JSONObject;
+import com.guet.oos.constant.ReturnMessage;
 import com.guet.oos.constant.SessionKey;
+import com.guet.oos.dto.JsonEntityReturn;
 import com.guet.oos.dto.JsonReturn;
 import com.guet.oos.dto.TemporaryUserInfo;
+import org.springframework.util.StringUtils;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -11,6 +15,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
+import java.io.Writer;
 
 /**
  * 保存用户所选择的发货的时间
@@ -36,13 +41,28 @@ public class SelectDeliverTimeServlet extends HttpServlet {
 
         HttpSession session = request.getSession();
 
-        TemporaryUserInfo temporaryUserInfo = (TemporaryUserInfo) session.getAttribute(SessionKey.TEMPORARY_USER_INFO);
+        Writer out = response.getWriter();
 
-        temporaryUserInfo.setDeliverTime(timeStr);
+        if (StringUtils.isEmpty(timeStr)) {
 
-        session.setAttribute(SessionKey.TEMPORARY_USER_INFO, temporaryUserInfo);
+            //若Session失效则提示错误信息
+            out.write(JSONObject.toJSONString(JsonEntityReturn.buildFail(ReturnMessage.SESSION_INVALIDATE)));
 
-        response.getWriter().write(JsonReturn.buildSuccessEmptyContent().toString());
+            //结束
+            return;
+
+        } else {
+
+            TemporaryUserInfo temporaryUserInfo = (TemporaryUserInfo) session.getAttribute(SessionKey.TEMPORARY_USER_INFO);
+
+            temporaryUserInfo.setDeliverTime(timeStr);
+
+            session.setAttribute(SessionKey.TEMPORARY_USER_INFO, temporaryUserInfo);
+
+            out.write(JSONObject.toJSONString(JsonEntityReturn.buildSuccessEmptyContent()));
+
+        }
+
     }
 
     /**

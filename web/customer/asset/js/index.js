@@ -19,11 +19,23 @@ $(function () {
         },
         success: function (data) {
 
-            var d = eval(data);
+            var jsonReturn = eval(data);
 
-            for (var x = 0; x < d.length; x++) {
-                $("#ChildMenu2").append("<li><a onclick='$.indexPage.sendInfo(this);'" + d[x] + ">" + d[x] + "</a></li>");
+            if (jsonReturn.head) {
+
+                var dishesTypeList = eval(jsonReturn.body);
+
+                for (var x = 0; x < dishesTypeList.length; x++) {
+                    $("#ChildMenu2").append("<li><a onclick='$.indexPage.sendInfo(this);'>" + dishesTypeList[x] + "</a></li>");
+                }
+
+            } else {
+
+                //提示错误信息
+                alert(jsonReturn.body);
+
             }
+
         }
     });
 
@@ -39,10 +51,21 @@ $(function () {
         },
         success: function (data) {
 
-            var d = eval(data);
+            var jsonReturn = eval(data);
 
-            for (var x = 0; x < d.length; x++) {
-                $("#ChildMenu3").append("<li><a onclick='$.indexPage.sendInfo(this);'" + d[x] + ">" + d[x] + "</a></li>");
+            if (jsonReturn.head) {
+
+                var dishesTypeList = eval(jsonReturn.body);
+
+                for (var x = 0; x < dishesTypeList.length; x++) {
+                    $("#ChildMenu3").append("<li><a onclick='$.indexPage.sendInfo(this);'" + dishesTypeList[x] + ">" + dishesTypeList[x] + "</a></li>");
+                }
+
+            } else {
+
+                //提示错误信息
+                alert(jsonReturn.body);
+
             }
 
         }
@@ -59,29 +82,24 @@ $(function () {
         },
         success: function (data) {
 
-            var d = eval(data);
+            var jsonReturn = eval(data);
 
-            for (var x = 0; x < d.length; x++) {
-                $("#ChildMenu4").append("<li><a onclick='$.indexPage.sendInfo(this);'" + d[x] + ">" + d[x] + "</a></li>");
+            if (jsonReturn.head) {
+
+                var dishesTypeList = eval(jsonReturn.body);
+
+                for (var x = 0; x < dishesTypeList.length; x++) {
+                    $("#ChildMenu4").append("<li><a onclick='$.indexPage.sendInfo(this);'" + dishesTypeList[x] + ">" + dishesTypeList[x] + "</a></li>");
+                }
+
+            } else {
+
+                //提示错误信息
+                alert(jsonReturn.body);
+
             }
-
         }
     });
-
-    // $("#loginSubmit").click(function () {
-    //     var User = $("#mobi").val();
-    //     var reg = /^(\+\d{2,3}\-)?\d{11}$/;
-    //     if (User == "") {
-    //         alert("手机号码不能为空");
-    //         return false;
-    //     }
-    //     if (!reg.test(User)) {
-    //         alert("手机号输入错误");
-    //         return false;
-    //     }
-    //     location.assign("customerFromAgree.jsp");
-    // });
-
 
     $.indexPage = {
         sendInfo: function (obj) {
@@ -93,33 +111,44 @@ $(function () {
                     dishesType: obj.innerHTML
                 }, success: function (data) {
 
-                    var d = eval(data);
+                    var returnData = eval(data);
 
-                    //清空商品列表标签
-                    $(".product_ul").html("");
+                    if (returnData.head) {
 
-                    for (var x = 0; x < d.length; x++) {
+                        var d = eval(returnData.body);
 
-                        $(".product_ul").append(
-                            "<li style='height:295px'>" +
-                            "<div>" +
-                            "<img onclick='$.dishesInfoDialog(this)' dsId='" + d[x].dsId + "'src='" + pageUrls.customerAddress + d[x].picAddress + "' name='menuImg' alt='" + d[x].dishesName + "' style='width: 179px;height:179px;'>" +
-                            "<div>" +
-                            "<div class='pro_info'>" +
-                            "<p>" +
-                            "<a href='javascript:;' class='pro_name'>" + d[x].dishesName + "</a> <span class='couponDesc'>&nbsp;</span>" +
-                            "</p>" +
-                            "<p class='p_realPrice'>" +
-                            "</p>" +
-                            "<p style='height:22px'>" +
-                            "<span class='pro_price'>" + d[x].price + "元 / 份" + "</span>" +
-                            "</p>" +
-                            "<p style='clear: both; margin-bottom: 20px!important;'>" +
-                            "<input type='button' class='order_btn_start' onclick='startOrder();'>" +
-                            "</p>" +
-                            "</div>" +
-                            "</li>"
-                        );
+                        //清空商品列表标签
+                        $(".product_ul").html("");
+
+                        for (var x = 0; x < d.length; x++) {
+
+                            $(".product_ul").append(
+                                "<li style='height:295px'>" +
+                                "<div>" +
+                                "<img onclick='$.dishesInfoDialog(this)' dsId='" + d[x].dsId + "'src='" + pageUrls.customerAddress + d[x].picAddress + "' name='menuImg' alt='" + d[x].dishesName + "' style='width: 179px;height:179px;'>" +
+                                "<div>" +
+                                "<div class='pro_info'>" +
+                                "<p>" +
+                                "<a href='javascript:;' class='pro_name'>" + d[x].dishesName + "</a> <span class='couponDesc'>&nbsp;</span>" +
+                                "</p>" +
+                                "<p class='p_realPrice'>" +
+                                "</p>" +
+                                "<p style='height:22px'>" +
+                                "<span class='pro_price'>" + d[x].price + "元 / 份" + "</span>" +
+                                "</p>" +
+                                "<p style='clear: both; margin-bottom: 20px!important;'>" +
+                                "<input type='button' class='order_btn_start' onclick='startOrder();'>" +
+                                "</p>" +
+                                "</div>" +
+                                "</li>"
+                            );
+
+                        }
+
+                    } else {
+
+                        //提示错误信息
+                        alert(returnData.body);
 
                     }
 
@@ -128,8 +157,6 @@ $(function () {
 
         }
     };
-
-    // $("#startOrderBtn").click(startOrder);
 
     /**
      * 当点击图片时，显示商品的详细信息对话框
@@ -140,42 +167,53 @@ $(function () {
 
         //附带dsId，请求后台数据库
         $.ajax({
-            url: "/oos/admin/queryByDishesId.action",
+            url: "queryByDishesId.action",
             type: "POST",
             dataType: "json",
             data: {
-                id: dsId
+                dsId: dsId
             },
             success: function (data) {
 
-                var d = eval(data);
+                var returnData = eval(data);
 
-                /**
-                 *拉出灰募
-                 * */
-                $("body").append("<div class='ui-widget-overlay' style='width: 1920px; height: 1080px; z-index: 1001;'></div>");
+                if (returnData.head) {
 
-                /**
-                 * 修改弹出框中的数据项
-                 */
-                $("#desc").html(d.describe);
-                $("span.price").html(d.price);
-                $(".popup_product_detail_txt h4").html(d.dishesName);
-                $(".popup_product_detail_img img").attr("src", pageUrls.customerAddress + d.picAddress);
-                $(".popup_product_detail_img img").attr("alt", d.dishesName);
+                    var d = eval(returnData.body);
 
-                /**
-                 * 显示弹出框
-                 * */
-                $(".ui-dialog").css("display", "block");
+                    /**
+                     *拉出灰募
+                     * */
+                    $("body").append("<div class='ui-widget-overlay' style='width: 1920px; height: 1080px; z-index: 1001;'></div>");
 
-                /**
-                 * 关闭弹出框
-                 * */
-                $(".close_icon").click(function () {
-                    $('.ui-dialog').css("display", "none");
-                    $(".ui-widget-overlay").remove();
-                });
+                    /**
+                     * 修改弹出框中的数据项
+                     */
+                    $("#desc").html(d.describe);
+                    $("span.price").html(d.price);
+                    $(".popup_product_detail_txt h4").html(d.dishesName);
+                    $(".popup_product_detail_img img").attr("src", pageUrls.customerAddress + d.picAddress);
+                    $(".popup_product_detail_img img").attr("alt", d.dishesName);
+
+                    /**
+                     * 显示弹出框
+                     * */
+                    $(".ui-dialog").css("display", "block");
+
+                    /**
+                     * 关闭弹出框
+                     * */
+                    $(".close_icon").click(function () {
+                        $('.ui-dialog').css("display", "none");
+                        $(".ui-widget-overlay").remove();
+                    });
+
+                } else {
+
+                    //提示信息
+                    alert(returnData.body);
+
+                }
 
             },
         });
@@ -222,8 +260,6 @@ $(function () {
  */
 function userLogin() {
 
-    // refreshVerifyCode();
-
     var loginData = {
         mobile: $("#mobi").val(),
         password: $("#password").val(),
@@ -239,9 +275,9 @@ function userLogin() {
         },
         success: function (data) {
 
-            var d = eval(data);
+            var returnData = eval(data);
 
-            if (d.head) {
+            if (returnData.head) {
 
                 $("#loginSubmit").off("click");
 
@@ -258,15 +294,15 @@ function userLogin() {
                 //更新验证码
                 refreshVerifyCode();
 
-                //跳转到continueShopping.jsp
+                //跳转到customer.jsp
                 location.assign("customer.jsp");
 
             } else {
 
-                if (d.body == "error0") {
+                //提示错误新
+                alert(returnData.body);
 
-                    //提示密码输入错误
-                    alert(codeMessage.error0);
+                if (errorMsg == "密码输入错误!") {
 
                     //清空密码输入框,并将聚集焦点
                     $("#password").val("");
@@ -277,10 +313,7 @@ function userLogin() {
 
                     $("#password").click();
 
-                } else if (d.body == "error1") {
-
-                    //提示密码输入错误
-                    alert(codeMessage.error1);
+                } else if (errorMsg == "验证码输入错误!") {
 
                     //更新验证码
                     refreshVerifyCode();
@@ -290,9 +323,7 @@ function userLogin() {
 
                     $("#verifyCode").click();
 
-                } else if (d.body = "error3") {
-
-                    alert(codeMessage.error3);
+                } else if (errorMsg = "账号不存在!") {
 
                     $("#loginSubmit").off("click");
 
@@ -331,11 +362,9 @@ function isRegister() {
         },
         success: function (info) {
 
-            var d = eval(info);
+            var returnData = eval(info);
 
-            var flag = d.head == "true" ? true : false;
-
-            if (flag) {
+            if (returnData.head) {
 
                 $("#showPwd").css("display", "block");
                 $("#showVerifyCode").css("display", "block");
@@ -357,10 +386,12 @@ function isRegister() {
     });
 };
 
+//点击开始订餐，则跳转到orderLogin.jsp页面
 function startOrder() {
     location.assign("orderLogin.jsp");
 }
 
+//刷新验证码
 function refreshVerifyCode() {
     $("#verifyCodeImg").attr("src", pageUrls.verifyCodeAddress + new Date().getTime());
 }

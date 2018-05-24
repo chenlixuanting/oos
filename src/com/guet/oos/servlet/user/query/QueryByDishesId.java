@@ -1,10 +1,11 @@
-package com.guet.oos.servlet.user.select;
+package com.guet.oos.servlet.user.query;
 
 import com.alibaba.fastjson.JSONObject;
 import com.guet.oos.constant.ReturnMessage;
-import com.guet.oos.constant.SessionKey;
 import com.guet.oos.dto.JsonEntityReturn;
-import com.guet.oos.po.ShopCart;
+import com.guet.oos.factory.ServiceFactory;
+import com.guet.oos.po.Dishes;
+import com.guet.oos.service.DishesService;
 import org.springframework.util.StringUtils;
 
 import javax.servlet.ServletException;
@@ -12,21 +13,20 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.io.Writer;
 
-/**
- * Created by Shinelon on 2018/5/18.
- */
-@WebServlet("/customer/SelectPayType.action")
-public class SelectPayTypeServlet extends HttpServlet {
+@WebServlet("/customer/queryByDishesId.action")
+public class QueryByDishesId extends HttpServlet {
+
     private static final long serialVersionUID = 1L;
+
+    private DishesService dishesService = ServiceFactory.getDishesServiceInstance();
 
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public SelectPayTypeServlet() {
+    public QueryByDishesId() {
         super();
     }
 
@@ -35,31 +35,36 @@ public class SelectPayTypeServlet extends HttpServlet {
      */
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-        HttpSession httpSession = request.getSession();
-
-        String requestData = request.getParameter("requestData");
+        String strId = request.getParameter("dsId");
 
         Writer out = response.getWriter();
 
-        //判断请求参数是否为空
-        if (StringUtils.isEmpty(requestData)) {
-            //返回错误信息
+        //判断从requset中获取到的参数是否为空
+        if (StringUtils.isEmpty(strId)) {
+
+            //若为空则返回错误提示信息
             out.write(JSONObject.toJSONString(JsonEntityReturn.buildFail(ReturnMessage.REQUEST_PARAMTER_EMPTY)));
-            //结束
-            return;
 
         } else {
 
-            JSONObject requestDataJson = JSONObject.parseObject(requestData);
+            //若参数不为空,则转成Long类型
+            Long dsId = Long.valueOf(strId);
 
-            ShopCart shopCart = (ShopCart) httpSession.getAttribute(SessionKey.SHOP_CART);
+            //查询数据库
+            Dishes dishes = dishesService.queryById(dsId);
 
-            //获取付款方式
-            shopCart.setPayType(requestDataJson.getString("payType"));
+            //判断查询结果是否为空
+            if (StringUtils.isEmpty(dishes)) {
 
-            httpSession.setAttribute(SessionKey.SHOP_CART, shopCart);
+                //为空则返回提示信息
+                out.write(JSONObject.toJSONString(JsonEntityReturn.buildFail(ReturnMessage.DISHES_IS_NOT_EXIST)));
 
-            out.write(JSONObject.toJSONString(JsonEntityReturn.buildSuccessEmptyContent()));
+            } else {
+
+                //不为空，则返回查询结果
+                out.write(JSONObject.toJSONString(JsonEntityReturn.buildSuccess(dishes)));
+
+            }
 
         }
 

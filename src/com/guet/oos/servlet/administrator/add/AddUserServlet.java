@@ -37,13 +37,14 @@ public class AddUserServlet extends HttpServlet {
 
         String reuqestData = request.getParameter("requestData");
 
-        //User{usId=0, mobile='18477062310', password='1q23123', username='安慰道',
-        // sex='女士', defaultDeliverAddress=null, deliverAddress='哦派送的那么', creatorTime='null', updateTime='null'}
         User user = JSONObject.parseObject(reuqestData, User.class);
 
-        DeliveryAddress address = new DeliveryAddress();
+        DeliveryAddress deliveryAddress = JSONObject.parseObject(reuqestData, DeliveryAddress.class);
 
-        System.out.println(user.toString());
+        System.out.println(user);
+
+        System.out.println(deliveryAddress);
+
     }
 
     /**

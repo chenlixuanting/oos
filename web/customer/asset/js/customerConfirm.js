@@ -25,10 +25,20 @@ $(function () {
         dataType: "json",
         success: function (data) {
 
-            var d = eval(data);
+            var returnData = eval(data);
 
-            //初始化页面地址
-            initDeliverAddress(d);
+            if (returnData.head) {
+
+                var d = eval(returnData.body);
+
+                //初始化页面地址
+                initDeliverAddress(d);
+
+            } else {
+
+                //提示错误信息
+                alert(returnData.body);
+            }
 
         }
     });
@@ -50,10 +60,19 @@ $(function () {
             },
             success: function (data) {
 
-                var d = eval(data);
+                var returnData = eval(data);
 
-                //跳转到购物页面
-                location.assign("regCustomer.jsp");
+                if (returnData.head) {
+
+                    //跳转到购物页面
+                    location.assign("regCustomer.jsp");
+
+                } else {
+
+                    //提示错误信息
+                    alert(returnData.body);
+
+                }
 
             }
         });

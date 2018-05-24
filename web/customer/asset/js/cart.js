@@ -121,45 +121,57 @@ function refreshCartPage() {
         dataType: "json",
         success: function (data) {
 
-            var d = eval(data);
+            var returnData = eval(data);
 
-            //清空商品显示列表
-            $(".order_detail_table").html("");
+            if (returnData.head) {
 
-            //添加表头
-            $(".order_detail_table").append(
-                "<tr>" +
-                "<th width='6%'>序号</th>" +
-                "<th width='20%'>品名</th>" +
-                "<th width='9%'>单价</th>" +
-                "<th width='10%'>数量</th>" +
-                "<th width='9%'>小计</th>" +
-                "<th width='8%'>全部取消</th>"
-            );
+                var body = eval(returnData.body);
 
-            //循环添加商品项信息
-            for (var x = 0; x < data.orderItems.length; x++) {
+                //清空商品显示列表
+                $(".order_detail_table").html("");
+
+                //添加表头
                 $(".order_detail_table").append(
-                    "<tr class='sct_row'>" +
-                    "<td>" + (x + 1) + "</td>" +
-                    "<td>" + data.orderItems[x].dishesName + "</td>" +
-                    "<td>&yen;" + data.orderItems[x].price.toFixed(2) + "</td>" +
-                    "<td><span>" + data.orderItems[x].quantity + "</span></td>" +
-                    "<td>&yen;" + data.orderItems[x].productCost.toFixed(2) + "</td>" +
-                    "<td>" +
-                    "<img src='images/delete_icon_3.png'/>" +
-                    "<a class='oiCancel' onclick='removeOrderItem(this);' dsId='" + data.orderItems[x].dsId + "'href='javascript:void(0)'>取消</a>" +
-                    "</td>"
+                    "<tr>" +
+                    "<th width='6%'>序号</th>" +
+                    "<th width='20%'>品名</th>" +
+                    "<th width='9%'>单价</th>" +
+                    "<th width='10%'>数量</th>" +
+                    "<th width='9%'>小计</th>" +
+                    "<th width='8%'>全部取消</th>"
                 );
+
+                //循环添加商品项信息
+                for (var x = 0; x < body.orderItems.length; x++) {
+                    $(".order_detail_table").append(
+                        "<tr class='sct_row'>" +
+                        "<td>" + (x + 1) + "</td>" +
+                        "<td>" + body.orderItems[x].dishesName + "</td>" +
+                        "<td>&yen;" + (parseFloat(body.orderItems[x].price)).toFixed(2) + "</td>" +
+                        "<td><span>" + body.orderItems[x].quantity + "</span></td>" +
+                        "<td>&yen;" + (parseFloat(body.orderItems[x].productCost)).toFixed(2) + "</td>" +
+                        "<td>" +
+                        "<img src='images/delete_icon_3.png'/>" +
+                        "<a class='oiCancel' onclick='removeOrderItem(this);' dsId='" + body.orderItems[x].dsId + "'href='javascript:void(0)'>取消</a>" +
+                        "</td>"
+                    );
+                }
+
+                $(".detail_price_span").html(
+                    "<em class='ft_b'>小　计：</em>" + (returnData.body.productCost).toFixed(2) + "元 |" +
+                    "<em class='ft_b'>外送费：</em>" + (returnData.body.deliverCost).toFixed(2) + "元" +
+                    "<strong style='color: #F00;'></strong>"
+                );
+
+                $(".total_price_span").html("<em class='ft_b'>总金额：</em>" + (returnData.body.totalCost).toFixed(2) + "元");
+
+
+            } else {
+
+                //提示错误信息
+                alert(returnData.body);
+
             }
-
-            $(".detail_price_span").html(
-                "<em class='ft_b'>小　计：</em>" + d.productCost.toFixed(2) + "元 |" +
-                "<em class='ft_b'>外送费：</em>" + d.deliverCost.toFixed(2) + "元" +
-                "<strong style='color: #F00;'></strong>"
-            );
-
-            $(".total_price_span").html("<em class='ft_b'>总金额：</em>" + d.totalCost.toFixed(2) + "元");
 
         }
     });
