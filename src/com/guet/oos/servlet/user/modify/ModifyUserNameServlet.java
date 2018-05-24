@@ -1,10 +1,14 @@
 package com.guet.oos.servlet.user.modify;
 
+import com.alibaba.fastjson.JSONObject;
+import com.guet.oos.constant.ReturnMessage;
 import com.guet.oos.constant.SessionKey;
+import com.guet.oos.dto.JsonEntityReturn;
 import com.guet.oos.dto.JsonReturn;
 import com.guet.oos.factory.ServiceFactory;
 import com.guet.oos.po.User;
 import com.guet.oos.service.UserService;
+import org.springframework.util.StringUtils;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -13,6 +17,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
+import java.io.Writer;
 
 /**
  * 修改用户姓名
@@ -39,17 +44,32 @@ public class ModifyUserNameServlet extends HttpServlet {
 
         HttpSession httpSession = request.getSession();
 
-        User user = (User) httpSession.getAttribute(SessionKey.USER);
+        Writer out = response.getWriter();
 
         String newUserName = request.getParameter("requestData");
 
-        userService.updateUserName(newUserName, user.getUsId());
+        //判断Session是否为空
+        if (StringUtils.isEmpty(httpSession)) {
 
-        user.setUsername(newUserName);
+            //若为空则返回错误新
+            out.write(JSONObject.toJSONString(JsonEntityReturn.buildFail(ReturnMessage.SESSION_INVALIDATE)));
 
-        httpSession.setAttribute(SessionKey.USER, user);
+            //结束
+            return;
 
-        response.getWriter().write(JsonReturn.buildSuccessEmptyContent().toString());
+        } else {
+
+            User user = (User) httpSession.getAttribute(SessionKey.USER);
+
+            userService.updateUserName(newUserName, user.getUsId());
+
+            user.setUsername(newUserName);
+
+            httpSession.setAttribute(SessionKey.USER, user);
+
+            out.write(JSONObject.toJSONString(JsonEntityReturn.buildSuccessEmptyContent()));
+
+        }
 
     }
 

@@ -3,6 +3,7 @@ package com.guet.oos.servlet.user.add;
 import com.alibaba.fastjson.JSONObject;
 import com.guet.oos.constant.DateTimeFormat;
 import com.guet.oos.constant.SessionKey;
+import com.guet.oos.dto.JsonEntityReturn;
 import com.guet.oos.dto.JsonReturn;
 import com.guet.oos.factory.ServiceFactory;
 import com.guet.oos.po.DeliveryAddress;
@@ -15,6 +16,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.io.Writer;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
@@ -44,6 +46,8 @@ public class AddUserDeliverAddressServlet extends HttpServlet {
 
         String requestData = request.getParameter("requestData");
 
+        Writer out = response.getWriter();
+
         JSONObject requestDataJson = JSONObject.parseObject(requestData);
 
         String cityName = requestDataJson.getString("cityName");
@@ -54,7 +58,7 @@ public class AddUserDeliverAddressServlet extends HttpServlet {
         String mobile = requestDataJson.getString("mobile");
 
         StringBuilder receiverAddress = new StringBuilder(cityName + " " + roadName +
-                "(" + addressDetial + ")" + " " + username + " " + sex + " " + mobile);
+                "(" + addressDetial + ")");
 
         User user = (User) request.getSession().getAttribute(SessionKey.USER);
 
@@ -76,9 +80,9 @@ public class AddUserDeliverAddressServlet extends HttpServlet {
         flag = deliveryAddressService.createDeliveryAddress(address);
 
         if (flag) {
-            response.getWriter().write(JsonReturn.buildSuccessEmptyContent().toString());
+            out.write(JSONObject.toJSONString(JsonEntityReturn.buildSuccessEmptyContent()));
         } else {
-            response.getWriter().append(JsonReturn.buildFailEmptyContent().toString());
+            out.write(JSONObject.toJSONString(JsonEntityReturn.buildFailEmptyContent()));
         }
 
     }

@@ -1,12 +1,15 @@
 package com.guet.oos.servlet.user.select;
 
 import com.alibaba.fastjson.JSONObject;
+import com.guet.oos.constant.ReturnMessage;
 import com.guet.oos.constant.SessionKey;
+import com.guet.oos.dto.JsonEntityReturn;
 import com.guet.oos.dto.JsonReturn;
 import com.guet.oos.factory.ServiceFactory;
 import com.guet.oos.po.DeliveryAddress;
 import com.guet.oos.po.User;
 import com.guet.oos.service.DeliveryAddressService;
+import org.springframework.util.StringUtils;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -15,6 +18,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
+import java.io.Writer;
 
 /**
  * Created by Shinelon on 2018/5/22.
@@ -40,17 +44,32 @@ public class SelectDeliverAddressServlet extends HttpServlet {
 
         String daId = request.getParameter("requestData");
 
-        DeliveryAddress address = deliveryAddressService.findById(Long.valueOf(daId));
-
         HttpSession httpSession = request.getSession();
 
-        User user = (User) httpSession.getAttribute(SessionKey.USER);
+        Writer out = response.getWriter();
 
-        user.setDefaultDeliverAddress(address);
+        //判断请求参数是否为空
+        if (StringUtils.isEmpty(daId)) {
 
-        httpSession.setAttribute(SessionKey.USER, user);
+            //若为空
+            out.write(JSONObject.toJSONString(JsonEntityReturn.buildFail(ReturnMessage.REQUEST_PARAMTER_EMPTY)));
 
-        response.getWriter().write(JSONObject.toJSONString(JsonReturn.buildSuccessEmptyContent()));
+            //结束
+            return;
+
+        } else {
+
+            DeliveryAddress address = deliveryAddressService.findById(Long.valueOf(daId));
+
+            User user = (User) httpSession.getAttribute(SessionKey.USER);
+
+            user.setDefaultDeliverAddress(address);
+
+            httpSession.setAttribute(SessionKey.USER, user);
+
+            out.write(JSONObject.toJSONString(JsonEntityReturn.buildSuccessEmptyContent()));
+
+        }
 
     }
 

@@ -1,10 +1,14 @@
 package com.guet.oos.servlet.user.modify;
 
+import com.alibaba.fastjson.JSONObject;
+import com.guet.oos.constant.ReturnMessage;
 import com.guet.oos.constant.SessionKey;
+import com.guet.oos.dto.JsonEntityReturn;
 import com.guet.oos.dto.JsonReturn;
 import com.guet.oos.factory.ServiceFactory;
 import com.guet.oos.po.User;
 import com.guet.oos.service.UserService;
+import org.springframework.util.StringUtils;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -13,6 +17,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
+import java.io.Writer;
 
 /**
  * Created by Shinelon on 2018/5/19.
@@ -38,17 +43,32 @@ public class ModifyUserSexServlet extends HttpServlet {
 
         HttpSession httpSession = request.getSession();
 
-        User user = (User) httpSession.getAttribute(SessionKey.USER);
+        Writer out = response.getWriter();
 
-        String newSex = request.getParameter("requestData");
+        //判断Session是否失效
+        if (StringUtils.isEmpty(httpSession)) {
 
-        userService.updateUserSex(newSex, user.getUsId());
+            //若未失效则返回舱错误信息
+            out.write(JSONObject.toJSONString(JsonEntityReturn.buildFail(ReturnMessage.SESSION_INVALIDATE)));
 
-        user.setSex(newSex);
+            //结束
+            return;
 
-        httpSession.setAttribute(SessionKey.USER, user);
+        } else {
 
-        response.getWriter().write(JsonReturn.buildSuccessEmptyContent().toString());
+            User user = (User) httpSession.getAttribute(SessionKey.USER);
+
+            String newSex = request.getParameter("requestData");
+
+            userService.updateUserSex(newSex, user.getUsId());
+
+            user.setSex(newSex);
+
+            httpSession.setAttribute(SessionKey.USER, user);
+
+            out.write(JSONObject.toJSONString(JsonEntityReturn.buildSuccessEmptyContent()));
+
+        }
 
     }
 

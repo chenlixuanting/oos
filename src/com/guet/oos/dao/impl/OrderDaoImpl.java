@@ -23,26 +23,11 @@ public class OrderDaoImpl extends AbstractDAOImpl implements OrderDao {
         super(conn);
     }
 
-    /**
-     * private String orId;// 订单ID
-     * private long usId;// 用户ID
-     * private long mgId;// 管理员ID
-     * private long daId;// 收货地址ID
-     * private double totalCost;// 总支出金额
-     * private long productAmount;// 商品数量
-     * private double deliverCost;// 配送费用
-     * private double productCost;//商品开销
-     * private String payType;//付款方式
-     * private String orderStatus;// 状态标志
-     * private String creatorTime;// 创建时间
-     * private String updateTime;// 更新时间
-     */
-
     @Override
     public boolean doCreate(Order vo) {
 
         String sql = "insert into order_table(orId,usId,daId,totalCost,productAmount," +
-                "deliverCost,productCost,payType,orderStatus,creatorTime,updateTime) values(?,?,?,?,?,?,?,?,?,?,?)";
+                "deliverCost,productCost,payType,orderStatus,creatorTime,updateTime,receiverTime) values(?,?,?,?,?,?,?,?,?,?,?,?)";
 
         try {
             pstmt = conn.prepareStatement(sql);
@@ -58,6 +43,7 @@ public class OrderDaoImpl extends AbstractDAOImpl implements OrderDao {
             pstmt.setString(9, vo.getOrderStatus());
             pstmt.setString(10, vo.getCreatorTime());
             pstmt.setString(11, vo.getUpdateTime());
+            pstmt.setString(12, vo.getReceiverTime());
 
             pstmt.execute();
 
@@ -263,6 +249,8 @@ public class OrderDaoImpl extends AbstractDAOImpl implements OrderDao {
                 order.setPayType(res.getString(OrderFields.PAYTYPE));
                 order.setCreatorTime(res.getString(OrderFields.CREATORTIME));
                 order.setUpdateTime(res.getString(OrderFields.UPDATETIME));
+                order.setReceiverTime(res.getString(OrderFields.RECEIVERTIME));
+
 
                 orders.add(order);
 

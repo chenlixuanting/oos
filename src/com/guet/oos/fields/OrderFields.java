@@ -20,5 +20,5 @@ public class OrderFields {
     public static final String ORDERITEMS = "orderItems";
     public static final String CREATORTIME = "creatorTime";
     public static final String UPDATETIME = "updateTime";
-
+    public static final String RECEIVERTIME = "receiverTime";
 }

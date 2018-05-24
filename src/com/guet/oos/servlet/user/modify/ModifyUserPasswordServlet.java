@@ -14,6 +14,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.io.Writer;
 
 /**
  * Created by Shinelon on 2018/5/19.
@@ -44,6 +45,8 @@ public class ModifyUserPasswordServlet extends HttpServlet {
         String newPassword = requestDataJson.getString("newPassword");
         String reNewPassword = requestDataJson.getString("reNewPassword");
 
+        Writer out = response.getWriter();
+
         User user = (User) request.getSession().getAttribute(SessionKey.USER);
 
         if (newPassword.equals(reNewPassword)) {
@@ -54,11 +57,11 @@ public class ModifyUserPasswordServlet extends HttpServlet {
 
             request.getSession().setAttribute(SessionKey.USER, user);
 
-            response.getWriter().write(JsonReturn.buildSuccessEmptyContent().toString());
+            out.write(JsonReturn.buildSuccessEmptyContent().toString());
 
         } else {
 
-            response.getWriter().write(JsonReturn.buildFailEmptyContent().toString());
+            out.write(JsonReturn.buildFailEmptyContent().toString());
 
         }
 

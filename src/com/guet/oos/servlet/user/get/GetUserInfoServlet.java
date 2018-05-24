@@ -42,6 +42,13 @@ public class GetUserInfoServlet extends HttpServlet {
 
         Writer out = response.getWriter();
 
+        //判断Session是否为空
+        if (StringUtils.isEmpty(httpSession)) {
+
+            //若为空则返回错误新
+
+        }
+
         if (!StringUtils.isEmpty(user)) {
 
             //将用户信息以json的格式返回

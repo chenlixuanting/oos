@@ -49,14 +49,24 @@ $(function () {
             },
             success: function (data) {
 
-                //重新初始化页面数据
-                initPage();
+                var returnData = eval(data);
 
-                //黑幕特效
-                shortWait();
+                if (returnData.head) {
 
-                //使用点击取消后的js效果
-                $(".bcname-js").click();
+                    //重新初始化页面数据
+                    initPage();
+
+                    //黑幕特效
+                    shortWait();
+
+                    //使用点击取消后的js效果
+                    $(".bcname-js").click();
+
+                } else {
+
+                    alert(returnData.body);
+
+                }
 
             }
         });
@@ -77,14 +87,24 @@ $(function () {
             },
             success: function (data) {
 
-                //初始化页面
-                initPage();
+                var returnData = eval(data);
 
-                //黑幕特效
-                shortWait();
+                if (returnData.head) {
 
-                //使用性别取消按钮的js效果
-                $(".bcsex-js").click();
+                    //初始化页面
+                    initPage();
+
+                    //黑幕特效
+                    shortWait();
+
+                    //使用性别取消按钮的js效果
+                    $(".bcsex-js").click();
+
+                } else {
+
+                    alert(returnData.body);
+
+                }
 
             }
         });
@@ -120,26 +140,20 @@ $(function () {
                 },
                 success: function (data) {
 
-                    var d = eval(data);
+                    var returnData = eval(data);
 
-                    var flag = d.head == "true" ? true : false;
-
-                    if (flag) {
-
+                    if (returnData.head) {
                         alert(property.resetPasswordSuccess);
 
                         //调用关闭按钮特效
                         $(".ui-icon-closethick").click();
 
                     } else {
-
                         alert(codeMessage.error4);
 
                         $("#newPassword").click();
                         $("#reNewPassword").click();
-
                     }
-
                 }
             });
 
@@ -421,54 +435,67 @@ function resetAddressInputBox() {
 
 //初始化订单查询页面
 function initOrderSearch() {
+
     $.ajax({
         url: "getUserCurrentOrderInfo.action",
         type: "POST",
         dataType: "json",
         success: function (data) {
 
-            var d = eval(data);
+            var returnData = eval(data);
 
-            $("#orderList").html("");
+            if (returnData.head) {
 
-            //设置导航条长度
-            $(".user_menu").height((d.length * 129) + 85);
+                var d = eval(returnData.body);
 
-            for (var x = 0; x < d.length; x++) {
+                $("#orderList").html("");
 
-                var date = new Date(d[x].creatorTime);
+                //设置导航条长度
+                $(".user_menu").height((d.length * 129) + 150);
 
-                var month = date.getMonth() + 1;
-                month = fullZone(month);
+                for (var x = 0; x < d.length; x++) {
 
-                var day = date.getDate();
-                day = fullZone(day);
+                    var date = new Date(d[x].creatorTime);
 
-                var hours = date.getHours();
-                hours = fullZone(hours);
+                    var month = date.getMonth() + 1;
+                    month = fullZone(month);
 
-                var minutes = date.getMinutes();
-                minutes = fullZone(minutes);
+                    var day = date.getDate();
+                    day = fullZone(day);
 
-                $("#orderList").append(
-                    "<li class='orderList_li orderList_body'>" +
-                    "<div class='orderList_format orderList_date'>" +
-                    "<div class='orderList_day'>" + month + "-" + day + "</div>" +
-                    "<div class='orderList_time'>" + hours + ":" + minutes + "</div>" +
-                    "</div>" +
-                    "<div class='orderList_format orderList_details'>" +
-                    "<div class='orderList_detail_info'>您本次订单共计" + d[x].productAmount + "份餐品</div>" +
-                    "<div class='orderList_detail_desc'></div>" +
-                    "</div>" +
-                    "<div class='orderList_format orderList_price'>" + d[x].totalCost + "</div>" +
-                    "<div class='orderList_format orderList_status'>" + d[x].orderStatus + "</div>" +
-                    "<div class='orderList_format orderList_option'>" +
-                    "<div id='details' class='orderItem_details' orId='" + d[x].orId + "' onclick='orderDetail(this);'>订单详情</div>" +
-                    "<div id='another_order' class='another_order' onclick='orderAgain();'>再来一单</div>" +
-                    "</div>" +
-                    "</li>"
-                );
+                    var hours = date.getHours();
+                    hours = fullZone(hours);
+
+                    var minutes = date.getMinutes();
+                    minutes = fullZone(minutes);
+
+                    $("#orderList").append(
+                        "<li class='orderList_li orderList_body'>" +
+                        "<div class='orderList_format orderList_date'>" +
+                        "<div class='orderList_day'>" + month + "-" + day + "</div>" +
+                        "<div class='orderList_time'>" + hours + ":" + minutes + "</div>" +
+                        "</div>" +
+                        "<div class='orderList_format orderList_details'>" +
+                        "<div class='orderList_detail_info'>您本次订单共计" + d[x].productAmount + "份餐品</div>" +
+                        "<div class='orderList_detail_desc'></div>" +
+                        "</div>" +
+                        "<div class='orderList_format orderList_price'>" + d[x].totalCost + "</div>" +
+                        "<div class='orderList_format orderList_status'>" + d[x].orderStatus + "</div>" +
+                        "<div class='orderList_format orderList_option'>" +
+                        "<div id='details' class='orderItem_details' orId='" + d[x].orId + "' onclick='orderDetail(this);'>订单详情</div>" +
+                        "<div id='another_order' class='another_order' onclick='orderAgain();'>再来一单</div>" +
+                        "</div>" +
+                        "</li>"
+                    );
+                }
+
+            } else {
+
+                //提示错误信息
+                alert(returnData.body);
+
             }
+
 
         }
     });
@@ -616,17 +643,21 @@ function orderAgain() {
 function initAddressPage() {
 
     /**
-     * [{
-        "createTime": "2018-05-21 09:23:47",
-        "daId": 56,
-        "default": true,
-        "receiverAddress": "广西壮族自治区桂林市雁山区 世纪花园北区(水芝苑C单元402) 陈宣锦 先生 13347573463",
-        "receiverMobile": "13347573463",
-        "receiverName": "陈宣锦",
-        "receiverTime": "undefined undefined时undefined分",
-        "updateTime": "2018-05-21 09:23:47",
-        "usId": 56
-      }]
+     * {
+        "body": [{
+            "createTime": "2018-05-24 11:47:48",
+            "daId": 2,
+            "default": true,
+            "receiverAddress": "广西壮族自治区南宁市良庆区 圣湖小区(爬上的吗)",
+            "receiverMobile": "18477062310",
+            "receiverName": "阿斯顿",
+            "receiverSex": "先生",
+            "receiverTime": "2018年5月24日 周四 12时00分",
+            "updateTime": "2018-05-24 11:47:48",
+            "usId": 66
+        }],
+        "head": true
+    }
      */
 
     $.ajax({
@@ -635,37 +666,45 @@ function initAddressPage() {
         dataType: "json",
         success: function (data) {
 
-            var userDeliverAddress = $("#operateDeliverAddress");
+            var returnData = eval(data);
 
-            var d = eval(data);
+            if (returnData.head) {
 
-            //清空标签中的内容
-            userDeliverAddress.html("");
+                var d = eval(returnData.body);
 
-            for (var x = 0; x < d.length; x++) {
-                userDeliverAddress.append(
-                    "<li id='" + d[x].daId + "' class=''>" +
-                    "<div style='width: 20px; float: left; margin-top: 12px;'>" +
-                    "<input name='selAddressId' type='radio' value='0'" + (d[x].default ? 'checked' : '') + ">" +
-                    "</div>" +
-                    "<div style='float:left' class='cityName'></div>" +
-                    "<div class='cityName'>" +
-                    "<a name='selAddressLink'" +
-                    "style='text-decoration: none; display: block; float: left'" +
-                    "href='javascript:void(0);'>" + d[x].receiverAddress + "&nbsp;&nbsp;&nbsp;<br/>" + (d[x].default ? '<span class="showDefault">(默认)</span>' : '') +
-                    "</a>" +
-                    "<div class='addressOptions'>" +
-                    "<div class='setDefaultAddress' daId='" + d[x].daId + "' onclick='setAsDefaultDeliverAddress(this);'>" +
-                    "设为默认" +
-                    "</div>" +
-                    "<div class='useThisAddress' daId='" + d[x].daId + "' onclick='setAsCurrentDeliverAddress(this);'>" +
-                    "使用此地址订餐" +
-                    "<span>|</span>" +
-                    "</div>" +
-                    "</div>" +
-                    "</li>"
-                );
+                var userDeliverAddress = $("#operateDeliverAddress");
+
+                //清空标签中的内容
+                userDeliverAddress.html("");
+
+                for (var x = 0; x < d.length; x++) {
+                    userDeliverAddress.append(
+                        "<li id='" + d[x].daId + "' class=''>" +
+                        "<div style='width: 20px; float: left; margin-top: 12px;'>" +
+                        "<input name='selAddressId' type='radio' value='0'" + (d[x].default ? 'checked' : '') + ">" +
+                        "</div>" +
+                        "<div style='float:left' class='cityName'></div>" +
+                        "<div class='cityName'>" +
+                        "<a name='selAddressLink'" +
+                        "style='text-decoration: none; display: block; float: left'" +
+                        "href='javascript:void(0);'>" + d[x].receiverAddress + " " + d[x].receiverName + " " + d[x].receiverSex +
+                        " " + d[x].receiverMobile + "&nbsp;&nbsp;&nbsp;<br/>" + (d[x].default ? '<span class="showDefault">(默认)</span>' : '') +
+                        "</a>" +
+                        "<div class='addressOptions'>" +
+                        "<div class='setDefaultAddress' daId='" + d[x].daId + "' onclick='setAsDefaultDeliverAddress(this);'>" +
+                        "设为默认" +
+                        "</div>" +
+                        "<div class='useThisAddress' daId='" + d[x].daId + "' onclick='setAsCurrentDeliverAddress(this);'>" +
+                        "使用此地址订餐" +
+                        "<span>|</span>" +
+                        "</div>" +
+                        "</div>" +
+                        "</li>"
+                    );
+                }
+
             }
+
         }
     });
 
