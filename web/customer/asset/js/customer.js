@@ -157,23 +157,52 @@ function initDeliverAddress() {
         dataType: "json",
         success: function (data) {
 
-            var d = eval(data);
+            var returnData = eval(data);
 
-            $(".info_table_1").html("");
+            if (returnData.head) {
 
-            for (var x = 0; x < d.length; x++) {
-                $(".info_table_1").append(
-                    "<li id='" + d[x].daId + "' class=''>" +
-                    "<div style='width: 20px; float: left; margin-top: 12px;'>" +
-                    "<input name='selAddressId' type='radio' value='" + d[x].daId + "' disabled='disabled'>" +
-                    "</div>" +
-                    "<div style='float:left' class='cityName'>" +
-                    "<a name=selAddressLink onclick='selectDeliverAddress(this);' style='text-decoration: none;display: block;width: 493px;' href='javascript:;'>"
-                    + d[x].receiverAddress +
-                    "</a>" +
-                    "</div>" +
-                    "</li>"
-                );
+                var body = eval(returnData.body);
+
+                /**
+                 * {
+                    "body": [{
+                        "createTime": "2018-05-24 11:47:48",
+                        "daId": 2,
+                        "default": true,
+                        "receiverAddress": "广西壮族自治区南宁市良庆区 圣湖小区(爬上的吗)",
+                        "receiverMobile": "18477062310",
+                        "receiverName": "阿斯顿",
+                        "receiverSex": "先生",
+                        "receiverTime": "2018年5月24日 周四 12时00分",
+                        "updateTime": "2018-05-24 11:47:48",
+                        "usId": 66
+                    }],
+                    "head": true
+                }
+                 */
+
+                $(".info_table_1").html("");
+
+                for (var x = 0; x < body.length; x++) {
+                    $(".info_table_1").append(
+                        "<li id='" + body[x].daId + "' class=''>" +
+                        "<div style='width: 20px; float: left; margin-top: 12px;'>" +
+                        "<input name='selAddressId' type='radio' value='" + body[x].daId + "' disabled='disabled'>" +
+                        "</div>" +
+                        "<div style='float:left' class='cityName'>" +
+                        "<a name=selAddressLink onclick='selectDeliverAddress(this);' style='text-decoration: none;display: block;width: 493px;' href='javascript:;'>"
+                        + body[x].receiverAddress + " " + body[x].receiverName + " " + body[x].receiverSex + " " + body[x].receiverMobile +
+                        "</a>" +
+                        "</div>" +
+                        "</li>"
+                    );
+                }
+
+            } else {
+
+                //提示错误信息
+                alert(returnData.body);
+
             }
 
         }

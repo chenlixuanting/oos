@@ -49,31 +49,66 @@ $(function () {
     /**
      * 用户登陆
      */
-    var userLogin = function () {
+    function userLogin() {
 
-        $("#showVerifyCode").css("display", "block");
+        var loginData = {
+            mobile: $("#mobi").val(),
+            password: $("#password_text").val(),
+            verifyCode: $("#verifyCode").val()
+        };
 
-        //解绑click事件
-        $("#loginSubmit").off("click");
+        $.ajax({
+            url: "UserLogin.action",
+            type: 'POST',
+            dataType: 'json',
+            data: {
+                loginData: JSON.stringify(loginData)
+            },
+            success: function (data) {
 
-        $("#loginSubmit").click(function () {
-            var loginData = {
-                mobile: $("#mobi").val(),
-                password: $("#password_text").val(),
-                verifyCode: $("#verifyCode").val()
-            };
-            $.ajax({
-                url: "./UserLogin.action",
-                type: 'POST',
-                dataType: 'json',
-                data: {
-                    loginData: JSON.stringify(loginData)
-                },
-                success: function (data) {
+                var returnData = eval(data);
 
-                    var d = eval(data);
+                //更新验证码
+                refreshVerifyCode();
 
-                    if (d.head) {
+                if (returnData.head) {
+
+                    $("#loginSubmit").off("click");
+
+                    $("#loginSubmit").click(isRegister);
+
+                    $("#password").val("请输入密码");
+                    $("#password").attr("type", "text");
+                    $("#verifyCode").val("请输入验证码");
+                    // $("#mobi").val("请输入手机号");
+
+                    $("#showPwd").css("display", "none");
+                    $("#showVerifyCode").css("display", "none");
+
+                    //跳转到customer.jsp
+                    location.assign("customer.jsp");
+
+                } else {
+
+                    //提示错误新
+                    alert(returnData.body);
+
+                    if (returnData.body == "密码输入错误!") {
+
+                        $("#verifyCode").val("");
+
+                        $("#password_text").val("");
+
+                        $("#password_text").click("");
+
+                    } else if (returnData.body == "验证码输入错误!") {
+
+                        //清空验证码输入框，并聚集焦点
+                        $("#verifyCode").val("");
+
+                        $("#verifyCode").click();
+
+                    } else if (returnData.body = "账号不存在!") {
 
                         $("#loginSubmit").off("click");
 
@@ -82,77 +117,18 @@ $(function () {
                         $("#password_text").val("请输入密码");
                         $("#password_text").attr("type", "text");
                         $("#verifyCode").val("请输入验证码");
-                        // $("#mobi").val("请输入手机号");
+                        $("#mobi").val("请输入手机号");
 
                         $("#showPwd").css("display", "none");
                         $("#showVerifyCode").css("display", "none");
 
-                        //更新验证码
-                        $.orderLogin.refreshVerifyCode($("#verifyCodeImg"));
-
-                        //跳转到continueShopping.jsp
-                        location.assign("customer.jsp");
-
-                    } else {
-
-                        if (d.body == "error0") {
-
-                            //提示密码输入错误
-                            alert(codeMessage.error0);
-
-                            //清空密码输入框,并将聚集焦点
-                            $("#password_text").val("");
-
-                            $.orderLogin.refreshVerifyCode($("#verifyCodeImg"));
-
-                            $("#verifyCode").val("");
-
-                            $("#password_text").click();
-
-                        } else if (d.body == "error1") {
-
-                            //提示密码输入错误
-                            alert(codeMessage.error1);
-
-                            //更新验证码
-                            $.orderLogin.refreshVerifyCode($("#verifyCodeImg"));
-
-                            //清空验证码输入框，并聚集焦点
-                            $("#verifyCode").val("");
-
-                            $("#verifyCode").click();
-
-                        } else if (d.body = "error3") {
-
-                            alert(codeMessage.error3);
-
-                            $("#loginSubmit").off("click");
-
-                            $("#loginSubmit").click(isRegister);
-
-                            $("#password_text").val("请输入密码");
-                            $("#password_text").attr("type", "text");
-                            $("#verifyCode").val("请输入验证码");
-                            $("#mobi").val("请输入手机号");
-
-                            $("#showPwd").css("display", "none");
-                            $("#showVerifyCode").css("display", "none");
-
-                            //更新验证码
-                            $.orderLogin.refreshVerifyCode($("#verifyCodeImg"));
-
-                        }
-
                     }
                 }
-            });
+            }
         });
     };
 
-    /**
-     * 判断用户手机号码是否注册
-     */
-    var isRegister = function () {
+    function isRegister() {
 
         var mobileData = {
             mobile: $("#mobi").val()
@@ -167,15 +143,13 @@ $(function () {
             },
             success: function (info) {
 
-                var d = eval(info);
+                var returnData = eval(info);
 
-                var flag = d.head == "true" ? true : false;
-
-                if (flag) {
+                if (returnData.head) {
 
                     $("#showPwd").css("display", "block");
-                    $(".Loginboxbg03").css("display", "block");
-                    $(".wangji").css("display", "block");
+                    $("#showVerifyCode").css("display", "block");
+                    $("#forgetPassword").css("display", "block");
 
                     //解绑click事件
                     $("#loginSubmit").off("click");
@@ -186,7 +160,6 @@ $(function () {
                     $("#loginSubmit").click(userLogin);
 
                 } else {
-
                     //未注册用户跳转到新增地址页面
                     location.assign("customerFromAgree.jsp");
                 }
@@ -197,14 +170,12 @@ $(function () {
     // 当点击提交按钮时，ajax校验该账号是否注册
     $("#loginSubmit").click(isRegister);
 
-    /*
-     * 刷新验证码
-     * */
-    $.orderLogin = {
-        refreshVerifyCode: function (obj) {
-            var $verifyCode = $(obj);
-            $verifyCode.attr("src", pageUrls.verifyCodeAddress + new Date().getTime());
-        }
-    };
-
 });
+
+/*
+ * 刷新验证码
+ * */
+//刷新验证码
+function refreshVerifyCode() {
+    $("#verifyCodeImg").attr("src", pageUrls.verifyCodeAddress + new Date().getTime());
+}

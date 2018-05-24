@@ -3,6 +3,7 @@ package com.guet.oos.servlet.user.save;
 import com.alibaba.fastjson.JSONObject;
 import com.guet.oos.constant.ReturnMessage;
 import com.guet.oos.constant.SessionKey;
+import com.guet.oos.constant.UserExist;
 import com.guet.oos.dto.JsonEntityReturn;
 import com.guet.oos.dto.TemporaryUserInfo;
 import com.guet.oos.factory.ServiceFactory;
@@ -123,6 +124,9 @@ public class SaveCustomerServlet extends HttpServlet {
 
         //重新保存shopCart
         httpSession.setAttribute(SessionKey.SHOP_CART, shopCart);
+
+        //设置用户标志
+        httpSession.setAttribute(SessionKey.USER_FLAG, UserExist.USER_EXIST);
 
         //成功返回
         out.write(JSONObject.toJSONString(JsonEntityReturn.buildSuccessEmptyContent()));

@@ -51,8 +51,21 @@ public class CustomerConfirmServlet extends HttpServlet {
 
             TemporaryUserInfo temporaryUserInfo = (TemporaryUserInfo) httpSession.getAttribute(SessionKey.TEMPORARY_USER_INFO);
 
-            //返回Success以及temporaryUserInfo实体的Json格式数据
-            out.write(JSONObject.toJSONString(JsonEntityReturn.buildSuccess(temporaryUserInfo)));
+            //判断获取到的Session属性是否为空
+            if (StringUtils.isEmpty(temporaryUserInfo)) {
+
+                //若为空则返回错误信息
+                out.write(JSONObject.toJSONString(JsonEntityReturn.buildFail(ReturnMessage.TEMPORARYINFO_ATTRIBUTE_IS_EMPTY)));
+
+                //结束
+                return;
+
+            } else {
+
+                //返回Success以及temporaryUserInfo实体的Json格式数据
+                out.write(JSONObject.toJSONString(JsonEntityReturn.buildSuccess(temporaryUserInfo)));
+
+            }
 
         }
 

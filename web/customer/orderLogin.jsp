@@ -85,7 +85,7 @@
                         value='请输入手机号' maxlength="50"/>
 					</span></li>
                 <li id="showPwd" style="display: none;"><span
-                        class="Loginbox Loginboxbg03" style="display: none;"> <input
+                        class="Loginbox Loginboxbg03"> <input
                         type="text" class="loinput_text" id="password_text" value='请输入密码'/>
 					</span></li>
                 <li id="showVerifyCode" style="display: none">
@@ -94,7 +94,7 @@
                             <input id="verifyCode"
                                    class="validate_user_input validate_user_smscode"/>
                             <div class="validate_btn">
-                                <img src="getRandVerifyCode.action" onclick="$.orderLogin.refreshVerifyCode(this);"
+                                <img src="getRandVerifyCode.action" onclick="refreshVerifyCode();"
                                      id="verifyCodeImg"/>
                             </div>
                         </div>

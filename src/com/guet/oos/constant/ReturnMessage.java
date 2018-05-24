@@ -27,4 +27,8 @@ public class ReturnMessage {
 
     public static final String SESSION_INVALIDATE = "Sesssion失效!";
 
+    public static final String TEMPORARYINFO_ATTRIBUTE_IS_EMPTY = "临时用户失效!";
+
+    public static final String USER_INVALIDATE = "用户失效!";
+
 }

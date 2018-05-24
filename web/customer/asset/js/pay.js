@@ -12,28 +12,18 @@ $(function () {
         dataType: "json",
         success: function (data) {
 
-            var d = eval(data);
+            //添加购物车成功,修改相应页面
+            var returnData = eval(data);
 
-            // {
-            //     "deliverCost": 9,
-            //     "orderItems": [{
-            //     "creatorTime": "2018-05-18 12:32:51",
-            //     "dishesName": "披萨",
-            //     "dsId": 21,
-            //     "oiId": 0,
-            //     "orId": 0,
-            //     "price": 12.55,
-            //     "productCost": 12.55,
-            //     "quantity": 1,
-            //     "scId": 0,
-            //     "updateTime": "2018-05-18 12:32:51"
-            // }],
-            //     "productAmount": 1,
-            //     "productCost": 12.55,
-            //     "totalCost": 21.55
-            // }
+            if (returnData.head) {
 
-            $("#totalCost").html(d.totalCost.toFixed(2) + "元");
+                $("#totalCost").html(returnData.body.totalCost.toFixed(2) + "元");
+
+            } else {
+
+                //提示错误信息
+                alert(returnData.body);
+            }
 
         }
 
@@ -48,10 +38,11 @@ $(function () {
         dataType: "json",
         success: function (data) {
 
-            var d = eval(data);
-            var body = eval(d.body);
+            var returnData = eval(data);
 
-            if (d.head) {
+            if (returnData.head) {
+
+                var body = eval(returnData.body);
 
                 var defaultDeliverAddress = eval(body.defaultDeliverAddress);
 
@@ -62,8 +53,10 @@ $(function () {
                 $("#customerName").html(body.username);
 
             } else {
-                alert(d.body);
-                location.replace("customerExit.action");
+
+                //提示信息
+                alert(returnData.body);
+
             }
 
         }
@@ -76,9 +69,7 @@ $(function () {
         $.ajax({
             url: "customerExit.action",
             type: "post",
-            dataType: "json",
-            success: function () {
-            }
+            dataType: "json"
         });
     });
 
@@ -98,7 +89,15 @@ $(function () {
             dataType: "json",
             data: {
                 requestData: JSON.stringify(requestData)
-            }, success: function (data) {
+            },
+            success: function (data) {
+
+                var returnData = eval(data);
+
+                if (!returnData.head) {
+                    alert(returnData.body);
+                }
+
             }
         });
     });
@@ -111,7 +110,7 @@ $(function () {
         var selectPayType = $("input[name='payType'][checked='checked']").length;
 
         if (selectPayType == 0) {
-            alert(property.error7);
+            alert("您还没有选择付款方式!");
             return;
         }
 
@@ -120,9 +119,10 @@ $(function () {
             type: "POST",
             dataType: "json",
             success: function (data) {
-                var d = eval(data);
-                var flag = d.head == "true" ? true : false;
-                if (flag) {
+
+                var returnData = eval(data);
+
+                if (returnData.head) {
                     location.replace("customerCenter.jsp");
                 }
             }

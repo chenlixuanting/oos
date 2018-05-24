@@ -153,9 +153,10 @@ $(function () {
             type: "POST",
             dataType: "json",
             success: function (data) {
-                var d = eval(data);
-                var flag = d.head == "true" ? true : false;
-                if (flag) {
+
+                var returnData = eval(data);
+
+                if (returnData.head) {
                     location.replace("customerCenter.jsp");
                 }
             }

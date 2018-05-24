@@ -29,11 +29,7 @@ function initNav() {
 
             if (d.head) {
 
-                var body = eval(d.body);
-
-                alert(body);
-
-                if (body) {
+                if (d.body) {
 
                     $("#step1").click(function () {
                         location.assign("continueShopping.jsp");

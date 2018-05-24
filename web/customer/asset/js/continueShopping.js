@@ -3,7 +3,7 @@
  */
 $(function () {
 
-    //初始化购物信息
+    //更新购物车商品信息
     updateShopCart();
 
     /**
@@ -56,10 +56,21 @@ $(function () {
             },
             success: function (data) {
 
-                var d = eval(data);
+                var jsonReturn = eval(data);
 
-                for (var x = 0; x < d.length; x++) {
-                    $("#ChildMenu2").append("<li><a onclick='$.regCustomerPage.sendInfo(this);'>" + d[x] + "</a></li>");
+                if (jsonReturn.head) {
+
+                    var dishesTypeList = eval(jsonReturn.body);
+
+                    for (var x = 0; x < dishesTypeList.length; x++) {
+                        $("#ChildMenu2").append("<li><a onclick=' $.regCustomerPage.sendInfo(this);'>" + dishesTypeList[x] + "</a></li>");
+                    }
+
+                } else {
+
+                    //提示错误信息
+                    alert(jsonReturn.body);
+
                 }
             }
         });
@@ -83,10 +94,21 @@ $(function () {
             },
             success: function (data) {
 
-                var d = eval(data);
+                var jsonReturn = eval(data);
 
-                for (var x = 0; x < d.length; x++) {
-                    $("#ChildMenu3").append("<li><a onclick='$.regCustomerPage.sendInfo(this);'" + d[x] + ">" + d[x] + "</a></li>");
+                if (jsonReturn.head) {
+
+                    var dishesTypeList = eval(jsonReturn.body);
+
+                    for (var x = 0; x < dishesTypeList.length; x++) {
+                        $("#ChildMenu3").append("<li><a onclick=' $.regCustomerPage.sendInfo(this);'" + dishesTypeList[x] + ">" + dishesTypeList[x] + "</a></li>");
+                    }
+
+                } else {
+
+                    //提示错误信息
+                    alert(jsonReturn.body);
+
                 }
 
             }
@@ -109,12 +131,23 @@ $(function () {
             },
             success: function (data) {
 
-                var d = eval(data);
 
-                for (var x = 0; x < d.length; x++) {
-                    $("#ChildMenu4").append("<li><a onclick='$.regCustomerPage.sendInfo(this);'" + d[x] + ">" + d[x] + "</a></li>");
+                var jsonReturn = eval(data);
+
+                if (jsonReturn.head) {
+
+                    var dishesTypeList = eval(jsonReturn.body);
+
+                    for (var x = 0; x < dishesTypeList.length; x++) {
+                        $("#ChildMenu4").append("<li><a onclick=' $.regCustomerPage.sendInfo(this);'" + dishesTypeList[x] + ">" + dishesTypeList[x] + "</a></li>");
+                    }
+
+                } else {
+
+                    //提示错误信息
+                    alert(jsonReturn.body);
+
                 }
-
             }
         });
         $("#dinner").css("display", "block");
@@ -130,42 +163,53 @@ $(function () {
                     dishesType: obj.innerHTML
                 }, success: function (data) {
 
-                    var d = eval(data);
+                    var returnData = eval(data);
 
-                    //情况商品列表标签
-                    $(".product_ul").html("");
+                    if (returnData.head) {
 
-                    for (var x = 0; x < d.length; x++) {
+                        var d = eval(returnData.body);
 
-                        $(".product_ul").append(
-                            "<li style='height:295px'>" +
-                            "<div>" +
-                            "<img onclick='$.regCustomerPage.dishesInfoDialog(this)' dsId='" + d[x].dsId + "'src='" + pageUrls.customerAddress + d[x].picAddress + "' name='menuImg' alt='" + d[x].dishesName + "' style='width: 179px;height:179px;'>" +
-                            "<div>" +
-                            "<div class='pro_info'>" +
-                            "<p>" +
-                            "<a href='javascript:;' class='pro_name'>" + d[x].dishesName + "</a> <span class='couponDesc'>&nbsp;</span>" +
-                            "</p>" +
-                            "<p class='p_realPrice'>" +
-                            "</p>" +
-                            "<p>" +
-                            "<span class='pro_price' style='margin-top: -15px;'>" + d[x].price.toFixed(2) + "元 / 份" + "</span>" +
-                            "<span class='pro_number'>" +
-                            "<a href='javascript:;' onclick='sub(this);'>" +
-                            "<img src='images/minus_icon_2.gif'>" +
-                            "</a>" +
-                            "<input type='text' dsId=" + d[x].dsId + " value='1' maxlength='2' class='pro_number_input'>" +
-                            "<a href='javascript:;' onclick='add(this);'>" +
-                            "<img src='images/add_icon_2.gif'>" +
-                            "</a>" +
-                            "</span>" +
-                            "</p>" +
-                            "<p class='p_clear_both'>" +//对价格进行四舍五入处理
-                            "<input type='button' class='mealdealDeatil_j order_btn' onclick='mainWindowOrderBtn();'>" +
-                            "</p>" +
-                            "</div>" +
-                            "</li>"
-                        );
+                        //情况商品列表标签
+                        $(".product_ul").html("");
+
+                        for (var x = 0; x < d.length; x++) {
+
+                            $(".product_ul").append(
+                                "<li style='height:295px'>" +
+                                "<div>" +
+                                "<img onclick='$.regCustomerPage.dishesInfoDialog(this)' dsId='" + d[x].dsId + "'src='" + pageUrls.customerAddress + d[x].picAddress + "' name='menuImg' alt='" + d[x].dishesName + "' style='width: 179px;height:179px;'>" +
+                                "<div>" +
+                                "<div class='pro_info'>" +
+                                "<p>" +
+                                "<a href='javascript:;' class='pro_name'>" + d[x].dishesName + "</a> <span class='couponDesc'>&nbsp;</span>" +
+                                "</p>" +
+                                "<p class='p_realPrice'>" +
+                                "</p>" +
+                                "<p>" +
+                                "<span class='pro_price' style='margin-top: -15px;'>" + d[x].price.toFixed(2) + "元 / 份" + "</span>" +
+                                "<span class='pro_number'>" +
+                                "<a href='javascript:;' onclick='sub(this);'>" +
+                                "<img src='images/minus_icon_2.gif' >" +
+                                "</a>" +
+                                "<input type='text' dsId=" + d[x].dsId + " value='1' maxlength='2' id='" + d[x].dsId + "'class='pro_number_input'>" +
+                                "<a href='javascript:;' onclick='add(this);'>" +
+                                "<img src='images/add_icon_2.gif' >" +
+                                "</a>" +
+                                "</span>" +
+                                "</p>" +
+                                "<p class='p_clear_both'>" +//对价格进行四舍五入处理
+                                "<input type='button' class='mealdealDeatil_j order_btn'dsId='" + d[x].dsId + "'onclick='mainWindowOrderBtn(this);'> " +
+                                "</p>" +
+                                "</div>" +
+                                "</li>"
+                            )
+                            ;
+                        }
+                    } else {
+
+                        //提示错误信息
+                        alert(returnData.body);
+
                     }
                 }
             });
@@ -179,42 +223,54 @@ $(function () {
 
             //附带dsId，请求后台数据库
             $.ajax({
-                url: "/oos/admin/queryByDishesId.action",
+                url: "queryByDishesId.action",
                 type: "POST",
                 dataType: "json",
                 data: {
-                    id: dsId
+                    dsId: dsId
                 },
                 success: function (data) {
 
-                    var d = eval(data);
+                    var returnData = eval(data);
 
-                    /**
-                     *拉出灰募
-                     * */
-                    $("body").append("<div class='ui-widget-overlay' style='width: 1920px; height: 974px; z-index: 1001;'></div>");
+                    if (returnData.head) {
 
-                    /**
-                     * 修改弹出框中的数据项
-                     */
-                    $("#desc").html(d.describe);
-                    $(".popup_product_detail_txt h4").html(d.dishesName);
-                    $(".popup_product_detail_img img").attr("src", pageUrls.customerAddress + d.picAddress);
-                    $(".popup_product_detail_img img").attr("alt", d.dishesName);
-                    $(".pro_number_input2").attr("dsId", d.dsId);
+                        var d = eval(returnData.body);
 
-                    /**
-                     * 显示弹出框
-                     * */
-                    $(".ui-dialog").css("display", "block");
+                        /**
+                         *拉出灰募
+                         * */
+                        $("body").append("<div class='ui-widget-overlay' style='width: 1920px; height: 1080px; z-index: 1001;'></div>");
 
-                    /**
-                     * 关闭弹出框
-                     * */
-                    $(".close_icon").click(function () {
-                        $('.ui-dialog').css("display", "none");
-                        $(".ui-widget-overlay").remove();
-                    });
+                        /**
+                         * 修改弹出框中的数据项
+                         */
+                        $("#desc").html(d.describe);
+                        $("span.price").html(d.price);
+                        $(".popup_product_detail_txt h4").html(d.dishesName);
+                        $(".popup_product_detail_img img").attr("src", pageUrls.customerAddress + d.picAddress);
+                        $(".popup_product_detail_img img").attr("alt", d.dishesName);
+                        $(".pro_number_input2").attr("dsId", d.dsId);
+
+                        /**
+                         * 显示弹出框
+                         * */
+                        $(".ui-dialog").css("display", "block");
+
+                        /**
+                         * 关闭弹出框
+                         * */
+                        $(".close_icon").click(function () {
+                            $('.ui-dialog').css("display", "none");
+                            $(".ui-widget-overlay").remove();
+                        });
+
+                    } else {
+
+                        //提示信息
+                        alert(returnData.body);
+
+                    }
                 }
             });
         },
@@ -239,11 +295,9 @@ $(function () {
                 },
                 success: function (data) {
 
-                    var d = eval(data);
+                    var returnData = eval(data);
 
-                    var flag = d.head == "true" ? true : false;
-
-                    if (flag) {
+                    if (returnData.head) {
 
                         /**
                          *拉出灰募
@@ -257,9 +311,7 @@ $(function () {
 
                         //更新购物车信息
                         updateShopCart();
-                    } else {
-                        //提示订购失败
-                        alert(codeMessage.error2);
+
                     }
 
                 }
@@ -271,49 +323,24 @@ $(function () {
      * 发生ajax请求CustomerConfirm.action获取临时用户的详细信息
      */
     $.ajax({
-        url: "getUserInfo.action",
+        url: "getUserCurrentDeliverAddress.action",
         type: "POST",
         dataType: "json",
         success: function (data) {
 
-            var d = eval(data);
+            var returnData = eval(data);
 
-            /**
-             * {
-                "body": {
-                    "creatorTime": "2018-05-22 21:10:34",
-                    "defaultDeliverAddress": {
-                        "createTime": "2018-05-22 21:11:28",
-                        "daId": 79,
-                        "default": false,
-                        "receiverAddress": "去我单位 13347573463(去我的期望) 去我单位 先生 13347573463",
-                        "receiverMobile": "13347573463",
-                        "receiverName": "去我单位",
-                        "receiverTime": "2018年5月23日 周三 17时00分",
-                        "updateTime": "2018-05-22 21:11:28",
-                        "usId": 60
-                    },
-                    "mobile": "13347573463",
-                    "password": "123123",
-                    "sex": "先生",
-                    "updateTime": "2018-05-22 21:10:34",
-                    "usId": 60,
-                    "username": "13347573463"
-                },
-                "head": true
-            }
-             */
+            if (returnData.head) {
 
-            if (d.head) {
+                var body = eval(returnData.body);
+
                 //初始化页面地址
-                $(".order_add").find("p").eq(1).append(eval(d.body.defaultDeliverAddress).receiverAddress);
+                initAddress(body);
+
             } else {
 
-                //显示提示信息
-                alert(d.body);
-
-                //跳转到首页
-                location.replace("customerExit.action");
+                //提示错误信息
+                alert(returnData.body);
             }
 
         }
@@ -329,11 +356,42 @@ $(function () {
     /**
      * 初始化订餐首页
      */
-    $("#" + childMenu).find('li').eq(1).find('a').trigger("click");
+    $("#" + childMenu).find('li').eq(0).find('a').trigger("click");
     $("#" + child).attr("class", "minus_sign");
     $("#" + childMenu).css("display", "block");
 
 });
+
+/**
+ * 获取临时用户地址,并显示在页面上
+ *
+ * @param d
+ */
+function initAddress(body) {
+
+    /**
+     * {
+        "body": {
+            "createTime": "2018-05-24 11:47:48",
+            "daId": 2,
+            "default": true,
+            "receiverAddress": "广西壮族自治区南宁市良庆区 圣湖小区(爬上的吗)",
+            "receiverMobile": "18477062310",
+            "receiverName": "阿斯顿",
+            "receiverSex": "先生",
+            "receiverTime": "2018年5月24日 周四 16时00分",
+            "updateTime": "2018-05-24 11:47:48",
+            "usId": 66
+        },
+        "head": true
+        }
+     */
+
+    //标号从0开始
+    $(".til").next().html(
+        body.receiverAddress + " " + body.receiverName + " " + body.receiverSex + " " + body.receiverMobile
+    );
+}
 
 /**
  * 加号按钮,点击一次商品数目加1
@@ -382,8 +440,11 @@ function sub(obj) {
 /**
  * 主页面的订购按钮添加购物事件
  */
-function mainWindowOrderBtn() {
-    $.regCustomerPage.addToBuyCart($(".pro_number_input"));
+function mainWindowOrderBtn(obj) {
+
+    var dsId = $(obj).attr("dsId");
+
+    $.regCustomerPage.addToBuyCart($("#" + dsId));
 }
 
 
@@ -401,9 +462,15 @@ function orderModelBtn() {
  * @param obj
  */
 function shopCartAdd(obj) {
+
     if (add(obj)) {
-        $(".pro_numbers_input").val(1);
-        $.regCustomerPage.addToBuyCart($(".pro_numbers_input"));
+
+        var choose = "input[name='" + $(obj).attr("name") + "']";
+
+        $(choose).val(1);
+
+        $.regCustomerPage.addToBuyCart(choose);
+
     }
 
 }
@@ -415,8 +482,12 @@ function shopCartAdd(obj) {
 function shopCartSub(obj) {
 
     if (sub(obj)) {
-        $(".pro_numbers_input").val(-1);
-        $.regCustomerPage.addToBuyCart($(".pro_numbers_input"));
+
+        var choose = "input[name='" + $(obj).attr("name") + "']";
+
+        $(choose).val(-1);
+
+        $.regCustomerPage.addToBuyCart(choose);
     }
 
 }
@@ -424,13 +495,13 @@ function shopCartSub(obj) {
 /**
  * 删除购物车中的商品
  */
-function delDishesFromCart() {
+function delDishesFromCart(obj) {
 
     var result = confirm("你真的要删除该餐品吗?");
 
     if (result) {
 
-        var dsId = $(".pro_numbers_input").attr("dsId");
+        var dsId = $(obj).attr("dsId");
 
         $.ajax({
             url: "delOrderItemFromShopCart.action",
@@ -460,41 +531,55 @@ function updateShopCart() {
         dataType: "json",
         success: function (data) {
 
+            //{"body":{"deliverCost":0,"orderItems":[],"productAmount":0,"productCost":0,"totalCost":0},"head":true}
+
             //添加购物车成功,修改相应页面
-            var d = eval(data);
+            var returnData = eval(data);
 
-            //清空购物车的信息
-            $("#cart_menus").html("");
+            if (returnData.head) {
 
-            //购物车中商品信息
-            for (var x = 0; x < data.orderItems.length; x++) {
-                $("#cart_menus").append("<li>" +
-                    "<div class='pro_title'>" + data.orderItems[x].dishesName + "</div>" +
-                    "<div class='del'>" +
-                    "<a href='javascript:void(0);' onclick='delDishesFromCart();'></a></div>" +
-                    "<div class='pro_numbers'><a href='javascript:void(0);' onclick='shopCartSub(this);' style='cursor: pointer;'class='doMinus'>" +
-                    "<img src='images/minus_icon_2s.gif' >" +
-                    "</a>" +
-                    "<input type='text' class='pro_numbers_input' dsId='" + data.orderItems[x].dsId + "'value='" + data.orderItems[x].quantity + "' maxlength='2'disabled='disabled'>" +
-                    "<a href='javascript:void(0);' style='cursor: pointer;' onclick='shopCartAdd(this);' class='doPlus'>" +
-                    "<img src='images/plus_icon_2s.gif'>" +
-                    "</a>" +
-                    "</div>" +
-                    "<div class='price'>" + data.orderItems[x].productCost.toFixed(2) + "</div>" +
-                    "</li>");
+                var body = eval(returnData.body);
+
+                //清空购物车的信息
+                $("#cart_menus").html("");
+
+                //购物车中商品信息
+                for (var x = 0; x < body.orderItems.length; x++) {
+                    $("#cart_menus").append(
+                        "<li>" +
+                        "<div class='pro_title'>" + body.orderItems[x].dishesName + "</div>" +
+                        "<div class='del'>" +
+                        "<a href='javascript:void(0);' dsId='" + body.orderItems[x].dsId + "'onclick='delDishesFromCart(this);'></a></div>" +
+                        "<div class='pro_numbers'><a href='javascript:void(0);' name='" + body.orderItems[x].dsId + "' onclick='shopCartSub(this);' style='cursor: pointer;'class='doMinus'>" +
+                        "<img src='images/minus_icon_2s.gif' >" +
+                        "</a>" +
+                        "<input type='text' class='pro_numbers_input' name='" + body.orderItems[x].dsId + "' dsId='" + body.orderItems[x].dsId + "' value='" + body.orderItems[x].quantity + "' maxlength='2'disabled='disabled' onkeyup='this.value=this.value.replace(/D/g,'');'>" +
+                        "<a href='javascript:void(0);' style='cursor: pointer;' name='" + body.orderItems[x].dsId + "' onclick='shopCartAdd(this);' class='doPlus'>" +
+                        "<img src='images/plus_icon_2s.gif'>" +
+                        "</a>" +
+                        "</div>" +
+                        "<div class='price'>" + body.orderItems[x].productCost.toFixed(2) + "</div>" +
+                        "</li>");
+                }
+
+                //修改购物车中商品数量
+                $("#tatalnum").html(body.productAmount);
+
+                //修改费用信息
+                $("#productCost").html(body.productCost.toFixed(2));
+
+                //修改运费信息,保留两位小数
+                $("#deliverCost").html(body.deliverCost.toFixed(2));
+
+                //修改总费用
+                $("#totalCost").html(body.totalCost.toFixed(2));
+
+            } else {
+
+                //提示错误信息
+                alert(returnData.body);
+
             }
-
-            //修改购物车中商品数量
-            $("#tatalnum").html(d.productAmount);
-
-            //修改费用信息
-            $("#productCost").html(d.productCost.toFixed(2));
-
-            //修改运费信息,保留两位小数
-            $("#deliverCost").html(d.deliverCost.toFixed(2));
-
-            //修改总费用
-            $("#totalCost").html(d.totalCost.toFixed(2));
 
         }
     });
