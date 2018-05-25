@@ -103,59 +103,58 @@
 <button id="modelBtn" type="button"
         class="btn btn-primary btn-lg pull-left" data-toggle="modal"
         data-target="#modelBox" style="display: none;"></button>
-<form>
-    <div class="modal fade" id="modelBox" tabindex="-1" role="dialog"
-         aria-labelledby="myModalLabel">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal"
-                            aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                    <h4 class="modal-title primary" id="infoModelTilte"></h4>
-                </div>
-                <div class="modal-body">
-                    <div class="row" style="text-align: center">
-                        <div class="col-lg-12">
 
-                            <div class="form-group">
-                                <font size="3" style="padding-right: 10px;">菜品种类:</font>
-                                <input type="text"
-                                       class="form-control"
-                                       id="dishesTypeName"
-                                       name="dishesTypeName"
-                                       placeholder="菜品种类名称">
-                            </div>
+<div class="modal fade" id="modelBox" tabindex="-1" role="dialog"
+     aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"
+                        aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <h4 class="modal-title primary" id="infoModelTilte"></h4>
+            </div>
+            <div class="modal-body">
+                <div class="row" style="text-align: center">
+                    <div class="col-lg-12">
 
-                            <div class="form-group">
-                                <font size="3" style="padding-right: 10px;">餐点类型:</font>
-                                <select name="polName" class="form-control" id="mealTypeName"
-                                        style="width: 220px; height: 31px;margin-bottom: 10px;">
-                                </select>
-                            </div>
-
-                            <div class="form-group">
-                                <font size="3" style="padding-right: 10px;">管理员ID:</font>
-                                <input type="text"
-                                       class="form-control" id="mgId" placeholder="创建者"
-                                       name="mgId"
-                                       value="<%=administrator.getMgId()%>">
-                            </div>
-
+                        <div class="form-group">
+                            <font size="3" style="padding-right: 10px;">菜品种类:</font>
+                            <input type="text"
+                                   class="form-control"
+                                   id="dishesTypeName"
+                                   name="dishesTypeName"
+                                   placeholder="菜品种类名称">
                         </div>
+
+                        <div class="form-group">
+                            <font size="3" style="padding-right: 10px;">餐点类型:</font>
+                            <select name="polName" class="form-control" id="mealTypeName"
+                                    style="width: 220px; height: 31px;margin-bottom: 10px;">
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <font size="3" style="padding-right: 10px;">管理员ID:</font>
+                            <input type="text"
+                                   class="form-control" id="mgId" placeholder="创建者"
+                                   name="mgId"
+                                   value="<%=administrator.getMgId()%>">
+                        </div>
+
                     </div>
                 </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-danger" id="closeModel"
-                            data-dismiss="modal">关闭
-                    </button>
-                    <button type="submit" class="btn btn-primary" id="saveChange">保存</button>
-                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-danger" id="closeModel"
+                        data-dismiss="modal">关闭
+                </button>
+                <button type="submit" class="btn btn-primary" id="saveChange">保存</button>
             </div>
         </div>
     </div>
-</form>
+</div>
 
 
 <!-- scripts -->

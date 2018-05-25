@@ -207,6 +207,7 @@ $(function () {
 
         //初始化订单查询页面
         initOrderSearch();
+        $(".backOrderList").click();
 
         $('.pages2').show().siblings().hide();
         $('#l1').removeClass("on");

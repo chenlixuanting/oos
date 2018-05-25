@@ -1,4 +1,4 @@
-package com.guet.oos.servlet.administrator;
+package com.guet.oos.servlet.administrator.modify;
 
 import com.guet.oos.constant.SessionKey;
 import com.guet.oos.dto.JsonReturn;

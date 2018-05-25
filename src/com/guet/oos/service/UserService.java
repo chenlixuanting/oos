@@ -27,4 +27,6 @@ public interface UserService {
 
     public List<User> getList(int start, int length);
 
+    public boolean deleteById(long usId);
+
 }

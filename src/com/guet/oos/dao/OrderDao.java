@@ -19,4 +19,7 @@ public interface OrderDao extends IDAO<String, Order> {
 
     public List<Order> getUserAllHistoryOrder(long usId);
 
+    public List<Order> getOrdersByUsId(long usId);
+
+    public boolean deleteByOrId(String orId);
 }

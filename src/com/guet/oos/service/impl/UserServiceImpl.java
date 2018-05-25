@@ -87,4 +87,9 @@ public class UserServiceImpl implements UserService {
         return userDao.getList(start, length);
     }
 
+    @Override
+    public boolean deleteById(long usId) {
+        return userDao.deleteById(usId);
+    }
+
 }

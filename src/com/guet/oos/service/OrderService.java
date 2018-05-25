@@ -22,4 +22,8 @@ public interface OrderService {
     public int currentOrderCount();
 
     public List<Order> getUserAllHistoryOrder(long usId);
+
+    public List<Order> getOrdersByUsId(long usId);
+
+    public boolean deleteByOrId(String orId);
 }

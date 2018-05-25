@@ -33,4 +33,14 @@ public class ShopCartServiceImpl implements ShopCartService {
     public boolean createShopCart(ShopCart shopCart) {
         return shopCartDao.doCreate(shopCart);
     }
+
+    @Override
+    public boolean deleteByShopCartId(long scId) {
+        return shopCartDao.deleteByShopCartId(scId);
+    }
+
+    @Override
+    public boolean deleteByUserId(long usId) {
+        return shopCartDao.deleteByShopCartId(usId);
+    }
 }

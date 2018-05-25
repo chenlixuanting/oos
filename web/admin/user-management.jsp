@@ -46,7 +46,7 @@
                    style="margin-left: -22px;" onclick="addUserBtn();"> 新 增 </a>
 
                 <a id="deleteBtn" class="btn btn-danger btn-lg pull-left"
-                   style="margin-left: 10px;"> 删 除 </a>
+                   style="margin-left: 10px;" onclick="deleteUser();"> 删 除 </a>
 
                 <a id="searchBtn"
                    class="btn btn-primary btn-lg pull-right"
@@ -63,7 +63,9 @@
                        class="table table-hover table-striped table-bordered">
                     <thead>
                     <tr>
-                        <th class="span2 sortable"><input style="margin-left: -7px;" type="checkbox"/>全选</th>
+                        <th class="span2 sortable"><input style="margin-left: -7px;" class="checkboxMain"
+                                                          type="checkbox"/>全选
+                        </th>
                         <th class="span2 sortable">用户姓名</th>
                         <th class="span2 sortable">手机号码</th>
                         <th class="span2 sortable">密码</th>
@@ -105,8 +107,12 @@
                     <div class="col-lg-12">
 
                         <div class="form-group">
-                            <font size="3" style="padding-right: 10px;">&nbsp;&nbsp;&nbsp;&nbsp;
-                                &nbsp;&nbsp;&nbsp;&nbsp;用户姓名:</font>
+                            <font size="3" style="padding-right: 10px;margin-left: -650px; color: red;">基础信息(必填):</font>
+                        </div>
+
+                        <div class="form-group">
+                            <font size="3" style="padding-right: 10px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;用户姓名:</font>
                             <input type="text"
                                    class="form-control"
                                    placeholder="用户姓名" name="addUsername" id="addUsername"
@@ -114,8 +120,8 @@
                         </div>
 
                         <div class="form-group">
-                            <font size="3" style="padding-right: 10px;">&nbsp;&nbsp;&nbsp;&nbsp;
-                                &nbsp;&nbsp;&nbsp;&nbsp;用户电话:</font>
+                            <font size="3" style="padding-right: 10px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;用户电话:</font>
                             <input type="text"
                                    class="form-control"
                                    placeholder="用户电话" name="addUserMobile" id="addUserMobile"
@@ -123,7 +129,8 @@
                         </div>
 
                         <div class="form-group">
-                            <font size="3" style="padding-right: 10px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;用户密码:</font>
+                            <font size="3" style="padding-right: 10px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;用户密码:</font>
                             <input type="text"
                                    class="form-control"
                                    placeholder="用户密码" name="addUserPassword" id="addUserPassword"
@@ -131,7 +138,8 @@
                         </div>
 
                         <div class="form-group">
-                            <font size="3" style="padding-right: 10px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;用户性别:</font>
+                            <font size="3" style="padding-right: 10px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;用户性别:</font>
                             <select name="addUserSex" class="form-control" id="addUserSex"
                                     style="width: 615px; height: 31px;margin-bottom: 10px;">
                                 <option value="先生">先生</option>
@@ -140,11 +148,15 @@
                         </div>
 
                         <div class="form-group">
+                            <font size="3" style="padding-right: 10px;margin-left: -650px; color: red;">详细信息(必填):</font>
+                        </div>
+
+                        <div class="form-group">
                             <font size="3"
-                                  style="padding-right: 10px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;收货人姓名:</font>
+                                  style="padding-right: 10px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;默认收货人姓名:</font>
                             <input type="text"
                                    class="form-control"
-                                   placeholder="收货人姓名"
+                                   placeholder="默认收货人姓名"
                                    name="addUserDefaultReceiverName"
                                    id="addUserDefaultReceiverName"
                                    style="width: 600px !important;">
@@ -152,10 +164,10 @@
 
                         <div class="form-group">
                             <font size="3"
-                                  style="padding-right: 10px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;收货人电话:</font>
+                                  style="padding-right: 10px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;默认收货人电话:</font>
                             <input type="text"
                                    class="form-control"
-                                   placeholder="收货人电话"
+                                   placeholder="默认收货人电话"
                                    name="addUserDefaultReceiverMobile"
                                    id="addUserDefaultReceiverMobile"
                                    style="width: 600px !important;">
@@ -163,7 +175,7 @@
 
                         <div class="form-group">
                             <font size="3"
-                                  style="padding-right: 10px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;收货人性别:</font>
+                                  style="padding-right: 10px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;默认收货人性别:</font>
                             <select name="addUserReceiverSex" class="form-control" id="addUserReceiverSex"
                                     style="width: 615px; height: 31px;margin-bottom: 10px;">
                                 <option value="先生">先生</option>
@@ -173,10 +185,10 @@
 
                         <div class="form-group">
                             <font size="3"
-                                  style="padding-right: 10px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;收货人地址:</font>
+                                  style="padding-right: 10px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;默认收货人地址:</font>
                             <input type="text"
                                    class="form-control"
-                                   placeholder="收货人地址"
+                                   placeholder="默认收货人地址"
                                    name="addUserDefaultReceiverAddress"
                                    id="addUserDefaultReceiverAddress"
                                    style="width: 600px !important;">

@@ -39,4 +39,14 @@ public class CommentServiceImpl implements CommentService {
         return commentDao.getListUnansweredComment(start, length);
     }
 
+    @Override
+    public Comment getById(long coId) {
+        return commentDao.findById(coId);
+    }
+
+    @Override
+    public boolean updateComment(Comment comment) {
+        return commentDao.doUpdate(comment);
+    }
+
 }

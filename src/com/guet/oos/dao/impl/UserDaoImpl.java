@@ -280,4 +280,24 @@ public class UserDaoImpl extends AbstractDAOImpl implements UserDao {
         return null;
     }
 
+    @Override
+    public boolean deleteById(long usId) {
+
+        String sql = "delete from user_table where usId=?";
+
+        try {
+
+            pstmt = conn.prepareStatement(sql);
+
+            pstmt.setLong(1, usId);
+
+            pstmt.execute();
+
+            return true;
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return false;
+    }
+
 }

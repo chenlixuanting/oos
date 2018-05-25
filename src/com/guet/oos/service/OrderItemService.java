@@ -14,4 +14,6 @@ public interface OrderItemService {
     public boolean createOrderItem(OrderItem orderItem);
 
     public List<OrderItem> getOrderItemsByOrderId(String orId);
+
+    public boolean deleteByOrId(String orId);
 }

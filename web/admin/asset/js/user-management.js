@@ -1,12 +1,14 @@
 /**
  * Created by Shinelon on 2018/5/21.
  */
+var table;
+
 $(function () {
 
     /**
      * 加载DataTable
      */
-    var table = $("#dataTable").dataTable({
+    table = $("#dataTable").dataTable({
 
         ordering: false,//是否启用排序
         bLengthChange: false,
@@ -43,15 +45,13 @@ $(function () {
         columnDefs: [{//列渲染，可以添加一些操作等
             targets: 8,//表示是第8列，所以上面第8列没有对应数据列，就是在这里渲染的。
             render: function (obj) {
-                var id = obj.cid;
-                return "<a class='btn btn-primary btn-lg edit' id=" + id + ">查看</a>" + "<a class='btn btn-danger btn-lg edit' style='margin-left: 10px;' id=" + id + ">编辑</a>";
+                return "<a class='btn btn-primary btn-lg edit' id=" + obj.usId + ">查看</a>" + "<a class='btn btn-danger btn-lg edit' style='margin-left: 10px;' id=" + obj.usId + ">编辑</a>";
             }
 
         }, {//列渲染，可以添加一些操作等
             targets: 0,//表示是第8列，所以上面第8列没有对应数据列，就是在这里渲染的。
             render: function (obj) {
-                var id = obj.cid;
-                return "<input type='checkbox' class='checkbox' id=" + id + "></input>";
+                return "<input type='checkbox' class='checkbox' id=" + obj.usId + "></input>";
             }
         }],
         pagingType: "full_numbers"//分页样式的类型
@@ -108,6 +108,59 @@ function saveAddUser() {
  * 保存编辑用户信息
  */
 function saveEditUser() {
+
+}
+
+/**
+ * 删除用户
+ */
+function deleteUser() {
+
+    if (confirm("您确定要删除用户信息吗?")) {
+
+        var checkBox = $("input[class='checkbox']");
+
+        var id = new Array();
+
+        for (var x = 0; x < checkBox.length; x++) {
+            if ($(checkBox[x]).is(":checked"))
+                id.unshift(($(checkBox[x]).attr("id")));
+        }
+
+        if (id.length == 0) {
+            alert("你还没有选择要删除的元素");
+            return;
+        }
+
+        $.ajax({
+            url: "deleteUser.action",
+            type: "POST",
+            dataType: "json",
+            data: {
+                usersId: JSON.stringify(id)
+            },
+            success: function (data) {
+
+                var returnData = eval(data);
+
+                if (returnData.head) {
+
+                    for (var y = 0; y < id.length; y++) {
+                        table.api().row($("#" + id[y])).remove().draw();
+                    }
+
+                } else {
+
+                }
+
+            }
+        });
+
+    } else {
+        table.api().draw();
+        $("input[class='checkbox']").removeAttr("checked");
+        $("input[class='checkboxMain']").removeAttr("checked");
+    }
 
 }
 
@@ -244,6 +297,17 @@ function sendAddUserRequest(user) {
             requestData: JSON.stringify(user)
         },
         success: function (data) {
+
+            var returnData = eval(data);
+
+            alert(returnData.body);
+
+            if (returnData.head) {
+                location.reload();
+                closeAddModel();
+            } else {
+
+            }
 
         }
     });

@@ -50,6 +50,24 @@ public class CommentDaoImpl extends AbstractDAOImpl implements CommentDao {
 
     @Override
     public boolean doUpdate(Comment vo) {
+
+        String sql = "update comment_table set mgId=?,comStatus=?,replyContent=?,updateTime=? where coId=?";
+
+        try {
+            pstmt = conn.prepareStatement(sql);
+
+            pstmt.setLong(1, vo.getMgId());
+            pstmt.setString(2, vo.getComStatus());
+            pstmt.setString(3, vo.getReplyContent());
+            pstmt.setString(4, vo.getUpdateTime());
+            pstmt.setLong(5, vo.getCoId());
+
+            pstmt.executeUpdate();
+            return true;
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
         return false;
     }
 
@@ -60,7 +78,29 @@ public class CommentDaoImpl extends AbstractDAOImpl implements CommentDao {
 
     @Override
     public Comment findById(Long id) {
-        return null;
+
+        String sql = "select * from comment_table where coId=?";
+
+        Comment comment = null;
+
+        try {
+            pstmt = conn.prepareStatement(sql);
+
+            pstmt.setLong(1, id);
+
+            ResultSet res = pstmt.executeQuery();
+
+            List<Comment> comments = encapsulationCommentList(res);
+
+            if (comments.size() > 0) {
+                comment = comments.get(0);
+            }
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return comment;
     }
 
     @Override

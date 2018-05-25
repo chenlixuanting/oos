@@ -234,6 +234,8 @@ public class OrderDaoImpl extends AbstractDAOImpl implements OrderDao {
         List<Order> historyOrder = null;
 
         try {
+            pstmt = conn.prepareStatement(sql);
+
             pstmt.setString(1, OrderStatus.RECEIVED_GOOD);
             pstmt.setLong(2, usId);
 
@@ -248,6 +250,50 @@ public class OrderDaoImpl extends AbstractDAOImpl implements OrderDao {
         }
 
         return null;
+    }
+
+    @Override
+    public List<Order> getOrdersByUsId(long usId) {
+
+        String sql = "select * from order_table where usId=?";
+
+        List<Order> orders = null;
+
+        try {
+            pstmt = conn.prepareStatement(sql);
+
+            pstmt.setLong(1, usId);
+
+            ResultSet res = pstmt.executeQuery();
+
+            orders = encapsulationOrder(res);
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return orders;
+    }
+
+    @Override
+    public boolean deleteByOrId(String orId) {
+
+        String sql = "delete from order_table where orId=?";
+
+        try {
+            pstmt = conn.prepareStatement(sql);
+
+            pstmt.setString(1, orId);
+
+            pstmt.execute();
+
+            return true;
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return false;
     }
 
     public List<Order> encapsulationOrder(ResultSet res) {

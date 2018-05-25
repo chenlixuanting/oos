@@ -21,17 +21,13 @@ $(function () {
             alert("终止时间所输入的字符不符要求,标准格式：HH:MM");
             return false;
         }
-        if ($("#mgId").val() == "") {
-            alert("管理員ID不能为空");
-            return false;
-        }
 
         //封装数据
         var addData = {
             mealTypeName: $("#mealTypeName").val(),
             startTime: $("#startTime").val(),
             endTime: $("#endTime").val(),
-            mgId: $("#mgId").val(),
+            mgId: $("#mgId").attr("name"),
         };
 
         //发生ajax请求

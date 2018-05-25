@@ -19,4 +19,7 @@ public interface CommentService {
 
     public List<Comment> getListUnansweredComment(int start, int length);
 
+    public Comment getById(long coId);
+
+    public boolean updateComment(Comment comment);
 }

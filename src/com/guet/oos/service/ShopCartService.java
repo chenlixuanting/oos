@@ -13,4 +13,7 @@ public interface ShopCartService {
 
     public boolean createShopCart(ShopCart shopCart);
 
+    public boolean deleteByShopCartId(long scId);
+
+    public boolean deleteByUserId(long usId);
 }

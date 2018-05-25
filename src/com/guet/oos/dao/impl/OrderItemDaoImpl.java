@@ -115,6 +115,26 @@ public class OrderItemDaoImpl extends AbstractDAOImpl implements OrderItemDao {
         return null;
     }
 
+    @Override
+    public boolean deleteByOrId(String orId) {
+
+        String sql = "delete form order_item_table where orId=?";
+
+        try {
+            pstmt = conn.prepareStatement(sql);
+
+            pstmt.setString(1, orId);
+
+            pstmt.execute();
+
+            return true;
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return false;
+    }
+
     /**
      * private long oiId;// 订单项ID
      * private long scId;// 购物车ID

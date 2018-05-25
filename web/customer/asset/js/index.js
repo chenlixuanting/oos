@@ -184,7 +184,7 @@ $(function () {
                     /**
                      *拉出灰募
                      * */
-                    $("body").append("<div class='ui-widget-overlay' style='width: 1920px; height: 1080px; z-index: 1001;'></div>");
+                    $("body").append("<div class='ui-widget-overlay' style='width: 1920px; height: 1920px; z-index: 1001;'></div>");
 
                     /**
                      * 修改弹出框中的数据项

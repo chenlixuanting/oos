@@ -14,6 +14,11 @@ $(function () {
         $("#commentContent").attr("placeholder", "");
     });
 
+    $(".refresh").click(function () {
+            initCommentPage();
+        }
+    );
+
     //发表评论
     $("#btnComment").click(function () {
 
@@ -45,7 +50,7 @@ $(function () {
 
                 if (returnData.head) {
 
-                    location.reload();
+                    initCommentPage();
 
                 } else {
 
@@ -119,8 +124,8 @@ function initCommentPage() {
                             "<div class='re_comm'>" +
                             "<p>" +
                             "<span>回复1#" +
-                            "<a>" + body[x].adminname + "</a>：" +
-                            "</span>body[x].replyContent" +
+                            "<a>" + body[x].adminname + " " + body[x].updateTime + "</a>：" +
+                            "</span>" + body[x].replyContent +
                             "</p>" +
                             "</div>" +
                             "</div>" +

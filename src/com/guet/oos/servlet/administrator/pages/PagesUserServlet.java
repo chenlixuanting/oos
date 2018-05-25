@@ -8,6 +8,7 @@ import com.guet.oos.po.User;
 import com.guet.oos.service.DeliveryAddressService;
 import com.guet.oos.service.UserService;
 import com.guet.oos.utils.PageUtils;
+import org.springframework.util.StringUtils;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -52,7 +53,13 @@ public class PagesUserServlet extends HttpServlet {
 
         for (User u : users) {
             DeliveryAddress deliveryAddress = deliveryAddressService.findUserDefaultDeliverAddress(u.getUsId());
-            u.setDeliverAddress(deliveryAddress.getReceiverAddress());
+
+            if (StringUtils.isEmpty(deliveryAddress)) {
+                continue;
+            } else {
+                u.setDeliverAddress(deliveryAddress.getReceiverAddress());
+            }
+
         }
 
         JSONObject data = PageUtils.encPageJsonObj(pageData.getsEcho(), iTotalRecords, iTotalRecords, users);

@@ -9,4 +9,7 @@ public interface ShopCartDao extends IDAO<Long, ShopCart> {
 
     public ShopCart getShopCartByUserId(Long userId);
 
+    public boolean deleteByShopCartId(long scId);
+
+    public boolean deleteByUserId(long usId);
 }

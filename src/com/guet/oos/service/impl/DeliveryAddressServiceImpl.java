@@ -82,4 +82,9 @@ public class DeliveryAddressServiceImpl implements DeliveryAddressService {
         return deliveryAddressDao.updateUserDefaultDeliverAddress(usId, daId);
     }
 
+    @Override
+    public boolean deleteByUsId(long usId) {
+        return deliveryAddressDao.deleteByUsId(usId);
+    }
+
 }

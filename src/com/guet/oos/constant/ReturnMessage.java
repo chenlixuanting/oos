@@ -35,4 +35,7 @@ public class ReturnMessage {
 
     public static final String COMMENT_IS_EMPTY = "暂无评论信息!";
 
+    public static final String REPLY_SUCCESS = "评论回复成功!";
+
+    public static final String CREATE_USER_SUCCESS = "创建用户成功!";
 }

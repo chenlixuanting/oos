@@ -33,10 +33,6 @@
     <!-- this page specific styles -->
     <link rel="stylesheet" href="css/compiled/signin.css" type="text/css" media="screen"/>
 
-    <!-- open sans font -->
-    <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,700italic,800italic,400,300,600,700,800'
-          rel='stylesheet' type='text/css'/>
-
     <!--[if lt IE 9]>
     <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
@@ -93,7 +89,7 @@
 </div>
 
 <!-- scripts -->
-<script src="http://code.jquery.com/jquery-latest.js"></script>
+<script src="js/jquery-3.3.1.js"></script>
 <script src="js/bootstrap.min.js"></script>
 <script src="js/theme.js"></script>
 <script src="js/person-detail.js"></script>

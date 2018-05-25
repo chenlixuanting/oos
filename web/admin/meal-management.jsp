@@ -144,11 +144,12 @@
                             </div>
 
                             <div class="form-group">
-                                <font size="3" style="padding-right: 10px;">管理员ID:</font>
+                                <font size="3" style="padding-right: 10px;">&nbsp;&nbsp;&nbsp;管理员:</font>
                                 <input type="text"
-                                       class="form-control" id="mgId" placeholder="创建者"
-                                       name="mgId"
-                                       value="<%=administrator.getMgId()%>">
+                                       class="form-control" id="mgId"
+                                       placeholder="<%=administrator.getUsername()%>"
+                                       name="<%=administrator.getMgId()%>"
+                                       disabled="disabled">
                             </div>
 
                         </div>
@@ -178,6 +179,6 @@
 <script src="js/theme.js"></script>
 <script src="js/jquery.dataTables.min.js" type="text/javascript"></script>
 <script src="js/dataTables.bootstrap.min.js" type="text/javascript"></script>
-<script src="js/meal-management.js" type="text/javascript"></script>
+<script src="asset/js/meal-management.js" type="text/javascript"></script>
 </body>
 </html>

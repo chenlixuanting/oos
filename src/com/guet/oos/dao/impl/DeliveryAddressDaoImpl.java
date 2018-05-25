@@ -91,6 +91,26 @@ public class DeliveryAddressDaoImpl extends AbstractDAOImpl implements DeliveryA
     }
 
     @Override
+    public boolean deleteByUsId(long usId) {
+
+        String sql = "delete from delivery_address_table where usId=?";
+
+        try {
+            pstmt = conn.prepareStatement(sql);
+
+            pstmt.setLong(1, usId);
+
+            pstmt.execute();
+
+            return true;
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return false;
+    }
+
+    @Override
     public boolean doCreate(DeliveryAddress vo) {
 
         String sql = "insert into delivery_address_table(usId,receiverName,receiverMobile,receiverAddress,receiverTime,isDefault,createTime,updateTime,receiverSex) values(?,?,?,?,?,?,?,?,?)";

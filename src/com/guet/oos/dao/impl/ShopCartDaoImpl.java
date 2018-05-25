@@ -103,6 +103,48 @@ public class ShopCartDaoImpl extends AbstractDAOImpl implements ShopCartDao {
 
     }
 
+    @Override
+    public boolean deleteByShopCartId(long scId) {
+
+        String sql = "delete from shop_cart_table where scId=?";
+
+        try {
+            pstmt = conn.prepareStatement(sql);
+
+            pstmt.setLong(1, scId);
+
+            pstmt.execute();
+
+            return true;
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return false;
+    }
+
+    @Override
+    public boolean deleteByUserId(long usId) {
+
+        String sql = "delete from shop_cart_table where usId=?";
+
+        try {
+            pstmt = conn.prepareStatement(sql);
+
+            pstmt.setLong(1, usId);
+
+            pstmt.execute();
+
+            return true;
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return false;
+    }
+
     /**
      * 封装购物车实体
      *

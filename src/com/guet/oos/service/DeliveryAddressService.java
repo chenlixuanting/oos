@@ -25,4 +25,6 @@ public interface DeliveryAddressService {
 
     public boolean setUserDefaultDeliverAddress(long usId, long daId);
 
+    public boolean deleteByUsId(long usId);
+
 }

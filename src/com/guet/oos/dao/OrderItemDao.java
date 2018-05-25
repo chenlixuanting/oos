@@ -11,4 +11,5 @@ public interface OrderItemDao extends IDAO<Long, OrderItem> {
 
     public List<OrderItem> getOrderItemsByOrderId(String orId);
 
+    public boolean deleteByOrId(String orId);
 }

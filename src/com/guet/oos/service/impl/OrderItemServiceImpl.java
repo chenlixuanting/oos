@@ -24,4 +24,9 @@ public class OrderItemServiceImpl implements OrderItemService {
         return orderItemDao.getOrderItemsByOrderId(orId);
     }
 
+    @Override
+    public boolean deleteByOrId(String orId) {
+        return orderItemDao.deleteByOrId(orId);
+    }
+
 }

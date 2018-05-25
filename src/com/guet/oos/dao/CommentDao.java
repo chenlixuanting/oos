@@ -14,4 +14,5 @@ public interface CommentDao extends IDAO<Long, Comment> {
     public List<Comment> getAllUnansweredComment();
 
     public List<Comment> getListUnansweredComment(int start, int length);
+
 }

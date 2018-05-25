@@ -88,7 +88,7 @@
 
             <div class="comm_list" id="commentlist">
                 <h3>
-                    <a class="refresh">刷新</a>全部评论
+                    <a class="refresh">刷新全部评论</a>
                 </h3>
                 <div id="divcommentlist">
                     <ul class="list" id="ulcommentlist">

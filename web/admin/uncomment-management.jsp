@@ -1,10 +1,20 @@
+<%@ page import="com.guet.oos.po.Administrator" %>
+<%@ page import="com.guet.oos.constant.SessionKey" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
          pageEncoding="UTF-8" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
+<%
+    String path = request.getContextPath();
+    String basePath = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort()
+            + path + "/admin/";
+
+    Administrator administrator = (Administrator) request.getSession().getAttribute(SessionKey.ADMINISTRATOR);
+%>
 <head>
+    <base href="<%=basePath%>">
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <title>Insert title here</title>
+    <title>评论管理</title>
 
     <!-- bootstrap -->
     <link href="css/bootstrap/bootstrap.css" rel="stylesheet"/>
@@ -20,17 +30,7 @@
     <link rel="stylesheet" type="text/css" href="css/elements.css"/>
     <link rel="stylesheet" type="text/css" href="css/icons.css"/>
 
-    <!-- this page specific styles -->
     <link rel="stylesheet" href="css/compiled/index.css" type="text/css" media="screen"/>
-
-    <!-- open sans font -->
-    <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800'
-          rel='stylesheet' type='text/css'/>
-
-    <!-- lato font -->
-    <link href='http://fonts.googleapis.com/css?family=Lato:300,400,700,900,300italic,400italic,700italic,900italic'
-          rel='stylesheet' type='text/css'/>
-
     <link rel="stylesheet" type="text/css" href="css/jquery.dataTables.css">
 </head>
 <body>
@@ -85,11 +85,11 @@
     </div>
 </div>
 
-<button id="infoBtn" type="button"
+<button id="modelBtn" type="button"
         class="btn btn-primary btn-lg pull-left" data-toggle="modal"
-        data-target="#infoModel" style="display: none;"></button>
+        data-target="#modelBox" style="display: none;"></button>
 
-<div class="modal fade" id="infoModel" tabindex="-1" role="dialog"
+<div class="modal fade" id="modelBox" tabindex="-1" role="dialog"
      aria-labelledby="myModalLabel">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
@@ -98,71 +98,87 @@
                         aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
-                <h4 class="modal-title" id="infoModelTilte"></h4>
+                <h4 class="modal-title primary" id="infoModelTilte">回复</h4>
             </div>
             <div class="modal-body">
                 <div class="row" style="text-align: center">
                     <div class="col-lg-12">
 
-
                         <div class="form-group">
-                            <label for="cid">CID</label> <input type="text"
-                                                                class="form-control" id="cid" placeholder="序号">
+                            <input type="text"
+                                   class="form-control"
+                                   id="coId"
+                                   name="coId"
+                                   disabled="disabled" style="display: none;">
                         </div>
 
                         <div class="form-group">
-                            <label for="customername">投保人姓名</label> <input type="text"
-                                                                           class="form-control" id="customername"
-                                                                           placeholder="投保人姓名">
+                            <input type="text"
+                                   class="form-control"
+                                   id="removeRow"
+                                   name="removeRow"
+                                   disabled="disabled" style="display: none;">
                         </div>
 
                         <div class="form-group">
-                            <label for="sex">性别</label> <input type="text"
-                                                               class="form-control" id="sex" placeholder="性别">
+                            <font size="3" style="padding-right: 10px;">&nbsp;&nbsp;&nbsp;&nbsp;用户名:</font>
+                            <input type="text"
+                                   class="form-control"
+                                   id="username"
+                                   name="username"
+                                   disabled="disabled">
                         </div>
 
                         <div class="form-group">
-                            <label for="mobile">电话号码</label> <input type="text"
-                                                                    class="form-control" id="mobile" placeholder="电话号码">
+                            <font size="3" style="padding-right: 10px;">评论内容:</font>
+                            <textarea type="text"
+                                      class="form-control"
+                                      id="comContent"
+                                      name="comContent"
+                                      disabled="disabled"></textarea>
                         </div>
 
                         <div class="form-group">
-                            <label for="polName">险种</label> <input type="text"
-                                                                   class="form-control" id="polName" placeholder="险种">
+                            <font size="3" style="padding-right: 10px;">&nbsp;&nbsp;&nbsp;&nbsp;管理员:</font>
+                            <input type="text"
+                                   class="form-control"
+                                   id="adminname"
+                                   placeholder="<%=administrator.getUsername()%>" mgId="<%=administrator.getMgId()%>"
+                                   disabled="disabled">
                         </div>
 
                         <div class="form-group">
-                            <label for="clerkId">业务员</label> <input type="text"
-                                                                    class="form-control" id="clerkId" placeholder="业务员">
-                        </div>
-
-                        <div class="form-group">
-                            <label for="purchaseTime">购买时间</label> <input type="text"
-                                                                          class="form-control" id="purchaseTime"
-                                                                          placeholder="购买时间">
+                            <font size="3" style="padding-right: 10px;">回复内容:</font>
+                            <textarea type="text"
+                                      class="form-control"
+                                      id="replyContent"
+                                      name="replyContent"
+                                      placeholder="回复内容"></textarea>
                         </div>
 
                     </div>
                 </div>
             </div>
+
             <div class="modal-footer">
                 <button type="button" class="btn btn-danger" id="closeModel"
-                        data-dismiss="modal">关闭
+                        data-dismiss="modal" onclick="resetModelContent();">关闭
                 </button>
-                <button type="button" class="btn btn-primary" id="saveChange">保存</button>
+                <button type="submit" class="btn btn-primary" id="saveChange" onclick="replyComment();">保存</button>
             </div>
+
         </div>
     </div>
 </div>
 
-
 <!-- scripts -->
 <script src="js/jquery-3.3.1.js"></script>
-<script src="http://code.jquery.com/jquery-latest.js"></script>
 <script src="js/bootstrap.min.js"></script>
 <script src="js/jquery-ui-1.10.2.custom.min.js"></script>
+
 <!-- knob -->
 <script src="js/jquery.knob.js"></script>
+
 <!-- flot charts -->
 <script src="js/jquery.flot.js"></script>
 <script src="js/jquery.flot.stack.js"></script>
@@ -170,6 +186,6 @@
 <script src="js/theme.js"></script>
 <script src="js/jquery.dataTables.min.js" type="text/javascript"></script>
 <script src="js/dataTables.bootstrap.min.js" type="text/javascript"></script>
-<script src="js/uncomment-management.js"></script>
+<script src="asset/js/uncomment-management.js" type="text/javascript"></script>
 </body>
 </html>

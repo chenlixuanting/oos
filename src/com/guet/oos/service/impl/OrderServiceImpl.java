@@ -51,4 +51,14 @@ public class OrderServiceImpl implements OrderService {
         return orderDao.getUserAllHistoryOrder(usId);
     }
 
+    @Override
+    public List<Order> getOrdersByUsId(long usId) {
+        return orderDao.getOrdersByUsId(usId);
+    }
+
+    @Override
+    public boolean deleteByOrId(String orId) {
+        return orderDao.deleteByOrId(orId);
+    }
+
 }
