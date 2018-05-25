@@ -487,7 +487,7 @@ function initOrderSearch() {
                         "<div class='orderList_format orderList_price'>" + d[x].totalCost + "</div>" +
                         "<div class='orderList_format orderList_status'>" + d[x].orderStatus + "</div>" +
                         "<div class='orderList_format orderList_option'>" +
-                        "<div id='details' class='orderItem_details' orId='" + d[x].orId + "' onclick='orderDetail(this);'>订单详情</div>" +
+                        "<div id='details' class='orderItem_details' orId='" + d[x].orId + "' daId='" + d[x].daId + "'onclick='orderDetail(this);'>订单详情</div>" +
                         "<div id='another_order' class='another_order' onclick='orderAgain();'>确认收货</div>" +
                         "</div>" +
                         "</li>"

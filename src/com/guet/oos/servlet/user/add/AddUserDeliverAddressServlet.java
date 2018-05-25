@@ -51,7 +51,7 @@ public class AddUserDeliverAddressServlet extends HttpServlet {
         JSONObject requestDataJson = JSONObject.parseObject(requestData);
 
         String cityName = requestDataJson.getString("cityName");
-        String roadName = requestDataJson.getString("mobile");
+        String roadName = requestDataJson.getString("roadName");
         String addressDetial = requestDataJson.getString("addressDetial");
         String sex = requestDataJson.getString("sex");
         String username = requestDataJson.getString("username");
@@ -73,6 +73,7 @@ public class AddUserDeliverAddressServlet extends HttpServlet {
         address.setReceiverMobile(mobile);
         address.setReceiverAddress(receiverAddress.toString());
         address.setReceiverTime(temp.getReceiverTime());
+        address.setReceiverSex(sex);
         address.setDefault(false);
         address.setCreateTime(sf.format(new Date()));
         address.setUpdateTime(sf.format(new Date()));
