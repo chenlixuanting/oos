@@ -41,4 +41,8 @@ public class DAOFactory {
     public static OrderItemDao getOrderItemDaoInstance() {
         return new OrderItemDaoImpl(JDBCUtils.getConnection());
     }
+
+    public static CommentDao getCommentDaoInstance() {
+        return new CommentDaoImpl(JDBCUtils.getConnection());
+    }
 }

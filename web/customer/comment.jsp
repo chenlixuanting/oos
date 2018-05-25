@@ -9,6 +9,7 @@
 %>
 <html>
 <head>
+    <base href="<%=basePath%>">
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <meta name="keywords" content="美味家"/>
@@ -87,43 +88,154 @@
 
             <div class="comm_list" id="commentlist">
                 <h3>
-                    <span class="icon2">
-                        <input type="radio" name="commentorder" id="commentnew" checked="checked">
-                        <label for="commentnew">最新</label>
-                        <input type="radio" name="commentorder" id="commentlatest">
-                        <label for="commentlatest">最早</label>
-                    </span>
                     <a class="refresh">刷新</a>全部评论
                 </h3>
                 <div id="divcommentlist">
-                    <ul class="list" id="LoadArticleReply"></ul>
                     <ul class="list" id="ulcommentlist">
-                        <div style="">
-                            <li class="entry">
-                                <div class="adiv">
-					            	<span class="nick">
-					            		<a title="软媒通行证数字ID：1299384" target="_blank"
-                                           href="http://quan.ithome.com/user/1299384">Tencent马化滕</a>
-					            	</span>
-                                    <span class="posandtime">美味之家江西宜春网友&nbsp;2018-4-29 14:03:02</span>
+
+                        <li class="entry">
+                            <div>
+
+                                <div class="info rmp"><strong class="p_floor">1楼</strong>
+                                    <div class="nmp">
+                                        <span class="nick">
+                                            <a>蕾丝边</a>
+                                        </span>
+                                        <span class="posandtime">&nbsp;2018-2-28 19:51:55</span>
+                                    </div>
                                 </div>
-                        </div>
-                        <div class="comm" style="float: right;margin-top: 28px;"><p>我需要一个响指，就像这样“boom！！！”</p></div>
-                        <div class="zhiChi">
-					         	<span class="comm_reply" style="float: right;margin-top: 71px;margin-right: -200px;">
-					         	<span id="complainmessage32960078"></span>
-					         	<a href="javascript:commentComplain(32960078)">举报</a>
-					         	<a id="agree32960078" class="s" href="javascript:commentVote(32960078,1)">支持(0)</a>
-					         	<a id="against32960078" class="a" href="javascript:commentVote(32960078,2)">反对(0)</a>
-					         	<a href="javascript:ShowReply(32960078,357667,0,32960078,'')">回复</a></span>
-                        </div>
-                        <ul class="reply" id="lou32960078" style="display:none"></ul>
-                        <div id="Reply32960078"></div>
+
+                                <div class="comm">
+                                    <p>因为UWP版的爱奇艺没广告，而且不用开会员也能看1080P，不然还是继续用Windows7</p>
+                                </div>
+
+                                <ul class="reply" id="">
+                                    <li class="gh">
+                                        <div>
+                                            <div class="re_comm">
+                                                <p>
+                                                    <span>回复1#
+                                                        <a target="_blank"
+                                                           href="https://quan.ithome.com/user/833749"
+                                                           class="ruser">Aishaoquan</a>：
+                                                    </span>Mac不能玩腾讯很多游戏
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </li>
+                                </ul>
+
+                            </div>
+                        </li>
+
+                        <li class="entry">
+                            <div>
+
+                                <div class="info rmp"><strong class="p_floor">1楼</strong>
+                                    <div class="nmp">
+                                        <span class="nick">
+                                            <a>蕾丝边</a>
+                                        </span>
+                                        <span class="posandtime">&nbsp;2018-2-28 19:51:55</span>
+                                    </div>
+                                </div>
+
+                                <div class="comm">
+                                    <p>因为UWP版的爱奇艺没广告，而且不用开会员也能看1080P，不然还是继续用Windows7</p>
+                                </div>
+
+                                <ul class="reply" id="">
+                                    <li class="gh">
+                                        <div>
+                                            <div class="re_comm">
+                                                <p>
+                                                    <span>回复1#
+                                                        <a target="_blank"
+                                                           href="https://quan.ithome.com/user/833749"
+                                                           class="ruser">Aishaoquan</a>：
+                                                    </span>Mac不能玩腾讯很多游戏
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </li>
+                                </ul>
+
+                            </div>
+                        </li>
+
+                        <li class="entry">
+                            <div>
+
+                                <div class="info rmp"><strong class="p_floor">1楼</strong>
+                                    <div class="nmp">
+                                        <span class="nick">
+                                            <a>蕾丝边</a>
+                                        </span>
+                                        <span class="posandtime">&nbsp;2018-2-28 19:51:55</span>
+                                    </div>
+                                </div>
+
+                                <div class="comm">
+                                    <p>因为UWP版的爱奇艺没广告，而且不用开会员也能看1080P，不然还是继续用Windows7</p>
+                                </div>
+
+                                <ul class="reply" id="">
+                                    <li class="gh">
+                                        <div>
+                                            <div class="re_comm">
+                                                <p>
+                                                    <span>回复1#
+                                                        <a target="_blank"
+                                                           href="https://quan.ithome.com/user/833749"
+                                                           class="ruser">Aishaoquan</a>：
+                                                    </span>Mac不能玩腾讯很多游戏
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </li>
+                                </ul>
+
+                            </div>
+                        </li>
+
+                        <li class="entry">
+                            <div>
+
+                                <div class="info rmp"><strong class="p_floor">1楼</strong>
+                                    <div class="nmp">
+                                        <span class="nick">
+                                            <a>蕾丝边</a>
+                                        </span>
+                                        <span class="posandtime">&nbsp;2018-2-28 19:51:55</span>
+                                    </div>
+                                </div>
+
+                                <div class="comm">
+                                    <p>因为UWP版的爱奇艺没广告，而且不用开会员也能看1080P，不然还是继续用Windows7</p>
+                                </div>
+
+                                <ul class="reply" id="">
+                                    <li class="gh">
+                                        <div>
+                                            <div class="re_comm">
+                                                <p>
+                                                    <span>回复1#
+                                                        <a target="_blank"
+                                                           href="https://quan.ithome.com/user/833749"
+                                                           class="ruser">Aishaoquan</a>：
+                                                    </span>Mac不能玩腾讯很多游戏
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </li>
+                                </ul>
+
+                            </div>
+                        </li>
+
                     </ul>
                 </div>
                 </li>
-                <li class="entry">
-
             </div>
             <div id="divLatest" style="display: none">
                 <ul class="list" id="ulcommentlistLatest"></ul>

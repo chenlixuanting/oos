@@ -46,4 +46,9 @@ public class OrderServiceImpl implements OrderService {
         return orderDao.currentOrderCount(OrderStatus.UNCONFIRMEED);
     }
 
+    @Override
+    public List<Order> getUserAllHistoryOrder(long usId) {
+        return orderDao.getUserAllHistoryOrder(usId);
+    }
+
 }

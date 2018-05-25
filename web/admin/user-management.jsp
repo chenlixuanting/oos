@@ -63,7 +63,7 @@
                        class="table table-hover table-striped table-bordered">
                     <thead>
                     <tr>
-                        <th class="span2 sortable"><input type="checkbox" style="margin-left: -8px;"/>全选</th>
+                        <th class="span2 sortable"><input style="margin-left: -7px;" type="checkbox"/>全选</th>
                         <th class="span2 sortable">用户姓名</th>
                         <th class="span2 sortable">手机号码</th>
                         <th class="span2 sortable">密码</th>

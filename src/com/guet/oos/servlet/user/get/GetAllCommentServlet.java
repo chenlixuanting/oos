@@ -1,13 +1,16 @@
-package com.guet.oos.servlet.user.add;
+package com.guet.oos.servlet.user.get;
 
 import com.alibaba.fastjson.JSONObject;
 import com.guet.oos.constant.CommentStatus;
-import com.guet.oos.constant.DateTimeFormat;
 import com.guet.oos.constant.ReturnMessage;
 import com.guet.oos.dto.JsonEntityReturn;
 import com.guet.oos.factory.ServiceFactory;
+import com.guet.oos.po.Administrator;
 import com.guet.oos.po.Comment;
+import com.guet.oos.po.User;
+import com.guet.oos.service.AdministratorService;
 import com.guet.oos.service.CommentService;
+import com.guet.oos.service.UserService;
 import org.springframework.util.StringUtils;
 
 import javax.servlet.ServletException;
@@ -17,25 +20,26 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.Writer;
-import java.text.SimpleDateFormat;
-import java.util.Date;
+import java.util.List;
 
 /**
- * 用户评论
- * <p>
- * Created by Shinelon on 2018/5/22.
+ * Created by Shinelon on 2018/5/24.
  */
-@WebServlet("/customer/addComment.action")
-public class AddCommentServlet extends HttpServlet {
+@WebServlet("/customer/getAllComment.action")
+public class GetAllCommentServlet extends HttpServlet {
 
     private static final long serialVersionUID = 1L;
 
     private CommentService commentService = ServiceFactory.getCommentServiceInstance();
 
+    private UserService userService = ServiceFactory.getUserServiceInstance();
+
+    private AdministratorService administratorService = ServiceFactory.getAdministratorServiceInstance();
+
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public AddCommentServlet() {
+    public GetAllCommentServlet() {
         super();
     }
 
@@ -44,37 +48,35 @@ public class AddCommentServlet extends HttpServlet {
      */
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-        String commentData = request.getParameter("commentData");
-
-        SimpleDateFormat sf = new SimpleDateFormat(DateTimeFormat.YYYY_MM_DD_HH_MM_SS);
+        List<Comment> comments = commentService.getAllComment();
 
         Writer out = response.getWriter();
 
-        //判断请求参数是否为空
-        if (StringUtils.isEmpty(commentData)) {
+        if (StringUtils.isEmpty(comments)) {
 
-            //若为空
-            out.write(JSONObject.toJSONString(JsonEntityReturn.buildFail(ReturnMessage.REQUEST_PARAMTER_EMPTY)));
+            out.write(JSONObject.toJSONString(JsonEntityReturn.buildFail(ReturnMessage.COMMENT_IS_EMPTY)));
 
-            //结束
             return;
 
         } else {
 
-            Comment comment = JSONObject.parseObject(commentData, Comment.class);
-            comment.setComStatus(CommentStatus.COMMENT_UNANSWERED);
-            comment.setCreateTime(sf.format(new Date()));
-            comment.setUpdateTime(sf.format(new Date()));
+            for (Comment comment : comments) {
 
-            boolean result = commentService.createComment(comment);
+                User user = userService.findByUserId(comment.getUsId());
 
-            if (result) {
-                out.write(JSONObject.toJSONString(JsonEntityReturn.buildSuccess(ReturnMessage.COMMENT_ADD_SUCCESS)));
-            } else {
-                out.write(JSONObject.toJSONString(JsonEntityReturn.buildFail(ReturnMessage.SERVER_INNER_ERROR)));
+                comment.setUsername(user.getUsername());
+
+                if (comment.getComStatus().equals(CommentStatus.COMMENT_REPLIED)) {
+                    Administrator administrator = administratorService.findById(comment.getMgId());
+                    comment.setAdminname(administrator.getUsername());
+                }
+
             }
-        }
 
+            //返回数据
+            out.write(JSONObject.toJSONString(JsonEntityReturn.buildSuccess(comments)));
+
+        }
 
     }
 

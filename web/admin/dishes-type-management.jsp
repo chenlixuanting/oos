@@ -80,7 +80,7 @@
                        class="table table-hover table-striped table-bordered">
                     <thead>
                     <tr>
-                        <th class="span2 sortable"><input type="checkbox"/>全选</th>
+                        <th class="span2 sortable"><input style="margin-left: -7px;" type="checkbox"/>全选</th>
                         <th class="span2 sortable">菜品种类名称</th>
                         <th class="span2 sortable">餐点类型</th>
                         <th class="span2 sortable">管理员ID</th>

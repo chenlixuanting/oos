@@ -13,39 +13,32 @@ public class Comment implements Serializable {
 
     private long coId;//评论ID
     private long usId;//用户ID
+    private String username;//用户姓名
+
     private long mgId;//管理员ID
-    private String commentContent;//评论内容
+    private String adminname;//管理员姓名
+
+    private String content;//评论内容
     private String replyContent;//回复内容
-    private String commentStatus;//评论状态
+    private String comStatus;//评论状态
+
     private String createTime;//创建时间
     private String updateTime;//更新时间
 
-    public Comment(long coId, long usId, long mgId, String commentContent, String replyContent, String commentStatus, String createTime, String updateTime) {
+    public Comment(long coId, long usId, String username, long mgId, String adminname, String content, String replyContent, String comStatus, String createTime, String updateTime) {
         this.coId = coId;
         this.usId = usId;
+        this.username = username;
         this.mgId = mgId;
-        this.commentContent = commentContent;
+        this.adminname = adminname;
+        this.content = content;
         this.replyContent = replyContent;
-        this.commentStatus = commentStatus;
+        this.comStatus = comStatus;
         this.createTime = createTime;
         this.updateTime = updateTime;
     }
 
     public Comment() {
-    }
-
-    @Override
-    public String toString() {
-        return "Comment{" +
-                "coId=" + coId +
-                ", usId=" + usId +
-                ", mgId=" + mgId +
-                ", commentContent='" + commentContent + '\'' +
-                ", replyContent='" + replyContent + '\'' +
-                ", commentStatus='" + commentStatus + '\'' +
-                ", createTime='" + createTime + '\'' +
-                ", updateTime='" + updateTime + '\'' +
-                '}';
     }
 
     public long getCoId() {
@@ -64,6 +57,14 @@ public class Comment implements Serializable {
         this.usId = usId;
     }
 
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
     public long getMgId() {
         return mgId;
     }
@@ -72,12 +73,20 @@ public class Comment implements Serializable {
         this.mgId = mgId;
     }
 
-    public String getCommentContent() {
-        return commentContent;
+    public String getAdminname() {
+        return adminname;
     }
 
-    public void setCommentContent(String commentContent) {
-        this.commentContent = commentContent;
+    public void setAdminname(String adminname) {
+        this.adminname = adminname;
+    }
+
+    public String getContent() {
+        return content;
+    }
+
+    public void setContent(String content) {
+        this.content = content;
     }
 
     public String getReplyContent() {
@@ -88,12 +97,12 @@ public class Comment implements Serializable {
         this.replyContent = replyContent;
     }
 
-    public String getCommentStatus() {
-        return commentStatus;
+    public String getComStatus() {
+        return comStatus;
     }
 
-    public void setCommentStatus(String commentStatus) {
-        this.commentStatus = commentStatus;
+    public void setComStatus(String comStatus) {
+        this.comStatus = comStatus;
     }
 
     public String getCreateTime() {
@@ -110,5 +119,21 @@ public class Comment implements Serializable {
 
     public void setUpdateTime(String updateTime) {
         this.updateTime = updateTime;
+    }
+
+    @Override
+    public String toString() {
+        return "Comment{" +
+                "coId=" + coId +
+                ", usId=" + usId +
+                ", username='" + username + '\'' +
+                ", mgId=" + mgId +
+                ", adminname='" + adminname + '\'' +
+                ", content='" + content + '\'' +
+                ", replyContent='" + replyContent + '\'' +
+                ", comStatus='" + comStatus + '\'' +
+                ", createTime='" + createTime + '\'' +
+                ", updateTime='" + updateTime + '\'' +
+                '}';
     }
 }

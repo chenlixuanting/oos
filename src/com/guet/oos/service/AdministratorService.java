@@ -18,4 +18,6 @@ public interface AdministratorService {
     public int getAllCount();
 
     public List<Administrator> getList(int start, int length);
+
+    public Administrator findById(long mgId);
 }

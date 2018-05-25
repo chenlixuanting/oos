@@ -31,4 +31,8 @@ public class ReturnMessage {
 
     public static final String USER_INVALIDATE = "用户失效!";
 
+    public static final String COMMENT_ADD_SUCCESS = "评论成功!";
+
+    public static final String COMMENT_IS_EMPTY = "暂无评论信息!";
+
 }

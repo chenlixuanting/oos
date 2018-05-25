@@ -20,4 +20,6 @@ public interface OrderService {
     public List<Order> getCurrentOrderList(int start, int length);
 
     public int currentOrderCount();
+
+    public List<Order> getUserAllHistoryOrder(long usId);
 }

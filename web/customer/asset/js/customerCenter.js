@@ -238,6 +238,10 @@ $(function () {
 
     //进入历史订单
     $('#tohistory').click(function () {
+
+        //初始化历史订单
+        initHistoryOrder();
+
         $('#orderList_history').show().siblings().hide();
 
     });
@@ -483,7 +487,7 @@ function initOrderSearch() {
                         "<div class='orderList_format orderList_status'>" + d[x].orderStatus + "</div>" +
                         "<div class='orderList_format orderList_option'>" +
                         "<div id='details' class='orderItem_details' orId='" + d[x].orId + "' onclick='orderDetail(this);'>订单详情</div>" +
-                        "<div id='another_order' class='another_order' onclick='orderAgain();'>再来一单</div>" +
+                        "<div id='another_order' class='another_order' onclick='orderAgain();'>确认收货</div>" +
                         "</div>" +
                         "</li>"
                     );
@@ -493,12 +497,75 @@ function initOrderSearch() {
 
                 //提示错误信息
                 alert(returnData.body);
-
             }
-
-
         }
     });
+}
+
+
+//初始化历史订单
+function initHistoryOrder() {
+
+    $.ajax({
+        url: "getUserAllHistoryOrder.action",
+        type: "POST",
+        dataType: "json",
+        success: function (data) {
+
+            var returnData = eval(data);
+
+            if (returnData.head) {
+
+                var d = eval(returnData.body);
+
+                $("#Pagination_history").html("");
+
+                //设置导航条长度
+                $(".user_menu").height((d.length * 129) + 150);
+
+                for (var x = 0; x < d.length; x++) {
+
+                    var date = new Date(d[x].creatorTime);
+
+                    var month = date.getMonth() + 1;
+                    month = fullZone(month);
+
+                    var day = date.getDate();
+                    day = fullZone(day);
+
+                    var hours = date.getHours();
+                    hours = fullZone(hours);
+
+                    var minutes = date.getMinutes();
+                    minutes = fullZone(minutes);
+
+                    $("#Pagination_history").append(
+                        "<li class='orderList_li orderList_body'>" +
+                        "<div class='orderList_format orderList_date'>" +
+                        "<div class='orderList_day'>" + month + "-" + day + "</div>" +
+                        "<div class='orderList_time'>" + hours + ":" + minutes + "</div>" +
+                        "</div>" +
+                        "<div class='orderList_format orderList_details'>" +
+                        "<div class='orderList_detail_info'>您本次订单共计" + d[x].productAmount + "份餐品</div>" +
+                        "<div class='orderList_detail_desc'></div>" +
+                        "</div>" +
+                        "<div class='orderList_format orderList_price'>" + d[x].totalCost + "</div>" +
+                        "<div class='orderList_format orderList_status'>" + d[x].orderStatus + "</div>" +
+                        "<div class='orderList_format orderList_option' style=' margin-top: -40px;height: 104px;cursor: pointer; line-height: 34px;'>" +
+                        "<div id='details' class='orderItem_details' orId='" + d[x].orId + "' style='margin-top: 15px;' onclick='historyOrderTail(this);'>订单详情</div>" +
+                        "</div>" +
+                        "</li>"
+                    );
+                }
+
+            } else {
+
+                //提示错误信息
+                alert(returnData.body);
+            }
+        }
+    });
+
 }
 
 //数字添0操作
@@ -507,52 +574,35 @@ function fullZone(value) {
     return d.length < 2 ? "0" + d : d;
 }
 
-//查看订单详情
-function orderDetail(obj) {
-
-    /**
-     * {
-        "body": {
-                "creatorTime": "2018-05-23 10:58:24",
-                "daId": 85,
-                "deliverCost": 9,
-                "mgId": 0,
-                "orId": "716a548b-7c57-4440-a62f-3072b6a0624c",
-                "orderItems": [{
-                    "creatorTime": "2018-05-23 10:58:19",
-                    "dishesName": "1元新奥尔良烤翅",
-                    "dsId": 65,
-                    "oiId": 144,
-                    "orId": "716a548b-7c57-4440-a62f-3072b6a0624c",
-                    "price": 1,
-                    "productCost": 1,
-                    "quantity": 1,
-                    "scId": -1,
-                    "updateTime": "2018-05-23 10:58:19"
-                }],
-                "orderStatus": "商家未接单",
-                "payType": "货到付款",
-                "productAmount": 1,
-                "productCost": 1,
-                "totalCost": 10,
-                "updateTime": "2018-05-23 10:58:24",
-                "usId": 60
-            },
-        "head": true
-        }
-     */
+function historyOrderTail(obj) {
 
     //获取当前用户信息用户信息详情
-    // $.ajax({
-    //     url: "getUserInfo.action",
-    //     type: "POST",
-    //     dataType: "json",
-    //     success: function (data) {
-    //
-    //         var d = eval(data);
-    //
-    //     }
-    // });
+    $.ajax({
+        url: "getUserInfo.action",
+        type: "POST",
+        dataType: "json",
+        success: function (data) {
+
+            var returnData = eval(data);
+
+            if (returnData.head) {
+
+                var address = eval(returnData.body.defaultDeliverAddress);
+
+                //设置客户姓名
+                $("#receiverName").html(address.receiverName);
+
+                //设置客户电话
+                $("#receiverMobile").html(address.receiverMobile);
+
+                //设置送餐地址
+                $("#receiverAddress").html(address.receiverAddress);
+
+            } else {
+                alert(returnData.body);
+            }
+        }
+    });
 
     //设置导航条高度
     $(".user_menu").height(490);
@@ -577,7 +627,118 @@ function orderDetail(obj) {
                 $(".orderList_detail_status").html(body.orderStatus);
 
                 //设置送达时间
-                $(".orderList_detail_time").html();
+                $(".orderList_detail_time").html("预计" + body.receiverTime + "送达");
+
+                //设置付款方式
+                $("#orderPayType").html(body.payType);
+
+                var orderItems = eval(body.orderItems);
+
+                $("#orderItemTable").html("");
+
+                $("#orderItemTable").append(
+                    "<tr>" +
+                    "<th width='20%'>序号</th>" +
+                    "<th width='20%'>品名</th>" +
+                    "<th width='20%'>单价</th>" +
+                    "<th width='20%'>数量</th>" +
+                    "<th width='20%'>小计</th>" +
+                    "</tr>"
+                );
+
+                for (var x = 0; x < orderItems.length; x++) {
+                    $("#orderItemTable").append(
+                        "<tr>" +
+                        "<td align='left'>" + (x + 1) + "</td>" +
+                        "<td>" + orderItems[x].dishesName + "</td>" +
+                        "<td><span class='ft_color_red'>￥" + orderItems[x].price.toFixed(1) + "</span></td>" +
+                        "<td>" + orderItems[x].quantity + "</td>" +
+                        "<td><span class='ft_color_red'>￥" + orderItems[x].productCost.toFixed(1) + "</span></td>" +
+                        "</tr>"
+                    );
+                }
+
+                $(".total_price_div").html(
+                    "<p>" +
+                    "<span class='price_span_query'>" +
+                    "<em class='ft_b'>小 计：</em>" + (parseFloat(body.totalCost) - parseFloat(body.deliverCost)).toFixed(1) + "元 |" +
+                    "<em class='ft_b'>外送费：</em>" + body.deliverCost.toFixed(1) + "元" +
+                    "</span>" +
+                    "</p>" +
+                    "<p>" +
+                    "<span class='total_price_span_query'>" +
+                    "<em class='ft_b'>总金额：</em>" + body.totalCost.toFixed(1) + "元" +
+                    "</span>" +
+                    "</p>"
+                );
+
+            } else {
+                alert("查看订单详情失败!");
+            }
+
+        }
+    });
+
+    $('#order_item_detail').css("display", "block");
+    $("#orderList_history").css("display", "none");
+
+}
+
+//查看订单详情
+function orderDetail(obj) {
+
+    //获取当前用户信息用户信息详情
+    $.ajax({
+        url: "getUserInfo.action",
+        type: "POST",
+        dataType: "json",
+        success: function (data) {
+
+            var returnData = eval(data);
+
+            if (returnData.head) {
+
+                var address = eval(returnData.body.defaultDeliverAddress);
+
+                //设置客户姓名
+                $("#receiverName").html(address.receiverName);
+
+                //设置客户电话
+                $("#receiverMobile").html(address.receiverMobile);
+
+                //设置送餐地址
+                $("#receiverAddress").html(address.receiverAddress);
+
+            } else {
+                alert(returnData.body);
+            }
+        }
+    });
+
+    //设置导航条高度
+    $(".user_menu").height(490);
+
+    //餐品详情
+    $.ajax({
+        url: "getUserCurrentOneOrderInfo.action",
+        type: "POST",
+        dataType: "json",
+        data: {
+            requestData: $(obj).attr("orId")
+        },
+        success: function (data) {
+
+            var d = eval(data);
+
+            if (d.head) {
+
+                var body = eval(d.body);
+
+                //设置订单状态
+                $(".orderList_detail_status").html(body.orderStatus);
+
+                //设置送达时间
+                $(".orderList_detail_time").html("预计" + body.receiverTime + "送达");
 
                 //设置付款方式
                 $("#orderPayType").html(body.payType);
@@ -641,24 +802,6 @@ function orderAgain() {
 
 //初始化用户地址页面
 function initAddressPage() {
-
-    /**
-     * {
-        "body": [{
-            "createTime": "2018-05-24 11:47:48",
-            "daId": 2,
-            "default": true,
-            "receiverAddress": "广西壮族自治区南宁市良庆区 圣湖小区(爬上的吗)",
-            "receiverMobile": "18477062310",
-            "receiverName": "阿斯顿",
-            "receiverSex": "先生",
-            "receiverTime": "2018年5月24日 周四 12时00分",
-            "updateTime": "2018-05-24 11:47:48",
-            "usId": 66
-        }],
-        "head": true
-    }
-     */
 
     $.ajax({
         url: "getUserDeliverAddress.action",

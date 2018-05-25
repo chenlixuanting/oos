@@ -90,7 +90,7 @@
                        class="table table-hover table-striped table-bordered">
                     <thead>
                     <tr>
-                        <th class="span2 sortable"><input type="checkbox"/>全选</th>
+                        <th class="span2 sortable"><input style="margin-left: -7px;" type="checkbox"/>全选</th>
                         <th class="span2 sortable">菜品名称</th>
                         <th class="span2 sortable">菜品种类</th>
                         <th class="span2 sortable">单价</th>

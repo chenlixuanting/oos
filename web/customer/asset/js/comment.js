@@ -25,25 +25,34 @@ $(function () {
             return;
         }
 
-        var requestData = {
+        var commentData = {
             usId: $("#commentContent").attr("dsId"),
-            commentContent: $("#commentContent").val(),
+            content: $("#commentContent").val(),
         };
 
         $.ajax({
-            url: "CheckUserLogin.action",
+            url: "addComment.action",
             type: "POST",
             dataType: "json",
             data: {
-                requestData: JSON.stringify(requestData),
+                commentData: JSON.stringify(commentData)
             },
             success: function (data) {
 
-                var d = eval(data);
+                var returnData = eval(data);
+
+                alert(returnData.body);
+
+                if (returnData.head) {
+
+                    location.reload();
+
+                } else {
+
+                }
 
             }
-        })
-        ;
+        });
 
     });
 
@@ -60,8 +69,8 @@ function checkUserLogin() {
         dataType: "json",
         async: false,
         success: function (data) {
-            var d = eval(data);
-            flag = d.head == "true" ? true : false;
+            var returnData = eval(data);
+            flag = returnData.head;
         }
     });
 
@@ -72,33 +81,68 @@ function checkUserLogin() {
 //初始化评论页面
 function initCommentPage() {
 
+    //获取所有
+    $.ajax({
+        url: "getAllComment.action",
+        type: "POST",
+        dataType: "json",
+        success: function (data) {
+
+            var returnData = eval(data);
+
+            if (returnData.head) {
+
+                var body = eval(returnData.body);
+
+                //清空评论
+                $("#ulcommentlist").html("");
+
+                for (var x = 0; x < body.length; x++) {
+
+                    $("#ulcommentlist").append(
+                        "<li class='entry' id='" + body[x].coId + "'>" +
+                        "<div>" +
+                        "<div class='info rmp'><strong class='p_floor'>" + (x + 1) + "楼</strong>" +
+                        "<div class'nmp'>" +
+                        "<span class='nick'>" +
+                        "<a>" + body[x].username + "</a>" +
+                        "</span>" +
+                        "<span class='posandtime'>&nbsp;" + body[x].createTime + "</span>" +
+                        "</div>" +
+                        "</div>" +
+                        "<div class='comm'>" +
+                        "<p>" + body[x].content + "</p>" +
+                        "</div>" +
+                        (body[x].comStatus == "已回复" ? "<ul class='reply' id='" + body[x].coId + "'>" +
+                            "<li class='gh'>" +
+                            "<div>" +
+                            "<div class='re_comm'>" +
+                            "<p>" +
+                            "<span>回复1#" +
+                            "<a>" + body[x].adminname + "</a>：" +
+                            "</span>body[x].replyContent" +
+                            "</p>" +
+                            "</div>" +
+                            "</div>" +
+                            "</li>" +
+                            "</ul>" : "") +
+                        "</div>" +
+                        "</li>"
+                    );
+
+                }
+
+            } else {
+                alert(returnData.body);
+            }
+
+        }
+    });
+
 }
 
 //初始化用户信息
 function initUserInfo() {
-
-    /**
-     * {
-        "creatorTime": "2018-05-21 09:23:47",
-        "defaultDeliverAddress": {
-            "createTime": "2018-05-21 09:23:47",
-            "daId": 56,
-            "default": true,
-            "receiverAddress": "广西壮族自治区桂林市雁山区 世纪花园北区(水芝苑C单元402) 陈宣锦 先生 13347573463",
-            "receiverMobile": "13347573463",
-            "receiverName": "陈宣锦",
-            "receiverTime": "2018年5月22日 周二 10时1分",
-            "updateTime": "2018-05-21 09:23:47",
-            "usId": 56
-        },
-        "mobile": "18477062310",
-        "password": "123456",
-        "sex": "先生",
-        "updateTime": "2018-05-21 09:23:47",
-        "usId": 56,
-        "username": "223"
-       }
-     */
 
     //判断用户是否登录
     if (checkUserLogin()) {
@@ -108,9 +152,18 @@ function initUserInfo() {
             type: "POST",
             dataType: "json",
             success: function (data) {
-                var d = eval(data);
-                $("#commentContent").attr("dsId", d.usId);
-                $("#customerName").html(d.username);
+
+                var returnData = eval(data);
+
+                if (returnData.head) {
+
+                    $("#commentContent").attr("dsId", returnData.body.usId);
+                    $("#customerName").html(returnData.body.username);
+
+                } else {
+                    alert(returnData.body);
+                }
+
             }
         });
 

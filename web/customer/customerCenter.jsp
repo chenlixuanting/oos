@@ -205,7 +205,7 @@
                                     <div class="orderList_option">操作</div>
                                 </li>
                             </ul>
-                            <div id="Pagination_history" class="center redStyle"></div>
+                            <div id="Pagination_history" class=""></div>
                         </div>
 
                         <%--订单详情--%>
@@ -220,16 +220,15 @@
                                 <div class="orderList_detail_status">订单已提交</div>
                                 <div class="orderList_detail_time">预计05-02 21:00送达</div>
                             </div>
-
                                 <div class="query_order_details">
                                 <div class="personal_info">
                                     <p><span class="personal_info_title">个人信息</span></p>
                                     <p><span class="personal_info_span_1">顾客姓名：</span>
-                                        <span class="personal_info_span_2">sd</span></p>
+                                        <span class="personal_info_span_2" id="receiverName"></span></p>
                                     <p><span class="personal_info_span_1">联系电话：</span>
-                                        <span class="personal_info_span_2">18245698745</span></p>
+                                        <span class="personal_info_span_2" id="receiverMobile"></span></p>
                                     <p><span class="personal_info_span_1">送餐地址：</span>
-                                        <span class="personal_info_span_2">W1(上海新国际博览中心)(龙阳路2345号上海新国际博览中心F1层)71</span>
+                                        <span class="personal_info_span_2" id="receiverAddress"></span>
                                     </p>
                                 </div>
                                 <div class="hr_1"></div>

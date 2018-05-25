@@ -40,4 +40,8 @@ public class ServiceFactory {
     public static OrderItemService getOrderItemServiceInstance() {
         return new OrderItemServiceImpl();
     }
+
+    public static CommentService getCommentServiceInstance() {
+        return new CommentServiceImpl();
+    }
 }

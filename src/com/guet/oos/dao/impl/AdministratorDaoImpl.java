@@ -55,7 +55,29 @@ public class AdministratorDaoImpl extends AbstractDAOImpl implements Administrat
 
     @Override
     public Administrator findById(Long id) {
-        return null;
+
+        String sql = "select * from administrator_table where mgId=?";
+
+        Administrator administrator = null;
+
+        try {
+            pstmt = conn.prepareStatement(sql);
+
+            pstmt.setLong(1, id);
+
+            ResultSet res = pstmt.executeQuery();
+
+            List<Administrator> administrators = encapsulationAdministrator(res);
+
+            if (administrators.size() > 0) {
+                administrator = administrators.get(0);
+            }
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return administrator;
     }
 
     @Override

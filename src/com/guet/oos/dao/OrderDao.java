@@ -17,4 +17,6 @@ public interface OrderDao extends IDAO<String, Order> {
 
     public int currentOrderCount(String orderStatus);
 
+    public List<Order> getUserAllHistoryOrder(long usId);
+
 }

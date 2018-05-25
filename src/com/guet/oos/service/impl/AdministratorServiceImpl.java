@@ -65,4 +65,10 @@ public class AdministratorServiceImpl implements AdministratorService {
     public List<Administrator> getList(int start, int length) {
         return administratorDao.getList(start, length);
     }
+
+    @Override
+    public Administrator findById(long mgId) {
+        return administratorDao.findById(mgId);
+    }
+
 }

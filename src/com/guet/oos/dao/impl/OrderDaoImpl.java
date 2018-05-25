@@ -226,6 +226,30 @@ public class OrderDaoImpl extends AbstractDAOImpl implements OrderDao {
         return 0;
     }
 
+    @Override
+    public List<Order> getUserAllHistoryOrder(long usId) {
+
+        String sql = "select * from order_table where orderStatus=? and usId=?";
+
+        List<Order> historyOrder = null;
+
+        try {
+            pstmt.setString(1, OrderStatus.RECEIVED_GOOD);
+            pstmt.setLong(2, usId);
+
+            ResultSet res = pstmt.executeQuery();
+
+            historyOrder = encapsulationOrder(res);
+
+            return historyOrder;
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return null;
+    }
+
     public List<Order> encapsulationOrder(ResultSet res) {
 
         List<Order> orders = new ArrayList<Order>();
