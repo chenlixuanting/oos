@@ -90,7 +90,7 @@ $(function () {
             async: false,
             dataType: "json",
             data: {
-                mealType: "午餐"
+                mealType: "正餐"
             },
             success: function (data) {
 
@@ -240,6 +240,7 @@ $(function () {
                         /**
                          *拉出灰募
                          * */
+                        $("body").append("<div class='ui-widget-overlay' style='width: 1920px; height: 1920px; z-index: 1001;'></div>");
                         $("body").append("<div class='ui-widget-overlay' style='width: 1920px; height: 1920px; z-index: 1001;'></div>");
 
                         /**

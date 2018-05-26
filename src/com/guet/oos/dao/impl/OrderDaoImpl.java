@@ -26,24 +26,27 @@ public class OrderDaoImpl extends AbstractDAOImpl implements OrderDao {
     @Override
     public boolean doCreate(Order vo) {
 
-        String sql = "insert into order_table(orId,usId,daId,totalCost,productAmount," +
-                "deliverCost,productCost,payType,orderStatus,creatorTime,updateTime,receiverTime) values(?,?,?,?,?,?,?,?,?,?,?,?)";
+        String sql = "insert into order_table(orId,usId,totalCost,productAmount," +
+                "deliverCost,productCost,payType,orderStatus,creatorTime,updateTime,receiverTime,receiverAddress,receiverName,receiverSex,receiverMobile) values(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
 
         try {
             pstmt = conn.prepareStatement(sql);
 
             pstmt.setString(1, vo.getOrId());
             pstmt.setLong(2, vo.getUsId());
-            pstmt.setLong(3, vo.getDaId());
-            pstmt.setDouble(4, vo.getTotalCost());
-            pstmt.setLong(5, vo.getProductAmount());
-            pstmt.setDouble(6, vo.getDeliverCost());
-            pstmt.setDouble(7, vo.getProductCost());
-            pstmt.setString(8, vo.getPayType());
-            pstmt.setString(9, vo.getOrderStatus());
-            pstmt.setString(10, vo.getCreatorTime());
-            pstmt.setString(11, vo.getUpdateTime());
-            pstmt.setString(12, vo.getReceiverTime());
+            pstmt.setDouble(3, vo.getTotalCost());
+            pstmt.setLong(4, vo.getProductAmount());
+            pstmt.setDouble(5, vo.getDeliverCost());
+            pstmt.setDouble(6, vo.getProductCost());
+            pstmt.setString(7, vo.getPayType());
+            pstmt.setString(8, vo.getOrderStatus());
+            pstmt.setString(9, vo.getCreatorTime());
+            pstmt.setString(10, vo.getUpdateTime());
+            pstmt.setString(11, vo.getReceiverTime());
+            pstmt.setString(12, vo.getReceiverAddress());
+            pstmt.setString(13, vo.getReceiverName());
+            pstmt.setString(14, vo.getReceiverSex());
+            pstmt.setString(15, vo.getReceiverMobile());
 
             pstmt.execute();
 
@@ -308,7 +311,6 @@ public class OrderDaoImpl extends AbstractDAOImpl implements OrderDao {
                 order.setOrId(res.getString(OrderFields.ORID));
                 order.setUsId(res.getLong(OrderFields.USID));
                 order.setMgId(res.getLong(OrderFields.MGID));
-                order.setDaId(res.getLong(OrderFields.DAID));
 
                 order.setTotalCost(res.getDouble(OrderFields.TOTALCOST));
                 order.setProductAmount(res.getLong(OrderFields.PRODUCTAMOUNT));
@@ -320,7 +322,10 @@ public class OrderDaoImpl extends AbstractDAOImpl implements OrderDao {
                 order.setCreatorTime(res.getString(OrderFields.CREATORTIME));
                 order.setUpdateTime(res.getString(OrderFields.UPDATETIME));
                 order.setReceiverTime(res.getString(OrderFields.RECEIVERTIME));
-
+                order.setReceiverAddress(res.getString(OrderFields.RECEIVERADDRESS));
+                order.setReceiverMobile(res.getString(OrderFields.RECEIVERMOBILE));
+                order.setReceiverName(res.getString(OrderFields.RECEIVERNAME));
+                order.setReceiverSex(res.getString(OrderFields.RECEIVERSEX));
 
                 orders.add(order);
 

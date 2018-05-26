@@ -20,9 +20,13 @@ public class Order implements Serializable {
 
     private long mgId;// 管理员ID
 
-    private long daId;// 收货地址ID
-
     private String receiverAddress;//收货地址
+
+    private String receiverMobile;//收货人电话号码
+
+    private String receiverName;//收货人姓名
+
+    private String receiverSex;//收货人性别
 
     private String receiverTime;//收货时间
 
@@ -44,13 +48,18 @@ public class Order implements Serializable {
 
     private String updateTime;// 更新时间
 
-    public Order(String orId, long usId, String username, long mgId, long daId, String receiverAddress, String receiverTime, double totalCost, long productAmount, double deliverCost, double productCost, String orderStatus, String payType, List<OrderItem> orderItems, String creatorTime, String updateTime) {
+    public Order(String orId, long usId, String username, long mgId, String receiverAddress, String receiverMobile,
+                 String receiverName, String receiverSex, String receiverTime, double totalCost, long productAmount,
+                 double deliverCost, double productCost, String orderStatus, String payType, List<OrderItem> orderItems,
+                 String creatorTime, String updateTime) {
         this.orId = orId;
         this.usId = usId;
         this.username = username;
         this.mgId = mgId;
-        this.daId = daId;
         this.receiverAddress = receiverAddress;
+        this.receiverMobile = receiverMobile;
+        this.receiverName = receiverName;
+        this.receiverSex = receiverSex;
         this.receiverTime = receiverTime;
         this.totalCost = totalCost;
         this.productAmount = productAmount;
@@ -98,20 +107,36 @@ public class Order implements Serializable {
         this.mgId = mgId;
     }
 
-    public long getDaId() {
-        return daId;
-    }
-
-    public void setDaId(long daId) {
-        this.daId = daId;
-    }
-
     public String getReceiverAddress() {
         return receiverAddress;
     }
 
     public void setReceiverAddress(String receiverAddress) {
         this.receiverAddress = receiverAddress;
+    }
+
+    public String getReceiverMobile() {
+        return receiverMobile;
+    }
+
+    public void setReceiverMobile(String receiverMobile) {
+        this.receiverMobile = receiverMobile;
+    }
+
+    public String getReceiverName() {
+        return receiverName;
+    }
+
+    public void setReceiverName(String receiverName) {
+        this.receiverName = receiverName;
+    }
+
+    public String getReceiverSex() {
+        return receiverSex;
+    }
+
+    public void setReceiverSex(String receiverSex) {
+        this.receiverSex = receiverSex;
     }
 
     public String getReceiverTime() {
@@ -201,8 +226,10 @@ public class Order implements Serializable {
                 ", usId=" + usId +
                 ", username='" + username + '\'' +
                 ", mgId=" + mgId +
-                ", daId=" + daId +
                 ", receiverAddress='" + receiverAddress + '\'' +
+                ", receiverMobile='" + receiverMobile + '\'' +
+                ", receiverName='" + receiverName + '\'' +
+                ", receiverSex='" + receiverSex + '\'' +
                 ", receiverTime='" + receiverTime + '\'' +
                 ", totalCost=" + totalCost +
                 ", productAmount=" + productAmount +

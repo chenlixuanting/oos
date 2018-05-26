@@ -64,17 +64,48 @@ public class PayServlet extends HttpServlet {
 
         //手动维护order主键
         order.setOrId(orId);
+
+        //设置当前订单的用户ID
         order.setUsId(user.getUsId());
-        order.setDaId(user.getDefaultDeliverAddress().getDaId());
+
+        //设置当前订单的总费用
         order.setTotalCost(shopCart.getTotalCost());
+
+        //设置当前订单商品的总数量
         order.setProductAmount(shopCart.getProductAmount());
+
+        //设置当前订单的运费
         order.setDeliverCost(shopCart.getDeliverCost());
+
+        //设置当前订单商品的总支出
         order.setProductCost(shopCart.getProductCost());
+
+        //设置当前订单的付款方式
         order.setPayType(shopCart.getPayType());
+
+        //设置当前订单状态
         order.setOrderStatus(OrderStatus.UNCONFIRMEED);
+
+        //设置当前订单的创建时间
         order.setCreatorTime(sf.format(new Date()));
+
+        //设置当前订单的更新时间
         order.setUpdateTime(sf.format(new Date()));
+
+        //设置收货时间
         order.setReceiverTime(deliveryAddress.getReceiverTime());
+
+        //设置收货人姓名
+        order.setReceiverName(deliveryAddress.getReceiverName());
+
+        //设置收货人电话
+        order.setReceiverMobile(deliveryAddress.getReceiverMobile());
+
+        //设置收货人的地址
+        order.setReceiverAddress(deliveryAddress.getReceiverAddress());
+
+        //设置收货人的性别
+        order.setReceiverSex(deliveryAddress.getReceiverSex());
 
         //保存order到数据库中
         orderService.createOrder(order);
@@ -84,6 +115,7 @@ public class PayServlet extends HttpServlet {
 
         //循环赋予orderId的值，并将scId值-1，并保存到数据库
         for (OrderItem oi : orderItems) {
+
             oi.setOrId(orId);
             oi.setScId(ShopCartConstant.PURCHASED);
             orderItemService.createOrderItem(oi);
@@ -101,6 +133,7 @@ public class PayServlet extends HttpServlet {
 
         //销毁Session中shopCart
         ShopCart newShopCart = shopCartService.getShopCartByUserId(user.getUsId());
+
         httpSession.setAttribute(SessionKey.SHOP_CART, newShopCart);
 
         //更改用户标志

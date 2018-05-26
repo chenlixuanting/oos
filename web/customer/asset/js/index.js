@@ -47,7 +47,7 @@ $(function () {
         async: false,
         dataType: "json",
         data: {
-            mealType: "午餐"
+            mealType: "正餐"
         },
         success: function (data) {
 
