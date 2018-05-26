@@ -4,8 +4,11 @@ package com.guet.oos.servlet.administrator.add;
  * Created by Shinelon on 2018/4/30.
  */
 
+import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
 import com.guet.oos.constant.DateTimeFormat;
+import com.guet.oos.constant.ReturnMessage;
+import com.guet.oos.dto.JsonEntityReturn;
 import com.guet.oos.dto.JsonReturn;
 import com.guet.oos.factory.ServiceFactory;
 import com.guet.oos.po.MealType;
@@ -17,6 +20,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.io.Writer;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
@@ -47,28 +51,23 @@ public class AddMealTypeServlet extends HttpServlet {
 
         String addData = request.getParameter("addData");
 
-        JSONObject jsonObject = JSONObject.parseObject(addData);
+        Writer out = response.getWriter();
 
-        MealType mealType = new MealType();
+        JSONObject mealTypeJson = JSONObject.parseObject(addData);
 
-        String mealTypeName = jsonObject.getString("mealTypeName");
-        String startTime = jsonObject.getString("startTime");
-        String endTime = jsonObject.getString("endTime");
-        Long mgId = Long.valueOf(jsonObject.getString("mgId"));
+        MealType mealType = JSONObject.parseObject(mealTypeJson.toJSONString(), MealType.class);
 
-        mealType.setMealTypeName(mealTypeName);
-        mealType.setStartTime(startTime);
-        mealType.setEndTime(endTime);
-        mealType.setMgId(mgId);
+        //MealType{mtId=0, mealTypeName='权威', startTime='13:00', endTime='21:00', mgId=2, createTime='null', updateTime='null'}
+
         mealType.setCreateTime(sf.format(new Date()));
         mealType.setUpdateTime(sf.format(new Date()));
 
         boolean flag = MealTypeService.createMealType(mealType);
 
         if (flag) {
-            response.getWriter().write(JsonReturn.buildFail("餐点创建成功").toString());
+            out.write(JSONObject.toJSONString(JsonEntityReturn.buildSuccess(ReturnMessage.MEALTYPE_ADD_SUCCESS)));
         } else {
-            response.getWriter().write(JsonReturn.buildSuccess("餐点创建失败").toString());
+            out.write(JSONObject.toJSONString(JsonEntityReturn.buildFail(ReturnMessage.MEALTYPE_ADD_FAIL)));
         }
 
     }

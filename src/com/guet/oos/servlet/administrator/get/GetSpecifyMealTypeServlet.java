@@ -1,8 +1,9 @@
-package com.guet.oos.servlet.administrator.query;
+package com.guet.oos.servlet.administrator.get;
 
-import com.alibaba.fastjson.JSON;
+import com.alibaba.fastjson.JSONObject;
+import com.guet.oos.dto.JsonEntityReturn;
 import com.guet.oos.factory.ServiceFactory;
-import com.guet.oos.fields.MealTypeFields;
+import com.guet.oos.po.MealType;
 import com.guet.oos.service.MealTypeService;
 
 import javax.servlet.ServletException;
@@ -11,14 +12,13 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.util.List;
+import java.io.Writer;
 
 /**
- * 请求获取餐点类型名称
- * Created by Shinelon on 2018/5/1.
+ * Created by Shinelon on 2018/5/26.
  */
-@WebServlet("/admin/queryMealType.action")
-public class QueryMealTypeServlet extends HttpServlet {
+@WebServlet("/admin/getSpecifyMealType.action")
+public class GetSpecifyMealTypeServlet extends HttpServlet {
 
     private static final long serialVersionUID = 1L;
 
@@ -27,7 +27,7 @@ public class QueryMealTypeServlet extends HttpServlet {
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public QueryMealTypeServlet() {
+    public GetSpecifyMealTypeServlet() {
         super();
     }
 
@@ -36,11 +36,16 @@ public class QueryMealTypeServlet extends HttpServlet {
      */
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-        List<String> mealTypeList = mealTypeService.getSpecifyColumn(MealTypeFields.MEAL_TYPE_NAME);
+        String mtIdStr = request.getParameter("mtId");
 
-        String mealTypeData = JSON.toJSONString(mealTypeList);
+        Writer out = response.getWriter();
 
-        response.getWriter().write(mealTypeData);
+        long mtId = Long.valueOf(mtIdStr);
+
+        MealType mealType = mealTypeService.getByMtId(mtId);
+
+        out.write(JSONObject.toJSONString(JsonEntityReturn.buildSuccess(mealType)));
+
     }
 
     /**

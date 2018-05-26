@@ -58,10 +58,10 @@
 
                 <a id="addBtn"
                    class="btn btn-success btn-lg pull-left"
-                   style="margin-left: -25px;"> 新 增 </a>
+                   style="margin-left: -25px;" onclick="openAddModel();"> 新 增 </a>
 
                 <a id="deleteBtn" class="btn btn-danger btn-lg pull-left"
-                   style="margin-left: 10px;"> 删 除 </a>
+                   style="margin-left: 10px;" onclick="deleteMealType();"> 删 除 </a>
 
                 <a id="searchBtn"
                    class="btn btn-primary btn-lg pull-right"
@@ -78,7 +78,9 @@
                        class="table table-hover table-striped table-bordered">
                     <thead>
                     <tr>
-                        <th class="span2 sortable"><input style="margin-left: -7px;" type="checkbox"/>全选</th>
+                        <th class="span2 sortable"><input style="margin-left: -7px;" type="checkbox"
+                                                          class="checkboxMain"/>全选
+                        </th>
                         <th class="span2 sortable">餐点名称</th>
                         <th class="span2 sortable">起始时间</th>
                         <th class="span2 sortable">终止时间</th>
@@ -86,7 +88,7 @@
                         <th class="span2 sortable">管理员ID</th>
                         <th class="span2 sortable">创建时间</th>
                         <th class="span2 sortable">更新时间</th>
-                        <th class="span2 sortable">操作</th>
+                        <th class="span2 sortable" style="text-align: center;">操作</th>
                     </tr>
                     </thead>
 
@@ -99,72 +101,141 @@
     </div>
 </div>
 
-<button id="modelBtn" type="button"
+<%--新增餐点模态框--%>
+<button id="addModelBtn" type="button"
         class="btn btn-primary btn-lg pull-left" data-toggle="modal"
-        data-target="#modelBox" style="display: none;"></button>
-<form>
-    <div class="modal fade" id="modelBox" tabindex="-1" role="dialog"
-         aria-labelledby="myModalLabel">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal"
-                            aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                    <h4 class="modal-title primary" id="infoModelTilte"></h4>
-                </div>
-                <div class="modal-body">
-                    <div class="row" style="text-align: center">
-                        <div class="col-lg-12">
+        data-target="#addModel" style="display: none;"></button>
 
-                            <div class="form-group">
-                                <font size="3" style="padding-right: 10px;">餐点名称:</font>
-                                <input type="text"
-                                       class="form-control"
-                                       id="mealTypeName"
-                                       name="mealTypeName"
-                                       placeholder="餐点名称">
-                            </div>
+<div class="modal fade" id="addModel" tabindex="-1" role="dialog"
+     aria-labelledby="myModalLabel" style="display: none;">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"
+                        aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <h4 class="modal-title primary">新增</h4>
+            </div>
+            <div class="modal-body">
+                <div class="row" style="text-align: center">
+                    <div class="col-lg-12">
 
-                            <div class="form-group">
-                                <font size="3" style="padding-right: 10px;">起始时间:</font>
-                                <input type="text"
-                                       class="form-control" id="startTime"
-                                       name="startTime"
-                                       placeholder="起始时间">
-                            </div>
-
-                            <div class="form-group">
-                                <font size="3" style="padding-right: 10px;">终止时间:</font>
-                                <input type="text"
-                                       class="form-control" id="endTime"
-                                       name="endTime"
-                                       placeholder="终止时间">
-                            </div>
-
-                            <div class="form-group">
-                                <font size="3" style="padding-right: 10px;">&nbsp;&nbsp;&nbsp;管理员:</font>
-                                <input type="text"
-                                       class="form-control" id="mgId"
-                                       placeholder="<%=administrator.getUsername()%>"
-                                       name="<%=administrator.getMgId()%>"
-                                       disabled="disabled">
-                            </div>
-
+                        <div class="form-group">
+                            <font size="3" style="padding-right: 10px;">餐点名称:</font>
+                            <input type="text"
+                                   class="form-control"
+                                   id="addMealTypeName"
+                                   placeholder="餐点名称">
                         </div>
+
+                        <div class="form-group">
+                            <font size="3" style="padding-right: 10px;">起始时间:</font>
+                            <input type="text"
+                                   class="form-control" id="addStartTime"
+                                   placeholder="起始时间">
+                        </div>
+
+                        <div class="form-group">
+                            <font size="3" style="padding-right: 10px;">终止时间:</font>
+                            <input type="text"
+                                   class="form-control" id="addEndTime"
+                                   placeholder="终止时间">
+                        </div>
+
+                        <div class="form-group">
+                            <font size="3" style="padding-right: 10px;">&nbsp;&nbsp;&nbsp;管理员:</font>
+                            <input type="text"
+                                   class="form-control" id="addMgId"
+                                   placeholder="<%=administrator.getUsername()%>"
+                                   name="<%=administrator.getMgId()%>"
+                                   disabled="disabled">
+                        </div>
+
                     </div>
                 </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-danger" id="closeModel"
-                            data-dismiss="modal">关闭
-                    </button>
-                    <button type="button" class="btn btn-primary" id="saveChange">保存</button>
-                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-danger"
+                        data-dismiss="modal">关闭
+                </button>
+                <button type="button" class="btn btn-primary" onclick="addMealEvent();">保存</button>
             </div>
         </div>
     </div>
-</form>
+</div>
+
+<%--编辑餐点类型模态框--%>
+<button id="editModelBtn" type="button"
+        class="btn btn-primary btn-lg pull-left" data-toggle="modal"
+        data-target="#editModel" style="display: none;"></button>
+
+<div class="modal fade" id="editModel" tabindex="-1" role="dialog"
+     aria-labelledby="myModalLabel" style="display: none;">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"
+                        aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <h4 class="modal-title primary">编辑</h4>
+            </div>
+            <div class="modal-body">
+                <div class="row" style="text-align: center">
+                    <div class="col-lg-12">
+
+                        <div class="form-group">
+                            <input type="text"
+                                   class="form-control"
+                                   id="mtId"
+                                   placeholder="餐点名称" style="display: none;">
+                        </div>
+
+                        <div class="form-group">
+                            <font size="3" style="padding-right: 10px;">餐点名称:</font>
+                            <input type="text"
+                                   class="form-control"
+                                   id="editMealTypeName"
+                                   placeholder="餐点名称">
+                        </div>
+
+                        <div class="form-group">
+                            <font size="3" style="padding-right: 10px;">起始时间:</font>
+                            <input type="text"
+                                   class="form-control" id="editStartTime"
+                                   placeholder="起始时间">
+                        </div>
+
+                        <div class="form-group">
+                            <font size="3" style="padding-right: 10px;">终止时间:</font>
+                            <input type="text"
+                                   class="form-control" id="editEndTime"
+                                   placeholder="终止时间">
+                        </div>
+
+                        <div class="form-group">
+                            <font size="3" style="padding-right: 10px;">&nbsp;&nbsp;&nbsp;管理员:</font>
+                            <input type="text"
+                                   class="form-control" id="editMgId"
+                                   placeholder="<%=administrator.getUsername()%>"
+                                   name="<%=administrator.getMgId()%>"
+                                   disabled="disabled">
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-danger"
+                        data-dismiss="modal">关闭
+                </button>
+                <button type="button" class="btn btn-primary" onclick="editMealEvent();">保存</button>
+            </div>
+        </div>
+    </div>
+</div>
+
 
 <!-- scripts -->
 <script src="js/jquery-3.3.1.js"></script>

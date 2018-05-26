@@ -22,4 +22,8 @@ public interface CommentService {
     public Comment getById(long coId);
 
     public boolean updateComment(Comment comment);
+
+    public boolean deleteByCoId(long coId);
+
+    public boolean deleteByUsId(long usId);
 }

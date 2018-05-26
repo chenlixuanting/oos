@@ -73,7 +73,7 @@ $(function () {
             targets: 16,//表示是第8列，所以上面第8列没有对应数据列，就是在这里渲染的。
             render: function (obj) {
                 var id = obj.cid;
-                return "<a class='btn btn-success btn-small edit' style='margin-top: 5px;' id=" + id + ">确认订单</a>";
+                return "<a class='btn btn-success btn-small edit' style='margin-top: 5px;' id=" + id + ">确认<br/>订单</a>";
             }
 
         }, {//列渲染，可以添加一些操作等

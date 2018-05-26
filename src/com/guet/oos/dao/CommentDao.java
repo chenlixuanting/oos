@@ -15,4 +15,7 @@ public interface CommentDao extends IDAO<Long, Comment> {
 
     public List<Comment> getListUnansweredComment(int start, int length);
 
+    public boolean deleteByCoId(long coId);
+
+    public boolean deleteByUsId(long usId);
 }

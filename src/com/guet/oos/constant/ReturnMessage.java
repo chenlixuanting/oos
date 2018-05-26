@@ -38,4 +38,20 @@ public class ReturnMessage {
     public static final String REPLY_SUCCESS = "评论回复成功!";
 
     public static final String CREATE_USER_SUCCESS = "创建用户成功!";
+
+    public static final String MEALTYPE_ADD_SUCCESS = "餐点添加成功!";
+
+    public static final String MEALTYPE_ADD_FAIL = "餐点添加失败!";
+
+    public static final String DELETE_USER_SUCCESS = "删除用户成功!";
+
+    public static final String DELETE_USER_FIAL = "删除用户失败!";
+
+    public static final String DELETE_MEAL_TYPE_SUCCESS = "删除餐点类型成功!";
+
+    public static final String DELETE_MEAL_TYPE_FAIL = "删除餐点类型失败!";
+
+    public static final String UPDATE_MEAL_TYPE_SUCCESS = "更新餐点信息成功!";
+
+    public static final String UPDATE_MEAL_TYPE_FAIL = "更新餐点信息失败!";
 }

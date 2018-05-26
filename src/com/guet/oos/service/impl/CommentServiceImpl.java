@@ -49,4 +49,14 @@ public class CommentServiceImpl implements CommentService {
         return commentDao.doUpdate(comment);
     }
 
+    @Override
+    public boolean deleteByCoId(long coId) {
+        return commentDao.deleteByCoId(coId);
+    }
+
+    @Override
+    public boolean deleteByUsId(long usId) {
+        return commentDao.deleteByUsId(usId);
+    }
+
 }

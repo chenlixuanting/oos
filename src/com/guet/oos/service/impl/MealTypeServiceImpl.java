@@ -35,8 +35,23 @@ public class MealTypeServiceImpl implements MealTypeService {
     }
 
     @Override
-    public List<String> getSecifyColumn(String column) {
+    public List<String> getSpecifyColumn(String column) {
         return mealTypeDao.getSpecifyColumn(column);
+    }
+
+    @Override
+    public boolean deleteByMtId(long mtId) {
+        return mealTypeDao.deleteByMtId(mtId);
+    }
+
+    @Override
+    public MealType getByMtId(long mtId) {
+        return mealTypeDao.findById(mtId);
+    }
+
+    @Override
+    public boolean updateMealType(MealType mealType) {
+        return mealTypeDao.updateMealType(mealType);
     }
 
 }

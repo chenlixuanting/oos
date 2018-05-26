@@ -57,6 +57,26 @@ public class MealTypeDaoImpl extends AbstractDAOImpl implements MealTypeDao {
 
     @Override
     public MealType findById(Long id) {
+
+        String sql = "select * from meal_type_table where mtId=?";
+
+        try {
+            pstmt = conn.prepareStatement(sql);
+
+            pstmt.setLong(1, id);
+
+            ResultSet res = pstmt.executeQuery();
+
+            List<MealType> mealTypes = encapsulationMealType(res);
+
+            if (mealTypes.size() > 0) {
+                return mealTypes.get(0);
+            }
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
         return null;
     }
 
@@ -164,6 +184,61 @@ public class MealTypeDaoImpl extends AbstractDAOImpl implements MealTypeDao {
         }
 
         return stringList;
+    }
+
+    @Override
+    public boolean deleteByMtId(long mtId) {
+
+        String sql = "delete from meal_type_table where mtId=?";
+
+        try {
+            pstmt = conn.prepareStatement(sql);
+
+            pstmt.setLong(1, mtId);
+
+            pstmt.execute();
+
+            return true;
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return false;
+    }
+
+    @Override
+    public boolean updateMealType(MealType mealType) {
+
+        /**
+         private long mtId;//餐点类型ID
+         private long mgId;//管理员ID
+         private String mealTypeName;
+         private String startTime;
+         private String endTime;
+         private String createTime;
+         private String updateTime;
+         *
+         */
+
+        String sql = "update meal_type_table set mealTypename=?,startTime=?,endTime=?,updateTime=? where mtId=?";
+
+        try {
+            pstmt = conn.prepareStatement(sql);
+
+            pstmt.setString(1, mealType.getMealTypeName());
+            pstmt.setString(2, mealType.getStartTime());
+            pstmt.setString(3, mealType.getEndTime());
+            pstmt.setString(4, mealType.getUpdateTime());
+            pstmt.setLong(5, mealType.getMtId());
+
+            pstmt.executeUpdate();
+
+            return true;
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return false;
     }
 
     /**

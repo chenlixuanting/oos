@@ -91,7 +91,7 @@
         data-target="#addModel" style="display: none;"></button>
 
 <div class="modal fade" id="addModel" tabindex="-1" role="dialog"
-     aria-labelledby="myModalLabel" style="width: 800px !important; left: 40% !important;">
+     aria-labelledby="myModalLabel" style="width: 800px !important; left: 40% !important; display:none;">
     <div class="modal-dialog" role="document">
 
         <div class="modal-content">
@@ -211,7 +211,7 @@
         data-target="#checkModel" style="display: none;"></button>
 
 <div class="modal fade" id="checkModel" tabindex="-1" role="dialog"
-     aria-labelledby="myModalLabel" style="width: 800px !important; left: 40% !important;">
+     aria-labelledby="myModalLabel" style="width: 800px !important; left: 40% !important;display: none;">
     <div class="modal-dialog" role="document">
 
         <form action="./addDishes.action" method="post" enctype="multipart/form-data" style="margin-bottom: 0px;">
@@ -221,7 +221,7 @@
                             aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
-                    <h4 class="modal-title primary" id="checkModelTitle"></h4>
+                    <h4 class="modal-title primary" id="checkModelTitle">查看</h4>
                 </div>
                 <div class="modal-body" style="max-height: none;">
                     <div class="row" style="text-align: center">
@@ -247,47 +247,47 @@
 </div>
 
 <%--编辑模态框--%>
-<button id="editModelBtn" type="button"
-        class="btn btn-primary btn-lg pull-left" data-toggle="modal"
-        data-target="#editModel" style="display: none;"></button>
+<%--<button id="editModelBtn" type="button"--%>
+<%--class="btn btn-primary btn-lg pull-left" data-toggle="modal"--%>
+<%--data-target="#editModel" style="display: none;"></button>--%>
 
-<div class="modal fade" id="editModel" tabindex="-1" role="dialog"
-     aria-labelledby="myModalLabel" style="width: 800px !important; left: 40% !important;">
-    <div class="modal-dialog" role="document">
+<%--<div class="modal fade" id="editModel" tabindex="-1" role="dialog"--%>
+<%--aria-labelledby="myModalLabel" style="width: 800px !important; left: 40% !important;">--%>
+<%--<div class="modal-dialog" role="document">--%>
 
-        <form action="./addDishes.action" method="post" enctype="multipart/form-data" style="margin-bottom: 0px;">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal"
-                            aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                    <h4 class="modal-title primary" id="editModelTitle"></h4>
-                </div>
-                <div class="modal-body" style="max-height: none;">
-                    <div class="row" style="text-align: center">
-                        <div class="col-lg-12">
+<%--<form action="./addDishes.action" method="post" enctype="multipart/form-data" style="margin-bottom: 0px;">--%>
+<%--<div class="modal-content">--%>
+<%--<div class="modal-header">--%>
+<%--<button type="button" class="close" data-dismiss="modal"--%>
+<%--aria-label="Close">--%>
+<%--<span aria-hidden="true">&times;</span>--%>
+<%--</button>--%>
+<%--<h4 class="modal-title primary" id="editModelTitle"></h4>--%>
+<%--</div>--%>
+<%--<div class="modal-body" style="max-height: none;">--%>
+<%--<div class="row" style="text-align: center">--%>
+<%--<div class="col-lg-12">--%>
 
-                            <div class="form-group">
-                                <font size="3" style="padding-right: 10px;">菜品名称:</font>
-                                <input type="text"
-                                       class="form-control"
-                                       placeholder="菜品名称" name="dishesName" id="dishesName"
-                                       style="width: 600px !important;">
-                            </div>
+<%--<div class="form-group">--%>
+<%--<font size="3" style="padding-right: 10px;">菜品名称:</font>--%>
+<%--<input type="text"--%>
+<%--class="form-control"--%>
+<%--placeholder="菜品名称" name="dishesName" id="dishesName"--%>
+<%--style="width: 600px !important;">--%>
+<%--</div>--%>
 
-                        </div>
-                    </div>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-danger" id="editCloseModel" data-dismiss="modal">关闭
-                    </button>
-                    <button type="submit" class="btn btn-primary" id="editSaveModel">保存</button>
-                </div>
-            </div>
-        </form>
-    </div>
-</div>
+<%--</div>--%>
+<%--</div>--%>
+<%--</div>--%>
+<%--<div class="modal-footer">--%>
+<%--<button type="button" class="btn btn-danger" id="editCloseModel" data-dismiss="modal">关闭--%>
+<%--</button>--%>
+<%--<button type="submit" class="btn btn-primary" id="editSaveModel">保存</button>--%>
+<%--</div>--%>
+<%--</div>--%>
+<%--</form>--%>
+<%--</div>--%>
+<%--</div>--%>
 
 <!-- scripts -->
 <script src="js/jquery-3.3.1.js"></script>

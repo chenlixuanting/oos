@@ -247,4 +247,47 @@ public class CommentDaoImpl extends AbstractDAOImpl implements CommentDao {
         return comments;
     }
 
+    @Override
+    public boolean deleteByCoId(long coId) {
+
+        String sql = "delete from comment_table where coId=?";
+
+        try {
+
+            pstmt = conn.prepareStatement(sql);
+
+            pstmt.setLong(1, coId);
+
+            pstmt.execute();
+
+            return true;
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return false;
+    }
+
+    @Override
+    public boolean deleteByUsId(long usId) {
+
+        String sql = "delete from comment_table where usId=?";
+
+        try {
+            pstmt = conn.prepareStatement(sql);
+
+            pstmt.setLong(1, usId);
+
+            pstmt.execute();
+
+            return true;
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return false;
+    }
+
 }

@@ -2,6 +2,7 @@ package com.guet.oos.servlet.administrator.delete;
 
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
+import com.guet.oos.constant.ReturnMessage;
 import com.guet.oos.dto.JsonEntityReturn;
 import com.guet.oos.factory.ServiceFactory;
 import com.guet.oos.po.DeliveryAddress;
@@ -36,6 +37,8 @@ public class DeleteUserServlet extends HttpServlet {
 
     private OrderItemService orderItemService = ServiceFactory.getOrderItemServiceInstance();
 
+    private CommentService commentService = ServiceFactory.getCommentServiceInstance();
+
     /**
      * @see HttpServlet#HttpServlet()
      */
@@ -48,7 +51,7 @@ public class DeleteUserServlet extends HttpServlet {
      */
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-        String idStr = request.getParameter("usersId");
+        String idStr = request.getParameter("usIds");
 
         List<Long> usIdList = JSON.parseArray(idStr, Long.class);
 
@@ -73,11 +76,13 @@ public class DeleteUserServlet extends HttpServlet {
                 orderService.deleteByOrId(order.getOrId());
             }
 
+            //删除该用户的所有评论
+            commentService.deleteByUsId(usId);
         }
 
         Writer out = response.getWriter();
 
-        out.write(JSONObject.toJSONString(JsonEntityReturn.buildSuccessEmptyContent()));
+        out.write(JSONObject.toJSONString(JsonEntityReturn.buildSuccess(ReturnMessage.DELETE_USER_SUCCESS)));
 
     }
 

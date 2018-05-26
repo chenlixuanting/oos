@@ -1,8 +1,11 @@
-package com.guet.oos.servlet.administrator.query;
+package com.guet.oos.servlet.administrator.delete;
 
 import com.alibaba.fastjson.JSON;
+import com.alibaba.fastjson.JSONArray;
+import com.alibaba.fastjson.JSONObject;
+import com.guet.oos.constant.ReturnMessage;
+import com.guet.oos.dto.JsonEntityReturn;
 import com.guet.oos.factory.ServiceFactory;
-import com.guet.oos.fields.MealTypeFields;
 import com.guet.oos.service.MealTypeService;
 
 import javax.servlet.ServletException;
@@ -11,14 +14,14 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.io.Writer;
 import java.util.List;
 
 /**
- * 请求获取餐点类型名称
- * Created by Shinelon on 2018/5/1.
+ * Created by Shinelon on 2018/5/26.
  */
-@WebServlet("/admin/queryMealType.action")
-public class QueryMealTypeServlet extends HttpServlet {
+@WebServlet("/admin/deleteMealType.action")
+public class DeleteMealTypeServlet extends HttpServlet {
 
     private static final long serialVersionUID = 1L;
 
@@ -27,7 +30,7 @@ public class QueryMealTypeServlet extends HttpServlet {
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public QueryMealTypeServlet() {
+    public DeleteMealTypeServlet() {
         super();
     }
 
@@ -36,11 +39,19 @@ public class QueryMealTypeServlet extends HttpServlet {
      */
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-        List<String> mealTypeList = mealTypeService.getSpecifyColumn(MealTypeFields.MEAL_TYPE_NAME);
+        String mtIds = request.getParameter("mtIds");
 
-        String mealTypeData = JSON.toJSONString(mealTypeList);
+        List<Long> mtIdList = JSON.parseArray(mtIds, Long.class);
 
-        response.getWriter().write(mealTypeData);
+        Writer out = response.getWriter();
+
+        for (long mtId : mtIdList) {
+            //删除餐点
+            mealTypeService.deleteByMtId(mtId);
+        }
+
+        out.write(JSONObject.toJSONString(JsonEntityReturn.buildSuccess(ReturnMessage.DELETE_MEAL_TYPE_SUCCESS)));
+
     }
 
     /**

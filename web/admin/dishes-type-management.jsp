@@ -87,7 +87,7 @@
 
                         <th class="span2 sortable">创建时间</th>
                         <th class="span2 sortable">更新时间</th>
-                        <th class="span2 sortable">操作</th>
+                        <th class="span2 sortable" style="text-align: center;">操作</th>
                     </tr>
                     </thead>
 
@@ -172,6 +172,6 @@
 <script src="js/theme.js"></script>
 <script src="js/jquery.dataTables.min.js" type="text/javascript"></script>
 <script src="js/dataTables.bootstrap.min.js" type="text/javascript"></script>
-<script type="text/javascript" src="js/dishes-type-management.js"></script>
+<script type="text/javascript" src="asset/js/dishes-type-management.js"></script>
 </body>
 </html>

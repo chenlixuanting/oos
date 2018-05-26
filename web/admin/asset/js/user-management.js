@@ -45,13 +45,12 @@ $(function () {
         columnDefs: [{//列渲染，可以添加一些操作等
             targets: 8,//表示是第8列，所以上面第8列没有对应数据列，就是在这里渲染的。
             render: function (obj) {
-                return "<a class='btn btn-primary btn-lg edit' id=" + obj.usId + ">查看</a>" + "<a class='btn btn-danger btn-lg edit' style='margin-left: 10px;' id=" + obj.usId + ">编辑</a>";
+                return "<a class='btn btn-primary btn-lg edit' onclick='openCheckModel();' seId='" + obj.usId + "'>查看</a>" + "<a class='btn btn-danger btn-lg edit' style='margin-left: 10px;' edId='" + obj.usId + "'>编辑</a>";
             }
-
         }, {//列渲染，可以添加一些操作等
             targets: 0,//表示是第8列，所以上面第8列没有对应数据列，就是在这里渲染的。
             render: function (obj) {
-                return "<input type='checkbox' class='checkbox' id=" + obj.usId + "></input>";
+                return "<input type='checkbox' class='checkbox' chId='" + obj.usId + "'/>";
             }
         }],
         pagingType: "full_numbers"//分页样式的类型
@@ -120,14 +119,14 @@ function deleteUser() {
 
         var checkBox = $("input[class='checkbox']");
 
-        var id = new Array();
+        var chId = new Array();
 
         for (var x = 0; x < checkBox.length; x++) {
             if ($(checkBox[x]).is(":checked"))
-                id.unshift(($(checkBox[x]).attr("id")));
+                chId.unshift(($(checkBox[x]).attr("chId")));
         }
 
-        if (id.length == 0) {
+        if (chId.length == 0) {
             alert("你还没有选择要删除的元素");
             return;
         }
@@ -137,16 +136,18 @@ function deleteUser() {
             type: "POST",
             dataType: "json",
             data: {
-                usersId: JSON.stringify(id)
+                usIds: JSON.stringify(chId)
             },
             success: function (data) {
 
                 var returnData = eval(data);
 
+                alert(returnData.body);
+
                 if (returnData.head) {
 
-                    for (var y = 0; y < id.length; y++) {
-                        table.api().row($("#" + id[y])).remove().draw();
+                    for (var y = 0; y < chId.length; y++) {
+                        table.api().draw();
                     }
 
                 } else {
@@ -237,32 +238,6 @@ function resetCheckModel() {
  */
 function encapsulAddUser() {
 
-    /**
-     private long usId;// 用户Id
-     private String mobile;// 手机号码
-     private String password;// 密码
-     private String username;// 用户真实姓名
-     private String sex;// 性别
-     private DeliveryAddress defaultDeliverAddress;//默认送货地址
-     private String deliverAddress;//默认送货地址
-     private String creatorTime;// 创建时间
-     private String updateTime;// 修改时间
-     * @type {{}}
-     */
-
-    /**
-     private long daId;// 收货地址ID
-     private long usId;//用户ID
-     private String receiverName;// 收货人姓名
-     private String receiverMobile;// 收货人电话
-     private String receiverAddress;// 收货人地址
-     private String receiverTime;//收货时间
-     private boolean isDefault;//是否为默认地址
-     private String createTime;// 创建时间
-     private String updateTime;// 更新时间
-     * @type {{username: (*), mobile: (*), password: (*), sex: (*)}}
-     */
-
     var user = {
         username: $("#addUsername").val(),
         mobile: $("#addUserMobile").val(),
@@ -303,7 +278,7 @@ function sendAddUserRequest(user) {
             alert(returnData.body);
 
             if (returnData.head) {
-                location.reload();
+                table.api().draw();
                 closeAddModel();
             } else {
 

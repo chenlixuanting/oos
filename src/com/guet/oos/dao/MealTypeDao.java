@@ -13,4 +13,8 @@ public interface MealTypeDao extends IDAO<Long, MealType> {
 
     public List<String> getSpecifyColumn(String column);
 
+    public boolean deleteByMtId(long mtId);
+
+    public boolean updateMealType(MealType mealType);
+
 }

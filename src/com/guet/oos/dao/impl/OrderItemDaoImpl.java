@@ -118,7 +118,7 @@ public class OrderItemDaoImpl extends AbstractDAOImpl implements OrderItemDao {
     @Override
     public boolean deleteByOrId(String orId) {
 
-        String sql = "delete form order_item_table where orId=?";
+        String sql = "delete from order_item_table where orId=?";
 
         try {
             pstmt = conn.prepareStatement(sql);

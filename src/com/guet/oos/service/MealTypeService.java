@@ -17,6 +17,12 @@ public interface MealTypeService {
 
     public List<MealType> getList(int start, int length);
 
-    public List<String> getSecifyColumn(String column);
+    public List<String> getSpecifyColumn(String column);
+
+    public boolean deleteByMtId(long mtId);
+
+    public MealType getByMtId(long mtId);
+
+    public boolean updateMealType(MealType mealType);
 
 }
