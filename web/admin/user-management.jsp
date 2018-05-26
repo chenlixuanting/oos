@@ -107,7 +107,7 @@
                     <div class="col-lg-12">
 
                         <div class="form-group">
-                            <font size="3" style="padding-right: 10px;margin-left: -650px; color: red;">基础信息(必填):</font>
+                            <font size="3" style="padding-right: 10px;margin-left: -640px; color: red;">基础信息(必填):</font>
                         </div>
 
                         <div class="form-group">
@@ -148,7 +148,7 @@
                         </div>
 
                         <div class="form-group">
-                            <font size="3" style="padding-right: 10px;margin-left: -650px; color: red;">详细信息(必填):</font>
+                            <font size="3" style="padding-right: 10px;margin-left: -640px; color: red;">详细信息(必填):</font>
                         </div>
 
                         <div class="form-group">

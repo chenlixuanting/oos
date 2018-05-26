@@ -107,6 +107,9 @@ public class PayServlet extends HttpServlet {
         //设置收货人的性别
         order.setReceiverSex(deliveryAddress.getReceiverSex());
 
+        //设置用户姓名
+        order.setUsername(user.getUsername());
+
         //保存order到数据库中
         orderService.createOrder(order);
 

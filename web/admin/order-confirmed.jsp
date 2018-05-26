@@ -71,6 +71,24 @@
 
             </div>
 
+            <%--
+                {data: "orId"},
+                {data: "username"},
+                {data: "receiverName"},
+                {data: "receiverSex"},
+                {data: "receiverMobile"},
+                {data: "receiverAddress"},
+                {data: "receiverTime"},
+                {data: "totalCost"},
+                {data: "productAmount"},
+                {data: "deliverCost"},
+                {data: "productCost"},
+                {data: "orderStatus"},
+                {data: "payType"},
+                {data: "creatorTime"},
+                {data: "updateTime"},
+            --%>
+
             <div class="row-fluid table">
                 <table id="dataTable" class="table table-hover table-striped table-bordered dataTable">
                     <thead>
@@ -78,11 +96,15 @@
                         <th class="span2 sortable"><input style="margin-left: -7px;" type="checkbox"/>全选</th>
                         <th class="span2 sortable">订单号</th>
                         <th class="span2 sortable">用户名</th>
-                        <th class="span2 sortable">收获地址</th>
+                        <th class="span2 sortable">收货人姓名</th>
+                        <th class="span2 sortable">收货人性别</th>
+                        <th class="span2 sortable">收货人电话</th>
+                        <th class="span2 sortable">收货地址</th>
+                        <th class="span2 sortable">收货时间</th>
                         <th class="span2 sortable">总金额</th>
                         <th class="span2 sortable">商品数量</th>
                         <th class="span2 sortable">配送费用</th>
-                        <th class="span4 sortable">商品开销</th>
+                        <th class="span2 sortable">商品开销</th>
                         <th class="span2 sortable">订单状态</th>
                         <th class="span2 sortable">付款方式</th>
                         <th class="span2 sortable">创建时间</th>

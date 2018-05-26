@@ -52,8 +52,11 @@ public class PagesCurrentOrderServlet extends HttpServlet {
          private long usId;// 用户ID
          private String username;//用户名
          private long mgId;// 管理员ID
-         private long daId;// 收货地址ID
          private String receiverAddress;//收货地址
+         private String receiverMobile;//收货人电话号码
+         private String receiverName;//收货人姓名
+         private String receiverSex;//收货人性别
+         private String receiverTime;//收货时间
          private double totalCost;// 总支出金额
          private long productAmount;// 商品数量
          private double deliverCost;// 配送费用

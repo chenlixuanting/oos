@@ -55,7 +55,11 @@ $(function () {
             {data: null},
             {data: "orId"},
             {data: "username"},
+            {data: "receiverName"},
+            {data: "receiverSex"},
+            {data: "receiverMobile"},
             {data: "receiverAddress"},
+            {data: "receiverTime"},
             {data: "totalCost"},
             {data: "productAmount"},
             {data: "deliverCost"},
@@ -66,12 +70,10 @@ $(function () {
             {data: "updateTime"},
             {data: null}],
         columnDefs: [{//列渲染，可以添加一些操作等
-            targets: 12,//表示是第8列，所以上面第8列没有对应数据列，就是在这里渲染的。
+            targets: 16,//表示是第8列，所以上面第8列没有对应数据列，就是在这里渲染的。
             render: function (obj) {
                 var id = obj.cid;
-                return "<a class='btn btn-primary btn-small edit' id=" + id + ">" +
-                    "&nbsp;&nbsp;&nbsp;&nbsp;编辑&nbsp;&nbsp;&nbsp;&nbsp;</a>" +
-                    "<a class='btn btn-danger btn-small edit' style='margin-top: 5px;' id=" + id + ">确认订单</a>";
+                return "<a class='btn btn-success btn-small edit' style='margin-top: 5px;' id=" + id + ">确认订单</a>";
             }
 
         }, {//列渲染，可以添加一些操作等

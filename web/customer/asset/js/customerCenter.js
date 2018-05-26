@@ -701,14 +701,6 @@ function orderDetail(obj) {
 
                 var address = eval(returnData.body.defaultDeliverAddress);
 
-                //设置客户姓名
-                $("#receiverName").html(address.receiverName);
-
-                //设置客户电话
-                $("#receiverMobile").html(address.receiverMobile);
-
-                //设置送餐地址
-                $("#receiverAddress").html(address.receiverAddress);
 
             } else {
                 alert(returnData.body);
@@ -718,6 +710,76 @@ function orderDetail(obj) {
 
     //设置导航条高度
     $(".user_menu").height(490);
+
+    /**
+     * {
+        "body": {
+            "creatorTime": "2018-05-26 11:05:07",
+            "deliverCost": 18,
+            "mgId": 0,
+            "orId": "74484d74-a770-4182-a54b-6f6ed4cfc4a5",
+            "orderItems": [{
+                "creatorTime": "2018-05-26 11:05:01",
+                "dishesName": "咸蛋黄肉粽礼盒装",
+                "dsId": 47,
+                "oiId": 1,
+                "orId": "74484d74-a770-4182-a54b-6f6ed4cfc4a5",
+                "price": 39,
+                "productCost": 39,
+                "quantity": 1,
+                "scId": -1,
+                "updateTime": "2018-05-26 11:05:01"
+            }, {
+                "creatorTime": "2018-05-26 11:05:01",
+                "dishesName": "川府肉酱波纹大薯",
+                "dsId": 48,
+                "oiId": 2,
+                "orId": "74484d74-a770-4182-a54b-6f6ed4cfc4a5",
+                "price": 14,
+                "productCost": 14,
+                "quantity": 1,
+                "scId": -1,
+                "updateTime": "2018-05-26 11:05:01"
+            }, {
+                "creatorTime": "2018-05-26 11:05:01",
+                "dishesName": "外送一桶过瘾套餐",
+                "dsId": 49,
+                "oiId": 3,
+                "orId": "74484d74-a770-4182-a54b-6f6ed4cfc4a5",
+                "price": 79,
+                "productCost": 79,
+                "quantity": 1,
+                "scId": -1,
+                "updateTime": "2018-05-26 11:05:01"
+            }, {
+                "creatorTime": "2018-05-26 11:05:02",
+                "dishesName": "油泼辣子鸡辣堡餐S",
+                "dsId": 52,
+                "oiId": 4,
+                "orId": "74484d74-a770-4182-a54b-6f6ed4cfc4a5",
+                "price": 25,
+                "productCost": 50,
+                "quantity": 2,
+                "scId": -1,
+                "updateTime": "2018-05-26 11:05:02"
+            }],
+            "orderStatus": "商家未接单",
+            "payType": "货到付款",
+            "productAmount": 5,
+            "productCost": 182,
+            "receiverAddress": "广西壮族自治区南宁市江南区 虚空遁地兽(哇哈哈专卖店)",
+            "receiverMobile": "13347573463",
+            "receiverName": "哇哈哈没有钙",
+            "receiverSex": "女士",
+            "receiverTime": "2018年5月26日 周六 11时00分",
+            "totalCost": 200,
+            "updateTime": "2018-05-26 11:05:07",
+            "usId": 1
+        },
+        "head": true
+       }
+     */
+
 
     //餐品详情
     $.ajax({
@@ -734,6 +796,15 @@ function orderDetail(obj) {
             if (d.head) {
 
                 var body = eval(d.body);
+
+                //设置客户姓名
+                $("#receiverName").html(body.receiverName);
+
+                //设置客户电话
+                $("#receiverMobile").html(body.receiverMobile);
+
+                //设置送餐地址
+                $("#receiverAddress").html(body.receiverAddress);
 
                 //设置订单状态
                 $(".orderList_detail_status").html(body.orderStatus);

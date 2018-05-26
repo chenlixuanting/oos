@@ -27,7 +27,7 @@ public class OrderDaoImpl extends AbstractDAOImpl implements OrderDao {
     public boolean doCreate(Order vo) {
 
         String sql = "insert into order_table(orId,usId,totalCost,productAmount," +
-                "deliverCost,productCost,payType,orderStatus,creatorTime,updateTime,receiverTime,receiverAddress,receiverName,receiverSex,receiverMobile) values(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+                "deliverCost,productCost,payType,orderStatus,creatorTime,updateTime,receiverTime,receiverAddress,receiverName,receiverSex,receiverMobile,username) values(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
 
         try {
             pstmt = conn.prepareStatement(sql);
@@ -47,6 +47,7 @@ public class OrderDaoImpl extends AbstractDAOImpl implements OrderDao {
             pstmt.setString(13, vo.getReceiverName());
             pstmt.setString(14, vo.getReceiverSex());
             pstmt.setString(15, vo.getReceiverMobile());
+            pstmt.setString(16, vo.getUsername());
 
             pstmt.execute();
 
@@ -326,6 +327,7 @@ public class OrderDaoImpl extends AbstractDAOImpl implements OrderDao {
                 order.setReceiverMobile(res.getString(OrderFields.RECEIVERMOBILE));
                 order.setReceiverName(res.getString(OrderFields.RECEIVERNAME));
                 order.setReceiverSex(res.getString(OrderFields.RECEIVERSEX));
+                order.setUsername(res.getString(OrderFields.USERNAME));
 
                 orders.add(order);
 

@@ -13,6 +13,7 @@ public class OrderFields {
     public static final String PRODUCTAMOUNT = "productAmount";
     public static final String DELIVERCOST = "deliverCost";
     public static final String PRODUCTCOST = "productCost";
+    public static final String USERNAME = "username";
 
     public static final String ORDERSTATUS = "orderStatus";
     public static final String PAYTYPE = "payType";
