@@ -1,5 +1,6 @@
 package com.guet.oos.test;
 
+import com.guet.oos.constant.AdminStatus;
 import com.guet.oos.constant.DateTimeFormat;
 import com.guet.oos.factory.ServiceFactory;
 import com.guet.oos.po.Administrator;
@@ -50,10 +51,11 @@ public class TestInstance {
 
         Administrator administrator = new Administrator();
 
-        administrator.setUsername("admin");
+        administrator.setUsername("root");
         administrator.setUpdateTime(sf.format(new Date()));
-        administrator.setPassword("admin");
+        administrator.setPassword("root");
         administrator.setMaximumAuthority(true);
+        administrator.setAdminStatus(AdminStatus.ENABLE);
         administrator.setCreatorTime(sf.format(new Date()));
         administrator.setCreator("system");
 

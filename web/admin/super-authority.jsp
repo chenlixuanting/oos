@@ -74,7 +74,8 @@
                         <th class="span2 sortable"><input style="margin-left: -7px;" type="checkbox"/>全选</th>
                         <th class="span2 sortable">账号</th>
                         <th class="span2 sortable">密码</th>
-                        <th class="span4 sortable">最高权限</th>
+                        <th class="span2 sortable">最高权限</th>
+                        <th class="span2 sortable">状态</th>
                         <th class="span2 sortable">创建者</th>
                         <th class="span2 sortable">创建时间</th>
                         <th class="span2 sortable">更新时间</th>
@@ -86,75 +87,6 @@
                     </tbody>
 
                 </table>
-            </div>
-        </div>
-    </div>
-</div>
-
-<button id="infoBtn" type="button"
-        class="btn btn-primary btn-lg pull-left" data-toggle="modal"
-        data-target="#infoModel" style="display: none;"></button>
-
-<div class="modal fade" id="infoModel" tabindex="-1" role="dialog"
-     aria-labelledby="myModalLabel">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal"
-                        aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-                <h4 class="modal-title" id="infoModelTilte"></h4>
-            </div>
-            <div class="modal-body">
-                <div class="row" style="text-align: center">
-                    <div class="col-lg-12">
-
-                        <div class="form-group">
-                            <label for="cid">CID</label> <input type="text"
-                                                                class="form-control" id="cid" placeholder="序号">
-                        </div>
-
-                        <div class="form-group">
-                            <label for="customername">投保人姓名</label> <input type="text"
-                                                                           class="form-control" id="customername"
-                                                                           placeholder="投保人姓名">
-                        </div>
-
-                        <div class="form-group">
-                            <label for="sex">性别</label> <input type="text"
-                                                               class="form-control" id="sex" placeholder="性别">
-                        </div>
-
-                        <div class="form-group">
-                            <label for="mobile">电话号码</label> <input type="text"
-                                                                    class="form-control" id="mobile" placeholder="电话号码">
-                        </div>
-
-                        <div class="form-group">
-                            <label for="polName">险种</label> <input type="text"
-                                                                   class="form-control" id="polName" placeholder="险种">
-                        </div>
-
-                        <div class="form-group">
-                            <label for="clerkId">业务员</label> <input type="text"
-                                                                    class="form-control" id="clerkId" placeholder="业务员">
-                        </div>
-
-                        <div class="form-group">
-                            <label for="purchaseTime">购买时间</label> <input type="text"
-                                                                          class="form-control" id="purchaseTime"
-                                                                          placeholder="购买时间">
-                        </div>
-
-                    </div>
-                </div>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-danger" id="closeModel"
-                        data-dismiss="modal">关闭
-                </button>
-                <button type="button" class="btn btn-primary" id="saveChange">保存</button>
             </div>
         </div>
     </div>

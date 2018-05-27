@@ -24,7 +24,7 @@ public class AdministratorDaoImpl extends AbstractDAOImpl implements Administrat
     @Override
     public boolean doCreate(Administrator vo) {
 
-        String sql = "insert into administrator_table(username,password,maximumAuthority,creator,creatorTime,updateTime) values(?,?,?,?,?,?)";
+        String sql = "insert into administrator_table(username,password,maximumAuthority,creator,creatorTime,updateTime,adminStatus) values(?,?,?,?,?,?,?)";
 
         try {
             super.pstmt = super.conn.prepareStatement(sql);
@@ -34,6 +34,9 @@ public class AdministratorDaoImpl extends AbstractDAOImpl implements Administrat
             super.pstmt.setString(4, vo.getCreator());
             super.pstmt.setString(5, vo.getCreatorTime());
             super.pstmt.setString(6, vo.getUpdateTime());
+
+            pstmt.setString(7, vo.getAdminStatus());
+
             pstmt.execute();
         } catch (Exception e) {
             e.printStackTrace();
@@ -148,6 +151,7 @@ public class AdministratorDaoImpl extends AbstractDAOImpl implements Administrat
                 a.setPassword(res.getString(AdministratorFields.PASSWORD));
                 a.setUpdateTime(res.getString(AdministratorFields.UPDATETIME));
                 a.setUsername(res.getString(AdministratorFields.USERNAME));
+                a.setAdminStatus(res.getString(AdministratorFields.ADMIN_STATUS));
                 admins.add(a);
             }
 
@@ -215,6 +219,7 @@ public class AdministratorDaoImpl extends AbstractDAOImpl implements Administrat
         List<Administrator> administrators = new ArrayList<Administrator>();
 
         try {
+
             while (res.next()) {
                 Administrator administrator = new Administrator();
                 administrator.setMgId(res.getLong(AdministratorFields.MGID));
@@ -224,6 +229,7 @@ public class AdministratorDaoImpl extends AbstractDAOImpl implements Administrat
                 administrator.setCreator(res.getString(AdministratorFields.CREATOR));
                 administrator.setCreatorTime(res.getString(AdministratorFields.CREATORTIME));
                 administrator.setUpdateTime(res.getString(AdministratorFields.UPDATETIME));
+                administrator.setAdminStatus(res.getString(AdministratorFields.ADMIN_STATUS));
                 administrators.add(administrator);
             }
 

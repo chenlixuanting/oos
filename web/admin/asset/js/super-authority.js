@@ -98,12 +98,13 @@ $(function () {
             {data: "username"},
             {data: "password"},
             {data: "maximumAuthority"},
+            {data: "adminStatus"},
             {data: "creator"},
             {data: "creatorTime"},
             {data: "updateTime"},
             {data: null}],
         columnDefs: [{//列渲染，可以添加一些操作等
-            targets: 7,//表示是第8列，所以上面第8列没有对应数据列，就是在这里渲染的。
+            targets: 8,//表示是第8列，所以上面第8列没有对应数据列，就是在这里渲染的。
             render: function (obj) {
                 var id = obj.cid;
                 return "<a class='btn btn-primary btn-lg edit' style='margin-left: 50px;' id=" + id + ">编辑</a>";

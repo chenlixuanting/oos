@@ -220,7 +220,7 @@ public class MealTypeDaoImpl extends AbstractDAOImpl implements MealTypeDao {
          *
          */
 
-        String sql = "update meal_type_table set mealTypename=?,startTime=?,endTime=?,updateTime=? where mtId=?";
+        String sql = "update meal_type_table set mealTypename=?,startTime=?,endTime=?,updateTime=?,mgId=? where mtId=?";
 
         try {
             pstmt = conn.prepareStatement(sql);
@@ -230,6 +230,7 @@ public class MealTypeDaoImpl extends AbstractDAOImpl implements MealTypeDao {
             pstmt.setString(3, mealType.getEndTime());
             pstmt.setString(4, mealType.getUpdateTime());
             pstmt.setLong(5, mealType.getMtId());
+            pstmt.setLong(6, mealType.getMgId());
 
             pstmt.executeUpdate();
 

@@ -49,4 +49,19 @@ public class DishesTypeServiceImpl implements DishesTypeService {
         return dishesTypeDao.getSpecifyColumnSpecifyValue(col1, col2, value);
     }
 
+    @Override
+    public boolean deleteByDtId(long dtId) {
+        return dishesTypeDao.deleteByDtId(dtId);
+    }
+
+    @Override
+    public DishesType getByDtId(long dtId) {
+        return dishesTypeDao.findById(dtId);
+    }
+
+    @Override
+    public boolean updateDishesType(DishesType dishesType) {
+        return dishesTypeDao.doUpdate(dishesType);
+    }
+
 }

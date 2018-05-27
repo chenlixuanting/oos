@@ -20,15 +20,13 @@ $(function () {
             dataType: "json",
             success: function (data) {
 
-                var d = eval(data);
+                var returnData = eval(data);
 
-                var flag = d.head == "true" ? true : false;
-
-                if (flag) {
+                if (returnData.head) {
                     alert("登录成功");
-                    window.location.href = d.body;
+                    location.assign(returnData.body);
                 } else {
-                    alert(d.body);
+                    alert(returnData.body);
                 }
             }
 

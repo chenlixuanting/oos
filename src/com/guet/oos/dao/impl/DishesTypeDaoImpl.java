@@ -35,16 +35,49 @@ public class DishesTypeDaoImpl extends AbstractDAOImpl implements DishesTypeDao 
             pstmt.setString(4, vo.getCreateTime());
             pstmt.setString(5, vo.getUpdateTime());
 
-            return super.pstmt.execute();
+            pstmt.execute();
+
+            return true;
+
         } catch (SQLException e) {
             e.printStackTrace();
-            return false;
         }
+
+        return false;
 
     }
 
     @Override
     public boolean doUpdate(DishesType vo) {
+
+        /**
+         private long dtId;
+         private long mgId;//管理员ID
+         private String dishesTypeName;
+         private String mealTypeName;//菜品类型所属的餐点
+         private String createTime;
+         private String updateTime;
+         */
+
+        String sql = "update dishes_type_table set mgId=?,dishesTypeName=?,mealTypeName=?,updateTime=? where dtId=?";
+
+        try {
+            pstmt = conn.prepareStatement(sql);
+
+            pstmt.setLong(1, vo.getMgId());
+            pstmt.setString(2, vo.getDishesTypeName());
+            pstmt.setString(3, vo.getMealTypeName());
+            pstmt.setString(4, vo.getUpdateTime());
+            pstmt.setLong(5, vo.getDtId());
+
+            pstmt.execute();
+
+            return true;
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+
         return false;
     }
 
@@ -55,6 +88,26 @@ public class DishesTypeDaoImpl extends AbstractDAOImpl implements DishesTypeDao 
 
     @Override
     public DishesType findById(Long id) {
+
+        String sql = "select * from dishes_type_table where dtId=?";
+
+        try {
+            pstmt = conn.prepareStatement(sql);
+
+            pstmt.setLong(1, id);
+
+            ResultSet res = pstmt.executeQuery();
+
+            List<DishesType> dishesTypes = encapsualationDishesType(res);
+
+            if (dishesTypes.size() > 0) {
+                return dishesTypes.get(0);
+            }
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
         return null;
     }
 
@@ -219,6 +272,27 @@ public class DishesTypeDaoImpl extends AbstractDAOImpl implements DishesTypeDao 
         }
 
         return null;
+    }
+
+    @Override
+    public boolean deleteByDtId(long dtId) {
+
+        String sql = "delete from dishes_type_table where dtId=?";
+
+        try {
+            pstmt = conn.prepareStatement(sql);
+
+            pstmt.setLong(1, dtId);
+
+            pstmt.execute();
+
+            return true;
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return false;
     }
 
     private List<String> ecapsualtionSpecifyColumn(ResultSet res) throws SQLException {

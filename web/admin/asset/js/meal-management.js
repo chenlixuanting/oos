@@ -180,6 +180,7 @@ function encapsulEditData() {
         endTime: $("#editEndTime").val(),
         mtId: $("#mtId").val(),
         mealTypeName: $("#editMealTypeName").val(),
+        mgId: $("#editMgId").attr("name")
     };
 
     return editData;
@@ -345,9 +346,7 @@ function deleteMealType() {
 
                 if (returnData.head) {
 
-                    for (var y = 0; y < chId.length; y++) {
-                        table.api().row($("#" + chId[y])).remove().draw();
-                    }
+                    table.api().draw(false);
 
                 } else {
 

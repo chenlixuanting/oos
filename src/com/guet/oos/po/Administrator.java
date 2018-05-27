@@ -21,16 +21,19 @@ public class Administrator implements Serializable {
 
     private String creator;// 创建者
 
+    private String adminStatus;//管理员状态
+
     private String creatorTime;// 创建时间
 
     private String updateTime;// 更新时间
 
-    public Administrator(long mgId, String username, String password, boolean maximumAuthority, String creator, String creatorTime, String updateTime) {
+    public Administrator(long mgId, String username, String password, boolean maximumAuthority, String creator, String adminStatus, String creatorTime, String updateTime) {
         this.mgId = mgId;
         this.username = username;
         this.password = password;
         this.maximumAuthority = maximumAuthority;
         this.creator = creator;
+        this.adminStatus = adminStatus;
         this.creatorTime = creatorTime;
         this.updateTime = updateTime;
     }
@@ -78,6 +81,14 @@ public class Administrator implements Serializable {
         this.creator = creator;
     }
 
+    public String getAdminStatus() {
+        return adminStatus;
+    }
+
+    public void setAdminStatus(String adminStatus) {
+        this.adminStatus = adminStatus;
+    }
+
     public String getCreatorTime() {
         return creatorTime;
     }
@@ -102,6 +113,7 @@ public class Administrator implements Serializable {
                 ", password='" + password + '\'' +
                 ", maximumAuthority=" + maximumAuthority +
                 ", creator='" + creator + '\'' +
+                ", adminStatus='" + adminStatus + '\'' +
                 ", creatorTime='" + creatorTime + '\'' +
                 ", updateTime='" + updateTime + '\'' +
                 '}';

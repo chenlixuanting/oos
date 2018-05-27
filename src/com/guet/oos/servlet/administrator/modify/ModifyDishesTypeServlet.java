@@ -1,12 +1,10 @@
-package com.guet.oos.servlet.administrator.add;
+package com.guet.oos.servlet.administrator.modify;
 
 import com.alibaba.fastjson.JSONObject;
 import com.guet.oos.constant.DateTimeFormat;
 import com.guet.oos.constant.ReturnMessage;
 import com.guet.oos.dto.JsonEntityReturn;
-import com.guet.oos.dto.JsonReturn;
 import com.guet.oos.factory.ServiceFactory;
-import com.guet.oos.po.Dishes;
 import com.guet.oos.po.DishesType;
 import com.guet.oos.service.DishesTypeService;
 
@@ -21,10 +19,10 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 /**
- * Servlet implementation class Template
+ * Created by Shinelon on 2018/5/27.
  */
-@WebServlet("/admin/addDishesType.action")
-public class AddDishesTypeServlet extends HttpServlet {
+@WebServlet("/admin/modifyDishesType.action")
+public class ModifyDishesTypeServlet extends HttpServlet {
 
     private static final long serialVersionUID = 1L;
 
@@ -33,9 +31,8 @@ public class AddDishesTypeServlet extends HttpServlet {
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public AddDishesTypeServlet() {
+    public ModifyDishesTypeServlet() {
         super();
-        // TODO Auto-generated constructor stub
     }
 
     /**
@@ -43,33 +40,26 @@ public class AddDishesTypeServlet extends HttpServlet {
      */
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-        SimpleDateFormat sf = new SimpleDateFormat(DateTimeFormat.YYYY_MM_DD_HH_MM_SS);
+        String dishesTypeStr = request.getParameter("dishesType");
 
-        String dishesTypeDataJson = request.getParameter("dishesTypeData");
+        SimpleDateFormat sf = new SimpleDateFormat(DateTimeFormat.YYYY_MM_DD_HH_MM_SS);
 
         Writer out = response.getWriter();
 
-        DishesType dishesType = JSONObject.parseObject(dishesTypeDataJson, DishesType.class);
+        DishesType dishesType = JSONObject.parseObject(dishesTypeStr, DishesType.class);
 
-//        DishesType{dtId=0, dishesTypeName='哇哈哈', mealTypeName='早餐', mgId=2, createTime='null', updateTime='null'}
-
-        dishesType.setCreateTime(sf.format(new Date()));
         dishesType.setUpdateTime(sf.format(new Date()));
 
-        boolean flag = dishesTypeService.createDishesType(dishesType);
+        dishesTypeService.updateDishesType(dishesType);
 
-        if (flag) {
-            out.write(JSONObject.toJSONString(JsonEntityReturn.buildSuccess(ReturnMessage.CREATE_DISHES_TYPE_SUCCESS)));
-        } else {
-            out.write(JSONObject.toJSONString(JsonEntityReturn.buildFail(ReturnMessage.CREATE_DISHES_TYPE_FAIL)));
-        }
+        out.write(JSONObject.toJSONString(JsonEntityReturn.buildSuccess(ReturnMessage.UPDATE_DISHES_TYPE_SUCCESS)));
+
     }
 
     /**
      * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
      */
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        // TODO Auto-generated method stub
         doGet(request, response);
     }
 

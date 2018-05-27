@@ -57,12 +57,12 @@
             <div class="row-fluid">
                 <div class="span12 pull-right">
 
-                    <a id="addBtn"
+                    <a id="addDishesType"
                        class="btn btn-success btn-lg pull-left"
-                       style="margin-left: -26px;"> 新 增 </a>
+                       style="margin-left: -26px;" onclick="openAddDishesTypeModel();"> 新 增 </a>
 
-                    <a id="deleteBtn" class="btn btn-danger btn-lg pull-left"
-                       style="margin-left: 10px;"> 删 除 </a>
+                    <a id="deleteDishesType" class="btn btn-danger btn-lg pull-left"
+                       style="margin-left: 10px;" onclick="deleteDishesType();"> 删 除 </a>
 
                     <a id="searchBtn"
                        class="btn btn-primary btn-lg pull-right"
@@ -80,7 +80,9 @@
                        class="table table-hover table-striped table-bordered">
                     <thead>
                     <tr>
-                        <th class="span2 sortable"><input style="margin-left: -7px;" type="checkbox"/>全选</th>
+                        <th class="span2 sortable"><input style="margin-left: -7px;" type="checkbox"
+                                                          class="checkboxMain"/>全选
+                        </th>
                         <th class="span2 sortable">菜品种类名称</th>
                         <th class="span2 sortable">餐点类型</th>
                         <th class="span2 sortable">管理员ID</th>
@@ -100,12 +102,13 @@
     </div>
 </div>
 
-<button id="modelBtn" type="button"
+<%--新增菜品种类--%>
+<button id="addDishesTypeBtn" type="button"
         class="btn btn-primary btn-lg pull-left" data-toggle="modal"
-        data-target="#modelBox" style="display: none;"></button>
+        data-target="#addDishesTypeModel" style="display: none;"></button>
 
-<div class="modal fade" id="modelBox" tabindex="-1" role="dialog"
-     aria-labelledby="myModalLabel">
+<div class="modal fade" id="addDishesTypeModel" tabindex="-1" role="dialog"
+     aria-labelledby="myModalLabel" style="display:none;">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
@@ -113,7 +116,7 @@
                         aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
-                <h4 class="modal-title primary" id="infoModelTilte"></h4>
+                <h4 class="modal-title primary">新增</h4>
             </div>
             <div class="modal-body">
                 <div class="row" style="text-align: center">
@@ -123,14 +126,13 @@
                             <font size="3" style="padding-right: 10px;">菜品种类:</font>
                             <input type="text"
                                    class="form-control"
-                                   id="dishesTypeName"
-                                   name="dishesTypeName"
+                                   id="addDishesTypeName"
                                    placeholder="菜品种类名称">
                         </div>
 
                         <div class="form-group">
                             <font size="3" style="padding-right: 10px;">餐点类型:</font>
-                            <select name="polName" class="form-control" id="mealTypeName"
+                            <select name="polName" class="form-control" id="addMealType"
                                     style="width: 220px; height: 31px;margin-bottom: 10px;">
                             </select>
                         </div>
@@ -138,19 +140,79 @@
                         <div class="form-group">
                             <font size="3" style="padding-right: 10px;">管理员ID:</font>
                             <input type="text"
-                                   class="form-control" id="mgId" placeholder="创建者"
-                                   name="mgId"
-                                   value="<%=administrator.getMgId()%>">
+                                   class="form-control" id="addMgId" name="<%=administrator.getMgId()%>"
+                                   value="<%=administrator.getUsername()%>" disabled="disabled">
                         </div>
 
                     </div>
                 </div>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-danger" id="closeModel"
+                <button type="button" class="btn btn-danger"
                         data-dismiss="modal">关闭
                 </button>
-                <button type="submit" class="btn btn-primary" id="saveChange">保存</button>
+                <button type="submit" class="btn btn-primary" onclick="sendCreateDishesTypeRequest();">保存</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<%--编辑菜品种类--%>
+<button id="editDishesTypeBtn" type="button"
+        class="btn btn-primary btn-lg pull-left" data-toggle="modal"
+        data-target="#editDishesTypeModel" style="display: none;"></button>
+
+<div class="modal fade" id="editDishesTypeModel" tabindex="-1" role="dialog"
+     aria-labelledby="myModalLabel" style="display:none;">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"
+                        aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <h4 class="modal-title primary">编辑</h4>
+            </div>
+            <div class="modal-body">
+                <div class="row" style="text-align: center">
+                    <div class="col-lg-12">
+
+                        <div class="form-group" style="display: none;">
+                            <input type="text"
+                                   class="form-control"
+                                   id="editDtId">
+                        </div>
+
+                        <div class="form-group">
+                            <font size="3" style="padding-right: 10px;">菜品种类:</font>
+                            <input type="text"
+                                   class="form-control"
+                                   id="editDishesTypeName"
+                                   placeholder="菜品种类名称">
+                        </div>
+
+                        <div class="form-group">
+                            <font size="3" style="padding-right: 10px;">餐点类型:</font>
+                            <select name="polName" class="form-control" id="editMealType"
+                                    style="width: 220px; height: 31px;margin-bottom: 10px;">
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <font size="3" style="padding-right: 10px;">管理员ID:</font>
+                            <input type="text"
+                                   class="form-control" id="editMgId" name="<%=administrator.getMgId()%>"
+                                   value="<%=administrator.getUsername()%>" disabled="disabled">
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-danger"
+                        data-dismiss="modal">关闭
+                </button>
+                <button type="submit" class="btn btn-primary" onclick="saveEdit();">保存</button>
             </div>
         </div>
     </div>
@@ -159,12 +221,12 @@
 
 <!-- scripts -->
 <script src="js/jquery-3.3.1.js"></script>
-<script type="text/javascript" src="js/bootstrapValidator.js"></script>
-<%--<script src="http://code.jquery.com/jquery-latest.js"></script>--%>
 <script src="js/bootstrap.min.js"></script>
 <script src="js/jquery-ui-1.10.2.custom.min.js"></script>
+
 <!-- knob -->
 <script src="js/jquery.knob.js"></script>
+
 <!-- flot charts -->
 <script src="js/jquery.flot.js"></script>
 <script src="js/jquery.flot.stack.js"></script>

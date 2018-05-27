@@ -1,8 +1,11 @@
 package com.guet.oos.servlet.administrator;
 
 import com.alibaba.fastjson.JSONObject;
+import com.guet.oos.constant.AdminStatus;
 import com.guet.oos.constant.NginxConfig;
+import com.guet.oos.constant.ReturnMessage;
 import com.guet.oos.constant.SessionKey;
+import com.guet.oos.dto.JsonEntityReturn;
 import com.guet.oos.dto.JsonReturn;
 import com.guet.oos.factory.ServiceFactory;
 import com.guet.oos.po.Administrator;
@@ -14,6 +17,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.io.Writer;
 import java.util.List;
 
 
@@ -23,6 +27,7 @@ import java.util.List;
  */
 @WebServlet("/admin/adminLogin.action")
 public class AdminLoginServlet extends HttpServlet {
+
     private static final long serialVersionUID = 1L;
 
     private AdministratorService administratorService = ServiceFactory.getAdministratorServiceInstance();
@@ -41,32 +46,36 @@ public class AdminLoginServlet extends HttpServlet {
 
         String loginData = request.getParameter("loginData");
 
-        JSONObject jsonObject = JSONObject.parseObject(loginData);
+        Writer out = response.getWriter();
 
-        List<Administrator> administrators = administratorService.findByUsername(jsonObject.getString("username"));
+        Administrator administrator = JSONObject.parseObject(loginData, Administrator.class);
+
+        List<Administrator> administrators = administratorService.findByUsername(administrator.getUsername());
 
         if (administrators.size() > 0) {
 
-            if (!jsonObject.getString("password").equals(administrators.get(0).getPassword())) {
-                response.getWriter().write(JsonReturn.buildFail("密码错误").toString());
+            Administrator temp = administrators.get(0);
+
+            //判断该管理员是否被禁用
+            if (temp.getAdminStatus().equals(AdminStatus.DISABLE)) {
+                out.write(JSONObject.toJSONString(JsonEntityReturn.buildFail(ReturnMessage.ADMINISTRATOR_DISABLE)));
+                return;
+            }
+
+            if (!administrator.getPassword().equals(temp.getPassword())) {
+                out.write(JSONObject.toJSONString(JsonEntityReturn.buildFail(ReturnMessage.PASSWORD_ERROR)));
                 return;
             }
 
         } else {
-            response.getWriter().write(JsonReturn.buildFail("管理员账号不存在").toString());
+            out.write(JSONObject.toJSONString(JsonEntityReturn.buildFail(ReturnMessage.ADMINISTRATOR_IS_NOT_EXIST)));
             return;
         }
 
         //将administrator加入session
         request.getSession().setAttribute(SessionKey.ADMINISTRATOR, administrators.get(0));
 
-        //将admin_head_pic_addrs加入session
-        request.getSession().setAttribute("admin_head_pic_addrs", NginxConfig.ADMIN_HEAD_PIC_ADDRS);
-
-        //将admin_pic+addrs加入session
-        request.getSession().setAttribute("goods_pic_addrs", NginxConfig.GOODS_PIC_ADDRS);
-
-        response.getWriter().write(JsonReturn.buildSuccess("/oos/admin/index.jsp").toString());
+        out.write(JSONObject.toJSONString(JsonEntityReturn.buildSuccess("/oos/admin/index.jsp")));
     }
 
     /**

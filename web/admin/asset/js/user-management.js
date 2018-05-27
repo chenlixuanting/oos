@@ -147,7 +147,7 @@ function deleteUser() {
                 if (returnData.head) {
 
                     for (var y = 0; y < chId.length; y++) {
-                        table.api().draw();
+                        table.api().draw(false);
                     }
 
                 } else {

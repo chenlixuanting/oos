@@ -98,7 +98,7 @@
 <script src="../js/bootstrap.min.js"></script>
 <script src="../js/theme.js"></script>
 <script src="../js/person-detail.js"></script>
-<script src="../js/signin.js"></script>
+<script src="../asset/js/signin.js"></script>
 
 <!-- pre load bg imgs -->
 <script type="text/javascript">

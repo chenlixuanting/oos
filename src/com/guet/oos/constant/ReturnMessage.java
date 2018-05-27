@@ -54,4 +54,21 @@ public class ReturnMessage {
     public static final String UPDATE_MEAL_TYPE_SUCCESS = "更新餐点信息成功!";
 
     public static final String UPDATE_MEAL_TYPE_FAIL = "更新餐点信息失败!";
+
+    public static final String CREATE_DISHES_TYPE_SUCCESS = "新增菜品种类成功!";
+
+    public static final String CREATE_DISHES_TYPE_FAIL = "新增菜品种类失败!";
+
+    public static final String DELETE_DISHES_TYPE_SUCCESS = "删除菜品种类成功！";
+
+    public static final String DELETE_DISHES_TYPE_FAIL = "删除菜品种类失败!";
+
+    public static final String UPDATE_DISHES_TYPE_SUCCESS = "编辑菜品种类成功!";
+
+    public static final String UPDATE_DISHES_TYPE_FAIL = "编辑菜品种类失败!";
+
+    public static final String ADMINISTRATOR_DISABLE = "管理员被禁用!";
+
+    public static final String ADMINISTRATOR_IS_NOT_EXIST = "管理员账号不存在!";
+
 }

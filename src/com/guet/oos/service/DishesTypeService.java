@@ -22,4 +22,10 @@ public interface DishesTypeService {
     public List<String> getSpecifyColumn(String column);
 
     public List<String> getSpecifyColumnSpecifyValue(String col1, String col2, String value);
+
+    public boolean deleteByDtId(long dtId);
+
+    public DishesType getByDtId(long dtId);
+
+    public boolean updateDishesType(DishesType dishesType);
 }

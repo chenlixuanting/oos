@@ -12,5 +12,5 @@ public class AdministratorFields {
     public static final String CREATOR = "creator";
     public static final String CREATORTIME = "creatorTIme";
     public static final String UPDATETIME = "updateTIme";
-
+    public static final String ADMIN_STATUS = "adminStatus";
 }

@@ -15,4 +15,6 @@ public interface DishesTypeDao extends IDAO<Long, DishesType> {
 
     public List<String> getSpecifyColumnSpecifyValue(String col1, String col2, String value);
 
+    public boolean deleteByDtId(long dtId);
+
 }
