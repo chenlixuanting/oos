@@ -59,4 +59,14 @@ public class CommentServiceImpl implements CommentService {
         return commentDao.deleteByUsId(usId);
     }
 
+    @Override
+    public int countAllReplyComment() {
+        return commentDao.countAllReplyComment();
+    }
+
+    @Override
+    public List<Comment> getListReplyComment(int start, int length) {
+        return commentDao.getListReplyComment(start, length);
+    }
+
 }

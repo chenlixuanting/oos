@@ -2,6 +2,7 @@
  * Created by Shinelon on 2018/5/1.
  */
 $(function () {
+
     $("#saveChange").on('click', function () {
         /*校验表单*/
         var reg1 = /^([1-9]\d*|0)(\.\d{1,2})?$/;
@@ -36,6 +37,7 @@ $(function () {
             return false;
         }
     });
+
     /**
      * 加载完毕后，ajax请求后台将所有餐点名称数据
      */
@@ -59,9 +61,6 @@ $(function () {
      * 删除
      */
 
-        //每页显示指定行
-    var displayRowsEachPage = 10;
-
     /**
      * 加载DataTable
      */
@@ -69,9 +68,8 @@ $(function () {
 
         ordering: false,//是否启用排序
         bLengthChange: false,
-        // bPaginate: true,  //是否显示分页
         searching: false,//搜索
-        iDisplayLength: displayRowsEachPage,
+        iDisplayLength: 10,
         language: {
 
             paginate: {//分页的样式内容。
@@ -90,7 +88,6 @@ $(function () {
 
         processing: true,//设置为true,就会有表格加载时的提示
         serverSide: true,
-
         sAjaxSource: "./pagesDishes.action",//这个是请求的地址
         fnServerData: retrieveData, // 获取数据的处理函数
         columns: [
@@ -199,7 +196,6 @@ $(function () {
         });
 
     });
-
 
     /**
      * 编辑操作

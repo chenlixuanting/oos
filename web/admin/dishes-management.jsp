@@ -35,17 +35,7 @@
     <!-- this page specific styles -->
     <link rel="stylesheet" href="css/compiled/index.css" type="text/css" media="screen"/>
 
-    <!-- open sans font -->
-    <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800'
-          rel='stylesheet' type='text/css'/>
-
-    <!-- lato font -->
-    <link href='http://fonts.googleapis.com/css?family=Lato:300,400,700,900,300italic,400italic,700italic,900italic'
-          rel='stylesheet' type='text/css'/>
-
     <link rel="stylesheet" type="text/css" href="css/jquery.dataTables.css">
-
-    <link rel="stylesheet" type="text/css" href="css/bootstrapValidator.css">
 </head>
 <body>
 <!-- 顶部 -->
@@ -98,7 +88,7 @@
                         <th class="span2 sortable">管理员ID</th>
                         <th class="span2 sortable">创建时间</th>
                         <th class="span2 sortable">更新时间</th>
-                        <th class="span2 sortable" style="text-align: center;">操作</th>
+                        <th class="span2 sortable">操作</th>
                     </tr>
                     </thead>
 
@@ -230,9 +220,6 @@
 
 <!-- scripts -->
 <script src="js/jquery-3.3.1.js"></script>
-<script type="text/javascript" src="js/bootstrapValidator.js"></script>
-
-<%--<script src="http://code.jquery.com/jquery-latest.js"></script>--%>
 <script src="js/bootstrap.min.js"></script>
 <script src="js/jquery-ui-1.10.2.custom.min.js"></script>
 

@@ -290,4 +290,53 @@ public class CommentDaoImpl extends AbstractDAOImpl implements CommentDao {
         return false;
     }
 
+    @Override
+    public int countAllReplyComment() {
+
+        String sql = "select count(*) from comment_table where comStatus=?";
+
+        try {
+            pstmt = conn.prepareStatement(sql);
+
+            pstmt.setString(1, CommentStatus.COMMENT_REPLIED);
+
+            ResultSet res = pstmt.executeQuery();
+
+            int total = 0;
+
+            while (res.next()) {
+                total += res.getInt(1);
+            }
+
+            return total;
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return 0;
+    }
+
+    @Override
+    public List<Comment> getListReplyComment(int start, int length) {
+
+        String sql = "select top " + length + " * from comment_table where comStatus='" + CommentStatus.COMMENT_REPLIED + "' and (coId not in(select top "
+                + start + "coId from comment_table where comStatus='" + CommentStatus.COMMENT_REPLIED + "'order by coId))";
+
+        List<Comment> comments = null;
+
+        try {
+            pstmt = conn.prepareStatement(sql);
+
+            ResultSet res = pstmt.executeQuery();
+
+            comments = encapsulationCommentList(res);
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return comments;
+    }
+
 }

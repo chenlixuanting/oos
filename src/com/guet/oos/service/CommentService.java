@@ -26,4 +26,8 @@ public interface CommentService {
     public boolean deleteByCoId(long coId);
 
     public boolean deleteByUsId(long usId);
+
+    public int countAllReplyComment();
+
+    public List<Comment> getListReplyComment(int start, int length);
 }
