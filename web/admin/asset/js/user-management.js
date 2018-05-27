@@ -45,7 +45,7 @@ $(function () {
         columnDefs: [{//列渲染，可以添加一些操作等
             targets: 8,//表示是第8列，所以上面第8列没有对应数据列，就是在这里渲染的。
             render: function (obj) {
-                return "<a class='btn btn-primary btn-lg edit' onclick='openCheckModel();' seId='" + obj.usId + "'>查看</a>" + "<a class='btn btn-danger btn-lg edit' style='margin-left: 10px;' edId='" + obj.usId + "'>编辑</a>";
+                return "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class='btn btn-primary btn-lg edit' onclick='openCheckModel();' seId='" + obj.usId + "'>查看</a>" + "<a class='btn btn-danger btn-lg edit' style='margin-left: 10px;' edId='" + obj.usId + "'>编辑</a>";
             }
         }, {//列渲染，可以添加一些操作等
             targets: 0,//表示是第8列，所以上面第8列没有对应数据列，就是在这里渲染的。

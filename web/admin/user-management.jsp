@@ -73,7 +73,7 @@
                         <th class="span2 sortable">默认送货地址</th>
                         <th class="span2 sortable">创建时间</th>
                         <th class="span2 sortable">修改时间</th>
-                        <th class="span2 sortable">操作</th>
+                        <th class="span2 sortable" style="text-align: center;">操作</th>
                     </tr>
                     </thead>
 

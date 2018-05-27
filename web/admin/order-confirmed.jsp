@@ -23,14 +23,6 @@
     <!-- this page specific styles -->
     <link rel="stylesheet" href="css/compiled/index.css" type="text/css" media="screen"/>
 
-    <!-- open sans font -->
-    <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800'
-          rel='stylesheet' type='text/css'/>
-
-    <!-- lato font -->
-    <link href='http://fonts.googleapis.com/css?family=Lato:300,400,700,900,300italic,400italic,700italic,900italic'
-          rel='stylesheet' type='text/css'/>
-
     <link rel="stylesheet" type="text/css" href="css/jquery.dataTables.css">
 
     <style type="text/css">
@@ -57,9 +49,9 @@
 
             <div class="row-fluid span12 pull-right">
 
-                <a id="addBtn"
+                <a id="deleteBtn"
                    class="btn btn-danger btn-lg pull-left"
-                   style="margin-left: -26px;"> 删除</a>
+                   style="margin-left: -26px;" onclick="deleteOrder();"> 删除</a>
 
                 <a id="searchBtn"
                    class="btn btn-primary btn-lg pull-right"
@@ -70,30 +62,13 @@
                        style="margin-top: 1px;"/>
 
             </div>
-
-            <%--
-                {data: "orId"},
-                {data: "username"},
-                {data: "receiverName"},
-                {data: "receiverSex"},
-                {data: "receiverMobile"},
-                {data: "receiverAddress"},
-                {data: "receiverTime"},
-                {data: "totalCost"},
-                {data: "productAmount"},
-                {data: "deliverCost"},
-                {data: "productCost"},
-                {data: "orderStatus"},
-                {data: "payType"},
-                {data: "creatorTime"},
-                {data: "updateTime"},
-            --%>
-
             <div class="row-fluid table">
                 <table id="dataTable" class="table table-hover table-striped table-bordered dataTable">
                     <thead>
                     <tr>
-                        <th class="span2 sortable"><input style="margin-left: -7px;" type="checkbox"/>全选</th>
+                        <th class="span2 sortable"><input style="margin-left: -7px;" type="checkbox"
+                                                          class="checkboxMain"/>全选
+                        </th>
                         <th class="span2 sortable">订单号</th>
                         <th class="span2 sortable">用户名</th>
                         <th class="span2 sortable">收货人姓名</th>
@@ -188,7 +163,6 @@
 
 <!-- scripts -->
 <script src="js/jquery-3.3.1.js"></script>
-<script src="http://code.jquery.com/jquery-latest.js"></script>
 <script src="js/bootstrap.min.js"></script>
 <script src="js/jquery-ui-1.10.2.custom.min.js"></script>
 

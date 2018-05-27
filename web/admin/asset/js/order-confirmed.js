@@ -1,6 +1,8 @@
 /**
  * Created by Shinelon on 2018/5/20.
  */
+var table;
+
 $(function () {
 
     /**
@@ -8,30 +10,11 @@ $(function () {
      */
 
     /**
-     * 新增
-     */
-    $("#addBtn").click(function () {
-
-        //清空模态框中的内容
-        $("#mealTypeName").val("");
-        $("#startTime").val("");
-        $("#endTime").val("");
-
-        //更改模态框标题
-        $("#infoModelTilte").html("新增");
-
-        //弹出模态框
-        $("#modelBtn").click();
-    });
-
-    /**
      * 加载DataTable
      */
-    var table = $("#dataTable").dataTable({
-
+    table = $("#dataTable").dataTable({
         ordering: false,//是否启用排序
         bLengthChange: false,
-        // bPaginate: true,  //是否显示分页
         searching: false,//搜索
         iDisplayLength: 10,//指定也显示10条
         language: {
@@ -72,15 +55,13 @@ $(function () {
         columnDefs: [{//列渲染，可以添加一些操作等
             targets: 16,//表示是第8列，所以上面第8列没有对应数据列，就是在这里渲染的。
             render: function (obj) {
-                var id = obj.cid;
-                return "<a class='btn btn-success btn-small edit' style='margin-top: 5px;' id=" + id + ">确认<br/>订单</a>";
+                return "<a class='btn btn-success btn-small edit' style='margin-top: 5px;' orId='" + obj.orId + "'>确认<br/>订单</a>";
             }
 
         }, {//列渲染，可以添加一些操作等
             targets: 0,//表示是第8列，所以上面第8列没有对应数据列，就是在这里渲染的。
             render: function (obj) {
-                var id = obj.cid;
-                return "<input type='checkbox' class='checkbox' id=" + id + "></input>";
+                return "<input type='checkbox' class='checkbox' orId='" + obj.orId + "'/>";
             }
         }],
         pagingType: "full_numbers"//分页样式的类型
@@ -103,3 +84,72 @@ $(function () {
     }
 
 });
+
+function deleteOrder() {
+
+    if (confirm("您确定要删除用户信息吗?")) {
+
+        var checkBox = $("input[class='checkbox']");
+
+        var chId = new Array();
+
+        for (var x = 0; x < checkBox.length; x++) {
+            if ($(checkBox[x]).is(":checked"))
+                chId.unshift(($(checkBox[x]).attr("orId")));
+        }
+
+        if (chId.length == 0) {
+            alert("你还没有选择要删除的元素");
+            return;
+        }
+
+        $.ajax({
+            url: "deleteOrder.action",
+            type: "POST",
+            dataType: "json",
+            data: {
+                orIds: JSON.stringify(chId)
+            },
+            success: function (data) {
+
+                var returnData = eval(data);
+
+                alert(returnData.body);
+
+                if (returnData.head) {
+
+                    for (var y = 0; y < chId.length; y++) {
+                        table.api().draw(false);
+                    }
+
+                } else {
+
+                }
+
+            }
+        });
+
+    } else {
+        table.api().draw();
+        $("input[class='checkbox']").removeAttr("checked");
+        $("input[class='checkboxMain']").removeAttr("checked");
+    }
+
+}
+
+/**
+ * 删除
+ */
+// $("#addBtn").click(function () {
+//
+//     //清空模态框中的内容
+//     $("#mealTypeName").val("");
+//     $("#startTime").val("");
+//     $("#endTime").val("");
+//
+//     //更改模态框标题
+//     $("#infoModelTilte").html("新增");
+//
+//     //弹出模态框
+//     $("#modelBtn").click();
+// });

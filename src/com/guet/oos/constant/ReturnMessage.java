@@ -83,4 +83,8 @@ public class ReturnMessage {
 
     public static final String EDIT_ADMINISTRATOR_FAIL = "编辑管理员失败!";
 
+    public static final String DELETE_ORDER_SUCCESS = "删除订单成功!";
+
+    public static final String DELETE_ORDER_FAIL = "删除订单失败!";
+
 }
