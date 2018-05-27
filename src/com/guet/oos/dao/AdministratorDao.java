@@ -14,4 +14,9 @@ public interface AdministratorDao extends IDAO<Long, Administrator> {
     public boolean updateAdministratorPassword(long mgId, String newPassword);
 
     public List<Administrator> getList(int start, int length);
+
+    public boolean deleteByMgId(long mgId);
+
+    public boolean updateByMgId(Administrator administrator);
+
 }

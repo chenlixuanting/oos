@@ -51,7 +51,7 @@
                 <div class="span12 pull-right">
                     <a
                             id="searchBtn"
-                            class="btn btn-success btn-lg pull-right"
+                            class="btn btn-primary btn-lg pull-right"
                             style="margin-left: 5px;"> 搜 索 </a>
                     <input id="searchBox"
                            type="text" class="span2 pull-right "

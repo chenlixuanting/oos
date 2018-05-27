@@ -20,4 +20,8 @@ public interface AdministratorService {
     public List<Administrator> getList(int start, int length);
 
     public Administrator findById(long mgId);
+
+    public boolean deleteByMgId(long mgId);
+
+    public boolean updateByMgId(Administrator administrator);
 }

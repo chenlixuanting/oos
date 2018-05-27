@@ -1,5 +1,6 @@
 package com.guet.oos.dao.impl;
 
+import com.guet.oos.constant.AdminStatus;
 import com.guet.oos.dao.AbstractDAOImpl;
 import com.guet.oos.dao.AdministratorDao;
 import com.guet.oos.fields.AdministratorFields;
@@ -38,6 +39,7 @@ public class AdministratorDaoImpl extends AbstractDAOImpl implements Administrat
             pstmt.setString(7, vo.getAdminStatus());
 
             pstmt.execute();
+
         } catch (Exception e) {
             e.printStackTrace();
             return false;
@@ -206,6 +208,66 @@ public class AdministratorDaoImpl extends AbstractDAOImpl implements Administrat
         }
 
         return null;
+    }
+
+    @Override
+    public boolean deleteByMgId(long mgId) {
+
+        String sql = "UPDATE administrator_table SET adminStatus=? where mgId=?";
+
+        try {
+            pstmt = conn.prepareStatement(sql);
+
+            pstmt.setString(1, AdminStatus.DISABLE);
+            pstmt.setLong(2, mgId);
+
+            pstmt.executeUpdate();
+
+            return true;
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return false;
+    }
+
+    @Override
+    public boolean updateByMgId(Administrator administrator) {
+
+        /**
+         private long mgId;// 管理员ID
+         private String username;// 账号
+         private String password;// 密码
+         private boolean maximumAuthority;// 最高权限
+         private String creator;// 创建者
+         private String adminStatus;//管理员状态
+         private String creatorTime;// 创建时间
+         private String updateTime;// 更新时间
+         */
+
+        String sql = "update administrator_table set username=?,password=?,maximumAuthority=?,creator=?,adminStatus=?,updateTime=? where mgId=?";
+
+        try {
+            pstmt = conn.prepareStatement(sql);
+
+            pstmt.setString(1, administrator.getUsername());
+            pstmt.setString(2, administrator.getPassword());
+            pstmt.setBoolean(3, administrator.isMaximumAuthority());
+            pstmt.setString(4, administrator.getCreator());
+            pstmt.setString(5, administrator.getAdminStatus());
+            pstmt.setString(6, administrator.getUpdateTime());
+            pstmt.setLong(7, administrator.getMgId());
+
+            pstmt.executeUpdate();
+
+            return true;
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return false;
     }
 
     /**

@@ -71,4 +71,16 @@ public class ReturnMessage {
 
     public static final String ADMINISTRATOR_IS_NOT_EXIST = "管理员账号不存在!";
 
+    public static final String ADD_ADMINISTRATOR_SCCUESS = "新增管理员成功!";
+
+    public static final String ADD_ADMINISTRATOR_FAIL = "新增管理员失败!";
+
+    public static final String DELETE_ADMINISTRATOR_SUCCESS = "删除管理员成功!";
+
+    public static final String DELETE_ADMINISTRATOR_FAIL = "删除管理员失败!";
+
+    public static final String EDIT_ADMINISTRATOR_SUCCESS = "编辑管理员成功!";
+
+    public static final String EDIT_ADMINISTRATOR_FAIL = "编辑管理员失败!";
+
 }

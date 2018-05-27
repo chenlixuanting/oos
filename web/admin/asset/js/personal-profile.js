@@ -38,7 +38,7 @@ $(function () {
         }
 
         $.ajax({
-            url: "ModifyAdministrator.action",
+            url: "resetPassword.action",
             type: "POST",
             dataType: "json",
             data: {

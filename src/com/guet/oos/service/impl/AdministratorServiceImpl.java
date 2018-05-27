@@ -71,4 +71,14 @@ public class AdministratorServiceImpl implements AdministratorService {
         return administratorDao.findById(mgId);
     }
 
+    @Override
+    public boolean deleteByMgId(long mgId) {
+        return administratorDao.deleteByMgId(mgId);
+    }
+
+    @Override
+    public boolean updateByMgId(Administrator administrator) {
+        return administratorDao.updateByMgId(administrator);
+    }
+
 }

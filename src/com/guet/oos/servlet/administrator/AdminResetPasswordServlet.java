@@ -1,10 +1,6 @@
-package com.guet.oos.servlet.administrator.modify;
+package com.guet.oos.servlet.administrator;
 
-import com.alibaba.fastjson.JSONObject;
-import com.guet.oos.constant.DateTimeFormat;
-import com.guet.oos.constant.ReturnMessage;
 import com.guet.oos.constant.SessionKey;
-import com.guet.oos.dto.JsonEntityReturn;
 import com.guet.oos.dto.JsonReturn;
 import com.guet.oos.factory.ServiceFactory;
 import com.guet.oos.po.Administrator;
@@ -17,15 +13,12 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
-import java.io.Writer;
-import java.text.SimpleDateFormat;
-import java.util.Date;
 
 /**
- * Created by Shinelon on 2018/5/20.
+ * Created by Shinelon on 2018/5/27.
  */
-@WebServlet("/admin/ModifyAdministrator.action")
-public class ModifyAdministratorServlet extends HttpServlet {
+@WebServlet("/admin/resetPassword.action")
+public class AdminResetPasswordServlet extends HttpServlet {
 
     private static final long serialVersionUID = 1L;
 
@@ -34,7 +27,7 @@ public class ModifyAdministratorServlet extends HttpServlet {
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public ModifyAdministratorServlet() {
+    public AdminResetPasswordServlet() {
         super();
     }
 
@@ -43,31 +36,30 @@ public class ModifyAdministratorServlet extends HttpServlet {
      */
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-        String adminDataJson = request.getParameter("adminData");
+        String newPassword = request.getParameter("newPassword");
 
-        Administrator administrator = JSONObject.parseObject(adminDataJson, Administrator.class);
+        HttpSession httpSession = request.getSession();
 
-        Writer out = response.getWriter();
+        Administrator administrator = (Administrator) httpSession.getAttribute(SessionKey.ADMINISTRATOR);
 
-        SimpleDateFormat sf = new SimpleDateFormat(DateTimeFormat.YYYY_MM_DD_HH_MM_SS);
-
-        administrator.setUpdateTime(sf.format(new Date()));
-
-        boolean flag = administratorService.updateByMgId(administrator);
+        boolean flag = administratorService.updateAdministratorPassword(administrator.getMgId(), newPassword);
 
         if (flag) {
-            out.write(JSONObject.toJSONString(JsonEntityReturn.buildSuccess(ReturnMessage.EDIT_ADMINISTRATOR_SUCCESS)));
-        } else {
-            out.write(JSONObject.toJSONString(JsonEntityReturn.buildSuccess(ReturnMessage.EDIT_ADMINISTRATOR_FAIL)));
-        }
 
+            administrator.setPassword(newPassword);
+
+            httpSession.setAttribute(SessionKey.ADMINISTRATOR, administrator);
+
+            response.getWriter().write(JsonReturn.buildSuccessEmptyContent().toString());
+        } else {
+            response.getWriter().write(JsonReturn.buildFailEmptyContent().toString());
+        }
     }
 
     /**
      * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
      */
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        // TODO Auto-generated method stub
         doGet(request, response);
     }
 
