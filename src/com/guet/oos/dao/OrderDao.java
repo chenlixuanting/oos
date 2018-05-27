@@ -22,4 +22,7 @@ public interface OrderDao extends IDAO<String, Order> {
     public List<Order> getOrdersByUsId(long usId);
 
     public boolean deleteByOrId(String orId);
+
+    public boolean updateOrderStatus(String orId, String status);
+
 }

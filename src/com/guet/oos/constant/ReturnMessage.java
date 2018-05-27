@@ -87,4 +87,8 @@ public class ReturnMessage {
 
     public static final String DELETE_ORDER_FAIL = "删除订单失败!";
 
+    public static final String CONFIRM_ORDER_SUCCESS = "确认订单成功!";
+
+    public static final String CONFIRM_ORDER_FAIL = "确认订单失败!";
+
 }

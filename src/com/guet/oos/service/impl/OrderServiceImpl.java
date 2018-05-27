@@ -61,4 +61,9 @@ public class OrderServiceImpl implements OrderService {
         return orderDao.deleteByOrId(orId);
     }
 
+    @Override
+    public boolean confirmedOrder(String orId) {
+        return orderDao.updateOrderStatus(orId, OrderStatus.NOT_DELIVERED);
+    }
+
 }

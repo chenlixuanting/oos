@@ -300,6 +300,28 @@ public class OrderDaoImpl extends AbstractDAOImpl implements OrderDao {
         return false;
     }
 
+    @Override
+    public boolean updateOrderStatus(String orId, String status) {
+
+        String sql = "update order_table set orderStatus=? where orId=?";
+
+        try {
+            pstmt = conn.prepareStatement(sql);
+
+            pstmt.setString(1, status);
+            pstmt.setString(2, orId);
+
+            pstmt.execute();
+
+            return true;
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return false;
+    }
+
     public List<Order> encapsulationOrder(ResultSet res) {
 
         List<Order> orders = new ArrayList<Order>();

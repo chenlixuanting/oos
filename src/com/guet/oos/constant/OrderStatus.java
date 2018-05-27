@@ -8,7 +8,7 @@ public class OrderStatus {
 
     public static final String UNCONFIRMEED = "商家未接单";
     public static final String CONFIRMED = "商家已接单";
-    public static final String NOT_DELIVERED = "未发货";
+    public static final String NOT_DELIVERED = "商家未发货";
     public static final String DELIVERY_IN_PROCESS = "正在发货";
     public static final String RECEIVED_GOOD = "已收货";
 

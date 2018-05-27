@@ -55,7 +55,7 @@ $(function () {
         columnDefs: [{//列渲染，可以添加一些操作等
             targets: 16,//表示是第8列，所以上面第8列没有对应数据列，就是在这里渲染的。
             render: function (obj) {
-                return "<a class='btn btn-success btn-small edit' style='margin-top: 5px;' orId='" + obj.orId + "'>确认<br/>订单</a>";
+                return "<a class='btn btn-success btn-small edit' style='margin-top: 5px;' onclick='confirmedOrder(this);' orId='" + obj.orId + "'>确认<br/>订单</a>";
             }
 
         }, {//列渲染，可以添加一些操作等
@@ -85,6 +85,10 @@ $(function () {
 
 });
 
+
+/**
+ * 删除订单
+ */
 function deleteOrder() {
 
     if (confirm("您确定要删除用户信息吗?")) {
@@ -134,6 +138,35 @@ function deleteOrder() {
         $("input[class='checkbox']").removeAttr("checked");
         $("input[class='checkboxMain']").removeAttr("checked");
     }
+
+}
+
+/**
+ * 确认订单
+ */
+function confirmedOrder(obj) {
+
+    var orId = $(obj).attr("orId");
+
+    $.ajax({
+        url: "confirmedOrder.action",
+        type: "POST",
+        dataType: "json",
+        data: {
+            orId: orId
+        },
+        success: function (data) {
+
+            var returnData = eval(data);
+
+            alert(returnData.body);
+
+            if (returnData.head) {
+                table.api().draw(false);
+            }
+
+        }
+    });
 
 }
 
