@@ -32,6 +32,8 @@
     <link rel="stylesheet" href="css/compiled/index.css" type="text/css" media="screen"/>
 
     <link rel="stylesheet" type="text/css" href="css/jquery.dataTables.css">
+
+    <script type="text/javascript" src="asset/js/pageToUrls.js"></script>
 </head>
 <body>
 <!-- 顶部 -->
@@ -228,5 +230,6 @@
 <script src="js/dataTables.bootstrap.min.js" type="text/javascript"></script>
 <script type="text/javascript" src="js/bootstrap-fileupload.js"></script>
 <script type="text/javascript" src="js/dishes-management.js"></script>
+
 </body>
 </html>

@@ -186,7 +186,7 @@ $(function () {
                 $("#mgId").attr("disabled", true);
 
                 //图片
-                $("#dishesPic").attr("src", $("#goods_pic_addrs").val() + d.picAddress);
+                $("#dishesPic").attr("src", pageUrls.customerAddress + "" + d.picAddress);
                 $("#chosePicBtnBox").css("display", "none");
 
                 //菜品简介
