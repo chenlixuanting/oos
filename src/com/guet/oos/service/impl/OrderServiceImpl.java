@@ -3,7 +3,6 @@ package com.guet.oos.service.impl;
 import com.guet.oos.constant.OrderStatus;
 import com.guet.oos.dao.OrderDao;
 import com.guet.oos.factory.DAOFactory;
-import com.guet.oos.fields.OrderFields;
 import com.guet.oos.po.Order;
 import com.guet.oos.service.OrderService;
 
@@ -52,8 +51,8 @@ public class OrderServiceImpl implements OrderService {
     }
 
     @Override
-    public int notDeiveryOrderCount() {
-        return orderDao.notDeiveryOrderCount();
+    public int notDeliveryOrderCount() {
+        return orderDao.notDeliveryOrderCount();
     }
 
     @Override
@@ -82,8 +81,23 @@ public class OrderServiceImpl implements OrderService {
     }
 
     @Override
-    public int countAllHistroyOrder() {
-        return 0;
+    public int countAllHistoryOrder() {
+        return orderDao.countAllHistoryOrder();
+    }
+
+    @Override
+    public List<Order> getHistoryOrderList(int start, int length) {
+        return orderDao.getHistoryOrderList(start, length);
+    }
+
+    @Override
+    public boolean confirmedReceiver(String orId) {
+        return orderDao.updateOrderStatus(orId, OrderStatus.RECEIVED_GOOD);
+    }
+
+    @Override
+    public Order getByOrId(String orId) {
+        return orderDao.findById(orId);
     }
 
 }

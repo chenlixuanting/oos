@@ -18,7 +18,8 @@ import java.io.IOException;
 import java.io.Writer;
 
 /**
- * 保存用户所选择的发货的时间
+ * 保存临时用户所选择的发货的时间
+ * <p>
  * Created by Shinelon on 2018/5/14.
  */
 @WebServlet("/customer/SelectDeliverTime.action")

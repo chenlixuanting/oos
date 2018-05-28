@@ -171,6 +171,7 @@
     var geoc = new BMap.Geocoder();
 
     var geolocation = new BMap.Geolocation();//定位
+
     geolocation.getCurrentPosition(function (r) {
         if (this.getStatus() == BMAP_STATUS_SUCCESS) {
             var mk = new BMap.Marker(r.point);
@@ -187,7 +188,7 @@
         }
     });
 
-    map.addEventListener("click", function (e) {       //点击获取坐标
+    map.addEventListener("click", function (e) {       //给地图加上鼠标点击事件的监听器.当点击地图时获取坐标
         var pt = e.point;
         geoc.getLocation(pt, function (rs) {
             var addComp = rs.addressComponents;
@@ -200,7 +201,6 @@
             //addComp.province + addComp.city + addComp.district + addComp.street + addComp.streetNumber ;
         });
     });
-
 
     $("#query_city").click(function () {
         $("#allmap").css({display: "block"});

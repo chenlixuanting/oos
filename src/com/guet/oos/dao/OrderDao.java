@@ -25,10 +25,14 @@ public interface OrderDao extends IDAO<String, Order> {
 
     public boolean updateOrderStatus(String orId, String status);
 
-    public int notDeiveryOrderCount();
+    public int notDeliveryOrderCount();
 
     public List<Order> getNotDeliveryOrderList(int start, int length);
 
     public boolean confirmedDelivery(String orId);
+
+    public int countAllHistoryOrder();
+
+    public List<Order> getHistoryOrderList(int start, int length);
 
 }

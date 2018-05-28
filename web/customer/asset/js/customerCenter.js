@@ -206,7 +206,8 @@ $(function () {
     $('.link2').click(function () {
 
         //初始化订单查询页面
-        initOrderSearch();
+        // initOrderSearch();
+
         $(".backOrderList").click();
 
         $('.pages2').show().siblings().hide();
@@ -232,7 +233,7 @@ $(function () {
     $('#close_details').click(function () {
 
         //初始化订单详情页
-        initOrderSearch();
+        // initOrderSearch();
 
         $('#orderList_now').show().siblings().hide();
     });
@@ -488,7 +489,7 @@ function initOrderSearch() {
                         "<div class='orderList_format orderList_status'>" + d[x].orderStatus + "</div>" +
                         "<div class='orderList_format orderList_option'>" +
                         "<div id='details' class='orderItem_details' orId='" + d[x].orId + "' daId='" + d[x].daId + "'onclick='orderDetail(this);'>订单详情</div>" +
-                        "<div id='another_order' class='another_order' onclick='orderAgain();'>确认收货</div>" +
+                        "<div id='another_order' class='another_order' orId='" + d[x].orId + "'onclick='confirmedReceiver(this);'>确认收货</div>" +
                         "</div>" +
                         "</li>"
                     );
@@ -553,7 +554,7 @@ function initHistoryOrder() {
                         "<div class='orderList_format orderList_price'>" + d[x].totalCost + "</div>" +
                         "<div class='orderList_format orderList_status'>" + d[x].orderStatus + "</div>" +
                         "<div class='orderList_format orderList_option' style=' margin-top: -40px;height: 104px;cursor: pointer; line-height: 34px;'>" +
-                        "<div id='details' class='orderItem_details' orId='" + d[x].orId + "' style='margin-top: 15px;' onclick='historyOrderTail(this);'>订单详情</div>" +
+                        "<div id='details' class='orderItem_details' orId='" + d[x].orId + "' style='margin-top: 15px;' onclick='historyOrderDetail(this);'>订单详情</div>" +
                         "</div>" +
                         "</li>"
                     );
@@ -575,42 +576,14 @@ function fullZone(value) {
     return d.length < 2 ? "0" + d : d;
 }
 
-function historyOrderTail(obj) {
-
-    //获取当前用户信息用户信息详情
-    $.ajax({
-        url: "getUserInfo.action",
-        type: "POST",
-        dataType: "json",
-        success: function (data) {
-
-            var returnData = eval(data);
-
-            if (returnData.head) {
-
-                var address = eval(returnData.body.defaultDeliverAddress);
-
-                //设置客户姓名
-                $("#receiverName").html(address.receiverName);
-
-                //设置客户电话
-                $("#receiverMobile").html(address.receiverMobile);
-
-                //设置送餐地址
-                $("#receiverAddress").html(address.receiverAddress);
-
-            } else {
-                alert(returnData.body);
-            }
-        }
-    });
+function historyOrderDetail(obj) {
 
     //设置导航条高度
     $(".user_menu").height(490);
 
     //餐品详情
     $.ajax({
-        url: "getUserCurrentOneOrderInfo.action",
+        url: "getUserHistoryOneOrderInfo.action",
         type: "POST",
         dataType: "json",
         data: {
@@ -623,6 +596,15 @@ function historyOrderTail(obj) {
             if (d.head) {
 
                 var body = eval(d.body);
+
+                //设置客户姓名
+                $("#receiverName").html(body.receiverName);
+
+                //设置客户电话
+                $("#receiverMobile").html(body.receiverMobile);
+
+                //设置送餐地址
+                $("#receiverAddress").html(body.receiverAddress);
 
                 //设置订单状态
                 $(".orderList_detail_status").html(body.orderStatus);
@@ -688,98 +670,8 @@ function historyOrderTail(obj) {
 //查看订单详情
 function orderDetail(obj) {
 
-    //获取当前用户信息用户信息详情
-    $.ajax({
-        url: "getUserInfo.action",
-        type: "POST",
-        dataType: "json",
-        success: function (data) {
-
-            var returnData = eval(data);
-
-            if (returnData.head) {
-
-                var address = eval(returnData.body.defaultDeliverAddress);
-
-
-            } else {
-                alert(returnData.body);
-            }
-        }
-    });
-
     //设置导航条高度
     $(".user_menu").height(490);
-
-    /**
-     * {
-        "body": {
-            "creatorTime": "2018-05-26 11:05:07",
-            "deliverCost": 18,
-            "mgId": 0,
-            "orId": "74484d74-a770-4182-a54b-6f6ed4cfc4a5",
-            "orderItems": [{
-                "creatorTime": "2018-05-26 11:05:01",
-                "dishesName": "咸蛋黄肉粽礼盒装",
-                "dsId": 47,
-                "oiId": 1,
-                "orId": "74484d74-a770-4182-a54b-6f6ed4cfc4a5",
-                "price": 39,
-                "productCost": 39,
-                "quantity": 1,
-                "scId": -1,
-                "updateTime": "2018-05-26 11:05:01"
-            }, {
-                "creatorTime": "2018-05-26 11:05:01",
-                "dishesName": "川府肉酱波纹大薯",
-                "dsId": 48,
-                "oiId": 2,
-                "orId": "74484d74-a770-4182-a54b-6f6ed4cfc4a5",
-                "price": 14,
-                "productCost": 14,
-                "quantity": 1,
-                "scId": -1,
-                "updateTime": "2018-05-26 11:05:01"
-            }, {
-                "creatorTime": "2018-05-26 11:05:01",
-                "dishesName": "外送一桶过瘾套餐",
-                "dsId": 49,
-                "oiId": 3,
-                "orId": "74484d74-a770-4182-a54b-6f6ed4cfc4a5",
-                "price": 79,
-                "productCost": 79,
-                "quantity": 1,
-                "scId": -1,
-                "updateTime": "2018-05-26 11:05:01"
-            }, {
-                "creatorTime": "2018-05-26 11:05:02",
-                "dishesName": "油泼辣子鸡辣堡餐S",
-                "dsId": 52,
-                "oiId": 4,
-                "orId": "74484d74-a770-4182-a54b-6f6ed4cfc4a5",
-                "price": 25,
-                "productCost": 50,
-                "quantity": 2,
-                "scId": -1,
-                "updateTime": "2018-05-26 11:05:02"
-            }],
-            "orderStatus": "商家未接单",
-            "payType": "货到付款",
-            "productAmount": 5,
-            "productCost": 182,
-            "receiverAddress": "广西壮族自治区南宁市江南区 虚空遁地兽(哇哈哈专卖店)",
-            "receiverMobile": "13347573463",
-            "receiverName": "哇哈哈没有钙",
-            "receiverSex": "女士",
-            "receiverTime": "2018年5月26日 周六 11时00分",
-            "totalCost": 200,
-            "updateTime": "2018-05-26 11:05:07",
-            "usId": 1
-        },
-        "head": true
-       }
-     */
-
 
     //餐品详情
     $.ajax({
@@ -867,10 +759,33 @@ function orderDetail(obj) {
 
 }
 
-//再来一单
-function orderAgain() {
-    location.assign("continueShopping.jsp");
+//确认收货
+function confirmedReceiver(obj) {
+
+    var orId = $(obj).attr("orId");
+
+    $.ajax({
+        url: "receiverOrder.action",
+        type: "POST",
+        dataType: "json",
+        data: {
+            orId: orId
+        },
+        success: function (data) {
+
+            var returnData = eval(data);
+
+            alert(returnData.body);
+
+            if (returnData.head) {
+                initOrderSearch();
+            }
+
+        }
+    });
+
 }
+
 
 //初始化用户地址页面
 function initAddressPage() {

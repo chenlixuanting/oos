@@ -39,13 +39,13 @@ public class confirmedDeliveryServlet extends HttpServlet {
 
         String orId = request.getParameter("orId");
 
-//        boolean flag = orderService.confirmedOrder(orId);
-//
-//        if (flag) {
-//            out.write(JSONObject.toJSONString(JsonEntityReturn.buildSuccess(ReturnMessage.CONFIRM_ORDER_SUCCESS)));
-//        } else {
-//            out.write(JSONObject.toJSONString(JsonEntityReturn.buildFail(ReturnMessage.CONFIRM_ORDER_FAIL)));
-//        }
+        boolean flag = orderService.confirmedDelivery(orId);
+
+        if (flag) {
+            out.write(JSONObject.toJSONString(JsonEntityReturn.buildSuccess(ReturnMessage.CONFIRM_ORDER_SUCCESS)));
+        } else {
+            out.write(JSONObject.toJSONString(JsonEntityReturn.buildFail(ReturnMessage.CONFIRM_ORDER_FAIL)));
+        }
     }
 
     /**

@@ -15,6 +15,7 @@ import java.io.IOException;
 import java.io.Writer;
 
 /**
+ * 获取购物车中的餐品信息在cart.jsp上进行显示
  * Created by Shinelon on 2018/5/17.
  */
 @WebServlet("/customer/getShopCartInfo.action")

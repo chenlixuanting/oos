@@ -71,6 +71,25 @@ public class OrderDaoImpl extends AbstractDAOImpl implements OrderDao {
 
     @Override
     public Order findById(String id) {
+
+        String sql = "select * from order_table where orId=?";
+
+        try {
+            pstmt = conn.prepareStatement(sql);
+
+            pstmt.setString(1, id);
+
+            ResultSet res = pstmt.executeQuery();
+
+            List<Order> orders = encapsulationOrder(res);
+
+            if (orders.size() > 0)
+                return orders.get(0);
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
         return null;
     }
 
@@ -323,7 +342,7 @@ public class OrderDaoImpl extends AbstractDAOImpl implements OrderDao {
     }
 
     @Override
-    public int notDeiveryOrderCount() {
+    public int notDeliveryOrderCount() {
 
         String sql = "select count(*) from order_table where orderStatus=?";
 
@@ -389,6 +408,53 @@ public class OrderDaoImpl extends AbstractDAOImpl implements OrderDao {
         }
 
         return false;
+    }
+
+    @Override
+    public int countAllHistoryOrder() {
+
+        String sql = "select count(*) from order_table where orderStatus=?";
+
+        try {
+            pstmt = conn.prepareStatement(sql);
+
+            pstmt.setString(1, OrderStatus.RECEIVED_GOOD);
+
+            ResultSet res = pstmt.executeQuery();
+
+            int total = 0;
+
+            while (res.next())
+                total += res.getInt(1);
+
+            return total;
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return 0;
+    }
+
+    @Override
+    public List<Order> getHistoryOrderList(int start, int length) {
+
+        String sql = "select top " + length + " * from order_table where orderStatus='" + OrderStatus.RECEIVED_GOOD + "' and (orId not in(select top " + start + "orId from order_table where orderStatus='" + OrderStatus.RECEIVED_GOOD + "'order by orId))";
+
+        List<Order> orders = null;
+
+        try {
+            pstmt = conn.prepareStatement(sql);
+
+            ResultSet res = pstmt.executeQuery();
+
+            orders = encapsulationOrder(res);
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return orders;
     }
 
     public List<Order> encapsulationOrder(ResultSet res) {

@@ -296,6 +296,7 @@
 
 <%--实现两边的菜单栏贴紧；浏览器顶部--%>
 <script type="text/javascript">
+
     $.fn.smartFloat = function () {
         var position = function (element) {
             var top = element.position().top, pos = element.css("position");

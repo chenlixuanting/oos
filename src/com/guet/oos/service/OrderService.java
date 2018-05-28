@@ -23,7 +23,7 @@ public interface OrderService {
 
     public int currentOrderCount();
 
-    public int notDeiveryOrderCount();
+    public int notDeliveryOrderCount();
 
     public List<Order> getUserAllHistoryOrder(long usId);
 
@@ -35,6 +35,12 @@ public interface OrderService {
 
     public boolean confirmedDelivery(String orId);
 
-    public int countAllHistroyOrder();
+    public int countAllHistoryOrder();
+
+    public List<Order> getHistoryOrderList(int start, int length);
+
+    public boolean confirmedReceiver(String orId);
+
+    public Order getByOrId(String orId);
 
 }

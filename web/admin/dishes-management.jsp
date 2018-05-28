@@ -5,10 +5,6 @@
 
 <%
     Administrator administrator = (Administrator) request.getSession().getAttribute("administrator");
-
-    String goods_pic_addrs = (String) request.getSession().getAttribute("goods_pic_addrs");
-
-    String admin_head_pic_addrs = (String) request.getSession().getAttribute("admin_head_pic_addrs");
 %>
 
 <html>
@@ -48,9 +44,6 @@
 </div>
 
 <div class="content">
-
-    <input value="<%=goods_pic_addrs%>" id="goods_pic_addrs" style="display: none;"/>
-    <input value="<%=admin_head_pic_addrs%>" id="admin_head_pic_addrs" style="display: none;"/>
 
     <div class="container-fluid">
         <div id="pad-wrapper" class="users-list">

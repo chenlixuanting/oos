@@ -6,7 +6,6 @@ import com.guet.oos.constant.ReturnMessage;
 import com.guet.oos.constant.SessionKey;
 import com.guet.oos.constant.UserExist;
 import com.guet.oos.dto.JsonEntityReturn;
-import com.guet.oos.dto.JsonReturn;
 import com.guet.oos.dto.LoginDataDto;
 import com.guet.oos.dto.TemporaryUserInfo;
 import com.guet.oos.factory.ServiceFactory;
@@ -27,7 +26,8 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 /**
- * 用户手机号码验证
+ * 判断用户是否注册
+ * <p>
  * Servlet implementation class UserLoginValidateServlet
  */
 @WebServlet("/customer/LoginValidate.action")

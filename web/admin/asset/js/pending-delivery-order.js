@@ -142,14 +142,14 @@ function deleteOrder() {
 }
 
 /**
- * 确认订单
+ * 确认发货
  */
 function confirmedOrder(obj) {
 
     var orId = $(obj).attr("orId");
 
     $.ajax({
-        url: "confirmedOrder.action",
+        url: "confirmedDelivery.action",
         type: "POST",
         dataType: "json",
         data: {

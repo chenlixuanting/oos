@@ -18,6 +18,8 @@ import java.io.IOException;
 import java.io.Writer;
 
 /**
+ * 保存临时用户的地址,收货人的电话,用户姓名,用户性别信息
+ * <p>
  * Created by Shinelon on 2018/5/14.
  */
 @WebServlet("/customer/CustomerRegAgree.action")

@@ -45,9 +45,9 @@ public class PagesPendingDeliveryOrderServlet extends HttpServlet {
         //解析分页数据，并封装成Page实体
         Page pageData = PageUtils.parse(aoData);
 
-        int iTotalRecords = orderService.historyOrderCount();
+        int iTotalRecords = orderService.notDeliveryOrderCount();
 
-        List<Order> list = orderService.getHistoryOrderList(pageData.getiDisplayStart(), pageData.getiDisplayLength());
+        List<Order> list = orderService.getNotDeliveryOrderList(pageData.getiDisplayStart(), pageData.getiDisplayLength());
 
         JSONObject data = PageUtils.encPageJsonObj(pageData.getsEcho(), iTotalRecords, iTotalRecords, list);
 
