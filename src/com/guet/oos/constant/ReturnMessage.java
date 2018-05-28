@@ -91,4 +91,8 @@ public class ReturnMessage {
 
     public static final String CONFIRM_ORDER_FAIL = "确认订单失败!";
 
+    public static final String DELIVERY_ORDER_SUCCESS = "确认发货成功!";
+
+    public static final String DELIVERY_ORDER_FAIL = "确认发货失败！";
+
 }

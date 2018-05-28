@@ -19,7 +19,11 @@ public interface OrderService {
 
     public List<Order> getCurrentOrderList(int start, int length);
 
+    public List<Order> getNotDeliveryOrderList(int start, int length);
+
     public int currentOrderCount();
+
+    public int notDeiveryOrderCount();
 
     public List<Order> getUserAllHistoryOrder(long usId);
 
@@ -28,4 +32,9 @@ public interface OrderService {
     public boolean deleteByOrId(String orId);
 
     public boolean confirmedOrder(String orId);
+
+    public boolean confirmedDelivery(String orId);
+
+    public int countAllHistroyOrder();
+
 }

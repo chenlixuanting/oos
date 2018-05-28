@@ -42,8 +42,18 @@ public class OrderServiceImpl implements OrderService {
     }
 
     @Override
+    public List<Order> getNotDeliveryOrderList(int start, int length) {
+        return orderDao.getNotDeliveryOrderList(start, length);
+    }
+
+    @Override
     public int currentOrderCount() {
         return orderDao.currentOrderCount(OrderStatus.UNCONFIRMEED);
+    }
+
+    @Override
+    public int notDeiveryOrderCount() {
+        return orderDao.notDeiveryOrderCount();
     }
 
     @Override
@@ -64,6 +74,16 @@ public class OrderServiceImpl implements OrderService {
     @Override
     public boolean confirmedOrder(String orId) {
         return orderDao.updateOrderStatus(orId, OrderStatus.NOT_DELIVERED);
+    }
+
+    @Override
+    public boolean confirmedDelivery(String orId) {
+        return orderDao.confirmedDelivery(orId);
+    }
+
+    @Override
+    public int countAllHistroyOrder() {
+        return 0;
     }
 
 }

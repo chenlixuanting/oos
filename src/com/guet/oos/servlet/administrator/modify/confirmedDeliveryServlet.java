@@ -17,8 +17,8 @@ import java.io.Writer;
 /**
  * Created by Shinelon on 2018/5/28.
  */
-@WebServlet("/admin/confirmedOrder.action")
-public class confirmedOrderServlet extends HttpServlet {
+@WebServlet("/admin/confirmedDelivery.action")
+public class confirmedDeliveryServlet extends HttpServlet {
 
     private static final long serialVersionUID = 1L;
 
@@ -27,7 +27,7 @@ public class confirmedOrderServlet extends HttpServlet {
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public confirmedOrderServlet() {
+    public confirmedDeliveryServlet() {
         super();
     }
 
@@ -35,19 +35,17 @@ public class confirmedOrderServlet extends HttpServlet {
      * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
      */
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
         Writer out = response.getWriter();
 
         String orId = request.getParameter("orId");
 
-        boolean flag = orderService.confirmedDelivery(orId);
-
-        if (flag) {
-            out.write(JSONObject.toJSONString(JsonEntityReturn.buildSuccess(ReturnMessage.DELIVERY_ORDER_SUCCESS)));
-        } else {
-            out.write(JSONObject.toJSONString(JsonEntityReturn.buildFail(ReturnMessage.DELIVERY_ORDER_FAIL)));
-        }
-
+//        boolean flag = orderService.confirmedOrder(orId);
+//
+//        if (flag) {
+//            out.write(JSONObject.toJSONString(JsonEntityReturn.buildSuccess(ReturnMessage.CONFIRM_ORDER_SUCCESS)));
+//        } else {
+//            out.write(JSONObject.toJSONString(JsonEntityReturn.buildFail(ReturnMessage.CONFIRM_ORDER_FAIL)));
+//        }
     }
 
     /**

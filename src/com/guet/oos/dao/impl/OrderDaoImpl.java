@@ -322,6 +322,75 @@ public class OrderDaoImpl extends AbstractDAOImpl implements OrderDao {
         return false;
     }
 
+    @Override
+    public int notDeiveryOrderCount() {
+
+        String sql = "select count(*) from order_table where orderStatus=?";
+
+        try {
+            pstmt = conn.prepareStatement(sql);
+
+            pstmt.setString(1, OrderStatus.NOT_DELIVERED);
+
+            int total = 0;
+
+            ResultSet res = pstmt.executeQuery();
+
+            while (res.next())
+                total += res.getInt(1);
+
+            return total;
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return 0;
+    }
+
+    @Override
+    public List<Order> getNotDeliveryOrderList(int start, int length) {
+
+        String sql = "select top " + length + " * from order_table where orderStatus='" + OrderStatus.NOT_DELIVERED + "' and (orId not in(select top " + start + "orId from order_table where orderStatus='" + OrderStatus.NOT_DELIVERED + "'order by orId))";
+
+        List<Order> orders = null;
+
+        try {
+            pstmt = conn.prepareStatement(sql);
+
+            ResultSet res = pstmt.executeQuery();
+
+            orders = encapsulationOrder(res);
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return orders;
+    }
+
+    @Override
+    public boolean confirmedDelivery(String orId) {
+
+        String sql = "update order_table set orderStatus=? where orId=?";
+
+        try {
+            pstmt = conn.prepareStatement(sql);
+
+            pstmt.setString(1, OrderStatus.DELIVERY_IN_PROCESS);
+            pstmt.setString(2, orId);
+
+            pstmt.executeUpdate();
+
+            return true;
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return false;
+    }
+
     public List<Order> encapsulationOrder(ResultSet res) {
 
         List<Order> orders = new ArrayList<Order>();

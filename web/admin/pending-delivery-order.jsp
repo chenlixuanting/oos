@@ -4,7 +4,7 @@
 <html>
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <title>历史订单</title>
+    <title>待发货的订单</title>
 
     <!-- bootstrap -->
     <link href="css/bootstrap/bootstrap.css" rel="stylesheet"/>
@@ -77,6 +77,7 @@
                         <th class="span2 sortable">付款方式</th>
                         <th class="span2 sortable">创建时间</th>
                         <th class="span2 sortable">更新时间</th>
+                        <th class="span2 sortable">操作</th>
                     </tr>
                     </thead>
                     <tbody></tbody>
@@ -90,14 +91,17 @@
 <script src="js/jquery-3.3.1.js"></script>
 <script src="js/bootstrap.min.js"></script>
 <script src="js/jquery-ui-1.10.2.custom.min.js"></script>
+
 <!-- knob -->
 <script src="js/jquery.knob.js"></script>
+
 <!-- flot charts -->
 <script src="js/jquery.flot.js"></script>
 <script src="js/jquery.flot.stack.js"></script>
 <script src="js/jquery.flot.resize.js"></script>
 <script src="js/theme.js"></script>
-<script src="js/jquery.dataTables.min.js" type="text/javascript"></script>
-<script src="js/dataTables.bootstrap.min.js" type="text/javascript"></script>
+<script src="js/jquery.dataTables.min.js"></script>
+<script src="js/dataTables.bootstrap.min.js"></script>
+<script src="asset/js/pending-delivery-order.js"></script>
 </body>
 </html>

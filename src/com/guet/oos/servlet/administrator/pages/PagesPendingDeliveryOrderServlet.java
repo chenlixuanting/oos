@@ -1,10 +1,11 @@
-package com.guet.oos.servlet.administrator.modify;
+package com.guet.oos.servlet.administrator.pages;
 
 import com.alibaba.fastjson.JSONObject;
-import com.guet.oos.constant.ReturnMessage;
-import com.guet.oos.dto.JsonEntityReturn;
+import com.guet.oos.dto.Page;
 import com.guet.oos.factory.ServiceFactory;
+import com.guet.oos.po.Order;
 import com.guet.oos.service.OrderService;
+import com.guet.oos.utils.PageUtils;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -13,12 +14,13 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.Writer;
+import java.util.List;
 
 /**
  * Created by Shinelon on 2018/5/28.
  */
-@WebServlet("/admin/confirmedOrder.action")
-public class confirmedOrderServlet extends HttpServlet {
+@WebServlet("/admin/pagesPendingDeliveryOrder.action")
+public class PagesPendingDeliveryOrderServlet extends HttpServlet {
 
     private static final long serialVersionUID = 1L;
 
@@ -27,7 +29,7 @@ public class confirmedOrderServlet extends HttpServlet {
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public confirmedOrderServlet() {
+    public PagesPendingDeliveryOrderServlet() {
         super();
     }
 
@@ -36,17 +38,20 @@ public class confirmedOrderServlet extends HttpServlet {
      */
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
+        String aoData = request.getParameter("aoData");
+
         Writer out = response.getWriter();
 
-        String orId = request.getParameter("orId");
+        //解析分页数据，并封装成Page实体
+        Page pageData = PageUtils.parse(aoData);
 
-        boolean flag = orderService.confirmedDelivery(orId);
+        int iTotalRecords = orderService.historyOrderCount();
 
-        if (flag) {
-            out.write(JSONObject.toJSONString(JsonEntityReturn.buildSuccess(ReturnMessage.DELIVERY_ORDER_SUCCESS)));
-        } else {
-            out.write(JSONObject.toJSONString(JsonEntityReturn.buildFail(ReturnMessage.DELIVERY_ORDER_FAIL)));
-        }
+        List<Order> list = orderService.getHistoryOrderList(pageData.getiDisplayStart(), pageData.getiDisplayLength());
+
+        JSONObject data = PageUtils.encPageJsonObj(pageData.getsEcho(), iTotalRecords, iTotalRecords, list);
+
+        out.write(JSONObject.toJSONString(data));
 
     }
 

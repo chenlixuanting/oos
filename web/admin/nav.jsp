@@ -58,7 +58,7 @@
         </a>
         <ul class="submenu">
             <li><a href="order-confirmed.jsp">待确认订单</a></li>
-            <li><a href="history-order.jsp">待发货订单</a></li>
+            <li><a href="pending-delivery-order.jsp">待发货订单</a></li>
             <li><a href="history-order.jsp">历史订单</a></li>
         </ul>
     </li>
