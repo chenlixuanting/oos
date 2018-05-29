@@ -13,7 +13,7 @@ import java.util.List;
 import java.util.Set;
 
 /**
- * 菜品Dao
+ * 餐品Dao实现类
  * Created by Shinelon on 2018/5/1.
  */
 public class DishesDaoImpl extends AbstractDAOImpl implements DishesDao {

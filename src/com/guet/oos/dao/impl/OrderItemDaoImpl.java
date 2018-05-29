@@ -13,6 +13,7 @@ import java.util.List;
 import java.util.Set;
 
 /**
+ * 订单项Dao实现类
  * Created by Shinelon on 2018/5/18.
  */
 public class OrderItemDaoImpl extends AbstractDAOImpl implements OrderItemDao {
@@ -89,7 +90,6 @@ public class OrderItemDaoImpl extends AbstractDAOImpl implements OrderItemDao {
     public Integer getAllCount() {
         return null;
     }
-
 
     @Override
     public List<OrderItem> getOrderItemsByOrderId(String orId) {

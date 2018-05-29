@@ -13,6 +13,7 @@ import java.util.List;
 import java.util.Set;
 
 /**
+ * 餐点种类Dao实现类
  * Created by Shinelon on 2018/4/30.
  */
 public class MealTypeDaoImpl extends AbstractDAOImpl implements MealTypeDao {

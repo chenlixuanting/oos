@@ -13,7 +13,7 @@ import java.util.List;
 import java.util.Set;
 
 /**
- * 配送地址实体
+ * 配送地址Dao实现类
  * <p>
  * Created by Shinelon on 2018/5/18.
  */

@@ -12,6 +12,9 @@ import com.guet.oos.dao.UserDao;
 import com.guet.oos.fields.UserFields;
 import com.guet.oos.po.User;
 
+/**
+ * 用户Dao实现类
+ */
 public class UserDaoImpl extends AbstractDAOImpl implements UserDao {
 
     public UserDaoImpl(Connection conn) {

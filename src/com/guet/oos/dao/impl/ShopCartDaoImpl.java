@@ -13,6 +13,7 @@ import java.util.List;
 import java.util.Set;
 
 /**
+ * 购物车Dao实现类
  * Created by Shinelon on 2018/5/15.
  */
 public class ShopCartDaoImpl extends AbstractDAOImpl implements ShopCartDao {

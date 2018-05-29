@@ -14,7 +14,7 @@ import java.util.List;
 import java.util.Set;
 
 /**
- * 订单DAO
+ * 订单DAO实现类
  * Created by Shinelon on 2018/5/18.
  */
 public class OrderDaoImpl extends AbstractDAOImpl implements OrderDao {
@@ -137,16 +137,6 @@ public class OrderDaoImpl extends AbstractDAOImpl implements OrderDao {
 
         return 0;
     }
-
-    /**
-     * public static final String UNCONFIRMEED = "商家未接单";
-     * public static final String CONFIRMED = "商家已接单";
-     * public static final String NOT_DELIVERED = "未发货";
-     * public static final String DELIVERY_IN_PROCESS = "正在发货";
-     *
-     * @param usId
-     * @return
-     */
 
     @Override
     public List<Order> getUserCurrentOrderByUserId(long usId) {
