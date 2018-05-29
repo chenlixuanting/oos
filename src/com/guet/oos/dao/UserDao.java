@@ -4,6 +4,9 @@ import java.util.List;
 
 import com.guet.oos.po.User;
 
+/**
+ * 用户Dao接口
+ */
 public interface UserDao extends IDAO<Long, User> {
 
     /**

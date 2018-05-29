@@ -6,15 +6,16 @@
   <component name="ChangeListManager">
     <list default="true" id="f566ee65-e8d4-499b-9f0e-d5d8d11c0464" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../oos/.idea/workspace.xml" afterPath="$PROJECT_DIR$/../oos/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../oos/src/com/guet/oos/dao/AbstractDAOImpl.java" afterPath="$PROJECT_DIR$/../oos/src/com/guet/oos/dao/AbstractDAOImpl.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../oos/src/com/guet/oos/dao/impl/DeliveryAddressDaoImpl.java" afterPath="$PROJECT_DIR$/../oos/src/com/guet/oos/dao/impl/DeliveryAddressDaoImpl.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../oos/src/com/guet/oos/dao/impl/DishesDaoImpl.java" afterPath="$PROJECT_DIR$/../oos/src/com/guet/oos/dao/impl/DishesDaoImpl.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../oos/src/com/guet/oos/dao/impl/DishesTypeDaoImpl.java" afterPath="$PROJECT_DIR$/../oos/src/com/guet/oos/dao/impl/DishesTypeDaoImpl.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../oos/src/com/guet/oos/dao/impl/MealTypeDaoImpl.java" afterPath="$PROJECT_DIR$/../oos/src/com/guet/oos/dao/impl/MealTypeDaoImpl.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../oos/src/com/guet/oos/dao/impl/OrderDaoImpl.java" afterPath="$PROJECT_DIR$/../oos/src/com/guet/oos/dao/impl/OrderDaoImpl.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../oos/src/com/guet/oos/dao/impl/OrderItemDaoImpl.java" afterPath="$PROJECT_DIR$/../oos/src/com/guet/oos/dao/impl/OrderItemDaoImpl.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../oos/src/com/guet/oos/dao/impl/ShopCartDaoImpl.java" afterPath="$PROJECT_DIR$/../oos/src/com/guet/oos/dao/impl/ShopCartDaoImpl.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../oos/src/com/guet/oos/dao/impl/UserDaoImpl.java" afterPath="$PROJECT_DIR$/../oos/src/com/guet/oos/dao/impl/UserDaoImpl.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../oos/src/com/guet/oos/dao/AdministratorDao.java" afterPath="$PROJECT_DIR$/../oos/src/com/guet/oos/dao/AdministratorDao.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../oos/src/com/guet/oos/dao/CommentDao.java" afterPath="$PROJECT_DIR$/../oos/src/com/guet/oos/dao/CommentDao.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../oos/src/com/guet/oos/dao/DeliveryAddressDao.java" afterPath="$PROJECT_DIR$/../oos/src/com/guet/oos/dao/DeliveryAddressDao.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../oos/src/com/guet/oos/dao/DishesDao.java" afterPath="$PROJECT_DIR$/../oos/src/com/guet/oos/dao/DishesDao.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../oos/src/com/guet/oos/dao/DishesTypeDao.java" afterPath="$PROJECT_DIR$/../oos/src/com/guet/oos/dao/DishesTypeDao.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../oos/src/com/guet/oos/dao/MealTypeDao.java" afterPath="$PROJECT_DIR$/../oos/src/com/guet/oos/dao/MealTypeDao.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../oos/src/com/guet/oos/dao/OrderDao.java" afterPath="$PROJECT_DIR$/../oos/src/com/guet/oos/dao/OrderDao.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../oos/src/com/guet/oos/dao/OrderItemDao.java" afterPath="$PROJECT_DIR$/../oos/src/com/guet/oos/dao/OrderItemDao.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../oos/src/com/guet/oos/dao/ShopCartDao.java" afterPath="$PROJECT_DIR$/../oos/src/com/guet/oos/dao/ShopCartDao.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../oos/src/com/guet/oos/dao/UserDao.java" afterPath="$PROJECT_DIR$/../oos/src/com/guet/oos/dao/UserDao.java" />
     </list>
     <ignored path="$PROJECT_DIR$/../oos/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -30,302 +31,7 @@
   </component>
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="DeliveryAddressDao.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/../oos/src/com/guet/oos/dao/DeliveryAddressDao.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="133">
-              <caret line="9" column="17" lean-forward="false" selection-start-line="9" selection-start-column="17" selection-end-line="9" selection-end-column="17" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="CommentDaoImpl.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/../oos/src/com/guet/oos/dao/impl/CommentDaoImpl.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="380">
-              <caret line="20" column="13" lean-forward="false" selection-start-line="20" selection-start-column="13" selection-end-line="20" selection-end-column="13" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="method#doCreate#0;class#CommentDaoImpl#0" expanded="false" />
-                <element signature="method#doUpdate#0;class#CommentDaoImpl#0" expanded="false" />
-                <element signature="method#findById#0;class#CommentDaoImpl#0" expanded="false" />
-                <element signature="method#findAll#0;class#CommentDaoImpl#0" expanded="false" />
-                <element signature="method#findBySplit#0;class#CommentDaoImpl#0" expanded="false" />
-                <element signature="method#encapsulationCommentList#0;class#CommentDaoImpl#0" expanded="false" />
-                <element signature="method#countAllUnansweredComment#0;class#CommentDaoImpl#0" expanded="false" />
-                <element signature="method#getAllUnansweredComment#0;class#CommentDaoImpl#0" expanded="false" />
-                <element signature="method#getListUnansweredComment#0;class#CommentDaoImpl#0" expanded="false" />
-                <element signature="method#deleteByCoId#0;class#CommentDaoImpl#0" expanded="false" />
-                <element signature="method#deleteByUsId#0;class#CommentDaoImpl#0" expanded="false" />
-                <element signature="method#countAllReplyComment#0;class#CommentDaoImpl#0" expanded="false" />
-                <element signature="method#getListReplyComment#0;class#CommentDaoImpl#0" expanded="false" />
-                <marker date="1527609882932" expanded="true" signature="825:936" ph="insert into comment_table... " />
-                <marker date="1527609882932" expanded="true" signature="1674:1758" ph="update comme... " />
-                <marker date="1527609882932" expanded="true" signature="2569:2609" ph="select * fro... comment_table" />
-                <marker date="1527609882932" expanded="true" signature="3199:3226" ph="select * fro... comment_table" />
-                <marker date="1527609882932" expanded="true" signature="5683:5735" ph="select count... comment_table" />
-                <marker date="1527609882932" expanded="true" signature="6312:6357" ph="select * fro... comment_table" />
-                <marker date="1527609882932" expanded="true" signature="6959:7219" ph="select top m... comment_table" />
-                <marker date="1527609882932" expanded="true" signature="7702:7740" ph="delete from " />
-                <marker date="1527609882932" expanded="true" signature="8166:8204" ph="delete from " />
-                <marker date="1527609882932" expanded="true" signature="8605:8657" ph="select count... comment_table" />
-                <marker date="1527609882932" expanded="true" signature="9292:9546" ph="select top m... comment_table" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="DeliveryAddressDaoImpl.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/../oos/src/com/guet/oos/dao/impl/DeliveryAddressDaoImpl.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="114">
-              <caret line="16" column="6" lean-forward="true" selection-start-line="16" selection-start-column="6" selection-end-line="16" selection-end-column="6" />
-              <folding>
-                <element signature="method#findByUserId#0;class#DeliveryAddressDaoImpl#0" expanded="false" />
-                <element signature="method#userDefaultDeliverTime#0;class#DeliveryAddressDaoImpl#0" expanded="false" />
-                <element signature="method#updateUserDefaultDeliverAddress#0;class#DeliveryAddressDaoImpl#0" expanded="false" />
-                <element signature="method#deleteByUsId#0;class#DeliveryAddressDaoImpl#0" expanded="false" />
-                <element signature="method#updateDeliveryAddress#0;class#DeliveryAddressDaoImpl#0" expanded="false" />
-                <element signature="method#doCreate#0;class#DeliveryAddressDaoImpl#0" expanded="false" />
-                <element signature="method#findById#0;class#DeliveryAddressDaoImpl#0" expanded="false" />
-                <element signature="method#findBySplit#0;class#DeliveryAddressDaoImpl#0" expanded="false" />
-                <element signature="method#encapsulationDeliveryAddrssList#0;class#DeliveryAddressDaoImpl#0" expanded="false" />
-                <element signature="method#encapsulationDeliver#0;class#DeliveryAddressDaoImpl#0" expanded="false" />
-                <marker date="1527610049889" expanded="true" signature="688:737" ph="select * fro... delivery_address_table" />
-                <marker date="1527610049889" expanded="true" signature="1250:1311" ph="update deliv... " />
-                <marker date="1527610049889" expanded="true" signature="1735:1809" ph="update deliv... " />
-                <marker date="1527610049889" expanded="true" signature="1836:1894" ph="update deliv... " />
-                <marker date="1527610049889" expanded="true" signature="2491:2538" ph="delete from " />
-                <marker date="1527610049889" expanded="true" signature="2918:3068" ph="update deliv... " />
-                <marker date="1527610049889" expanded="true" signature="3916:4083" ph="insert into delivery_address_table... " />
-                <marker date="1527610049889" expanded="true" signature="5052:5101" ph="select * fro... delivery_address_table" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="DishesDaoImpl.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/../oos/src/com/guet/oos/dao/impl/DishesDaoImpl.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="95">
-              <caret line="15" column="5" lean-forward="false" selection-start-line="15" selection-start-column="5" selection-end-line="15" selection-end-column="5" />
-              <folding>
-                <element signature="method#doCreate#0;class#DishesDaoImpl#0" expanded="false" />
-                <element signature="method#doUpdate#0;class#DishesDaoImpl#0" expanded="false" />
-                <element signature="method#findById#0;class#DishesDaoImpl#0" expanded="false" />
-                <element signature="method#findBySplit#0;class#DishesDaoImpl#0" expanded="false" />
-                <element signature="method#getAllCount#2;class#DishesDaoImpl#0" expanded="false" />
-                <element signature="method#getList#0;class#DishesDaoImpl#0" expanded="false" />
-                <element signature="method#getSecifyColumnSpecifyWord#0;class#DishesDaoImpl#0" expanded="false" />
-                <element signature="method#updateDishesStoreByDishesId#0;class#DishesDaoImpl#0" expanded="false" />
-                <element signature="method#queryDishesStockByDishesId#0;class#DishesDaoImpl#0" expanded="false" />
-                <element signature="method#deleteByDsId#0;class#DishesDaoImpl#0" expanded="false" />
-                <element signature="method#encapsulationDishes#0;class#DishesDaoImpl#0" expanded="false" />
-                <marker date="1527610082269" expanded="true" signature="621:753" ph="insert into dishes_table... " />
-                <marker date="1527610082269" expanded="true" signature="1584:1699" ph="update dishe... " />
-                <marker date="1527610082269" expanded="true" signature="2490:2529" ph="select * fro... dishes_table" />
-                <marker date="1527610082269" expanded="true" signature="3397:3430" ph="select count... dishes_table" />
-                <marker date="1527610082269" expanded="true" signature="3932:4061" ph="select top m... dishes_table" />
-                <marker date="1527610082269" expanded="true" signature="3997:4060" ph="select top m... dishes_table" />
-                <marker date="1527610082269" expanded="true" signature="4508:4555" ph="select * fro... dishes_table" />
-                <marker date="1527610082269" expanded="true" signature="5052:5096" ph="update dishe... " />
-                <marker date="1527610082269" expanded="true" signature="5501:5544" ph="select stock... dishes_table" />
-                <marker date="1527610082269" expanded="true" signature="6027:6064" ph="delete from " />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="DishesTypeDaoImpl.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/../oos/src/com/guet/oos/dao/impl/DishesTypeDaoImpl.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="95">
-              <caret line="15" column="13" lean-forward="false" selection-start-line="15" selection-start-column="13" selection-end-line="15" selection-end-column="13" />
-              <folding>
-                <element signature="method#doCreate#0;class#DishesTypeDaoImpl#0" expanded="false" />
-                <element signature="method#doUpdate#0;class#DishesTypeDaoImpl#0" expanded="false" />
-                <element signature="method#findById#0;class#DishesTypeDaoImpl#0" expanded="false" />
-                <element signature="method#findAll#0;class#DishesTypeDaoImpl#0" expanded="false" />
-                <element signature="method#findBySplit#0;class#DishesTypeDaoImpl#0" expanded="false" />
-                <element signature="method#getAllCount#2;class#DishesTypeDaoImpl#0" expanded="false" />
-                <element signature="method#encapsualationDishesType#0;class#DishesTypeDaoImpl#0" expanded="false" />
-                <element signature="method#getList#0;class#DishesTypeDaoImpl#0" expanded="false" />
-                <element signature="method#getSpecifyColumn#0;class#DishesTypeDaoImpl#0" expanded="false" />
-                <element signature="method#getSpecifyColumnSpecifyValue#0;class#DishesTypeDaoImpl#0" expanded="false" />
-                <element signature="method#deleteByDtId#0;class#DishesTypeDaoImpl#0" expanded="false" />
-                <element signature="method#ecapsualtionSpecifyColumn#0;class#DishesTypeDaoImpl#0" expanded="false" />
-                <marker date="1527610096712" expanded="true" signature="652:755" ph="insert into dishes_type_table... " />
-                <marker date="1527610096712" expanded="true" signature="1577:1670" ph="update dishe... " />
-                <marker date="1527610096712" expanded="true" signature="2316:2360" ph="select * fro... dishes_type_table" />
-                <marker date="1527610096712" expanded="true" signature="2872:2903" ph="select * fro... dishes_type_table" />
-                <marker date="1527610096712" expanded="true" signature="3670:3708" ph="select count... dishes_type_table" />
-                <marker date="1527610096712" expanded="true" signature="5075:5211" ph="select top m... dishes_type_table" />
-                <marker date="1527610096712" expanded="true" signature="5143:5210" ph="select top m... dishes_type_table" />
-                <marker date="1527610096712" expanded="true" signature="5683:5736" ph="select disti... dishes_type_table" />
-                <marker date="1527610096712" expanded="true" signature="6217:6280" ph="select missi... dishes_type_table" />
-                <marker date="1527610096712" expanded="true" signature="6841:6883" ph="delete from " />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="MealTypeDaoImpl.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/../oos/src/com/guet/oos/dao/impl/MealTypeDaoImpl.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="95">
-              <caret line="15" column="13" lean-forward="false" selection-start-line="15" selection-start-column="13" selection-end-line="15" selection-end-column="13" />
-              <folding>
-                <element signature="method#doCreate#0;class#MealTypeDaoImpl#0" expanded="false" />
-                <element signature="method#findById#0;class#MealTypeDaoImpl#0" expanded="false" />
-                <element signature="method#findAll#0;class#MealTypeDaoImpl#0" expanded="false" />
-                <element signature="method#findBySplit#0;class#MealTypeDaoImpl#0" expanded="false" />
-                <element signature="method#getAllCount#2;class#MealTypeDaoImpl#0" expanded="false" />
-                <element signature="method#getList#0;class#MealTypeDaoImpl#0" expanded="false" />
-                <element signature="method#getSpecifyColumn#0;class#MealTypeDaoImpl#0" expanded="false" />
-                <element signature="method#deleteByMtId#0;class#MealTypeDaoImpl#0" expanded="false" />
-                <element signature="method#updateMealType#0;class#MealTypeDaoImpl#0" expanded="false" />
-                <element signature="method#encapsulationMealType#0;class#MealTypeDaoImpl#0" expanded="false" />
-                <marker date="1527610118187" expanded="true" signature="638:744" ph="insert into meal_type_table... " />
-                <marker date="1527610118187" expanded="true" signature="1578:1620" ph="select * fro... meal_type_table" />
-                <marker date="1527610118187" expanded="true" signature="2119:2148" ph="select * fro... meal_type_table" />
-                <marker date="1527610118187" expanded="true" signature="2869:2905" ph="select count... meal_type_table" />
-                <marker date="1527610118187" expanded="true" signature="3447:3579" ph="select top m... meal_type_table" />
-                <marker date="1527610118187" expanded="true" signature="3513:3578" ph="select top m... meal_type_table" />
-                <marker date="1527610118187" expanded="true" signature="4017:4059" ph="select missi... meal_type_table" />
-                <marker date="1527610118187" expanded="true" signature="4548:4588" ph="delete from " />
-                <marker date="1527610118187" expanded="true" signature="5232:5328" ph="update meal_... " />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="OrderDaoImpl.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/../oos/src/com/guet/oos/dao/impl/OrderDaoImpl.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="95">
-              <caret line="16" column="11" lean-forward="false" selection-start-line="16" selection-start-column="11" selection-end-line="16" selection-end-column="11" />
-              <folding>
-                <element signature="method#doCreate#0;class#OrderDaoImpl#0" expanded="false" />
-                <element signature="method#findById#0;class#OrderDaoImpl#0" expanded="false" />
-                <element signature="method#findBySplit#0;class#OrderDaoImpl#0" expanded="false" />
-                <element signature="method#getAllCount#2;class#OrderDaoImpl#0" expanded="false" />
-                <element signature="method#getUserCurrentOrderByUserId#0;class#OrderDaoImpl#0" expanded="false" />
-                <element signature="method#getList#0;class#OrderDaoImpl#0" expanded="false" />
-                <element signature="method#getCurrentOrderList#0;class#OrderDaoImpl#0" expanded="false" />
-                <element signature="method#currentOrderCount#0;class#OrderDaoImpl#0" expanded="false" />
-                <element signature="method#getUserAllHistoryOrder#0;class#OrderDaoImpl#0" expanded="false" />
-                <element signature="method#getOrdersByUsId#0;class#OrderDaoImpl#0" expanded="false" />
-                <element signature="method#deleteByOrId#0;class#OrderDaoImpl#0" expanded="false" />
-                <element signature="method#updateOrderStatus#0;class#OrderDaoImpl#0" expanded="false" />
-                <element signature="method#notDeliveryOrderCount#0;class#OrderDaoImpl#0" expanded="false" />
-                <element signature="method#getNotDeliveryOrderList#0;class#OrderDaoImpl#0" expanded="false" />
-                <element signature="method#confirmedDelivery#0;class#OrderDaoImpl#0" expanded="false" />
-                <element signature="method#countAllHistoryOrder#0;class#OrderDaoImpl#0" expanded="false" />
-                <element signature="method#getHistoryOrderList#0;class#OrderDaoImpl#0" expanded="false" />
-                <element signature="method#encapsulationOrder#0;class#OrderDaoImpl#0" expanded="false" />
-                <marker date="1527610131387" expanded="true" signature="657:921" ph="insert into order_table... " />
-                <marker date="1527610131387" expanded="true" signature="2234:2272" ph="select * fro... order_table" />
-                <marker date="1527610131387" expanded="true" signature="3161:3193" ph="select count... order_table" />
-                <marker date="1527610131387" expanded="true" signature="3659:3767" ph="select * fro... order_table" />
-                <marker date="1527610131387" expanded="true" signature="4506:4633" ph="select top m... order_table" />
-                <marker date="1527610131387" expanded="true" signature="4570:4632" ph="select top m... order_table" />
-                <marker date="1527610131387" expanded="true" signature="5064:5266" ph="select top m... order_table" />
-                <marker date="1527610131387" expanded="true" signature="5693:5745" ph="select count... order_table" />
-                <marker date="1527610131387" expanded="true" signature="6251:6307" ph="select * fro... order_table" />
-                <marker date="1527610131387" expanded="true" signature="6846:6884" ph="select * fro... order_table" />
-                <marker date="1527610131387" expanded="true" signature="7315:7351" ph="delete from " />
-                <marker date="1527610131387" expanded="true" signature="7725:7774" ph="update order... " />
-                <marker date="1527610131387" expanded="true" signature="8162:8214" ph="select count... order_table" />
-                <marker date="1527610131387" expanded="true" signature="8732:8962" ph="select top m... order_table" />
-                <marker date="1527610131387" expanded="true" signature="9361:9410" ph="update order... " />
-                <marker date="1527610131387" expanded="true" signature="9828:9880" ph="select count... order_table" />
-                <marker date="1527610131387" expanded="true" signature="10394:10624" ph="select top m... order_table" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="OrderItemDaoImpl.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/../oos/src/com/guet/oos/dao/impl/OrderItemDaoImpl.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="95">
-              <caret line="15" column="12" lean-forward="false" selection-start-line="15" selection-start-column="12" selection-end-line="15" selection-end-column="12" />
-              <folding>
-                <element signature="method#doCreate#0;class#OrderItemDaoImpl#0" expanded="false" />
-                <element signature="method#findBySplit#0;class#OrderItemDaoImpl#0" expanded="false" />
-                <element signature="method#getOrderItemsByOrderId#0;class#OrderItemDaoImpl#0" expanded="false" />
-                <element signature="method#deleteByOrId#0;class#OrderItemDaoImpl#0" expanded="false" />
-                <element signature="method#encapsulationOrderItem#0;class#OrderItemDaoImpl#0" expanded="false" />
-                <marker date="1527610147863" expanded="true" signature="644:796" ph="insert into order_item_table... " />
-                <marker date="1527610147863" expanded="true" signature="2330:2373" ph="select * fro... order_item_table" />
-                <marker date="1527610147863" expanded="true" signature="2851:2892" ph="delete from " />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ShopCartDaoImpl.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/../oos/src/com/guet/oos/dao/impl/ShopCartDaoImpl.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="95">
-              <caret line="15" column="12" lean-forward="false" selection-start-line="15" selection-start-column="12" selection-end-line="15" selection-end-column="12" />
-              <folding>
-                <element signature="method#doCreate#0;class#ShopCartDaoImpl#0" expanded="false" />
-                <element signature="method#findBySplit#0;class#ShopCartDaoImpl#0" expanded="false" />
-                <element signature="method#getShopCartByUserId#0;class#ShopCartDaoImpl#0" expanded="false" />
-                <element signature="method#deleteByShopCartId#0;class#ShopCartDaoImpl#0" expanded="false" />
-                <element signature="method#deleteByUserId#0;class#ShopCartDaoImpl#0" expanded="false" />
-                <element signature="method#encapsulationShopCart#0;class#ShopCartDaoImpl#0" expanded="false" />
-                <marker date="1527610165274" expanded="true" signature="637:707" ph="insert into shop_cart_table... " />
-                <marker date="1527610165274" expanded="true" signature="1973:2015" ph="select * fro... shop_cart_table" />
-                <marker date="1527610165274" expanded="true" signature="2523:2563" ph="delete from " />
-                <marker date="1527610165274" expanded="true" signature="2915:2955" ph="delete from " />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="UserDaoImpl.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/../oos/src/com/guet/oos/dao/impl/UserDaoImpl.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="95">
-              <caret line="15" column="11" lean-forward="false" selection-start-line="15" selection-start-column="11" selection-end-line="15" selection-end-column="11" />
-              <folding>
-                <element signature="method#doCreate#0;class#UserDaoImpl#0" expanded="false" />
-                <element signature="method#doRemove#0;class#UserDaoImpl#0" expanded="false" />
-                <element signature="method#findById#0;class#UserDaoImpl#0" expanded="false" />
-                <element signature="method#findAll#0;class#UserDaoImpl#0" expanded="false" />
-                <element signature="method#getAllCount#2;class#UserDaoImpl#0" expanded="false" />
-                <element signature="method#findByMobile#0;class#UserDaoImpl#0" expanded="false" />
-                <element signature="method#encapsulationUserList#0;class#UserDaoImpl#0" expanded="false" />
-                <element signature="method#encapsulationUser#0;class#UserDaoImpl#0" expanded="false" />
-                <element signature="method#updateUsername#0;class#UserDaoImpl#0" expanded="false" />
-                <element signature="method#updateUserSex#0;class#UserDaoImpl#0" expanded="false" />
-                <element signature="method#updateUserPassword#0;class#UserDaoImpl#0" expanded="false" />
-                <element signature="method#getAllUser#0;class#UserDaoImpl#0" expanded="false" />
-                <element signature="method#getList#0;class#UserDaoImpl#0" expanded="false" />
-                <element signature="method#deleteById#0;class#UserDaoImpl#0" expanded="false" />
-                <element signature="method#updateUser#0;class#UserDaoImpl#0" expanded="false" />
-                <marker date="1527610185879" expanded="true" signature="622:717" ph="insert into user_table... " />
-                <marker date="1527610185879" expanded="true" signature="1603:1640" ph="select * fro... user_table" />
-                <marker date="1527610185879" expanded="true" signature="2532:2563" ph="select count... user_table" />
-                <marker date="1527610185879" expanded="true" signature="3020:3061" ph="select * fro... user_table" />
-                <marker date="1527610185879" expanded="true" signature="4633:4678" ph="update user_... " />
-                <marker date="1527610185879" expanded="true" signature="5085:5125" ph="update user_... " />
-                <marker date="1527610185879" expanded="true" signature="5541:5586" ph="update user_... " />
-                <marker date="1527610185879" expanded="true" signature="5976:6000" ph="select * fro... user_table" />
-                <marker date="1527610185879" expanded="true" signature="6457:6582" ph="select top m... user_table" />
-                <marker date="1527610185879" expanded="true" signature="6520:6581" ph="select top m... user_table" />
-                <marker date="1527610185879" expanded="true" signature="6959:6994" ph="delete from " />
-                <marker date="1527610185879" expanded="true" signature="7341:7425" ph="update user_... " />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300" />
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -398,16 +104,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/../oos/src/com/guet/oos/servlet/administrator/modify/ModifyUserServlet.java" />
-        <option value="$PROJECT_DIR$/../oos/web/admin/user-management.jsp" />
-        <option value="$PROJECT_DIR$/../oos/web/admin/asset/js/user-management.js" />
-        <option value="$PROJECT_DIR$/../oos/web/admin/signin.jsp" />
-        <option value="$PROJECT_DIR$/../oos/web/customer/orderLogin.jsp" />
-        <option value="$PROJECT_DIR$/../oos/web/customer/asset/js/pageToUrls.js" />
-        <option value="$PROJECT_DIR$/../oos/web/customer/index.jsp" />
-        <option value="$PROJECT_DIR$/../oos/web/customer/asset/js/index.js" />
-        <option value="$PROJECT_DIR$/../oos/web/customer/css/style.css" />
-        <option value="$PROJECT_DIR$/../oos/web/customer/css/jquery-ui.css" />
         <option value="$PROJECT_DIR$/../oos/web/customer/asset/js/orderLogin.js" />
         <option value="$PROJECT_DIR$/../oos/web/customer/asset/js/customerFromAgree.js" />
         <option value="$PROJECT_DIR$/../oos/web/customer/saveCustomer.jsp" />
@@ -449,6 +145,16 @@
         <option value="$PROJECT_DIR$/../oos/src/com/guet/oos/dao/impl/OrderItemDaoImpl.java" />
         <option value="$PROJECT_DIR$/../oos/src/com/guet/oos/dao/impl/ShopCartDaoImpl.java" />
         <option value="$PROJECT_DIR$/../oos/src/com/guet/oos/dao/impl/UserDaoImpl.java" />
+        <option value="$PROJECT_DIR$/../oos/src/com/guet/oos/dao/AdministratorDao.java" />
+        <option value="$PROJECT_DIR$/../oos/src/com/guet/oos/dao/CommentDao.java" />
+        <option value="$PROJECT_DIR$/../oos/src/com/guet/oos/dao/DeliveryAddressDao.java" />
+        <option value="$PROJECT_DIR$/../oos/src/com/guet/oos/dao/DishesDao.java" />
+        <option value="$PROJECT_DIR$/../oos/src/com/guet/oos/dao/DishesTypeDao.java" />
+        <option value="$PROJECT_DIR$/../oos/src/com/guet/oos/dao/MealTypeDao.java" />
+        <option value="$PROJECT_DIR$/../oos/src/com/guet/oos/dao/OrderDao.java" />
+        <option value="$PROJECT_DIR$/../oos/src/com/guet/oos/dao/OrderItemDao.java" />
+        <option value="$PROJECT_DIR$/../oos/src/com/guet/oos/dao/ShopCartDao.java" />
+        <option value="$PROJECT_DIR$/../oos/src/com/guet/oos/dao/UserDao.java" />
       </list>
     </option>
   </component>
@@ -2682,7 +2388,7 @@
       <workItem from="1527560330331" duration="5264000" />
       <workItem from="1527572068790" duration="11248000" />
       <workItem from="1527601113056" duration="2865000" />
-      <workItem from="1527605405301" duration="2673000" />
+      <workItem from="1527605405301" duration="2860000" />
     </task>
     <task id="LOCAL-00001" summary="Initial commit">
       <created>1526515634515</created>
@@ -2992,7 +2698,14 @@
       <option name="project" value="LOCAL" />
       <updated>1527609965788</updated>
     </task>
-    <option name="localTasksCounter" value="45" />
+    <task id="LOCAL-00045" summary="c">
+      <created>1527610202145</created>
+      <option name="number" value="00045" />
+      <option name="presentableId" value="LOCAL-00045" />
+      <option name="project" value="LOCAL" />
+      <updated>1527610202145</updated>
+    </task>
+    <option name="localTasksCounter" value="46" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -3028,7 +2741,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="832559000" />
+    <option name="totallyTimeSpent" value="832746000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -3041,7 +2754,6 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Nl-Palette" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -3065,7 +2777,7 @@
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.31746033" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.20416667" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.20416667" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Web" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
@@ -3136,70 +2848,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/../oos/src/com/guet/oos/constant/FtpConfig.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="361">
-          <caret line="37" column="0" lean-forward="false" selection-start-line="37" selection-start-column="0" selection-end-line="37" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../oos/src/com/guet/oos/constant/JsonReturnCode.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="95">
-          <caret line="5" column="36" lean-forward="false" selection-start-line="5" selection-start-column="36" selection-end-line="5" selection-end-column="36" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../oos/src/com/guet/oos/constant/NginxConfig.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="551">
-          <caret line="38" column="0" lean-forward="false" selection-start-line="38" selection-start-column="0" selection-end-line="38" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../oos/src/com/guet/oos/constant/OrderStatus.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="95">
-          <caret line="5" column="14" lean-forward="false" selection-start-line="5" selection-start-column="14" selection-end-line="5" selection-end-column="14" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../oos/src/com/guet/oos/constant/ReturnMessage.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="57">
-          <caret line="3" column="11" lean-forward="false" selection-start-line="3" selection-start-column="11" selection-end-line="3" selection-end-column="11" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../oos/src/com/guet/oos/constant/SessionKey.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="114">
-          <caret line="6" column="3" lean-forward="false" selection-start-line="6" selection-start-column="3" selection-end-line="6" selection-end-column="3" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../oos/src/com/guet/oos/constant/ShopCartConstant.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="152">
-          <caret line="8" column="0" lean-forward="false" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../oos/src/com/guet/oos/constant/UserExist.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="38">
-          <caret line="2" column="3" lean-forward="false" selection-start-line="2" selection-start-column="3" selection-end-line="2" selection-end-column="3" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/../oos/src/com/guet/oos/constant/AdministratorAuthority.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="247">
@@ -3429,17 +3077,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../oos/src/com/guet/oos/dao/AbstractDAOImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="114">
-          <caret line="6" column="8" lean-forward="false" selection-start-line="6" selection-start-column="8" selection-end-line="6" selection-end-column="8" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#265#266#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/../oos/src/com/guet/oos/dao/impl/AdministratorDaoImpl.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="855">
@@ -3465,30 +3102,6 @@
             <marker date="1527608127033" expanded="true" signature="7015:7072" ph="UPDATE admin... " />
             <marker date="1527608127033" expanded="true" signature="7946:8067" ph="update admin... " />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../oos/src/com/guet/oos/dao/AdministratorDao.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="95">
-          <caret line="7" column="15" lean-forward="false" selection-start-line="7" selection-start-column="15" selection-end-line="7" selection-end-column="15" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../oos/src/com/guet/oos/dao/CommentDao.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="133">
-          <caret line="9" column="17" lean-forward="false" selection-start-line="9" selection-start-column="17" selection-end-line="9" selection-end-column="17" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../oos/src/com/guet/oos/dao/DeliveryAddressDao.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="133">
-          <caret line="9" column="17" lean-forward="false" selection-start-line="9" selection-start-column="17" selection-end-line="9" selection-end-column="17" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -3549,36 +3162,6 @@
             <marker date="1527610049889" expanded="true" signature="2918:3068" ph="update deliv... " />
             <marker date="1527610049889" expanded="true" signature="3916:4083" ph="insert into delivery_address_table... " />
             <marker date="1527610049889" expanded="true" signature="5052:5101" ph="select * fro... delivery_address_table" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../oos/src/com/guet/oos/dao/impl/DishesDaoImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="95">
-          <caret line="15" column="5" lean-forward="false" selection-start-line="15" selection-start-column="5" selection-end-line="15" selection-end-column="5" />
-          <folding>
-            <element signature="method#doCreate#0;class#DishesDaoImpl#0" expanded="false" />
-            <element signature="method#doUpdate#0;class#DishesDaoImpl#0" expanded="false" />
-            <element signature="method#findById#0;class#DishesDaoImpl#0" expanded="false" />
-            <element signature="method#findBySplit#0;class#DishesDaoImpl#0" expanded="false" />
-            <element signature="method#getAllCount#2;class#DishesDaoImpl#0" expanded="false" />
-            <element signature="method#getList#0;class#DishesDaoImpl#0" expanded="false" />
-            <element signature="method#getSecifyColumnSpecifyWord#0;class#DishesDaoImpl#0" expanded="false" />
-            <element signature="method#updateDishesStoreByDishesId#0;class#DishesDaoImpl#0" expanded="false" />
-            <element signature="method#queryDishesStockByDishesId#0;class#DishesDaoImpl#0" expanded="false" />
-            <element signature="method#deleteByDsId#0;class#DishesDaoImpl#0" expanded="false" />
-            <element signature="method#encapsulationDishes#0;class#DishesDaoImpl#0" expanded="false" />
-            <marker date="1527610082269" expanded="true" signature="621:753" ph="insert into dishes_table... " />
-            <marker date="1527610082269" expanded="true" signature="1584:1699" ph="update dishe... " />
-            <marker date="1527610082269" expanded="true" signature="2490:2529" ph="select * fro... dishes_table" />
-            <marker date="1527610082269" expanded="true" signature="3397:3430" ph="select count... dishes_table" />
-            <marker date="1527610082269" expanded="true" signature="3932:4061" ph="select top m... dishes_table" />
-            <marker date="1527610082269" expanded="true" signature="3997:4060" ph="select top m... dishes_table" />
-            <marker date="1527610082269" expanded="true" signature="4508:4555" ph="select * fro... dishes_table" />
-            <marker date="1527610082269" expanded="true" signature="5052:5096" ph="update dishe... " />
-            <marker date="1527610082269" expanded="true" signature="5501:5544" ph="select stock... dishes_table" />
-            <marker date="1527610082269" expanded="true" signature="6027:6064" ph="delete from " />
           </folding>
         </state>
       </provider>
@@ -3724,8 +3307,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/../oos/src/com/guet/oos/dao/impl/UserDaoImpl.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="95">
-          <caret line="15" column="11" lean-forward="false" selection-start-line="15" selection-start-column="11" selection-end-line="15" selection-end-column="11" />
+        <state relative-caret-position="38">
+          <caret line="12" column="28" lean-forward="true" selection-start-line="12" selection-start-column="28" selection-end-line="12" selection-end-column="28" />
           <folding>
             <element signature="method#doCreate#0;class#UserDaoImpl#0" expanded="false" />
             <element signature="method#doRemove#0;class#UserDaoImpl#0" expanded="false" />
@@ -3755,6 +3338,136 @@
             <marker date="1527610185879" expanded="true" signature="6959:6994" ph="delete from " />
             <marker date="1527610185879" expanded="true" signature="7341:7425" ph="update user_... " />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../oos/src/com/guet/oos/dao/impl/DishesDaoImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="95">
+          <caret line="15" column="5" lean-forward="false" selection-start-line="15" selection-start-column="5" selection-end-line="15" selection-end-column="5" />
+          <folding>
+            <element signature="method#doCreate#0;class#DishesDaoImpl#0" expanded="false" />
+            <element signature="method#doUpdate#0;class#DishesDaoImpl#0" expanded="false" />
+            <element signature="method#findById#0;class#DishesDaoImpl#0" expanded="false" />
+            <element signature="method#findBySplit#0;class#DishesDaoImpl#0" expanded="false" />
+            <element signature="method#getAllCount#2;class#DishesDaoImpl#0" expanded="false" />
+            <element signature="method#getList#0;class#DishesDaoImpl#0" expanded="false" />
+            <element signature="method#getSecifyColumnSpecifyWord#0;class#DishesDaoImpl#0" expanded="false" />
+            <element signature="method#updateDishesStoreByDishesId#0;class#DishesDaoImpl#0" expanded="false" />
+            <element signature="method#queryDishesStockByDishesId#0;class#DishesDaoImpl#0" expanded="false" />
+            <element signature="method#deleteByDsId#0;class#DishesDaoImpl#0" expanded="false" />
+            <element signature="method#encapsulationDishes#0;class#DishesDaoImpl#0" expanded="false" />
+            <marker date="1527610082269" expanded="true" signature="621:753" ph="insert into dishes_table... " />
+            <marker date="1527610082269" expanded="true" signature="1584:1699" ph="update dishe... " />
+            <marker date="1527610082269" expanded="true" signature="2490:2529" ph="select * fro... dishes_table" />
+            <marker date="1527610082269" expanded="true" signature="3397:3430" ph="select count... dishes_table" />
+            <marker date="1527610082269" expanded="true" signature="3932:4061" ph="select top m... dishes_table" />
+            <marker date="1527610082269" expanded="true" signature="3997:4060" ph="select top m... dishes_table" />
+            <marker date="1527610082269" expanded="true" signature="4508:4555" ph="select * fro... dishes_table" />
+            <marker date="1527610082269" expanded="true" signature="5052:5096" ph="update dishe... " />
+            <marker date="1527610082269" expanded="true" signature="5501:5544" ph="select stock... dishes_table" />
+            <marker date="1527610082269" expanded="true" signature="6027:6064" ph="delete from " />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../oos/src/com/guet/oos/dao/AbstractDAOImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="95">
+          <caret line="5" column="3" lean-forward="true" selection-start-line="5" selection-start-column="3" selection-end-line="5" selection-end-column="3" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../oos/src/com/guet/oos/dao/AdministratorDao.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="95">
+          <caret line="7" column="11" lean-forward="false" selection-start-line="7" selection-start-column="11" selection-end-line="7" selection-end-column="11" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../oos/src/com/guet/oos/dao/CommentDao.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="95">
+          <caret line="7" column="12" lean-forward="false" selection-start-line="7" selection-start-column="12" selection-end-line="7" selection-end-column="12" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../oos/src/com/guet/oos/dao/DeliveryAddressDao.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="95">
+          <caret line="7" column="12" lean-forward="false" selection-start-line="7" selection-start-column="12" selection-end-line="7" selection-end-column="12" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../oos/src/com/guet/oos/dao/DishesDao.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="95">
+          <caret line="7" column="10" lean-forward="false" selection-start-line="7" selection-start-column="10" selection-end-line="7" selection-end-column="10" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../oos/src/com/guet/oos/dao/MealTypeDao.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="95">
+          <caret line="7" column="12" lean-forward="false" selection-start-line="7" selection-start-column="12" selection-end-line="7" selection-end-column="12" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../oos/src/com/guet/oos/dao/OrderDao.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="95">
+          <caret line="7" column="10" lean-forward="false" selection-start-line="7" selection-start-column="10" selection-end-line="7" selection-end-column="10" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../oos/src/com/guet/oos/dao/OrderItemDao.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="95">
+          <caret line="7" column="11" lean-forward="false" selection-start-line="7" selection-start-column="11" selection-end-line="7" selection-end-column="11" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../oos/src/com/guet/oos/dao/ShopCartDao.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="95">
+          <caret line="5" column="11" lean-forward="false" selection-start-line="5" selection-start-column="11" selection-end-line="5" selection-end-column="11" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../oos/src/com/guet/oos/dao/UserDao.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="266">
+          <caret line="16" column="24" lean-forward="true" selection-start-line="16" selection-start-column="24" selection-end-line="16" selection-end-column="24" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../oos/src/com/guet/oos/dao/IDAO.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="6" column="3" lean-forward="true" selection-start-line="6" selection-start-column="3" selection-end-line="6" selection-end-column="3" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../oos/src/com/guet/oos/dao/DishesTypeDao.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="95">
+          <caret line="7" column="12" lean-forward="false" selection-start-line="7" selection-start-column="12" selection-end-line="7" selection-end-column="12" />
+          <folding />
         </state>
       </provider>
     </entry>

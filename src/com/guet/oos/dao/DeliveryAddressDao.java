@@ -5,6 +5,7 @@ import com.guet.oos.po.DeliveryAddress;
 import java.util.List;
 
 /**
+ * 送货地址Dao接口
  * Created by Shinelon on 2018/5/18.
  */
 public interface DeliveryAddressDao extends IDAO<Long, DeliveryAddress> {

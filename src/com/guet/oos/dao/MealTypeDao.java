@@ -5,6 +5,7 @@ import com.guet.oos.po.MealType;
 import java.util.List;
 
 /**
+ * 餐点种类Dao接口
  * Created by Shinelon on 2018/4/30.
  */
 public interface MealTypeDao extends IDAO<Long, MealType> {

@@ -5,6 +5,7 @@ import com.guet.oos.po.Dishes;
 import java.util.List;
 
 /**
+ * 餐品Dao接口
  * Created by Shinelon on 2018/5/1.
  */
 public interface DishesDao extends IDAO<Long, Dishes> {
