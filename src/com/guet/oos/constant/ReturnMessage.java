@@ -99,4 +99,15 @@ public class ReturnMessage {
 
     public static final String RECEIVER_ORDER_FIAL = "确认收货失败!";
 
+    public static final String ADD_DISHES_SUCCESS = "添加餐品成功!";
+
+    public static final String ADD_DISHES_FAIL = "添加餐品失败!";
+
+    public static final String DELETE_DISHES_SUCCESS = "餐品删除成功!";
+
+    public static final String DELETE_DISHES_FAIL = "餐品删除失败!";
+
+    public static final String EDIT_DISHES_SUCCESS = "编辑餐品成功!";
+
+    public static final String EDIT_DISHES_FAIL = "编辑餐品失败!";
 }

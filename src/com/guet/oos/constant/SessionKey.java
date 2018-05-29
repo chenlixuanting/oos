@@ -35,4 +35,9 @@ public class SessionKey {
      */
     public static final String USER_FLAG = "userFlag";
 
+    /**
+     * 提示信息
+     */
+    public static final String TIP = "tip";
+
 }

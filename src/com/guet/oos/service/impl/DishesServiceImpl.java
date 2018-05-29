@@ -49,4 +49,14 @@ public class DishesServiceImpl implements DishesService {
         return dishesDao.queryDishesStockByDishesId(dsId);
     }
 
+    @Override
+    public boolean deleteBydsId(long dsId) {
+        return dishesDao.deleteByDsId(dsId);
+    }
+
+    @Override
+    public boolean updateDishes(Dishes dishes) {
+        return dishesDao.doUpdate(dishes);
+    }
+
 }

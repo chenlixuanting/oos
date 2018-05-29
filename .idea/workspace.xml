@@ -5,11 +5,21 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f566ee65-e8d4-499b-9f0e-d5d8d11c0464" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../oos/web/admin/asset/js/pageToUrls.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../oos/src/com/guet/oos/servlet/administrator/delete/DeleteDishesServlet.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../oos/src/com/guet/oos/servlet/administrator/modify/ModifyDishesManagementServlet.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../oos/web/admin/tip.jsp" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/../oos/src/com/guet/oos/servlet/administrator/getCurrentAdminstratorInfoServlet.java" afterPath="$PROJECT_DIR$/../oos/src/com/guet/oos/servlet/administrator/get/GetCurrentAdminstratorInfoServlet.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../oos/.idea/workspace.xml" afterPath="$PROJECT_DIR$/../oos/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../oos/src/com/guet/oos/constant/ReturnMessage.java" afterPath="$PROJECT_DIR$/../oos/src/com/guet/oos/constant/ReturnMessage.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../oos/src/com/guet/oos/constant/SessionKey.java" afterPath="$PROJECT_DIR$/../oos/src/com/guet/oos/constant/SessionKey.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../oos/src/com/guet/oos/dao/DishesDao.java" afterPath="$PROJECT_DIR$/../oos/src/com/guet/oos/dao/DishesDao.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../oos/src/com/guet/oos/dao/impl/DishesDaoImpl.java" afterPath="$PROJECT_DIR$/../oos/src/com/guet/oos/dao/impl/DishesDaoImpl.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../oos/src/com/guet/oos/service/DishesService.java" afterPath="$PROJECT_DIR$/../oos/src/com/guet/oos/service/DishesService.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../oos/src/com/guet/oos/service/impl/DishesServiceImpl.java" afterPath="$PROJECT_DIR$/../oos/src/com/guet/oos/service/impl/DishesServiceImpl.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../oos/src/com/guet/oos/servlet/administrator/add/AddDishesServlet.java" afterPath="$PROJECT_DIR$/../oos/src/com/guet/oos/servlet/administrator/add/AddDishesServlet.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../oos/src/com/guet/oos/servlet/administrator/add/AddUserServlet.java" afterPath="$PROJECT_DIR$/../oos/src/com/guet/oos/servlet/administrator/add/AddUserServlet.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../oos/web/admin/asset/js/dishes-management.js" afterPath="$PROJECT_DIR$/../oos/web/admin/asset/js/dishes-management.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../oos/web/admin/dishes-management.jsp" afterPath="$PROJECT_DIR$/../oos/web/admin/dishes-management.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../oos/web/customer/customerCenter.jsp" afterPath="$PROJECT_DIR$/../oos/web/customer/customerCenter.jsp" />
     </list>
     <ignored path="$PROJECT_DIR$/../oos/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -26,47 +36,140 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="dishes-management.jsp" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/../oos/web/admin/dishes-management.jsp">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="255">
-              <caret line="19" column="22" lean-forward="true" selection-start-line="19" selection-start-column="22" selection-end-line="19" selection-end-column="22" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="dishes-management.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="dishes-management.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/../oos/web/admin/asset/js/dishes-management.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="3496">
-              <caret line="184" column="23" lean-forward="true" selection-start-line="184" selection-start-column="23" selection-end-line="184" selection-end-column="23" />
+            <state relative-caret-position="2622">
+              <caret line="186" column="25" lean-forward="false" selection-start-line="186" selection-start-column="25" selection-end-line="186" selection-end-column="25" />
               <folding>
-                <marker date="1527494113303" expanded="true" signature="2978:2984" ph="&amp;nbsp;" />
-                <marker date="1527494113303" expanded="true" signature="2984:2990" ph="&amp;nbsp;" />
-                <marker date="1527494113303" expanded="true" signature="2990:2996" ph="&amp;nbsp;" />
-                <marker date="1527494113303" expanded="true" signature="2996:3002" ph="&amp;nbsp;" />
-                <marker date="1527494113303" expanded="true" signature="3002:3008" ph="&amp;nbsp;" />
-                <marker date="1527494113303" expanded="true" signature="3008:3014" ph="&amp;nbsp;" />
-                <marker date="1527494113303" expanded="true" signature="3014:3020" ph="&amp;nbsp;" />
-                <marker date="1527494113303" expanded="true" signature="3020:3026" ph="&amp;nbsp;" />
-                <marker date="1527494113303" expanded="true" signature="3026:3032" ph="&amp;nbsp;" />
-                <marker date="1527494113303" expanded="true" signature="3032:3038" ph="&amp;nbsp;" />
-                <marker date="1527494113303" expanded="true" signature="3038:3044" ph="&amp;nbsp;" />
-                <marker date="1527494113303" expanded="true" signature="3044:3050" ph="&amp;nbsp;" />
-                <marker date="1527494113303" expanded="true" signature="3125:3131" ph="&amp;nbsp;" />
-                <marker date="1527494113303" expanded="true" signature="3131:3137" ph="&amp;nbsp;" />
+                <element signature="n#!!block;n#closeCheckModel#0" expanded="false" />
+                <element signature="n#!!block;n#getOneDishesInfo#0" expanded="false" />
+                <element signature="n#!!block;n#openAddDishesModel#0" expanded="false" />
+                <element signature="n#!!block;n#closeAddDishesModel#0" expanded="false" />
+                <element signature="n#!!block;n#closeEditModel#0" expanded="false" />
+                <element signature="n#!!block;n#resetAddDishesModel#0" expanded="false" />
+                <element signature="n#!!block;n#resetEditDishesModel#0" expanded="false" />
+                <element signature="n#!!block;n#editEvent#0" expanded="false" />
+                <element signature="n#!!block;n#deleteEvent#0" expanded="false" />
+                <element signature="n#!!block;n#checkAddModel#0" expanded="false" />
+                <marker date="1527553207702" expanded="true" signature="1428:1434" ph="&amp;nbsp;" />
+                <marker date="1527553207702" expanded="true" signature="1434:1440" ph="&amp;nbsp;" />
+                <marker date="1527553207702" expanded="true" signature="1440:1446" ph="&amp;nbsp;" />
+                <marker date="1527553207702" expanded="true" signature="1446:1452" ph="&amp;nbsp;" />
+                <marker date="1527553207702" expanded="true" signature="1452:1458" ph="&amp;nbsp;" />
+                <marker date="1527553207702" expanded="true" signature="1458:1464" ph="&amp;nbsp;" />
+                <marker date="1527553207702" expanded="true" signature="1464:1470" ph="&amp;nbsp;" />
+                <marker date="1527553207702" expanded="true" signature="1470:1476" ph="&amp;nbsp;" />
+                <marker date="1527553207702" expanded="true" signature="1476:1482" ph="&amp;nbsp;" />
+                <marker date="1527553207702" expanded="true" signature="1482:1488" ph="&amp;nbsp;" />
+                <marker date="1527553207702" expanded="true" signature="1488:1494" ph="&amp;nbsp;" />
+                <marker date="1527553207702" expanded="true" signature="1494:1500" ph="&amp;nbsp;" />
+                <marker date="1527553207702" expanded="true" signature="1603:1609" ph="&amp;nbsp;" />
+                <marker date="1527553207702" expanded="true" signature="1609:1615" ph="&amp;nbsp;" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="pageToUrls.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/../oos/web/admin/asset/js/pageToUrls.js">
+      <file leaf-file-name="dishes-management.jsp" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/../oos/web/admin/dishes-management.jsp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="133">
-              <caret line="7" column="0" lean-forward="true" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
+            <state relative-caret-position="7448">
+              <caret line="392" column="71" lean-forward="false" selection-start-line="392" selection-start-column="71" selection-end-line="392" selection-end-column="71" />
               <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ReturnMessage.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/../oos/src/com/guet/oos/constant/ReturnMessage.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="2071">
+              <caret line="109" column="61" lean-forward="false" selection-start-line="109" selection-start-column="61" selection-end-line="109" selection-end-column="61" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ModifyDishesManagementServlet.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/../oos/src/com/guet/oos/servlet/administrator/modify/ModifyDishesManagementServlet.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="19">
+              <caret line="42" column="0" lean-forward="false" selection-start-line="42" selection-start-column="0" selection-end-line="42" selection-end-column="0" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="AddAdministratorServlet.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/../oos/src/com/guet/oos/servlet/administrator/add/AddAdministratorServlet.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="361">
+              <caret line="48" column="42" lean-forward="false" selection-start-line="48" selection-start-column="42" selection-end-line="48" selection-end-column="42" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="AddUserServlet.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/../oos/src/com/guet/oos/servlet/administrator/add/AddUserServlet.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-247">
+              <caret line="33" column="78" lean-forward="true" selection-start-line="33" selection-start-column="78" selection-end-line="33" selection-end-column="78" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="DishesService.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/../oos/src/com/guet/oos/service/DishesService.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="228">
+              <caret line="14" column="0" lean-forward="false" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="AddDishesServlet.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/../oos/src/com/guet/oos/servlet/administrator/add/AddDishesServlet.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1007">
+              <caret line="73" column="0" lean-forward="false" selection-start-line="73" selection-start-column="0" selection-end-line="73" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="DishesDao.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/../oos/src/com/guet/oos/dao/DishesDao.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="342">
+              <caret line="20" column="0" lean-forward="false" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="DishesDaoImpl.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/../oos/src/com/guet/oos/dao/impl/DishesDaoImpl.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="722">
+              <caret line="50" column="13" lean-forward="false" selection-start-line="50" selection-start-column="13" selection-end-line="50" selection-end-column="13" />
+              <folding>
+                <marker date="1527555227672" expanded="true" signature="618:750" ph="insert into dishes_table... " />
+                <marker date="1527555227672" expanded="true" signature="1562:1677" ph="update dishe... " />
+                <marker date="1527555227672" expanded="true" signature="2468:2507" ph="select * fro... dishes_table" />
+                <marker date="1527555227672" expanded="true" signature="3375:3408" ph="select count... dishes_table" />
+                <marker date="1527555227672" expanded="true" signature="3910:4039" ph="select top m... dishes_table" />
+                <marker date="1527555227672" expanded="true" signature="3975:4038" ph="select top m... dishes_table" />
+                <marker date="1527555227672" expanded="true" signature="4486:4533" ph="select * fro... dishes_table" />
+                <marker date="1527555227672" expanded="true" signature="5030:5074" ph="update dishe... " />
+                <marker date="1527555227672" expanded="true" signature="5479:5522" ph="select stock... dishes_table" />
+                <marker date="1527555227672" expanded="true" signature="6005:6042" ph="delete from " />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -87,10 +190,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>SetUserDefaultDeliverAddress.action</find>
-      <find>午餐</find>
-      <find>基础信息(必填):</find>
-      <find>btn btn-primary btn-lg edit</find>
       <find>查看</find>
       <find>openCheckModel</find>
       <find>getSecifyColumn</find>
@@ -117,6 +216,10 @@
       <find>customerName</find>
       <find>当前订单</find>
       <find>backOrderList</find>
+      <find>addModelBtn</find>
+      <find>headPicture</find>
+      <find>check</find>
+      <find>checkAddModel</find>
     </findStrings>
     <replaceStrings>
       <replace />
@@ -144,24 +247,10 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/../oos/web/admin/history-comment.jsp" />
-        <option value="$PROJECT_DIR$/../oos/web/admin/index.jsp" />
-        <option value="$PROJECT_DIR$/../oos/web/admin/meal-management.jsp" />
-        <option value="$PROJECT_DIR$/../oos/src/com/guet/oos/servlet/administrator/delete/DeleteAdministratorServlet.java" />
-        <option value="$PROJECT_DIR$/../oos/src/com/guet/oos/servlet/administrator/get/GetSpecifyAdministratorServlet.java" />
-        <option value="$PROJECT_DIR$/../oos/src/com/guet/oos/servlet/administrator/AdminResetPasswordServlet.java" />
-        <option value="$PROJECT_DIR$/../oos/web/admin/asset/js/personal-profile.js" />
-        <option value="$PROJECT_DIR$/../oos/web/admin/super-authority.jsp" />
-        <option value="$PROJECT_DIR$/../oos/src/com/guet/oos/service/AdministratorService.java" />
-        <option value="$PROJECT_DIR$/../oos/src/com/guet/oos/dao/AdministratorDao.java" />
-        <option value="$PROJECT_DIR$/../oos/src/com/guet/oos/dao/impl/AdministratorDaoImpl.java" />
-        <option value="$PROJECT_DIR$/../oos/src/com/guet/oos/service/impl/AdministratorServiceImpl.java" />
-        <option value="$PROJECT_DIR$/../oos/src/com/guet/oos/servlet/administrator/modify/ModifyAdministratorServlet.java" />
         <option value="$PROJECT_DIR$/../oos/web/admin/asset/js/super-authority.js" />
         <option value="$PROJECT_DIR$/../oos/web/admin/user-management.jsp" />
         <option value="$PROJECT_DIR$/../oos/web/admin/asset/js/user-management.js" />
         <option value="$PROJECT_DIR$/../oos/web/admin/js/dishes-management.js" />
-        <option value="$PROJECT_DIR$/../oos/src/com/guet/oos/servlet/administrator/delete/DeleteOrderServlet.java" />
         <option value="$PROJECT_DIR$/../oos/src/com/guet/oos/servlet/administrator/modify/ModifyOrderStatusServlet.java" />
         <option value="$PROJECT_DIR$/../oos/web/admin/asset/js/order-confirmed.js" />
         <option value="$PROJECT_DIR$/../oos/src/com/guet/oos/constant/OrderStatus.java" />
@@ -184,7 +273,6 @@
         <option value="$PROJECT_DIR$/../oos/web/admin/history-order.jsp" />
         <option value="$PROJECT_DIR$/../oos/src/com/guet/oos/servlet/user/modify/ModifyOrderStatusServlet.java" />
         <option value="$PROJECT_DIR$/../oos/src/com/guet/oos/dao/OrderDao.java" />
-        <option value="$PROJECT_DIR$/../oos/src/com/guet/oos/constant/ReturnMessage.java" />
         <option value="$PROJECT_DIR$/../oos/src/com/guet/oos/servlet/user/modify/ReceiverOrderServlet.java" />
         <option value="$PROJECT_DIR$/../oos/src/com/guet/oos/service/OrderService.java" />
         <option value="$PROJECT_DIR$/../oos/src/com/guet/oos/dao/impl/OrderDaoImpl.java" />
@@ -192,9 +280,24 @@
         <option value="$PROJECT_DIR$/../oos/src/com/guet/oos/servlet/user/get/GetUserHistoryOneOrderInfoServlet.java" />
         <option value="$PROJECT_DIR$/../oos/web/customer/asset/js/customerCenter.js" />
         <option value="$PROJECT_DIR$/../oos/web/customer/customerCenter.jsp" />
-        <option value="$PROJECT_DIR$/../oos/web/admin/dishes-management.jsp" />
         <option value="$PROJECT_DIR$/../oos/web/admin/asset/js/pageToUrls.js" />
+        <option value="$PROJECT_DIR$/../oos/web/admin/signup.html" />
+        <option value="$PROJECT_DIR$/../oos/web/admin/add-success.jsp" />
+        <option value="$PROJECT_DIR$/../oos/src/com/guet/oos/constant/SessionKey.java" />
+        <option value="$PROJECT_DIR$/../oos/src/com/guet/oos/servlet/administrator/delete/DeleteOrderServlet.java" />
+        <option value="$PROJECT_DIR$/../oos/src/com/guet/oos/servlet/administrator/delete/DeleteDishesServlet.java" />
+        <option value="$PROJECT_DIR$/../oos/src/com/guet/oos/servlet/administrator/get/getCurrentAdminstratorInfoServlet.java" />
+        <option value="$PROJECT_DIR$/../oos/src/com/guet/oos/service/DishesService.java" />
         <option value="$PROJECT_DIR$/../oos/web/admin/asset/js/dishes-management.js" />
+        <option value="$PROJECT_DIR$/../oos/src/com/guet/oos/dao/DishesDao.java" />
+        <option value="$PROJECT_DIR$/../oos/src/com/guet/oos/service/impl/DishesServiceImpl.java" />
+        <option value="$PROJECT_DIR$/../oos/src/com/guet/oos/constant/ReturnMessage.java" />
+        <option value="$PROJECT_DIR$/../oos/src/com/guet/oos/dao/impl/DishesDaoImpl.java" />
+        <option value="$PROJECT_DIR$/../oos/src/com/guet/oos/servlet/administrator/modify/ModifyDishesManagementServlet.java" />
+        <option value="$PROJECT_DIR$/../oos/src/com/guet/oos/servlet/administrator/add/AddDishesServlet.java" />
+        <option value="$PROJECT_DIR$/../oos/web/admin/tip.jsp" />
+        <option value="$PROJECT_DIR$/../oos/web/admin/dishes-management.jsp" />
+        <option value="$PROJECT_DIR$/../oos/src/com/guet/oos/servlet/administrator/add/AddUserServlet.java" />
       </list>
     </option>
   </component>
@@ -372,8 +475,44 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="Scratches" />
+      <pane id="Scope" />
+      <pane id="PackagesPane">
+        <subPane>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="oos" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="oos" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageViewModuleNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="oos" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="oos" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageViewModuleNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="com" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageElementNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="guet" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageElementNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="oos" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageElementNode" />
+            </PATH_ELEMENT>
+          </PATH>
+        </subPane>
+      </pane>
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -414,7 +553,33 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="customer" />
+              <option name="myItemId" value="admin" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="oos" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="oos" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="web" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="admin" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="asset" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="js" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -484,45 +649,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="servlet" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="oos" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="oos" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="com" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="guet" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="oos" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="servlet" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="user" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="shopcart" />
+              <option name="myItemId" value="test" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -553,14 +680,6 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="servlet" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="user" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="set" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -597,8 +716,38 @@
               <option name="myItemId" value="user" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
+          </PATH>
+          <PATH>
             <PATH_ELEMENT>
-              <option name="myItemId" value="select" />
+              <option name="myItemId" value="oos" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="oos" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="com" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="guet" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="oos" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="servlet" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="administrator" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -632,45 +781,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="user" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="save" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="oos" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="oos" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="com" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="guet" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="oos" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="servlet" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="user" />
+              <option name="myItemId" value="administrator" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
@@ -708,11 +819,11 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="user" />
+              <option name="myItemId" value="administrator" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="pay" />
+              <option name="myItemId" value="pages" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -746,7 +857,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="user" />
+              <option name="myItemId" value="administrator" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
@@ -784,45 +895,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="user" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="login" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="oos" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="oos" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="com" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="guet" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="oos" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="servlet" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="user" />
+              <option name="myItemId" value="administrator" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
@@ -860,49 +933,11 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="user" />
+              <option name="myItemId" value="administrator" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="del" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="oos" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="oos" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="com" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="guet" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="oos" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="servlet" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="user" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="customer" />
+              <option name="myItemId" value="delete" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -936,45 +971,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="user" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="check" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="oos" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="oos" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="com" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="guet" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="oos" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="servlet" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="user" />
+              <option name="myItemId" value="administrator" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
@@ -1140,40 +1137,34 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
-        </subPane>
-      </pane>
-      <pane id="PackagesPane">
-        <subPane>
           <PATH>
             <PATH_ELEMENT>
               <option name="myItemId" value="oos" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageViewProjectNode" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="oos" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageViewModuleNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="oos" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageViewProjectNode" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="oos" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageViewModuleNode" />
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="com" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageElementNode" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="guet" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageElementNode" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="oos" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageElementNode" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="constant" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
         </subPane>
@@ -1192,8 +1183,8 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\oos\web\admin\asset\js" />
       <recent name="C:\oos\web\admin" />
+      <recent name="C:\oos\web\admin\asset\js" />
       <recent name="C:\oos\web\WEB-INF\lib" />
       <recent name="C:\oos\web\customer\images" />
       <recent name="C:\oos\web\customer\asset\js" />
@@ -1891,7 +1882,11 @@
       <workItem from="1527383602557" duration="25500000" />
       <workItem from="1527426823916" duration="1211000" />
       <workItem from="1527437220637" duration="5374000" />
-      <workItem from="1527468857839" duration="22099000" />
+      <workItem from="1527468857839" duration="31947000" />
+      <workItem from="1527516520516" duration="1698000" />
+      <workItem from="1527522582821" duration="402000" />
+      <workItem from="1527552530087" duration="3667000" />
+      <workItem from="1527560330331" duration="18000" />
     </task>
     <task id="LOCAL-00001" summary="Initial commit">
       <created>1526515634515</created>
@@ -2173,7 +2168,14 @@
       <option name="project" value="LOCAL" />
       <updated>1527493352041</updated>
     </task>
-    <option name="localTasksCounter" value="41" />
+    <task id="LOCAL-00041" summary="c">
+      <created>1527494315082</created>
+      <option name="number" value="00041" />
+      <option name="presentableId" value="LOCAL-00041" />
+      <option name="project" value="LOCAL" />
+      <updated>1527494315082</updated>
+    </task>
+    <option name="localTasksCounter" value="42" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -2209,7 +2211,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="794894000" />
+    <option name="totallyTimeSpent" value="810527000" />
   </component>
   <component name="TodoView" selected-index="4">
     <todo-panel id="selected-file">
@@ -2226,7 +2228,7 @@
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Nl-Palette" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.23809524" sideWeight="0.3078125" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.23703703" sideWeight="0.31041667" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.1205074" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Properties" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -2236,27 +2238,27 @@
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3132275" sideWeight="0.6921875" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3015873" sideWeight="0.68958336" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.17989418" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.12804233" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Java Enterprise" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.26349208" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.31746033" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.21822916" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24895833" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Web" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4021164" sideWeight="0.49166667" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.12804233" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Spring" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4021164" sideWeight="0.49166667" order="1" side_tool="false" content_ui="tabs" />
     </layout>
     <layout-to-restore>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -2308,7 +2310,7 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="221" />
+      <option name="time" value="229" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -2317,231 +2319,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/../oos/src/com/guet/oos/servlet/administrator/query/QueryHistoryCommentServlet.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="152">
-          <caret line="26" column="13" lean-forward="false" selection-start-line="26" selection-start-column="13" selection-end-line="26" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../oos/src/com/guet/oos/servlet/administrator/query/QueryByCommentId.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="247">
-          <caret line="29" column="0" lean-forward="true" selection-start-line="29" selection-start-column="0" selection-end-line="29" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../oos/src/com/guet/oos/servlet/administrator/add/AddDishesServlet.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="76">
-          <caret line="18" column="38" lean-forward="true" selection-start-line="18" selection-start-column="38" selection-end-line="18" selection-end-column="38" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../oos/src/com/guet/oos/servlet/administrator/get/GetSpecifyAdministratorServlet.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="152">
-          <caret line="20" column="13" lean-forward="false" selection-start-line="20" selection-start-column="13" selection-end-line="20" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../oos/src/com/guet/oos/servlet/administrator/getCurrentAdminstratorInfoServlet.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="190">
-          <caret line="20" column="13" lean-forward="false" selection-start-line="20" selection-start-column="13" selection-end-line="20" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../oos/src/com/guet/oos/servlet/administrator/AdminResetPasswordServlet.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="76">
-          <caret line="16" column="3" lean-forward="true" selection-start-line="16" selection-start-column="3" selection-end-line="16" selection-end-column="3" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../oos/src/com/guet/oos/servlet/administrator/AdminPersonalProfileServlet.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="152">
-          <caret line="13" column="13" lean-forward="false" selection-start-line="13" selection-start-column="13" selection-end-line="13" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../oos/src/com/guet/oos/servlet/administrator/AdminLoginServlet.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="190">
-          <caret line="28" column="13" lean-forward="false" selection-start-line="28" selection-start-column="13" selection-end-line="28" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../oos/src/com/guet/oos/servlet/support/GetRandVerifyCodeServlet.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="475">
-          <caret line="32" column="45" lean-forward="false" selection-start-line="32" selection-start-column="45" selection-end-line="32" selection-end-column="45" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../oos/src/com/guet/oos/servlet/user/check/CheckUserLoginServlet.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="171">
-          <caret line="22" column="13" lean-forward="false" selection-start-line="22" selection-start-column="13" selection-end-line="22" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../oos/src/com/guet/oos/servlet/user/add/AddUserDeliverAddressServlet.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-532">
-          <caret line="26" column="13" lean-forward="false" selection-start-line="26" selection-start-column="13" selection-end-line="26" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../oos/src/com/guet/oos/servlet/user/get/GetAllCommentServlet.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-304">
-          <caret line="28" column="13" lean-forward="false" selection-start-line="28" selection-start-column="13" selection-end-line="28" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../oos/src/com/guet/oos/servlet/user/get/GetShopCartInfoServlet.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="190">
-          <caret line="22" column="0" lean-forward="true" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../oos/src/com/guet/oos/servlet/user/login/UserLoginValidateServlet.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="513">
-          <caret line="27" column="3" lean-forward="true" selection-start-line="27" selection-start-column="3" selection-end-line="27" selection-end-column="3" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../oos/src/com/guet/oos/servlet/user/login/UserLoginServlet.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1045">
-          <caret line="32" column="13" lean-forward="false" selection-start-line="32" selection-start-column="13" selection-end-line="32" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../oos/web/admin/js/dishes-management.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="146" column="20" lean-forward="false" selection-start-line="146" selection-start-column="20" selection-end-line="146" selection-end-column="20" />
-          <folding>
-            <marker date="1527439714717" expanded="true" signature="3085:3091" ph="&amp;nbsp;" />
-            <marker date="1527439714717" expanded="true" signature="3091:3097" ph="&amp;nbsp;" />
-            <marker date="1527439714717" expanded="true" signature="3097:3103" ph="&amp;nbsp;" />
-            <marker date="1527439714717" expanded="true" signature="3103:3109" ph="&amp;nbsp;" />
-            <marker date="1527439714717" expanded="true" signature="3109:3115" ph="&amp;nbsp;" />
-            <marker date="1527439714717" expanded="true" signature="3115:3121" ph="&amp;nbsp;" />
-            <marker date="1527439714717" expanded="true" signature="3121:3127" ph="&amp;nbsp;" />
-            <marker date="1527439714717" expanded="true" signature="3127:3133" ph="&amp;nbsp;" />
-            <marker date="1527439714717" expanded="true" signature="3133:3139" ph="&amp;nbsp;" />
-            <marker date="1527439714717" expanded="true" signature="3139:3145" ph="&amp;nbsp;" />
-            <marker date="1527439714717" expanded="true" signature="3145:3151" ph="&amp;nbsp;" />
-            <marker date="1527439714717" expanded="true" signature="3151:3157" ph="&amp;nbsp;" />
-            <marker date="1527439714717" expanded="true" signature="3230:3236" ph="&amp;nbsp;" />
-            <marker date="1527439714717" expanded="true" signature="3236:3242" ph="&amp;nbsp;" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../oos/out/artifacts/oos_Web_exploded/customer/asset/js/continueShopping.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="325">
-          <caret line="217" column="15" lean-forward="true" selection-start-line="217" selection-start-column="15" selection-end-line="217" selection-end-column="15" />
-          <folding>
-            <marker date="1527301001977" expanded="true" signature="4942:4954" ph="..." />
-            <marker date="1527301001977" expanded="true" signature="5224:5250" ph="..." />
-            <marker date="1527301001977" expanded="true" signature="5523:5529" ph="&amp;nbsp;" />
-            <marker date="1527301001977" expanded="true" signature="5786:5804" ph="..." />
-            <marker date="1527301001977" expanded="true" signature="7904:7949" ph="..." />
-            <marker date="1527301001977" expanded="true" signature="8041:8086" ph="..." />
-            <marker date="1527301001977" expanded="true" signature="10070:10114" ph="..." />
-            <marker date="1527301001977" expanded="true" signature="15123:15139" ph="..." />
-            <marker date="1527301001977" expanded="true" signature="15600:15616" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../oos/src/com/guet/oos/servlet/user/query/QueryDishesByDishesTypeServlet.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-266">
-          <caret line="23" column="13" lean-forward="false" selection-start-line="23" selection-start-column="13" selection-end-line="23" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../oos/src/com/guet/oos/servlet/user/query/QueryByDishesId.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-209">
-          <caret line="18" column="45" lean-forward="false" selection-start-line="18" selection-start-column="23" selection-end-line="18" selection-end-column="45" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../oos/src/com/guet/oos/servlet/administrator/add/AddMealTypeServlet.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="57">
-          <caret line="30" column="13" lean-forward="false" selection-start-line="30" selection-start-column="13" selection-end-line="30" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../oos/src/com/guet/oos/servlet/user/shopcart/ShopCartSerlvet.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="304">
-          <caret line="35" column="7" lean-forward="true" selection-start-line="35" selection-start-column="7" selection-end-line="35" selection-end-column="7" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../oos/src/com/guet/oos/servlet/administrator/add/AddAdministratorServlet.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="114">
-          <caret line="22" column="3" lean-forward="true" selection-start-line="22" selection-start-column="3" selection-end-line="22" selection-end-column="3" />
-          <folding>
-            <element signature="e#1081#1082#0" expanded="false" />
-            <element signature="e#1104#1105#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../oos/web/admin/pending-delivery-order.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="231">
-          <caret line="39" column="4" lean-forward="false" selection-start-line="39" selection-start-column="4" selection-end-line="39" selection-end-column="4" />
-          <folding>
-            <element signature="n#style#0;n#a#1;n#div#0;n#div#0;n#div#0;n#div#2;n#body#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#input#0;n#div#0;n#div#0;n#div#0;n#div#2;n#body#0;n#html#0;n#!!top" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../oos/src/com/guet/oos/constant/OrderStatus.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="133">
-          <caret line="7" column="0" lean-forward="true" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/../oos/src/com/guet/oos/po/Order.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="171">
@@ -2554,9 +2331,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="253">
           <caret line="145" column="3" lean-forward="true" selection-start-line="145" selection-start-column="3" selection-end-line="145" selection-end-column="3" />
-          <folding>
-            <marker date="1527442619744" expanded="true" signature="1843:1859" ph="..." />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -2580,9 +2354,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1387">
           <caret line="73" column="19" lean-forward="true" selection-start-line="73" selection-start-column="19" selection-end-line="73" selection-end-column="19" />
-          <folding>
-            <marker date="1527488058372" expanded="true" signature="1851:1867" ph="..." />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -2599,8 +2370,8 @@
         <state relative-caret-position="181">
           <caret line="30" column="7" lean-forward="true" selection-start-line="30" selection-start-column="7" selection-end-line="30" selection-end-column="7" />
           <folding>
-            <element signature="e#947#948#0" expanded="true" />
-            <element signature="e#970#971#0" expanded="true" />
+            <element signature="e#947#948#0" expanded="false" />
+            <element signature="e#970#971#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -2609,7 +2380,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-59">
           <caret line="56" column="36" lean-forward="true" selection-start-line="56" selection-start-column="36" selection-end-line="56" selection-end-column="36" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -2626,16 +2396,8 @@
         <state relative-caret-position="181">
           <caret line="41" column="0" lean-forward="true" selection-start-line="41" selection-start-column="0" selection-end-line="41" selection-end-column="0" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="imports" expanded="false" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../oos/src/com/guet/oos/servlet/Template.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="67">
-          <caret line="14" column="0" lean-forward="true" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -2643,37 +2405,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="646">
           <caret line="84" column="0" lean-forward="false" selection-start-line="84" selection-start-column="0" selection-end-line="84" selection-end-column="0" />
-          <folding>
-            <element signature="method#doCreate#0;class#OrderDaoImpl#0" expanded="false" />
-            <element signature="method#findBySplit#0;class#OrderDaoImpl#0" expanded="false" />
-            <element signature="method#getAllCount#2;class#OrderDaoImpl#0" expanded="false" />
-            <element signature="method#getUserCurrentOrderByUserId#0;class#OrderDaoImpl#0" expanded="false" />
-            <element signature="method#getCurrentOrderList#0;class#OrderDaoImpl#0" expanded="false" />
-            <element signature="method#currentOrderCount#0;class#OrderDaoImpl#0" expanded="false" />
-            <element signature="method#getUserAllHistoryOrder#0;class#OrderDaoImpl#0" expanded="false" />
-            <element signature="method#getOrdersByUsId#0;class#OrderDaoImpl#0" expanded="false" />
-            <element signature="method#deleteByOrId#0;class#OrderDaoImpl#0" expanded="false" />
-            <element signature="method#updateOrderStatus#0;class#OrderDaoImpl#0" expanded="false" />
-            <element signature="method#notDeliveryOrderCount#0;class#OrderDaoImpl#0" expanded="false" />
-            <element signature="method#encapsulationOrder#0;class#OrderDaoImpl#0" expanded="false" />
-            <marker date="1527492269148" expanded="true" signature="654:918" ph="insert into order_table... " />
-            <marker date="1527492269148" expanded="true" signature="2231:2269" ph="select * fro... order_table" />
-            <marker date="1527492269148" expanded="true" signature="3158:3190" ph="select count... order_table" />
-            <marker date="1527492269148" expanded="true" signature="3948:4056" ph="select * fro... order_table" />
-            <marker date="1527492269148" expanded="true" signature="4795:4922" ph="select top m... order_table" />
-            <marker date="1527492269148" expanded="true" signature="4859:4921" ph="select top m... order_table" />
-            <marker date="1527492269148" expanded="true" signature="5353:5555" ph="select top m... order_table" />
-            <marker date="1527492269148" expanded="true" signature="5982:6034" ph="select count... order_table" />
-            <marker date="1527492269148" expanded="true" signature="6540:6596" ph="select * fro... order_table" />
-            <marker date="1527492269148" expanded="true" signature="7135:7173" ph="select * fro... order_table" />
-            <marker date="1527492269148" expanded="true" signature="7604:7640" ph="delete from " />
-            <marker date="1527492269148" expanded="true" signature="8014:8063" ph="update order... " />
-            <marker date="1527492269148" expanded="true" signature="8451:8503" ph="select count... order_table" />
-            <marker date="1527492269148" expanded="true" signature="9021:9251" ph="select top m... order_table" />
-            <marker date="1527492269148" expanded="true" signature="9650:9699" ph="update order... " />
-            <marker date="1527492269148" expanded="true" signature="10117:10169" ph="select count... order_table" />
-            <marker date="1527492269148" expanded="true" signature="10683:10913" ph="select top m... order_table" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -2682,12 +2413,12 @@
         <state relative-caret-position="333">
           <caret line="94" column="68" lean-forward="false" selection-start-line="94" selection-start-column="68" selection-end-line="94" selection-end-column="68" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="imports" expanded="false" />
             <element signature="method#getCurrentOrderList#0;class#OrderServiceImpl#0" expanded="false" />
             <element signature="method#getNotDeliveryOrderList#0;class#OrderServiceImpl#0" expanded="false" />
             <element signature="method#getHistoryOrderList#0;class#OrderServiceImpl#0" expanded="false" />
-            <element signature="e#2551#2552#0" expanded="true" />
-            <element signature="e#2597#2598#0" expanded="true" />
+            <element signature="e#2551#2552#0" expanded="false" />
+            <element signature="e#2597#2598#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -2704,7 +2435,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-104">
           <caret line="14" column="0" lean-forward="true" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -2712,19 +2442,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="295">
           <caret line="30" column="7" lean-forward="false" selection-start-line="30" selection-start-column="7" selection-end-line="30" selection-end-column="7" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#913#914#0" expanded="true" />
-            <element signature="e#936#937#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../oos/src/com/guet/oos/constant/ReturnMessage.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="152">
-          <caret line="8" column="0" lean-forward="true" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -2732,7 +2449,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="285">
           <caret line="57" column="23" lean-forward="true" selection-start-line="57" selection-start-column="23" selection-end-line="57" selection-end-column="23" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -2740,9 +2456,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="200">
           <caret line="25" column="56" lean-forward="false" selection-start-line="25" selection-start-column="23" selection-end-line="25" selection-end-column="56" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -2750,18 +2463,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="214">
           <caret line="5771" column="1" lean-forward="false" selection-start-line="5771" selection-start-column="1" selection-end-line="5771" selection-end-column="1" />
-          <folding>
-            <marker date="1526868712136" expanded="true" signature="5893:5979" ph="{...}" />
-            <marker date="1526868712136" expanded="true" signature="6002:6058" ph="{...}" />
-            <marker date="1526868712136" expanded="true" signature="6831:6896" ph="{...}" />
-            <marker date="1526868712136" expanded="true" signature="6920:8171" ph="{...}" />
-            <marker date="1526868712136" expanded="true" signature="65423:65654" ph="{...}" />
-            <marker date="1526868712136" expanded="true" signature="111721:111952" ph="{...}" />
-            <marker date="1526868712136" expanded="true" signature="112131:112362" ph="{...}" />
-            <marker date="1526868712136" expanded="true" signature="139411:139642" ph="{...}" />
-            <marker date="1526868712136" expanded="true" signature="171130:171361" ph="{...}" />
-            <marker date="1526868712136" expanded="true" signature="171676:171907" ph="{...}" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -2769,7 +2470,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="152">
           <caret line="8" column="0" lean-forward="true" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -2777,18 +2477,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-2394">
           <caret line="12" column="22" lean-forward="true" selection-start-line="12" selection-start-column="22" selection-end-line="12" selection-end-column="22" />
-          <folding>
-            <marker date="1527493180451" expanded="true" signature="9290:9304" ph="..." />
-            <marker date="1527493180451" expanded="true" signature="9468:9482" ph="..." />
-            <marker date="1527493180451" expanded="true" signature="14970:15038" ph="..." />
-            <marker date="1527493180451" expanded="true" signature="15145:15162" ph="..." />
-            <marker date="1527493180451" expanded="true" signature="22557:22600" ph="..." />
-            <marker date="1527493180451" expanded="true" signature="22796:22806" ph="..." />
-            <marker date="1527493180451" expanded="true" signature="22971:23021" ph="..." />
-            <marker date="1527493180451" expanded="true" signature="23209:23215" ph="&amp;nbsp;" />
-            <marker date="1527493180451" expanded="true" signature="23215:23221" ph="&amp;nbsp;" />
-            <marker date="1527493180451" expanded="true" signature="23221:23227" ph="&amp;nbsp;" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -2796,12 +2484,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="464">
           <caret line="469" column="0" lean-forward="false" selection-start-line="469" selection-start-column="0" selection-end-line="469" selection-end-column="0" />
-          <folding>
-            <element signature="n#style#0;n#span#0;n#h4#0;n#div#0;n#div#0;n#div#1;n#div#2;n#div#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#span#0;n#h4#0;n#div#1;n#div#0;n#div#1;n#div#2;n#div#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#2;n#div#0;n#div#1;n#div#2;n#div#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#h4#0;n#div#2;n#div#0;n#div#1;n#div#2;n#div#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -2809,45 +2491,278 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="304">
           <caret line="31" column="68" lean-forward="true" selection-start-line="31" selection-start-column="68" selection-end-line="31" selection-end-column="68" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../oos/web/customer/asset/js/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-2223">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../oos/web/admin/meal-management.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="804">
+          <caret line="168" column="6" lean-forward="false" selection-start-line="168" selection-start-column="6" selection-end-line="168" selection-end-column="6" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../oos/web/admin/dishes-management.jsp">
+    <entry file="file://$PROJECT_DIR$/../oos/web/admin/order-confirmed.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="19" column="22" lean-forward="true" selection-start-line="19" selection-start-column="22" selection-end-line="19" selection-end-column="22" />
+        <state relative-caret-position="-1539">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../oos/web/admin/pending-delivery-order.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="234">
+          <caret line="39" column="4" lean-forward="false" selection-start-line="39" selection-start-column="4" selection-end-line="39" selection-end-column="4" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../oos/web/admin/personal-profile.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../oos/web/admin/super-authority.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-836">
+          <caret line="106" column="43" lean-forward="true" selection-start-line="106" selection-start-column="43" selection-end-line="106" selection-end-column="43" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../oos/web/admin/signin.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="228">
+          <caret line="12" column="6" lean-forward="true" selection-start-line="12" selection-start-column="6" selection-end-line="12" selection-end-column="6" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../oos/src/com/guet/oos/constant/SessionKey.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="498">
+          <caret line="35" column="54" lean-forward="true" selection-start-line="35" selection-start-column="54" selection-end-line="35" selection-end-column="54" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../oos/src/com/guet/oos/utils/FileUploadUtils.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-760">
+          <caret line="64" column="40" lean-forward="false" selection-start-line="64" selection-start-column="40" selection-end-line="64" selection-end-column="40" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/../oos/web/admin/asset/js/pageToUrls.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="133">
-          <caret line="7" column="0" lean-forward="true" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
+        <state relative-caret-position="114">
+          <caret line="6" column="2" lean-forward="true" selection-start-line="6" selection-start-column="2" selection-end-line="6" selection-end-column="2" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../oos/src/com/guet/oos/servlet/administrator/delete/DeleteOrderServlet.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="373">
+          <caret line="49" column="38" lean-forward="true" selection-start-line="49" selection-start-column="38" selection-end-line="49" selection-end-column="38" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../oos/src/com/guet/oos/servlet/administrator/query/QueryByDishesId.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="475">
+          <caret line="37" column="45" lean-forward="false" selection-start-line="37" selection-start-column="45" selection-end-line="37" selection-end-column="45" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../oos/src/com/guet/oos/servlet/administrator/delete/DeleteDishesServlet.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="380">
+          <caret line="36" column="69" lean-forward="false" selection-start-line="36" selection-start-column="69" selection-end-line="36" selection-end-column="69" />
+          <folding>
+            <element signature="imports" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../oos/web/admin/asset/js/dishes-type-management.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="710">
+          <caret line="274" column="43" lean-forward="false" selection-start-line="274" selection-start-column="43" selection-end-line="274" selection-end-column="43" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../oos/src/com/guet/oos/servlet/administrator/get/GetCurrentAdminstratorInfoServlet.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="100">
+          <caret line="22" column="0" lean-forward="true" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../oos/src/com/guet/oos/service/impl/DishesServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="152">
+          <caret line="13" column="0" lean-forward="true" selection-start-line="13" selection-start-column="0" selection-end-line="13" selection-end-column="0" />
+          <folding>
+            <element signature="method#getSpecifyColumnSpecifyWord#0;class#DishesServiceImpl#0" expanded="false" />
+            <element signature="method#updateDishesStoreByDishesId#0;class#DishesServiceImpl#0" expanded="false" />
+            <element signature="e#1448#1449#0" expanded="false" />
+            <element signature="e#1497#1498#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../oos/src/com/guet/oos/servlet/Template.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="95">
+          <caret line="10" column="40" lean-forward="true" selection-start-line="10" selection-start-column="40" selection-end-line="10" selection-end-column="40" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../oos/src/com/guet/oos/po/Dishes.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="266">
+          <caret line="14" column="30" lean-forward="true" selection-start-line="14" selection-start-column="30" selection-end-line="14" selection-end-column="30" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../oos/src/com/guet/oos/dao/DishesDao.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="342">
+          <caret line="20" column="0" lean-forward="false" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../oos/src/com/guet/oos/dao/impl/DishesDaoImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="722">
+          <caret line="50" column="13" lean-forward="false" selection-start-line="50" selection-start-column="13" selection-end-line="50" selection-end-column="13" />
+          <folding>
+            <marker date="1527555227672" expanded="true" signature="618:750" ph="insert into dishes_table... " />
+            <marker date="1527555227672" expanded="true" signature="1562:1677" ph="update dishe... " />
+            <marker date="1527555227672" expanded="true" signature="2468:2507" ph="select * fro... dishes_table" />
+            <marker date="1527555227672" expanded="true" signature="3375:3408" ph="select count... dishes_table" />
+            <marker date="1527555227672" expanded="true" signature="3910:4039" ph="select top m... dishes_table" />
+            <marker date="1527555227672" expanded="true" signature="3975:4038" ph="select top m... dishes_table" />
+            <marker date="1527555227672" expanded="true" signature="4486:4533" ph="select * fro... dishes_table" />
+            <marker date="1527555227672" expanded="true" signature="5030:5074" ph="update dishe... " />
+            <marker date="1527555227672" expanded="true" signature="5479:5522" ph="select stock... dishes_table" />
+            <marker date="1527555227672" expanded="true" signature="6005:6042" ph="delete from " />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../oos/src/com/guet/oos/service/DishesService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="228">
+          <caret line="14" column="0" lean-forward="false" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../oos/web/admin/tip.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="169">
+          <caret line="44" column="50" lean-forward="false" selection-start-line="44" selection-start-column="50" selection-end-line="44" selection-end-column="50" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/../oos/web/admin/asset/js/dishes-management.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3496">
-          <caret line="184" column="23" lean-forward="true" selection-start-line="184" selection-start-column="23" selection-end-line="184" selection-end-column="23" />
+        <state relative-caret-position="2622">
+          <caret line="186" column="25" lean-forward="false" selection-start-line="186" selection-start-column="25" selection-end-line="186" selection-end-column="25" />
           <folding>
-            <marker date="1527494113303" expanded="true" signature="2978:2984" ph="&amp;nbsp;" />
-            <marker date="1527494113303" expanded="true" signature="2984:2990" ph="&amp;nbsp;" />
-            <marker date="1527494113303" expanded="true" signature="2990:2996" ph="&amp;nbsp;" />
-            <marker date="1527494113303" expanded="true" signature="2996:3002" ph="&amp;nbsp;" />
-            <marker date="1527494113303" expanded="true" signature="3002:3008" ph="&amp;nbsp;" />
-            <marker date="1527494113303" expanded="true" signature="3008:3014" ph="&amp;nbsp;" />
-            <marker date="1527494113303" expanded="true" signature="3014:3020" ph="&amp;nbsp;" />
-            <marker date="1527494113303" expanded="true" signature="3020:3026" ph="&amp;nbsp;" />
-            <marker date="1527494113303" expanded="true" signature="3026:3032" ph="&amp;nbsp;" />
-            <marker date="1527494113303" expanded="true" signature="3032:3038" ph="&amp;nbsp;" />
-            <marker date="1527494113303" expanded="true" signature="3038:3044" ph="&amp;nbsp;" />
-            <marker date="1527494113303" expanded="true" signature="3044:3050" ph="&amp;nbsp;" />
-            <marker date="1527494113303" expanded="true" signature="3125:3131" ph="&amp;nbsp;" />
-            <marker date="1527494113303" expanded="true" signature="3131:3137" ph="&amp;nbsp;" />
+            <element signature="n#!!block;n#closeCheckModel#0" expanded="false" />
+            <element signature="n#!!block;n#getOneDishesInfo#0" expanded="false" />
+            <element signature="n#!!block;n#openAddDishesModel#0" expanded="false" />
+            <element signature="n#!!block;n#closeAddDishesModel#0" expanded="false" />
+            <element signature="n#!!block;n#closeEditModel#0" expanded="false" />
+            <element signature="n#!!block;n#resetAddDishesModel#0" expanded="false" />
+            <element signature="n#!!block;n#resetEditDishesModel#0" expanded="false" />
+            <element signature="n#!!block;n#editEvent#0" expanded="false" />
+            <element signature="n#!!block;n#deleteEvent#0" expanded="false" />
+            <element signature="n#!!block;n#checkAddModel#0" expanded="false" />
+            <marker date="1527553207702" expanded="true" signature="1428:1434" ph="&amp;nbsp;" />
+            <marker date="1527553207702" expanded="true" signature="1434:1440" ph="&amp;nbsp;" />
+            <marker date="1527553207702" expanded="true" signature="1440:1446" ph="&amp;nbsp;" />
+            <marker date="1527553207702" expanded="true" signature="1446:1452" ph="&amp;nbsp;" />
+            <marker date="1527553207702" expanded="true" signature="1452:1458" ph="&amp;nbsp;" />
+            <marker date="1527553207702" expanded="true" signature="1458:1464" ph="&amp;nbsp;" />
+            <marker date="1527553207702" expanded="true" signature="1464:1470" ph="&amp;nbsp;" />
+            <marker date="1527553207702" expanded="true" signature="1470:1476" ph="&amp;nbsp;" />
+            <marker date="1527553207702" expanded="true" signature="1476:1482" ph="&amp;nbsp;" />
+            <marker date="1527553207702" expanded="true" signature="1482:1488" ph="&amp;nbsp;" />
+            <marker date="1527553207702" expanded="true" signature="1488:1494" ph="&amp;nbsp;" />
+            <marker date="1527553207702" expanded="true" signature="1494:1500" ph="&amp;nbsp;" />
+            <marker date="1527553207702" expanded="true" signature="1603:1609" ph="&amp;nbsp;" />
+            <marker date="1527553207702" expanded="true" signature="1609:1615" ph="&amp;nbsp;" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../oos/src/com/guet/oos/servlet/administrator/add/AddDishesServlet.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1007">
+          <caret line="73" column="0" lean-forward="false" selection-start-line="73" selection-start-column="0" selection-end-line="73" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../oos/web/admin/dishes-management.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="7448">
+          <caret line="392" column="71" lean-forward="false" selection-start-line="392" selection-start-column="71" selection-end-line="392" selection-end-column="71" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../oos/src/com/guet/oos/constant/ReturnMessage.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2071">
+          <caret line="109" column="61" lean-forward="false" selection-start-line="109" selection-start-column="61" selection-end-line="109" selection-end-column="61" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../oos/src/com/guet/oos/servlet/administrator/add/AddUserServlet.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-247">
+          <caret line="33" column="78" lean-forward="true" selection-start-line="33" selection-start-column="78" selection-end-line="33" selection-end-column="78" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../oos/src/com/guet/oos/servlet/administrator/add/AddAdministratorServlet.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="361">
+          <caret line="48" column="42" lean-forward="false" selection-start-line="48" selection-start-column="42" selection-end-line="48" selection-end-column="42" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../oos/src/com/guet/oos/servlet/administrator/modify/ModifyDishesManagementServlet.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="19">
+          <caret line="42" column="0" lean-forward="false" selection-start-line="42" selection-start-column="0" selection-end-line="42" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>

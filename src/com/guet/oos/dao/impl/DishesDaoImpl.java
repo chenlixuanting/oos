@@ -50,6 +50,28 @@ public class DishesDaoImpl extends AbstractDAOImpl implements DishesDao {
 
     @Override
     public boolean doUpdate(Dishes vo) {
+
+        String sql = "update dishes_table set price=?,stock=?,dishesType=?,dishesName=?,describe=?,picAddress=?,updateTime=? where dsId=?";
+
+        try {
+            pstmt = conn.prepareStatement(sql);
+
+            pstmt.setDouble(1, vo.getPrice());
+            pstmt.setLong(2, vo.getStock());
+            pstmt.setString(3, vo.getDishesType());
+            pstmt.setString(4, vo.getDishesName());
+            pstmt.setString(5, vo.getDescribe());
+            pstmt.setString(6, vo.getPicAddress());
+            pstmt.setString(7, vo.getUpdateTime());
+            pstmt.setLong(8, vo.getDsId());
+
+            pstmt.executeUpdate();
+
+            return true;
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
         return false;
     }
 
@@ -216,6 +238,27 @@ public class DishesDaoImpl extends AbstractDAOImpl implements DishesDao {
         }
 
         return 0;
+    }
+
+    @Override
+    public boolean deleteByDsId(long dsId) {
+
+        String sql = "delete from dishes_table where dsId=?";
+
+        try {
+            pstmt = conn.prepareStatement(sql);
+
+            pstmt.setLong(1, dsId);
+
+            pstmt.execute();
+
+            return true;
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return false;
     }
 
     private List<Dishes> encapsulationDishes(ResultSet res) throws SQLException {

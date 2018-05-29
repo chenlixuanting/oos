@@ -17,4 +17,6 @@ public interface DishesDao extends IDAO<Long, Dishes> {
 
     public long queryDishesStockByDishesId(long dsId);
 
+    public boolean deleteByDsId(long dsId);
+
 }

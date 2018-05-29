@@ -1,4 +1,4 @@
-package com.guet.oos.servlet.administrator;
+package com.guet.oos.servlet.administrator.get;
 
 import com.alibaba.fastjson.JSONObject;
 import com.guet.oos.constant.SessionKey;
@@ -18,13 +18,13 @@ import java.io.IOException;
  * Created by Shinelon on 2018/5/20.
  */
 @WebServlet("/admin/getCurrentAdministratorInfo.action")
-public class getCurrentAdminstratorInfoServlet extends HttpServlet {
+public class GetCurrentAdminstratorInfoServlet extends HttpServlet {
     private static final long serialVersionUID = 1L;
 
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public getCurrentAdminstratorInfoServlet() {
+    public GetCurrentAdminstratorInfoServlet() {
         super();
     }
 

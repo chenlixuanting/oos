@@ -77,6 +77,7 @@ public class AddUserServlet extends HttpServlet {
         deliveryAddress.setDefault(true);
         deliveryAddress.setCreateTime(sf.format(new Date()));
         deliveryAddress.setUpdateTime(sf.format(new Date()));
+        deliveryAddress.setReceiverTime(sf.format(new Date()));
 
         //创建收货地址记录
         deliveryAddressService.createDeliveryAddress(deliveryAddress);

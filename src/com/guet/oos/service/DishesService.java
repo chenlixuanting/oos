@@ -23,4 +23,7 @@ public interface DishesService {
 
     public long queryDishesStockByDishesId(long dsId);
 
+    public boolean deleteBydsId(long dsId);
+
+    public boolean updateDishes(Dishes dishes);
 }
