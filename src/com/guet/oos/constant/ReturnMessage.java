@@ -110,4 +110,9 @@ public class ReturnMessage {
     public static final String EDIT_DISHES_SUCCESS = "编辑餐品成功!";
 
     public static final String EDIT_DISHES_FAIL = "编辑餐品失败!";
+
+    public static final String EDIT_USER_SUCCESS = "编辑用户成功!";
+
+    public static final String EDIT_USER_FAIL = "编辑用户失败!";
+
 }

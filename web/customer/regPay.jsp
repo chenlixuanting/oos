@@ -52,11 +52,15 @@
             <div class="clear"></div>
             <div class="top_menu_2">
                 <ul>
-                    <li class="w1"><span>
-					首页</span>
+                    <li class="w1">
+                        <a href="continueShopping.jsp">订餐首页</a>
                     </li>
-                    <li class="w2"><span>重新登录</span></li>
-                    <li class="w3"><span>个人中心</span></li>
+                    <li class="w2">
+                        <a href="customerExit.action">重新登录</a>
+                    </li>
+                    <li class="w3">
+                        <a href="customerCenter.jsp">个人中心</a>
+                    </li>
                     <li class="last_li w5">
                         <a href="comment.jsp" target="_self">评论专区</a>
                     </li>
@@ -118,38 +122,6 @@
             <div class="clear"></div>
         </div>
     </div>
-
-    <!-- 弹出层 -->
-    <!--
-    <div id="dialog-message" title="友情提示" closeBtn="false" style="display: none;">
-        <span></span>
-    </div>
-     -->
-
-    <!-- alert 弹出层 -->
-    <div id="dialog-message-alert" title="友情提示" closebtn="true" style="display: none;">
-        <span></span>
-    </div>
-
-    <!-- dialog-bind-phone 弹出层 -->
-    <div id="dialog-bind-phone" title="友情提示" closebtn="true" style="display: none;">
-        <span></span>
-    </div>
-
-    <!-- confirm 弹出层 -->
-    <div id="dialog-message-confirm" title="友情提示" closebtn="true" style="display: none;">
-        <span></span>
-    </div>
-
-    <!-- alert_back 弹出层 -->
-    <div id="dialog-message-alert-back" title="友情提示" closebtn="true" style="display: none;">
-        <span></span>
-    </div>
-
-    <!-- 支付弹出框 -->
-    <div id="payPopup" style="display: none;">
-    </div>
-
 </form>
 </body>
 </html>

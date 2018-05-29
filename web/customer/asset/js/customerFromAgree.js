@@ -69,7 +69,6 @@ $(function () {
                     var returnData = eval(data);
 
                     if (returnData.head) {
-                        alert(123);
                         //跳转到下一个页面
                         location.assign("customerConfirm.jsp");
                     } else {

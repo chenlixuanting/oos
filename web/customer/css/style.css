@@ -186,13 +186,13 @@ h6 {
     border-bottom: 2px #c6000a solid;
 }
 
-.logo {
+/*.logo {
     float: left;
     width: 201px;
     height: 69px;
     background: url(../images/logo1.png) no-repeat left bottom;
     cursor: pointer
-}
+}*/
 
 .top_menu {
     float: right;

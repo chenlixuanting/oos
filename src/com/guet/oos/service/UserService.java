@@ -29,4 +29,6 @@ public interface UserService {
 
     public boolean deleteById(long usId);
 
+    public boolean updateUser(User user);
+
 }

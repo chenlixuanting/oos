@@ -163,35 +163,5 @@
     </div>
 </div>
 <input id="user_flag" value="true" style="display: none;"/>
-
-<!-- footer -->
-<!-- 弹出层 -->
-<!--
-<div id="dialog-message" title="友情提示" closeBtn="false" style="display: none;">
-    <span></span>
-</div>
- -->
-
-<!-- alert 弹出层 -->
-<div id="dialog-message-alert" title="友情提示" closeBtn="true" style="display: none;">
-    <span></span>
-</div>
-
-<!-- dialog-bind-phone 弹出层 -->
-<div id="dialog-bind-phone" title="友情提示" closeBtn="true" style="display: none;">
-    <span></span>
-</div>
-
-<!-- confirm 弹出层 -->
-<div id="dialog-message-confirm" title="友情提示" closeBtn="true" style="display: none;">
-    <span></span>
-</div>
-
-<!-- alert_back 弹出层 -->
-<div id="dialog-message-alert-back" title="友情提示" closeBtn="true" style="display: none;">
-    <span></span>
-</div>
-
-<%--</form>--%>
 </body>
 </html>

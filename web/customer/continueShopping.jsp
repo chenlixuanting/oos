@@ -80,6 +80,7 @@
         <input type="hidden" name="gotoBeforeLoginClass" id="gotoBeforeLoginClass" value="Y"/>
         <input type="hidden" name="addBeforeLoginProduce"
                id="addBeforeLoginProduce" value="Y"/>
+
         <div id="content" class="ersee_product_height_ie6">
 
             <!-- 左侧菜单栏 -->
@@ -201,6 +202,7 @@
                 <div class="news news_icon">&gt;最新活动：</div>
                 <div id="rolling"></div>
             </div>
+
             <!-- 详细内容部分 -->
             <div id="main" class="e_main">
                 <!--  -->
@@ -216,6 +218,7 @@
                 </div>
                 <p class="clear"></p>
             </div>
+
             <!-- 右侧模块  modified by Pete-->
             <div id="s_cart" class="right s_rm_cart"
                  style="position: absolute; top: 0; float: none; margin: 0 0 0 779px;">
@@ -270,27 +273,6 @@
         </div>
         <div class="clear"></div>
     </div>
-
-    <!-- alert 弹出层 -->
-    <div id="dialog-message-alert" title="友情提示" closebtn="true" style="display: none;">
-        <span></span>
-    </div>
-
-    <!-- dialog-bind-phone 弹出层 -->
-    <div id="dialog-bind-phone" title="友情提示" closebtn="true" style="display: none;">
-        <span></span>
-    </div>
-
-    <!-- confirm 弹出层 -->
-    <div id="dialog-message-confirm" title="友情提示" closebtn="true" style="display: none;">
-        <span></span>
-    </div>
-
-    <!-- alert_back 弹出层 -->
-    <div id="dialog-message-alert-back" title="友情提示" closebtn="true" style="display: none;">
-        <span></span>
-    </div>
-
 </form>
 </body>
 </html>

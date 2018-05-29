@@ -205,89 +205,93 @@
     </div>
 </div>
 
-<%--查看模态框--%>
-<button id="checkModelBtn" type="button"
+<%--编辑模态框--%>
+<button id="editModelBtn" type="button"
         class="btn btn-primary btn-lg pull-left" data-toggle="modal"
-        data-target="#checkModel" style="display: none;"></button>
+        data-target="#editModel" style="display: none;"></button>
 
-<div class="modal fade" id="checkModel" tabindex="-1" role="dialog"
-     aria-labelledby="myModalLabel" style="width: 800px !important; left: 40% !important;display: none;">
+<div class="modal fade" id="editModel" tabindex="-1" role="dialog"
+     aria-labelledby="myModalLabel" style="width: 800px !important; left: 40% !important;">
     <div class="modal-dialog" role="document">
 
-        <form action="./addDishes.action" method="post" enctype="multipart/form-data" style="margin-bottom: 0px;">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal"
-                            aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                    <h4 class="modal-title primary" id="checkModelTitle">查看</h4>
-                </div>
-                <div class="modal-body" style="max-height: none;">
-                    <div class="row" style="text-align: center">
-                        <div class="col-lg-12">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"
+                        aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <h4 class="modal-title primary" id="editModelTitle">编辑</h4>
+            </div>
+            <div class="modal-body" style="max-height: none;">
+                <div class="row" style="text-align: center">
+                    <div class="col-lg-12">
 
-                            <div class="form-group">
-                                <font size="3" style="padding-right: 10px;">菜品名称:</font>
-                                <input type="text"
-                                       class="form-control"
-                                       placeholder="菜品名称" name="dishesName" id="dishesName"
-                                       style="width: 600px !important;">
-                            </div>
-
+                        <div class="form-group">
+                            <input type="text"
+                                   class="form-control" name="editUsId" id="editUsId"
+                                   style="width: 600px !important; display: none;">
                         </div>
+
+                        <div class="form-group">
+                            <font size="3" style="padding-right: 10px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;用户姓名:</font>
+                            <input type="text"
+                                   class="form-control"
+                                   placeholder="用户姓名" name="addUsername" id="editUsername"
+                                   style="width: 600px !important;">
+                        </div>
+
+                        <div class="form-group">
+                            <font size="3" style="padding-right: 10px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;用户电话:</font>
+                            <input type="text"
+                                   class="form-control"
+                                   placeholder="用户电话" name="addUserMobile" id="editUserMobile"
+                                   style="width: 600px !important;">
+                        </div>
+
+                        <div class="form-group">
+                            <font size="3" style="padding-right: 10px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;用户密码:</font>
+                            <input type="text"
+                                   class="form-control"
+                                   placeholder="用户密码" name="addUserPassword" id="editUserPassword"
+                                   style="width: 600px !important;">
+                        </div>
+
+                        <div class="form-group">
+                            <font size="3" style="padding-right: 10px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;用户性别:</font>
+                            <select name="addUserSex" class="form-control" id="editUserSex"
+                                    style="width: 615px; height: 31px;margin-bottom: 10px;">
+                                <option value="先生">先生</option>
+                                <option value="女士">女士</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <font size="3"
+                                  style="padding-right: 10px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;默认收货人地址:</font>
+                            <input type="text"
+                                   class="form-control"
+                                   placeholder="默认收货人地址"
+                                   name="addUserDefaultReceiverAddress"
+                                   id="editUserDefaultReceiverAddress"
+                                   style="width: 600px !important;">
+                        </div>
+
                     </div>
                 </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-danger" id="checkCloseModel" data-dismiss="modal">关闭</button>
-                </div>
             </div>
-        </form>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-danger" id="editCloseModel" data-dismiss="modal">关闭
+                </button>
+                <button type="submit" class="btn btn-primary" id="editSaveModel" onclick="saveEditUser();">保存
+                </button>
+            </div>
+        </div>
     </div>
 </div>
-
-<%--编辑模态框--%>
-<%--<button id="editModelBtn" type="button"--%>
-<%--class="btn btn-primary btn-lg pull-left" data-toggle="modal"--%>
-<%--data-target="#editModel" style="display: none;"></button>--%>
-
-<%--<div class="modal fade" id="editModel" tabindex="-1" role="dialog"--%>
-<%--aria-labelledby="myModalLabel" style="width: 800px !important; left: 40% !important;">--%>
-<%--<div class="modal-dialog" role="document">--%>
-
-<%--<form action="./addDishes.action" method="post" enctype="multipart/form-data" style="margin-bottom: 0px;">--%>
-<%--<div class="modal-content">--%>
-<%--<div class="modal-header">--%>
-<%--<button type="button" class="close" data-dismiss="modal"--%>
-<%--aria-label="Close">--%>
-<%--<span aria-hidden="true">&times;</span>--%>
-<%--</button>--%>
-<%--<h4 class="modal-title primary" id="editModelTitle"></h4>--%>
-<%--</div>--%>
-<%--<div class="modal-body" style="max-height: none;">--%>
-<%--<div class="row" style="text-align: center">--%>
-<%--<div class="col-lg-12">--%>
-
-<%--<div class="form-group">--%>
-<%--<font size="3" style="padding-right: 10px;">菜品名称:</font>--%>
-<%--<input type="text"--%>
-<%--class="form-control"--%>
-<%--placeholder="菜品名称" name="dishesName" id="dishesName"--%>
-<%--style="width: 600px !important;">--%>
-<%--</div>--%>
-
-<%--</div>--%>
-<%--</div>--%>
-<%--</div>--%>
-<%--<div class="modal-footer">--%>
-<%--<button type="button" class="btn btn-danger" id="editCloseModel" data-dismiss="modal">关闭--%>
-<%--</button>--%>
-<%--<button type="submit" class="btn btn-primary" id="editSaveModel">保存</button>--%>
-<%--</div>--%>
-<%--</div>--%>
-<%--</form>--%>
-<%--</div>--%>
-<%--</div>--%>
 
 <!-- scripts -->
 <script src="js/jquery-3.3.1.js"></script>

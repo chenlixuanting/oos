@@ -300,4 +300,31 @@ public class UserDaoImpl extends AbstractDAOImpl implements UserDao {
         return false;
     }
 
+    @Override
+    public boolean updateUser(User user) {
+
+        String sql = "update user_table set mobile=?,password=?,username=?,sex=?,updateTime=? where usId=?";
+
+        try {
+            pstmt = conn.prepareStatement(sql);
+
+            pstmt.setString(1, user.getMobile());
+            pstmt.setString(2, user.getPassword());
+            pstmt.setString(3, user.getUsername());
+            pstmt.setString(4, user.getSex());
+            pstmt.setString(5, user.getUpdateTime());
+
+            pstmt.setLong(6, user.getUsId());
+
+            pstmt.executeUpdate();
+
+            return true;
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return false;
+    }
+
 }

@@ -5,7 +5,6 @@
 
 <%
     String path = request.getContextPath();
-
     String basePath = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort()
             + path + "/customer/";
 %>
@@ -39,13 +38,6 @@
 <form id="mainForm" name="myForm" action="" method="post">
     <!-- 导航栏 -->
     <div id="top">
-        <input type="hidden" id="page_flag" value=""/> <input type="hidden"
-                                                              id="seoPath" value="http://www.4008823823.com.cn/kfcios"/>
-        <input
-                type="hidden" value="" id="topFlag" name="topFlag"/> <a
-            href="Html/index.html">
-        <div class="logo"></div>
-    </a>
         <div class="top_menu">
             <div class="top_menu_1">
                 <input type="hidden" id="isLogin" value="false"/> <span
@@ -102,12 +94,6 @@
                 </li>
                 <li>
                     <span class="Loginother">
-                        <span class="me">
-                            <input type="checkbox"/>记住我
-                        </span>
-                        <span class="wangji" style="display: none">
-                            <a href="javascript:void(0)">忘记密码？</a>
-                        </span>
 					</span>
                 </li>
             </ul>
@@ -118,10 +104,9 @@
             <div class="xuzhi">
                 <p>订单须知</p>
                 <p>1)产品和包装以实物为准，产品均加强检测，请放心食用；</p>
-                <p>2)为保证食物质量，美味家宅急送设有送餐范围。若您的送餐地址超出送餐范围无法送餐，敬请谅解！建议您就近选择美味家餐厅用餐；</p>
-                <p>3)订餐时间：10:00-22:00。部分地区已开通24小时送餐服务，详情请致电4008-823-823查询；</p>
-                <p>4)不设最低消费，每单收取统一外送费，谢绝小费。</p>
-                <p>5)如遭遇不可抗力因素，美味家宅急送将暂时不提供相关服务，敬请谅解！</p>
+                <p>2)为保证食物质量，美味家送设有送餐范围。若您的送餐地址超出送餐范围无法送餐，敬请谅解！建议您就近选择美味家餐厅用餐；</p>
+                <p>3)不设最低消费，每单收取统一外送费，谢绝小费。</p>
+                <p>4)如遭遇不可抗力因素，美味家宅急送将暂时不提供相关服务，敬请谅解！</p>
             </div>
         </div>
     </div>

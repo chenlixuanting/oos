@@ -16,4 +16,6 @@ public interface DeliveryAddressDao extends IDAO<Long, DeliveryAddress> {
     public boolean updateUserDefaultDeliverAddress(long usId, long daId);
 
     public boolean deleteByUsId(long usId);
+
+    public boolean updateDeliveryAddress(DeliveryAddress deliveryAddress);
 }

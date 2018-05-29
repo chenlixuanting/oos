@@ -40,7 +40,9 @@ public class DishesDaoImpl extends AbstractDAOImpl implements DishesDao {
             super.pstmt.setString(8, vo.getUpdateTime());
             super.pstmt.setString(9, vo.getDishesType());
 
-            return super.pstmt.execute();
+            super.pstmt.execute();
+
+            return true;
         } catch (SQLException e) {
             e.printStackTrace();
             return false;

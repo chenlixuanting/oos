@@ -19,9 +19,7 @@ $(function () {
                 $("#input_box_iphone").html(body.mobile);
 
             } else {
-
                 alert(returnData.body);
-
             }
 
         }
@@ -57,13 +55,26 @@ $(function () {
     //确定并保存个人信息按钮
     $("#submit_btn").click(function () {
 
-        $("#submit_btn")
-
         var customerData = {
             deliverName: $("#username").val(),
             password: $("#password").val(),
             deliverSex: $(".on").html()
         };
+
+        if ($("#clickAgree").attr("value") == "0") {
+            alert("您未同意用户协议!");
+            return;
+        }
+
+        if (customerData.deliverName == "" || customerData.deliverName.trim() == "") {
+            alert("客户姓名不能为空!");
+            return;
+        }
+
+        if (customerData.password == "" || customerData.password.trim() == "") {
+            alert("密码不能为空!");
+            return;
+        }
 
         //请求将临时用户注册为正式用户
         $.ajax({

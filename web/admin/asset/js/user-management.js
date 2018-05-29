@@ -45,7 +45,7 @@ $(function () {
         columnDefs: [{//列渲染，可以添加一些操作等
             targets: 8,//表示是第8列，所以上面第8列没有对应数据列，就是在这里渲染的。
             render: function (obj) {
-                return "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class='btn btn-primary btn-lg edit' onclick='openCheckModel();' seId='" + obj.usId + "'>查看</a>" + "<a class='btn btn-danger btn-lg edit' style='margin-left: 10px;' edId='" + obj.usId + "'>编辑</a>";
+                return "<a class='btn btn-danger btn-lg edit' onclick='openEditModel(this);' style='margin-left: 50px;' usId='" + obj.usId + "'>编辑</a>";
             }
         }, {//列渲染，可以添加一些操作等
             targets: 0,//表示是第8列，所以上面第8列没有对应数据列，就是在这里渲染的。
@@ -107,6 +107,28 @@ function saveAddUser() {
  * 保存编辑用户信息
  */
 function saveEditUser() {
+
+    var userData = encapsualEditUser();
+
+    $.ajax({
+        url: "modifyUser.action",
+        type: "POST",
+        dataType: "json",
+        data: {
+            userData: JSON.stringify(userData)
+        },
+        success: function (data) {
+
+            var returnData = eval(data);
+
+            alert(returnData.body);
+
+            if (returnData.head) {
+                closeEditModel();
+                table.api().draw(false);
+            }
+        }
+    });
 
 }
 
@@ -190,7 +212,46 @@ function closeAddModel() {
 /**
  * 打开编辑用户模态框
  */
-function openEditModel() {
+function openEditModel(obj) {
+
+    var usId = $(obj).attr("usId");
+
+    //通过usId获取用户信息
+    $.ajax({
+        url: "queryByUserId.action",
+        type: "POST",
+        dataType: "json",
+        data: {
+            usId: usId
+        },
+        success: function (data) {
+
+            var returnData = eval(data);
+
+
+            if (returnData.head) {
+
+                var body = returnData.body;
+
+                var defaultDeliverAddress = eval(body.defaultDeliverAddress);
+
+                $("#editUsId").val(body.usId);
+
+                $("#editUsername").val(body.username);
+
+                $("#editUserMobile").val(body.mobile);
+
+                $("#editUserSex").val(body.sex);
+
+                $("#editUserPassword").val(body.password);
+
+                $("#editUserDefaultReceiverAddress").val(defaultDeliverAddress.receiverAddress);
+
+            }
+
+        }
+    });
+
     $("#editModelBtn").click();
 }
 
@@ -257,6 +318,18 @@ function encapsulAddUser() {
  * 封装编辑用户信息为js对象
  */
 function encapsualEditUser() {
+
+    var editUser = {
+        usId: $("#editUsId").val(),
+        mobile: $("#editUserMobile").val(),
+        password: $("#editUserPassword").val(),
+        username: $("#editUsername").val(),
+        sex: $("#editUserSex").val(),
+        deliverAddress: $("#editUserDefaultReceiverAddress").val()
+    }
+
+    return editUser;
+
 }
 
 /**

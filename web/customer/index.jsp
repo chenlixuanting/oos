@@ -51,7 +51,7 @@
 
                 <div class="fl_r">
                     <span class="span_2 favbtn">
-                        <a href="javascript:;">收藏本订餐网站</a>
+                        <a href="javascript:;">可收藏本订餐网站哦!</a>
                     </span>
                 </div>
 
@@ -235,7 +235,6 @@
                             <input value="请输入密码" type="text" id="password" class="input_text">
                         </p>
                         <p class="Til" style="display:none"></p>
-                        <!-- <p><a href="#">忘记密码？</a></p> -->
                     </div>
 
                     <div id="showVerifyCode" class="showVerifyCode" style="display: none;">
@@ -253,15 +252,6 @@
                             </div>
                         </div>
                     </div>
-                    <p class="ersee-indexlogin">
-                        <input id="input_reme" type="checkbox" class="fl_l" value="">
-                        <span class="checkbox_txt fl_l">记住我</span>
-
-                    </p>
-                    <p class="ersee-indexlogin">
-                        <a href="javascript:void(0)" id="forgetPassword"
-                           style="display:none;">忘记密码？</a>
-                    </p>
                 </div>
 
                 <!-- 【下一步】按钮 -->
@@ -280,10 +270,10 @@
             <!-- 帮助中心 -->
             <!--  帮助中心-->
             <div class="help" style="line-height: 13px; display:none;">
-                不设最低起送金额，每单酌收9元外送费。为了保证食物品质，美味家宅急送有送餐范围和服务时间限制。
-                早餐、夜宵仅限部分肯德基宅急送送餐区域供应。美味家宅急送实施专属菜单及价格，不同城市的送餐菜单和价格有所不同。
-                不同城市、不同时段产品品项及价格有所不同。详情以输入送餐地址后显示的实际供应的菜单为准。西藏自治区的美味家宅急送与全国其他地区实行不同价格。
-                “被比较价格”，是指美味家宅急送官网同款产品的单品价或套餐内产品的单品价总价，所称优惠或折扣金额均以此为计算依据。
+                不设最低起送金额，每单酌收9元外送费。为了保证食物品质，美味家有送餐范围和服务时间限制。
+                早餐、夜宵仅限部分送餐区域供应。美味家实施专属菜单及价格，不同城市的送餐菜单和价格有所不同。
+                不同城市、不同时段产品品项及价格有所不同。详情以输入送餐地址后显示的实际供应的菜单为准。西藏自治区的美味家与全国其他地区实行不同价格。
+                “被比较价格”，是指美味家官网同款产品的单品价或套餐内产品的单品价总价，所称优惠或折扣金额均以此为计算依据。
                 <div class="index_odetail">
                     <a href="#" target="_blank" looyu_bound="1">详情�</a>
                 </div>
@@ -292,8 +282,6 @@
         <div class="clear"></div>
     </div>
 </div>
-<%--</form>--%>
-
 <%--实现两边的菜单栏贴紧；浏览器顶部--%>
 <script type="text/javascript">
 
@@ -326,5 +314,17 @@
 
     $(".notmenu").smartFloat();
 </script>
+
+<div id="footer">
+    <div class="fl_l">
+        <ul>
+            <li class="last_li noBg">版权所有 美味家汉堡有限公司</li>
+            <li class="record_li">地址 桂林电子科技大学花江校区</li>
+            <li class="record_li">联系电话 18477062310</li>
+        </ul>
+    </div>
+    <div class="clear"></div>
+</div>
+
 </body>
 </html>

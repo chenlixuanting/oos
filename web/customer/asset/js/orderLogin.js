@@ -57,6 +57,24 @@ $(function () {
             verifyCode: $("#verifyCode").val()
         };
 
+        var reg = /^(\+\d{2,3}\-)?\d{11}$/;
+
+        //校验手机号码是否正确
+        if (!reg.test(loginData.mobile)) {
+            alert("你输入的手机号码有误！");
+            return;
+        }
+
+        if (loginData.password == "") {
+            alert("密码不能为空!");
+            return;
+        }
+
+        if (loginData.verifyCode == "") {
+            alert("验证码不能为空!");
+            return;
+        }
+
         $.ajax({
             url: "UserLogin.action",
             type: 'POST',
@@ -133,6 +151,14 @@ $(function () {
         var mobileData = {
             mobile: $("#mobi").val()
         };
+
+        var reg = /^(\+\d{2,3}\-)?\d{11}$/;
+
+        //校验手机号码是否正确
+        if (!reg.test(mobileData.mobile)) {
+            alert("你输入的手机号码有误！");
+            return;
+        }
 
         $.ajax({
             url: "./LoginValidate.action",

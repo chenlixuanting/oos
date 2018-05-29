@@ -78,10 +78,6 @@
             <input class="span12" id="username" type="text" placeholder="您的账号"/>
             <input class="span12" id="password" type="password" placeholder="您的密码"/>
             <a href="#" class="forgot">忘记密码?</a>
-            <div class="remember">
-                <input id="remember-me" type="checkbox"/>
-                <label for="remember-me">记住我</label>
-            </div>
             <a class="btn-glow primary login" id="loginBtn" href="javascript:void(0)">登录</a>
         </div>
     </div>

@@ -26,4 +26,6 @@ public interface UserDao extends IDAO<Long, User> {
     public List<User> getList(int start, int length);
 
     public boolean deleteById(long usId);
+
+    public boolean updateUser(User user);
 }

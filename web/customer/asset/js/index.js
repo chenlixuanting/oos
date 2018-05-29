@@ -134,7 +134,7 @@ $(function () {
                                 "<p class='p_realPrice'>" +
                                 "</p>" +
                                 "<p style='height:22px'>" +
-                                "<span class='pro_price'>" + d[x].price + "元 / 份" + "</span>" +
+                                "<span class='pro_price'>" + (d[x].price).toFixed(1) + "元 / 份" + "</span>" +
                                 "</p>" +
                                 "<p style='clear: both; margin-bottom: 20px!important;'>" +
                                 "<input type='button' class='order_btn_start' onclick='startOrder();'>" +
@@ -190,7 +190,7 @@ $(function () {
                      * 修改弹出框中的数据项
                      */
                     $("#desc").html(d.describe);
-                    $("span.price").html(d.price);
+                    $("span.price").html((d.price).toFixed(1));
                     $(".popup_product_detail_txt h4").html(d.dishesName);
                     $(".popup_product_detail_img img").attr("src", pageUrls.customerAddress + d.picAddress);
                     $(".popup_product_detail_img img").attr("alt", d.dishesName);
@@ -266,6 +266,24 @@ function userLogin() {
         verifyCode: $("#verifyCode").val()
     };
 
+    var reg = /^(\+\d{2,3}\-)?\d{11}$/;
+
+    //校验手机号码是否正确
+    if (!reg.test(loginData.mobile)) {
+        alert("你输入的手机号码有误！");
+        return;
+    }
+
+    if (loginData.password == "") {
+        alert("密码不能为空!");
+        return;
+    }
+
+    if (loginData.verifyCode == "") {
+        alert("验证码不能为空!");
+        return;
+    }
+
     $.ajax({
         url: "UserLogin.action",
         type: 'POST',
@@ -276,6 +294,8 @@ function userLogin() {
         success: function (data) {
 
             var returnData = eval(data);
+
+            refreshVerifyCode();
 
             if (returnData.head) {
 
@@ -291,9 +311,6 @@ function userLogin() {
                 $("#showPwd").css("display", "none");
                 $("#showVerifyCode").css("display", "none");
 
-                //更新验证码
-                refreshVerifyCode();
-
                 //跳转到customer.jsp
                 location.assign("customer.jsp");
 
@@ -307,16 +324,11 @@ function userLogin() {
                     //清空密码输入框,并将聚集焦点
                     $("#password").val("");
 
-                    refreshVerifyCode();
-
                     $("#verifyCode").val("");
 
                     $("#password").click();
 
                 } else if (errorMsg == "验证码输入错误!") {
-
-                    //更新验证码
-                    refreshVerifyCode();
 
                     //清空验证码输入框，并聚集焦点
                     $("#verifyCode").val("");
@@ -337,21 +349,25 @@ function userLogin() {
                     $("#showPwd").css("display", "none");
                     $("#showVerifyCode").css("display", "none");
 
-                    //更新验证码
-                    refreshVerifyCode();
-
                 }
             }
         }
     });
 };
 
-
 function isRegister() {
 
     var mobileData = {
         mobile: $("#mobi").val()
     };
+
+    var reg = /^(\+\d{2,3}\-)?\d{11}$/;
+
+    //校验手机号码是否正确
+    if (!reg.test(mobileData.mobile)) {
+        alert("你输入的手机号码有误！");
+        return;
+    }
 
     $.ajax({
         url: "./LoginValidate.action",

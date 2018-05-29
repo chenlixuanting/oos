@@ -92,4 +92,9 @@ public class UserServiceImpl implements UserService {
         return userDao.deleteById(usId);
     }
 
+    @Override
+    public boolean updateUser(User user) {
+        return userDao.updateUser(user);
+    }
+
 }

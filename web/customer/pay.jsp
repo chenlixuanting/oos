@@ -52,11 +52,15 @@
             <div class="clear"></div>
             <div class="top_menu_2">
                 <ul>
-                    <li class="w1"><span>
-					首页</span>
+                    <li class="w1">
+                        <a href="continueShopping.jsp">订餐首页</a>
                     </li>
-                    <li class="w2"><span>重新登录</span></li>
-                    <li class="w3"><span>个人中心</span></li>
+                    <li class="w2">
+                        <a href="customerExit.action">重新登录</a>
+                    </li>
+                    <li class="w3">
+                        <a href="customerCenter.jsp">个人中心</a>
+                    </li>
                     <li class="last_li w5">
                         <a href="comment.jsp" target="_self">评论专区</a>
                     </li>

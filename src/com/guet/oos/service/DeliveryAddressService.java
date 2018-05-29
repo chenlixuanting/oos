@@ -27,4 +27,6 @@ public interface DeliveryAddressService {
 
     public boolean deleteByUsId(long usId);
 
+    public boolean updateDeliveryAddress(DeliveryAddress deliveryAddress);
+
 }

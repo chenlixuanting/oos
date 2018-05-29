@@ -351,7 +351,12 @@ $(function () {
      * 去结算
      */
     $("#ToCalcu").click(function () {
-        location.assign("cart.jsp");
+
+        //判断是否可以进入cart.jsp页面
+        if (calcShopCartItems()) {
+            location.assign("cart.jsp");
+        }
+
     });
 
     /**
@@ -362,6 +367,18 @@ $(function () {
     $("#" + childMenu).css("display", "block");
 
 });
+
+//计算购物车中商品的数量,若为0则不允许进入下一个页面
+function calcShopCartItems() {
+    var items = $("#cart_menus").find("li");
+
+    if (items.length == 0) {
+        alert("你还没有购买任何商品!");
+        return false;
+    }
+
+    return true;
+}
 
 /**
  * 获取临时用户地址,并显示在页面上
