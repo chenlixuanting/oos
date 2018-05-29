@@ -35,6 +35,11 @@ $(function () {
             content: $("#commentContent").val(),
         };
 
+        if (commentData.content == "") {
+            alert("评论内容不能为空!");
+            return;
+        }
+
         $.ajax({
             url: "addComment.action",
             type: "POST",
@@ -49,9 +54,7 @@ $(function () {
                 alert(returnData.body);
 
                 if (returnData.head) {
-
                     initCommentPage();
-
                 } else {
 
                 }
@@ -163,7 +166,10 @@ function initUserInfo() {
                 if (returnData.head) {
 
                     $("#commentContent").attr("dsId", returnData.body.usId);
-                    $("#customerName").html(returnData.body.username);
+                    $("#logon").html(
+                        "欢迎&nbsp;<span class='customerName' id='customerName'>" + returnData.body.username + "</span>" +
+                        "!" +
+                        "<i class='customer'><a href='customerExit.action'>退出</a></i>");
 
                 } else {
                     alert(returnData.body);

@@ -1,6 +1,8 @@
 package com.guet.oos.constant;
 
 /**
+ * 存储在Session中的key常量
+ * <p>
  * Created by Shinelon on 2018/3/17.
  */
 public class SessionKey {

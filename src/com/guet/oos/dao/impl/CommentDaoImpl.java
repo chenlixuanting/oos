@@ -14,14 +14,27 @@ import java.util.List;
 import java.util.Set;
 
 /**
+ * 评论Dao的实现类
+ * <p>
  * Created by Shinelon on 2018/5/22.
  */
 public class CommentDaoImpl extends AbstractDAOImpl implements CommentDao {
 
+    /**
+     * 获取评论的Class对象
+     *
+     * @param conn
+     */
     public CommentDaoImpl(Connection conn) {
         super(conn);
     }
 
+    /**
+     * 插入一条评论记录
+     *
+     * @param vo 表示要执行操作的对象
+     * @return
+     */
     @Override
     public boolean doCreate(Comment vo) {
 
@@ -48,6 +61,12 @@ public class CommentDaoImpl extends AbstractDAOImpl implements CommentDao {
         return false;
     }
 
+    /**
+     * 更新一条评论记录
+     *
+     * @param vo 表示要执行更新的对象
+     * @return
+     */
     @Override
     public boolean doUpdate(Comment vo) {
 
@@ -71,11 +90,23 @@ public class CommentDaoImpl extends AbstractDAOImpl implements CommentDao {
         return false;
     }
 
+    /**
+     * 删除一条评论记录
+     *
+     * @param ids 表示要执行删除的数据集合
+     * @return
+     */
     @Override
     public boolean doRemove(Set<?> ids) {
         return false;
     }
 
+    /**
+     * 通过ID查找一条评论记录
+     *
+     * @param id 表示要查询的id
+     * @return
+     */
     @Override
     public Comment findById(Long id) {
 
@@ -103,6 +134,11 @@ public class CommentDaoImpl extends AbstractDAOImpl implements CommentDao {
         return comment;
     }
 
+    /**
+     * 查找所有评论记录
+     *
+     * @return
+     */
     @Override
     public List<Comment> findAll() {
 
@@ -126,26 +162,60 @@ public class CommentDaoImpl extends AbstractDAOImpl implements CommentDao {
         return null;
     }
 
+    /**
+     * 分页查询
+     *
+     * @param column      表示要执行查询的列
+     * @param keyWord     表示查询关键字
+     * @param currentPage 表示当前页
+     * @param lineSize    表示每页显示记录数
+     * @return
+     */
     @Override
     public List<Comment> findBySplit(String column, String keyWord, Integer currentPage, Integer lineSize) {
         return null;
     }
 
+    /**
+     * 统计指定列,指定值的评论记录
+     *
+     * @param column  表示要查询的列
+     * @param keyWord 表示查询关键字
+     * @return
+     */
     @Override
     public Integer getAllCount(String column, String keyWord) {
         return null;
     }
 
+
+    /**
+     * 统计指定列的记录数
+     *
+     * @param column 表示要查询的列
+     * @return
+     */
     @Override
     public Integer getAllCount(String column) {
         return null;
     }
 
+    /**
+     * 统计所有陪评论记录
+     *
+     * @return
+     */
     @Override
     public Integer getAllCount() {
         return null;
     }
 
+    /**
+     * 将结果集的数据封装成List
+     *
+     * @param res
+     * @return
+     */
     public List<Comment> encapsulationCommentList(ResultSet res) {
 
         List<Comment> comments = new ArrayList<Comment>();
@@ -176,6 +246,11 @@ public class CommentDaoImpl extends AbstractDAOImpl implements CommentDao {
         return null;
     }
 
+    /**
+     * 统计所有未回复的评论记录数
+     *
+     * @return
+     */
     @Override
     public int countAllUnansweredComment() {
 
@@ -202,6 +277,11 @@ public class CommentDaoImpl extends AbstractDAOImpl implements CommentDao {
         return 0;
     }
 
+    /**
+     * 获得所有未回复的评论
+     *
+     * @return
+     */
     @Override
     public List<Comment> getAllUnansweredComment() {
 
@@ -225,6 +305,13 @@ public class CommentDaoImpl extends AbstractDAOImpl implements CommentDao {
         return comments;
     }
 
+    /**
+     * 分页查询未回复的评论记录
+     *
+     * @param start
+     * @param length
+     * @return
+     */
     @Override
     public List<Comment> getListUnansweredComment(int start, int length) {
 
@@ -247,6 +334,12 @@ public class CommentDaoImpl extends AbstractDAOImpl implements CommentDao {
         return comments;
     }
 
+    /**
+     * 以评论ID为参数删除评论
+     *
+     * @param coId
+     * @return
+     */
     @Override
     public boolean deleteByCoId(long coId) {
 
@@ -269,6 +362,12 @@ public class CommentDaoImpl extends AbstractDAOImpl implements CommentDao {
         return false;
     }
 
+    /**
+     * 通过用户ID删除评论
+     *
+     * @param usId
+     * @return
+     */
     @Override
     public boolean deleteByUsId(long usId) {
 
@@ -290,6 +389,11 @@ public class CommentDaoImpl extends AbstractDAOImpl implements CommentDao {
         return false;
     }
 
+    /**
+     * 统计所有已回复的评论
+     *
+     * @return
+     */
     @Override
     public int countAllReplyComment() {
 
@@ -317,6 +421,13 @@ public class CommentDaoImpl extends AbstractDAOImpl implements CommentDao {
         return 0;
     }
 
+    /**
+     * 分页查询所有已回复的评论
+     *
+     * @param start
+     * @param length
+     * @return
+     */
     @Override
     public List<Comment> getListReplyComment(int start, int length) {
 

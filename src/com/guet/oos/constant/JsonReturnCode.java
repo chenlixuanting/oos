@@ -1,6 +1,8 @@
 package com.guet.oos.constant;
 
 /**
+ * Json返回实体中携带的错误代码，与前台的js文件中的错误代码向对应
+ * <p>
  * Created by Shinelon on 2018/5/11.
  */
 public class JsonReturnCode {

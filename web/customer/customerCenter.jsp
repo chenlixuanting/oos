@@ -54,7 +54,7 @@
                 <span class="span_1 fl_l" id="logon">
                         欢迎<span class="customerName"></span>
                         !
-                        <i class="loginExit">退出</i>
+                        <i class="loginExit"><a href="customerExit.action">退出</a></i>
                     </span>
                 <div class="fl_r">
                     <span class="span_2 favbtn">
@@ -457,8 +457,6 @@
                 $("#cityName").val(addComp.province + addComp.city + addComp.district + addComp.street + addComp.streetNumber);
                 $("#allmap").css({display: "none"});
             }
-            //alert(addComp.province + ", " + addComp.city + ", " + addComp.district + ", " + addComp.street + ", " + addComp.streetNumber);
-            //addComp.province + addComp.city + addComp.district + addComp.street + addComp.streetNumber ;
         });
     });
 

@@ -4,18 +4,29 @@ import java.util.ResourceBundle;
 
 /**
  * nginx服务器地址配置
+ *
  * Created by Shinelon on 2018/4/29.
  */
 public class NginxConfig {
 
     private static final String BUNDLE = "nginx-server";
 
+    //获取资源文件句柄
     private static ResourceBundle rb = ResourceBundle.getBundle(BUNDLE);
 
+    //nginx服务器的主机名
     public static final String NGINX_HOST;
+
+    //nginx服务器的端口
     public static final Integer NGINX_PORT;
+
+    //nginx服务器文件根目录
     public static final String NGINX_ROOT;
+
+    //nginx服务器理员文件的根目录
     public static final String NGINX_ADMIN_BASEPATH;
+
+    //nginx服务器餐品文件的根目录
     public static final String NGINX_GOODS_BASEPATH;
 
     static {

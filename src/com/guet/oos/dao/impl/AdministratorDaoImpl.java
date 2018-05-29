@@ -14,14 +14,27 @@ import java.util.List;
 import java.util.Set;
 
 /**
+ * 管理员Dao实现类
+ * <p>
  * Created by Shinelon on 2018/4/29.
  */
 public class AdministratorDaoImpl extends AbstractDAOImpl implements AdministratorDao {
 
+    /**
+     * 获取管理的Class对象
+     *
+     * @param conn
+     */
     public AdministratorDaoImpl(Connection conn) {
         super(conn);
     }
 
+    /**
+     * 插入一条管理员记录
+     *
+     * @param vo 表示要执行操作的对象
+     * @return
+     */
     @Override
     public boolean doCreate(Administrator vo) {
 
@@ -48,16 +61,34 @@ public class AdministratorDaoImpl extends AbstractDAOImpl implements Administrat
         return true;
     }
 
+    /**
+     * 更新管理员记录
+     *
+     * @param vo 表示要执行更新的对象
+     * @return
+     */
     @Override
     public boolean doUpdate(Administrator vo) {
         return false;
     }
 
+    /**
+     * 删除管理员记录
+     *
+     * @param ids 表示要执行删除的数据集合
+     * @return
+     */
     @Override
     public boolean doRemove(Set<?> ids) {
         return false;
     }
 
+    /**
+     * 通过管理员ID查找管理员
+     *
+     * @param id 表示要查询的id
+     * @return
+     */
     @Override
     public Administrator findById(Long id) {
 
@@ -85,26 +116,58 @@ public class AdministratorDaoImpl extends AbstractDAOImpl implements Administrat
         return administrator;
     }
 
+    /**
+     * 查找所有的管理员
+     *
+     * @return
+     */
     @Override
     public List<Administrator> findAll() {
         return null;
     }
 
+    /**
+     * 分页查找
+     *
+     * @param column      表示要执行查询的列
+     * @param keyWord     表示查询关键字
+     * @param currentPage 表示当前页
+     * @param lineSize    表示每页显示记录数
+     * @return
+     */
     @Override
     public List<Administrator> findBySplit(String column, String keyWord, Integer currentPage, Integer lineSize) {
         return null;
     }
 
+    /**
+     * 通过指定值，统计相应的管理员记录
+     *
+     * @param column  表示要查询的列
+     * @param keyWord 表示查询关键字
+     * @return
+     */
     @Override
     public Integer getAllCount(String column, String keyWord) {
         return null;
     }
 
+    /**
+     * 统计指定的记录
+     *
+     * @param column 表示要查询的列
+     * @return
+     */
     @Override
     public Integer getAllCount(String column) {
         return null;
     }
 
+    /**
+     * 统计所有管理员记录
+     *
+     * @return
+     */
     @Override
     public Integer getAllCount() {
 
@@ -130,6 +193,12 @@ public class AdministratorDaoImpl extends AbstractDAOImpl implements Administrat
         return 0;
     }
 
+    /**
+     * 通过指定管理员名称查找管理员记录
+     *
+     * @param username
+     * @return
+     */
     @Override
     public List<Administrator> findByUsername(String username) {
 
@@ -164,6 +233,13 @@ public class AdministratorDaoImpl extends AbstractDAOImpl implements Administrat
         return admins;
     }
 
+    /**
+     * 更新指定管理员记录的密码
+     *
+     * @param mgId
+     * @param newPassword
+     * @return
+     */
     @Override
     public boolean updateAdministratorPassword(long mgId, String newPassword) {
 
@@ -182,6 +258,13 @@ public class AdministratorDaoImpl extends AbstractDAOImpl implements Administrat
         return false;
     }
 
+    /**
+     * 管理员记录分页
+     *
+     * @param start
+     * @param length
+     * @return
+     */
     @Override
     public List<Administrator> getList(int start, int length) {
 
@@ -210,6 +293,12 @@ public class AdministratorDaoImpl extends AbstractDAOImpl implements Administrat
         return null;
     }
 
+    /**
+     * 通过管理员ID删除指定的管理员记录
+     *
+     * @param mgId
+     * @return
+     */
     @Override
     public boolean deleteByMgId(long mgId) {
 
@@ -232,6 +321,12 @@ public class AdministratorDaoImpl extends AbstractDAOImpl implements Administrat
         return false;
     }
 
+    /**
+     * 通过指定的ID更新管理员记录
+     *
+     * @param administrator
+     * @return
+     */
     @Override
     public boolean updateByMgId(Administrator administrator) {
 

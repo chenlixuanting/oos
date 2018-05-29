@@ -135,20 +135,6 @@ public class OrderItemDaoImpl extends AbstractDAOImpl implements OrderItemDao {
         return false;
     }
 
-    /**
-     * private long oiId;// 订单项ID
-     * private long scId;// 购物车ID
-     * private String orId;// 订单ID
-     * private long dsId;// 菜品ID
-     * <p>
-     * private String dishesName;//菜品名称
-     * private long quantity;// 商品数量
-     * private double price;//菜品单价
-     * private double productCost;// 商品开销
-     * private String creatorTime;// 创建时间
-     * private String updateTime;// 更新时间
-     */
-
     public List<OrderItem> encapsulationOrderItem(ResultSet res) {
 
         List<OrderItem> orderItems = new ArrayList<OrderItem>();

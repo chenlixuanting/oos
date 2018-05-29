@@ -1,7 +1,7 @@
 package com.guet.oos.constant;
 
 /**
- * 返回消息实体
+ * 返回消息实体常量
  * <p>
  * Created by Shinelon on 2018/5/23.
  */

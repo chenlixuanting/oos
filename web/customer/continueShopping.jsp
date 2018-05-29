@@ -44,11 +44,6 @@
             type="hidden" id="beverageClass" value=""/>
         <!-- 导航栏 -->
         <div id="top">
-            <input type="hidden" id="page_flag" value="home"/> <input
-                type="hidden" id="seoPath"
-                value="http://www.4008823823.com.cn/kfcios"/> <input
-                type="hidden" value="" id="topFlag" name="topFlag"/>
-            <div class="logo"></div>
             <div class="top_menu">
                 <div class="top_menu_1">
                     <input type="hidden" id="isLogin" value="true"/> <input
@@ -232,8 +227,7 @@
                         </div>
                         <div class=" sub_right_order_main">
                             <div class="order_detail">
-                                <ul id="cart_menus">
-                                </ul>
+                                <ul id="cart_menus"></ul>
                             </div>
                         </div>
                         <div class="total">

@@ -1,7 +1,8 @@
 package com.guet.oos.constant;
 
 /**
- * 订单状态
+ * 订单状态常量
+ * <p>
  * Created by Shinelon on 2018/5/18.
  */
 public class OrderStatus {

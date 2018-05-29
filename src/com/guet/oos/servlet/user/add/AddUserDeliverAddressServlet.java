@@ -42,8 +42,6 @@ public class AddUserDeliverAddressServlet extends HttpServlet {
      */
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-        boolean flag = false;
-
         String requestData = request.getParameter("requestData");
 
         Writer out = response.getWriter();
@@ -78,7 +76,7 @@ public class AddUserDeliverAddressServlet extends HttpServlet {
         address.setCreateTime(sf.format(new Date()));
         address.setUpdateTime(sf.format(new Date()));
 
-        flag = deliveryAddressService.createDeliveryAddress(address);
+        boolean flag = deliveryAddressService.createDeliveryAddress(address);
 
         if (flag) {
             out.write(JSONObject.toJSONString(JsonEntityReturn.buildSuccessEmptyContent()));

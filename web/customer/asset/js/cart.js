@@ -36,7 +36,11 @@ function initNav() {
                     });
 
                     $("#step_pay").click(function () {
-                        location.assign("pay.jsp");
+
+                        if (calcCartItems()) {
+                            location.assign("pay.jsp");
+                        }
+
                     });
 
                     $("area[shape='rect']").attr("href", "continueShopping.jsp");
@@ -52,7 +56,11 @@ function initNav() {
                     });
 
                     $("#step_pay").click(function () {
-                        location.assign("saveCustomer.jsp");
+
+                        if (calcCartItems()) {
+                            location.assign("pay.jsp");
+                        }
+
                     });
 
                     $("area[shape='rect']").attr("href", "regCustomer.jsp");
@@ -72,6 +80,19 @@ function initNav() {
             }
         }
     });
+
+}
+
+function calcCartItems() {
+
+    var items = $(".order_detail_table").find("tr");
+
+    if (items.length < 2) {
+        alert("您还没有购买任何商品!");
+        return false;
+    }
+
+    return true;
 
 }
 
@@ -134,7 +155,8 @@ function refreshCartPage() {
                     "<th width='9%'>单价</th>" +
                     "<th width='10%'>数量</th>" +
                     "<th width='9%'>小计</th>" +
-                    "<th width='8%'>全部取消</th>"
+                    "<th width='8%'>全部取消</th>" +
+                    "</tr>"
                 );
 
                 //循环添加商品项信息
@@ -149,7 +171,8 @@ function refreshCartPage() {
                         "<td>" +
                         "<img src='images/delete_icon_3.png'/>" +
                         "<a class='oiCancel' onclick='removeOrderItem(this);' dsId='" + body.orderItems[x].dsId + "'href='javascript:void(0)'>取消</a>" +
-                        "</td>"
+                        "</td>" +
+                        "</tr>"
                     );
                 }
 

@@ -20,6 +20,7 @@
 
     <title>美味家网上订餐</title>
 
+    <%--加载CSS--%>
     <link rel="stylesheet" type="text/css" href="css/style.css"/>
     <link rel="stylesheet" type="text/css" href="css/jquery-ui.css"/>
     <link rel="stylesheet" type="text/css" href="css/comment.css">
@@ -39,10 +40,8 @@
                 <input type="hidden" id="isLogin" value="true"/>
                 <input type="hidden" id="loginFlag" value="true"/>
                 <span class="span_1 fl_l" id="logon">
-                        欢迎&nbsp;<span class="customerName" id="customerName"></span>
-                        !
-                        <i class="loginExit">退出</i>
-                    </span>
+
+                </span>
                 <div class="fl_r">
                     <span class="span_2 favbtn">
                         <a href="javascript:;">收藏本订餐网站</a>
@@ -94,11 +93,9 @@
                 <div id="CommentLatestMore"></div>
             </div>
         </div>
-        <input type="hidden" id="hash" value="A036B4FBC39DBC71">
     </div>
 
 </div>
 <div id="footer"></div>
-<!-- 加载JS -->
 </body>
 </html>

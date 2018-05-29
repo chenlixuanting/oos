@@ -40,6 +40,11 @@ $(function () {
         //获取新名称
         var newUserName = obj.val();
 
+        if (newUserName == "") {
+            alert("姓名不能为空!");
+            return;
+        }
+
         $.ajax({
             url: "ModifyUserName.action",
             type: "POST",
@@ -101,9 +106,7 @@ $(function () {
                     $(".bcsex-js").click();
 
                 } else {
-
                     alert(returnData.body);
-
                 }
 
             }
@@ -121,6 +124,11 @@ $(function () {
                 newPassword: newObj.val(),
                 reNewPassword: reNewObj.val(),
             };
+
+        if (requestData.newPassword == "" || requestData.reNewPassword == "") {
+            alert("新密码或再次输入新密码为空!");
+            return;
+        }
 
             if (requestData.newPassword != requestData.reNewPassword) {
 
