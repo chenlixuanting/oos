@@ -5,6 +5,7 @@ import com.guet.oos.po.MealType;
 import java.util.List;
 
 /**
+ * 餐点类型Service接口
  * Created by Shinelon on 2018/4/30.
  */
 public interface MealTypeService {

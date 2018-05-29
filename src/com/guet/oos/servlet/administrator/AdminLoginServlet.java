@@ -10,6 +10,7 @@ import com.guet.oos.dto.JsonReturn;
 import com.guet.oos.factory.ServiceFactory;
 import com.guet.oos.po.Administrator;
 import com.guet.oos.service.AdministratorService;
+import org.springframework.util.StringUtils;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -48,34 +49,42 @@ public class AdminLoginServlet extends HttpServlet {
 
         Writer out = response.getWriter();
 
-        Administrator administrator = JSONObject.parseObject(loginData, Administrator.class);
-
-        List<Administrator> administrators = administratorService.findByUsername(administrator.getUsername());
-
-        if (administrators.size() > 0) {
-
-            Administrator temp = administrators.get(0);
-
-            //判断该管理员是否被禁用
-            if (temp.getAdminStatus().equals(AdminStatus.DISABLE)) {
-                out.write(JSONObject.toJSONString(JsonEntityReturn.buildFail(ReturnMessage.ADMINISTRATOR_DISABLE)));
-                return;
-            }
-
-            if (!administrator.getPassword().equals(temp.getPassword())) {
-                out.write(JSONObject.toJSONString(JsonEntityReturn.buildFail(ReturnMessage.PASSWORD_ERROR)));
-                return;
-            }
-
-        } else {
-            out.write(JSONObject.toJSONString(JsonEntityReturn.buildFail(ReturnMessage.ADMINISTRATOR_IS_NOT_EXIST)));
+        if (StringUtils.isEmpty(loginData)) {
+            out.write(JSONObject.toJSONString(JsonEntityReturn.buildFail(ReturnMessage.REQUEST_PARAMTER_EMPTY)));
             return;
+        } else {
+
+            Administrator administrator = JSONObject.parseObject(loginData, Administrator.class);
+
+            List<Administrator> administrators = administratorService.findByUsername(administrator.getUsername());
+
+            if (administrators.size() > 0) {
+
+                Administrator temp = administrators.get(0);
+
+                //判断该管理员是否被禁用
+                if (temp.getAdminStatus().equals(AdminStatus.DISABLE)) {
+                    out.write(JSONObject.toJSONString(JsonEntityReturn.buildFail(ReturnMessage.ADMINISTRATOR_DISABLE)));
+                    return;
+                }
+
+                if (!administrator.getPassword().equals(temp.getPassword())) {
+                    out.write(JSONObject.toJSONString(JsonEntityReturn.buildFail(ReturnMessage.PASSWORD_ERROR)));
+                    return;
+                }
+
+            } else {
+                out.write(JSONObject.toJSONString(JsonEntityReturn.buildFail(ReturnMessage.ADMINISTRATOR_IS_NOT_EXIST)));
+                return;
+            }
+
+            //将administrator加入session
+            request.getSession().setAttribute(SessionKey.ADMINISTRATOR, administrators.get(0));
+
+            out.write(JSONObject.toJSONString(JsonEntityReturn.buildSuccess("/oos/admin/index.jsp")));
+
         }
 
-        //将administrator加入session
-        request.getSession().setAttribute(SessionKey.ADMINISTRATOR, administrators.get(0));
-
-        out.write(JSONObject.toJSONString(JsonEntityReturn.buildSuccess("/oos/admin/index.jsp")));
     }
 
     /**

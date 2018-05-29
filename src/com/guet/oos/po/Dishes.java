@@ -3,7 +3,7 @@ package com.guet.oos.po;
 import java.io.Serializable;
 
 /**
- * 菜品
+ * 菜品实体
  *
  * @author Shinelon
  */

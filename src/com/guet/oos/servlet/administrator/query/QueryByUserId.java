@@ -1,12 +1,14 @@
 package com.guet.oos.servlet.administrator.query;
 
 import com.alibaba.fastjson.JSONObject;
+import com.guet.oos.constant.ReturnMessage;
 import com.guet.oos.dto.JsonEntityReturn;
 import com.guet.oos.factory.ServiceFactory;
 import com.guet.oos.po.DeliveryAddress;
 import com.guet.oos.po.User;
 import com.guet.oos.service.DeliveryAddressService;
 import com.guet.oos.service.UserService;
+import org.springframework.util.StringUtils;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -42,17 +44,29 @@ public class QueryByUserId extends HttpServlet {
 
         String usIdStr = request.getParameter("usId");
 
-        Long usId = Long.valueOf(usIdStr);
-
-        User user = userService.findByUserId(usId);
-
-        DeliveryAddress deliveryAddress = deliveryAddressService.findUserDefaultDeliverAddress(user.getUsId());
-
-        user.setDefaultDeliverAddress(deliveryAddress);
-
         Writer out = response.getWriter();
 
-        out.write(JSONObject.toJSONString(JsonEntityReturn.buildSuccess(user)));
+        if (StringUtils.isEmpty(usIdStr)) {
+            out.write(JSONObject.toJSONString(JsonEntityReturn.buildFail(ReturnMessage.REQUEST_PARAMTER_EMPTY)));
+            return;
+        } else {
+
+            Long usId = Long.valueOf(usIdStr);
+
+            User user = userService.findByUserId(usId);
+
+            if (StringUtils.isEmpty(user)) {
+                out.write(JSONObject.toJSONString(JsonEntityReturn.buildFail(ReturnMessage.USER_IS_NOT_EXIST)));
+                return;
+            } else {
+                DeliveryAddress deliveryAddress = deliveryAddressService.findUserDefaultDeliverAddress(user.getUsId());
+
+                user.setDefaultDeliverAddress(deliveryAddress);
+
+                out.write(JSONObject.toJSONString(JsonEntityReturn.buildSuccess(user)));
+            }
+
+        }
 
     }
 

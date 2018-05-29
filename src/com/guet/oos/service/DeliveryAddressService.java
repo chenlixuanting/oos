@@ -7,6 +7,7 @@ import com.guet.oos.po.User;
 import java.util.List;
 
 /**
+ * 收货地址Service接口
  * Created by Shinelon on 2018/5/18.
  */
 public interface DeliveryAddressService {

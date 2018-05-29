@@ -3,7 +3,7 @@ package com.guet.oos.dto;
 import java.io.Serializable;
 
 /**
- * JSonReturn实体
+ * Json返回实体
  *
  * @author Shinelon
  */

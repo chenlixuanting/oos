@@ -1,6 +1,7 @@
 package com.guet.oos.fields;
 
 /**
+ * DishesBean对应的字段常量
  * Created by Shinelon on 2018/5/1.
  */
 public class DishesFields {

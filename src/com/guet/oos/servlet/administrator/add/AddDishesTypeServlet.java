@@ -9,6 +9,7 @@ import com.guet.oos.factory.ServiceFactory;
 import com.guet.oos.po.Dishes;
 import com.guet.oos.po.DishesType;
 import com.guet.oos.service.DishesTypeService;
+import org.springframework.util.StringUtils;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -21,6 +22,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 /**
+ * 添加餐品种类
  * Servlet implementation class Template
  */
 @WebServlet("/admin/addDishesType.action")
@@ -45,24 +47,32 @@ public class AddDishesTypeServlet extends HttpServlet {
 
         SimpleDateFormat sf = new SimpleDateFormat(DateTimeFormat.YYYY_MM_DD_HH_MM_SS);
 
-        String dishesTypeDataJson = request.getParameter("dishesTypeData");
-
         Writer out = response.getWriter();
 
-        DishesType dishesType = JSONObject.parseObject(dishesTypeDataJson, DishesType.class);
+        String dishesTypeDataJson = request.getParameter("dishesTypeData");
 
-//        DishesType{dtId=0, dishesTypeName='哇哈哈', mealTypeName='早餐', mgId=2, createTime='null', updateTime='null'}
+        if (StringUtils.isEmpty(dishesTypeDataJson)) {
 
-        dishesType.setCreateTime(sf.format(new Date()));
-        dishesType.setUpdateTime(sf.format(new Date()));
+            out.write(JSONObject.toJSONString(JsonEntityReturn.buildFail(ReturnMessage.REQUEST_PARAMTER_EMPTY)));
+            return;
 
-        boolean flag = dishesTypeService.createDishesType(dishesType);
-
-        if (flag) {
-            out.write(JSONObject.toJSONString(JsonEntityReturn.buildSuccess(ReturnMessage.CREATE_DISHES_TYPE_SUCCESS)));
         } else {
-            out.write(JSONObject.toJSONString(JsonEntityReturn.buildFail(ReturnMessage.CREATE_DISHES_TYPE_FAIL)));
+
+            DishesType dishesType = JSONObject.parseObject(dishesTypeDataJson, DishesType.class);
+
+            dishesType.setCreateTime(sf.format(new Date()));
+            dishesType.setUpdateTime(sf.format(new Date()));
+
+            boolean flag = dishesTypeService.createDishesType(dishesType);
+
+            if (flag) {
+                out.write(JSONObject.toJSONString(JsonEntityReturn.buildSuccess(ReturnMessage.CREATE_DISHES_TYPE_SUCCESS)));
+            } else {
+                out.write(JSONObject.toJSONString(JsonEntityReturn.buildFail(ReturnMessage.CREATE_DISHES_TYPE_FAIL)));
+            }
+
         }
+
     }
 
     /**

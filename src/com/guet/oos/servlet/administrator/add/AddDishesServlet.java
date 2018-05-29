@@ -20,6 +20,9 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Map;
 
+/**
+ * 添加餐品
+ */
 @WebServlet("/admin/addDishes.action")
 public class AddDishesServlet extends HttpServlet {
 
@@ -38,6 +41,10 @@ public class AddDishesServlet extends HttpServlet {
      * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
      */
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
+        /**
+         * 一定要对新增餐品进行前端校验
+         */
 
         //解析文件请求返回mao结合
         Map<String, String[]> map = FileUploadUtils.parseUploadRequest(request);

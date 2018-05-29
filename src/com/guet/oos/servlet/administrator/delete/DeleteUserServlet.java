@@ -9,6 +9,7 @@ import com.guet.oos.po.DeliveryAddress;
 import com.guet.oos.po.Order;
 import com.guet.oos.po.ShopCart;
 import com.guet.oos.service.*;
+import org.springframework.util.StringUtils;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -20,6 +21,7 @@ import java.io.Writer;
 import java.util.List;
 
 /**
+ * 删除用户
  * Created by Shinelon on 2018/5/25.
  */
 @WebServlet("/admin/deleteUser.action")
@@ -53,36 +55,43 @@ public class DeleteUserServlet extends HttpServlet {
 
         String idStr = request.getParameter("usIds");
 
-        List<Long> usIdList = JSON.parseArray(idStr, Long.class);
-
-        for (Long usId : usIdList) {
-
-            //删除用户
-            userService.deleteById(usId);
-
-            //删除购物车
-            shopCartService.deleteByUserId(usId);
-
-            //删除送货地址
-            deliveryAddressService.deleteByUsId(usId);
-
-            //获取该用户的所有订单
-            List<Order> orders = orderService.getOrdersByUsId(usId);
-
-            for (Order order : orders) {
-                //删除订单项
-                orderItemService.deleteByOrId(order.getOrId());
-                //删除订单
-                orderService.deleteByOrId(order.getOrId());
-            }
-
-            //删除该用户的所有评论
-            commentService.deleteByUsId(usId);
-        }
-
         Writer out = response.getWriter();
 
-        out.write(JSONObject.toJSONString(JsonEntityReturn.buildSuccess(ReturnMessage.DELETE_USER_SUCCESS)));
+        if (StringUtils.isEmpty(idStr)) {
+            out.write(JSONObject.toJSONString(JsonEntityReturn.buildFail(ReturnMessage.REQUEST_PARAMTER_EMPTY)));
+            return;
+        } else {
+
+            List<Long> usIdList = JSON.parseArray(idStr, Long.class);
+
+            for (Long usId : usIdList) {
+
+                //删除用户
+                userService.deleteById(usId);
+
+                //删除购物车
+                shopCartService.deleteByUserId(usId);
+
+                //删除送货地址
+                deliveryAddressService.deleteByUsId(usId);
+
+                //获取该用户的所有订单
+                List<Order> orders = orderService.getOrdersByUsId(usId);
+
+                for (Order order : orders) {
+                    //删除订单项
+                    orderItemService.deleteByOrId(order.getOrId());
+                    //删除订单
+                    orderService.deleteByOrId(order.getOrId());
+                }
+
+                //删除该用户的所有评论
+                commentService.deleteByUsId(usId);
+            }
+
+            out.write(JSONObject.toJSONString(JsonEntityReturn.buildSuccess(ReturnMessage.DELETE_USER_SUCCESS)));
+
+        }
 
     }
 

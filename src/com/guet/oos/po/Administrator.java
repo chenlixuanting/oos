@@ -3,7 +3,7 @@ package com.guet.oos.po;
 import java.io.Serializable;
 
 /**
- * 管理员
+ * 管理员实体
  *
  * @author Shinelon
  */

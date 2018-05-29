@@ -39,6 +39,8 @@ public class ReturnMessage {
 
     public static final String CREATE_USER_SUCCESS = "创建用户成功!";
 
+    public static final String CREATE_USER_FAIL = "创建用户失败!";
+
     public static final String MEALTYPE_ADD_SUCCESS = "餐点添加成功!";
 
     public static final String MEALTYPE_ADD_FAIL = "餐点添加失败!";
@@ -114,5 +116,11 @@ public class ReturnMessage {
     public static final String EDIT_USER_SUCCESS = "编辑用户成功!";
 
     public static final String EDIT_USER_FAIL = "编辑用户失败!";
+
+    public static final String RESET_PASSWORD_FAIL = "修改密码失败!";
+
+    public static final String RESET_PASSWORD_SUCCESS = "修改密码成功!";
+
+    public static final String USER_IS_NOT_EXIST = "用户不存在!";
 
 }

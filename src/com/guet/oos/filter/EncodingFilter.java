@@ -37,14 +37,9 @@ public class EncodingFilter implements Filter {
 
         HttpServletRequest httpRequest = (HttpServletRequest) request;
         HttpServletResponse httpResponse = (HttpServletResponse) response;
-//        if ("GET".equals(httpRequest.getMethod())) {
-//        EncodingHttpServletRequest wrapper = new EncodingHttpServletRequest(httpRequest, encoding);
-//            chain.doFilter(wrapper, response);
-//        } else {
         httpRequest.setCharacterEncoding(encoding);
         httpResponse.setContentType("application/json;charset=" + encoding);
         chain.doFilter(request, response);
-//        }
 
     }
 

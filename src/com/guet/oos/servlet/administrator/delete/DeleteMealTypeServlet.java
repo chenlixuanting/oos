@@ -7,6 +7,7 @@ import com.guet.oos.constant.ReturnMessage;
 import com.guet.oos.dto.JsonEntityReturn;
 import com.guet.oos.factory.ServiceFactory;
 import com.guet.oos.service.MealTypeService;
+import org.springframework.util.StringUtils;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -18,6 +19,7 @@ import java.io.Writer;
 import java.util.List;
 
 /**
+ * 删除餐点类型
  * Created by Shinelon on 2018/5/26.
  */
 @WebServlet("/admin/deleteMealType.action")
@@ -41,16 +43,27 @@ public class DeleteMealTypeServlet extends HttpServlet {
 
         String mtIds = request.getParameter("mtIds");
 
-        List<Long> mtIdList = JSON.parseArray(mtIds, Long.class);
-
         Writer out = response.getWriter();
 
-        for (long mtId : mtIdList) {
-            //删除餐点
-            mealTypeService.deleteByMtId(mtId);
-        }
+        if (StringUtils.isEmpty(mtIds)) {
+            out.write(JSONObject.toJSONString(JsonEntityReturn.buildFail(ReturnMessage.REQUEST_PARAMTER_EMPTY)));
+            return;
 
-        out.write(JSONObject.toJSONString(JsonEntityReturn.buildSuccess(ReturnMessage.DELETE_MEAL_TYPE_SUCCESS)));
+        } else {
+
+            List<Long> mtIdList = JSON.parseArray(mtIds, Long.class);
+
+            for (long mtId : mtIdList) {
+                //删除餐点
+                if (!mealTypeService.deleteByMtId(mtId)) {
+                    out.write(JSONObject.toJSONString(JsonEntityReturn.buildFail(ReturnMessage.SERVER_INNER_ERROR)));
+                    return;
+                }
+            }
+
+            out.write(JSONObject.toJSONString(JsonEntityReturn.buildSuccess(ReturnMessage.DELETE_MEAL_TYPE_SUCCESS)));
+
+        }
 
     }
 

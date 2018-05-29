@@ -6,6 +6,7 @@ import com.guet.oos.constant.ReturnMessage;
 import com.guet.oos.dto.JsonEntityReturn;
 import com.guet.oos.factory.ServiceFactory;
 import com.guet.oos.service.DishesTypeService;
+import org.springframework.util.StringUtils;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -17,6 +18,7 @@ import java.io.Writer;
 import java.util.List;
 
 /**
+ * 删除餐品类型
  * Created by Shinelon on 2018/5/27.
  */
 @WebServlet("/admin/deleteDishesType.action")
@@ -40,16 +42,26 @@ public class DeleteDishesTypeServlet extends HttpServlet {
 
         String dtIds = request.getParameter("dtIds");
 
-        List<Long> dtIdList = JSON.parseArray(dtIds, Long.class);
-
         Writer out = response.getWriter();
 
-        for (long dsId : dtIdList) {
-            //删除餐点
-            dishesTypeService.deleteByDtId(dsId);
-        }
+        if (StringUtils.isEmpty(dtIds)) {
+            out.write(JSONObject.toJSONString(JsonEntityReturn.buildFail(ReturnMessage.REQUEST_PARAMTER_EMPTY)));
+            return;
+        } else {
 
-        out.write(JSONObject.toJSONString(JsonEntityReturn.buildSuccess(ReturnMessage.DELETE_DISHES_TYPE_SUCCESS)));
+            List<Long> dtIdList = JSON.parseArray(dtIds, Long.class);
+
+            for (long dsId : dtIdList) {
+                //删除餐点
+                if (!dishesTypeService.deleteByDtId(dsId)) {
+                    out.write(JSONObject.toJSONString(JsonEntityReturn.buildFail(ReturnMessage.SERVER_INNER_ERROR)));
+                    return;
+                }
+            }
+
+            out.write(JSONObject.toJSONString(JsonEntityReturn.buildSuccess(ReturnMessage.DELETE_DISHES_TYPE_SUCCESS)));
+
+        }
 
     }
 

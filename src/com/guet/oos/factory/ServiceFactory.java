@@ -3,6 +3,9 @@ package com.guet.oos.factory;
 import com.guet.oos.service.*;
 import com.guet.oos.service.impl.*;
 
+/**
+ * Service工厂
+ */
 public class ServiceFactory {
 
     public static UserService getUserServiceInstance() {

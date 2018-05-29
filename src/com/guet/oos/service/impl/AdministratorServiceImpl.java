@@ -3,18 +3,16 @@ package com.guet.oos.service.impl;
 import com.guet.oos.dao.AdministratorDao;
 import com.guet.oos.factory.DAOFactory;
 import com.guet.oos.po.Administrator;
-import com.guet.oos.po.Dishes;
 import com.guet.oos.service.AdministratorService;
 
-import java.sql.ResultSet;
-import java.sql.SQLException;
 import java.util.List;
 
 /**
- * Created by Shinelon on 2018/4/29.
+ * 管理员Service实现类
  */
 public class AdministratorServiceImpl implements AdministratorService {
 
+    //注入管理员Dao
     private AdministratorDao administratorDao = DAOFactory.getAdministratorDaoInstance();
 
     /**
@@ -39,6 +37,13 @@ public class AdministratorServiceImpl implements AdministratorService {
         return administratorDao.findByUsername(username);
     }
 
+    /**
+     * 更新管理员的密码
+     *
+     * @param mgId
+     * @param newPassword
+     * @return
+     */
     @Override
     public boolean updateAdministratorPassword(long mgId, String newPassword) {
         return administratorDao.updateAdministratorPassword(mgId, newPassword);
@@ -66,16 +71,34 @@ public class AdministratorServiceImpl implements AdministratorService {
         return administratorDao.getList(start, length);
     }
 
+    /**
+     * 通过ID查找管理员
+     *
+     * @param mgId
+     * @return
+     */
     @Override
     public Administrator findById(long mgId) {
         return administratorDao.findById(mgId);
     }
 
+    /**
+     * 通过ID删除管理员
+     *
+     * @param mgId
+     * @return
+     */
     @Override
     public boolean deleteByMgId(long mgId) {
         return administratorDao.deleteByMgId(mgId);
     }
 
+    /**
+     * 更新管理员记录
+     *
+     * @param administrator
+     * @return
+     */
     @Override
     public boolean updateByMgId(Administrator administrator) {
         return administratorDao.updateByMgId(administrator);

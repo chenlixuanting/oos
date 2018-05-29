@@ -7,6 +7,7 @@ import com.guet.oos.dto.JsonEntityReturn;
 import com.guet.oos.factory.ServiceFactory;
 import com.guet.oos.po.Administrator;
 import com.guet.oos.service.AdministratorService;
+import org.springframework.util.StringUtils;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -19,6 +20,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 /**
+ * 添加管理员账号
  * Created by Shinelon on 2018/5/27.
  */
 @WebServlet("/admin/addAdministrator.action")
@@ -44,19 +46,27 @@ public class AddAdministratorServlet extends HttpServlet {
 
         SimpleDateFormat sf = new SimpleDateFormat(DateTimeFormat.YYYY_MM_DD_HH_MM_SS);
 
-        Administrator administrator = JSONObject.parseObject(adminDataJson, Administrator.class);
-
         Writer out = response.getWriter();
 
-        administrator.setCreatorTime(sf.format(new Date()));
-        administrator.setUpdateTime(sf.format(new Date()));
+        if (StringUtils.isEmpty(adminDataJson)) {
+            out.write(JSONObject.toJSONString(JsonEntityReturn.buildFail(ReturnMessage.REQUEST_PARAMTER_EMPTY)));
+            return;
 
-        boolean flag = administratorService.creatorAdministrator(administrator);
-
-        if (flag) {
-            out.write(JSONObject.toJSONString(JsonEntityReturn.buildSuccess(ReturnMessage.ADD_ADMINISTRATOR_SCCUESS)));
         } else {
-            out.write(JSONObject.toJSONString(JsonEntityReturn.buildFail(ReturnMessage.ADD_ADMINISTRATOR_FAIL)));
+
+            Administrator administrator = JSONObject.parseObject(adminDataJson, Administrator.class);
+
+            administrator.setCreatorTime(sf.format(new Date()));
+            administrator.setUpdateTime(sf.format(new Date()));
+
+            boolean flag = administratorService.creatorAdministrator(administrator);
+
+            if (flag) {
+                out.write(JSONObject.toJSONString(JsonEntityReturn.buildSuccess(ReturnMessage.ADD_ADMINISTRATOR_SCCUESS)));
+            } else {
+                out.write(JSONObject.toJSONString(JsonEntityReturn.buildFail(ReturnMessage.ADD_ADMINISTRATOR_FAIL)));
+            }
+
         }
 
     }

@@ -24,6 +24,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 /**
+ * 添加用户
  * Created by Shinelon on 2018/5/23.
  */
 @WebServlet("/admin/addUser.action")
@@ -66,7 +67,7 @@ public class AddUserServlet extends HttpServlet {
         user.setUpdateTime(sf.format(new Date()));
 
         //将User保存到数据库中
-        userService.createUser(user);
+        boolean result1 = userService.createUser(user);
 
         DeliveryAddress deliveryAddress = JSONObject.parseObject(requestData, DeliveryAddress.class);
 
@@ -80,7 +81,7 @@ public class AddUserServlet extends HttpServlet {
         deliveryAddress.setReceiverTime(sf.format(new Date()));
 
         //创建收货地址记录
-        deliveryAddressService.createDeliveryAddress(deliveryAddress);
+        boolean result2 = deliveryAddressService.createDeliveryAddress(deliveryAddress);
 
         ShopCart shopCart = new ShopCart();
 
@@ -89,9 +90,13 @@ public class AddUserServlet extends HttpServlet {
         shopCart.setUpdateTime(sf.format(new Date()));
 
         //为用户创建购物车
-        shopCartService.createShopCart(shopCart);
+        boolean result3 = shopCartService.createShopCart(shopCart);
 
-        out.write(JSONObject.toJSONString(JsonEntityReturn.buildSuccess(ReturnMessage.CREATE_USER_SUCCESS)));
+        if (result1 && result2 && result3) {
+            out.write(JSONObject.toJSONString(JsonEntityReturn.buildSuccess(ReturnMessage.CREATE_USER_SUCCESS)));
+        } else {
+            out.write(JSONObject.toJSONString(JsonEntityReturn.buildSuccess(ReturnMessage.CREATE_USER_FAIL)));
+        }
 
     }
 

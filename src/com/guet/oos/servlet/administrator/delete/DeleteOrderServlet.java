@@ -7,6 +7,7 @@ import com.guet.oos.dto.JsonEntityReturn;
 import com.guet.oos.factory.ServiceFactory;
 import com.guet.oos.service.OrderItemService;
 import com.guet.oos.service.OrderService;
+import org.springframework.util.StringUtils;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -18,6 +19,7 @@ import java.io.Writer;
 import java.util.List;
 
 /**
+ * 删除订单
  * Created by Shinelon on 2018/5/28.
  */
 @WebServlet("/admin/deleteOrder.action")
@@ -43,21 +45,27 @@ public class DeleteOrderServlet extends HttpServlet {
 
         String orIds = request.getParameter("orIds");
 
-        List<String> orIdList = JSON.parseArray(orIds, String.class);
-
         Writer out = response.getWriter();
 
-        for (String orId : orIdList) {
+        if (StringUtils.isEmpty(orIds)) {
+            out.write(JSONObject.toJSONString(JsonEntityReturn.buildFail(ReturnMessage.REQUEST_PARAMTER_EMPTY)));
+            return;
+        } else {
 
-            //删除餐点
-            orderService.deleteByOrId(orId);
+            List<String> orIdList = JSON.parseArray(orIds, String.class);
 
-            //级联删除订单项
-            orderItemService.deleteByOrId(orId);
+            for (String orId : orIdList) {
 
+                //删除餐点并且级联删除订单项
+                if (!orderService.deleteByOrId(orId) || !orderItemService.deleteByOrId(orId)) {
+                    out.write(JSONObject.toJSONString(JsonEntityReturn.buildFail(ReturnMessage.SERVER_INNER_ERROR)));
+                    return;
+                }
+
+            }
+
+            out.write(JSONObject.toJSONString(JsonEntityReturn.buildSuccess(ReturnMessage.DELETE_ORDER_SUCCESS)));
         }
-
-        out.write(JSONObject.toJSONString(JsonEntityReturn.buildSuccess(ReturnMessage.DELETE_ORDER_SUCCESS)));
 
     }
 

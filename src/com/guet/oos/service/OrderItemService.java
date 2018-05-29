@@ -5,7 +5,7 @@ import com.guet.oos.po.OrderItem;
 import java.util.List;
 
 /**
- * 订单项
+ * 订单项Service接口
  * <p>
  * Created by Shinelon on 2018/5/15.
  */

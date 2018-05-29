@@ -1,7 +1,7 @@
 package com.guet.oos.fields;
 
 /**
- * 菜品种类
+ * DishesTypeBean对应的字段常量
  * Created by Shinelon on 2018/4/30.
  */
 public class DishesTypeFields {

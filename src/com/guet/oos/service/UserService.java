@@ -5,6 +5,9 @@ import com.guet.oos.po.User;
 
 import java.util.List;
 
+/**
+ * 用户Service接口
+ */
 public interface UserService {
 
     public User findByMobile(String mobile);

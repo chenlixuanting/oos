@@ -3,11 +3,20 @@ package com.guet.oos.dto;
 import java.io.Serializable;
 
 /**
+ * Json返回实体
  * Created by Shinelon on 2018/5/20.
  */
 public class JsonEntityReturn implements Serializable {
 
     private static final long serialVersionUID = -4181927720052390850L;
+
+    private boolean head;
+
+    private Object body;
+
+    private static final boolean SUCCESS = true;
+
+    private static final boolean FAIL = false;
 
     public boolean isHead() {
         return head;
@@ -32,14 +41,6 @@ public class JsonEntityReturn implements Serializable {
     public static boolean isFAIL() {
         return FAIL;
     }
-
-    private boolean head;
-
-    private Object body;
-
-    private static final boolean SUCCESS = true;
-
-    private static final boolean FAIL = false;
 
     public static JsonEntityReturn build(boolean head, Object body) {
         return new JsonEntityReturn(head, body);

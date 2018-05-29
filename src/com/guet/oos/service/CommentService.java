@@ -5,6 +5,7 @@ import com.guet.oos.po.Comment;
 import java.util.List;
 
 /**
+ * 评论Service接口
  * Created by Shinelon on 2018/5/22.
  */
 public interface CommentService {

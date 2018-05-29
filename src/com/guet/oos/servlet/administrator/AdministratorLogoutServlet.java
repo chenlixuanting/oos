@@ -8,6 +8,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
 /**
+ * 管理员注销登录
  * Created by Shinelon on 2018/5/20.
  */
 @WebServlet("/admin/AdministratorLogout.action")

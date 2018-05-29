@@ -46,15 +46,13 @@ $(function () {
             },
             success: function (data) {
 
-                var d = eval(data);
+                var returnData = eval(data);
 
-                var flag = d.head == "true" ? true : false;
+                alert(returnData.body);
 
-                if (flag) {
-                    alert("修改密码成功！");
+                if (returnData.head) {
                     location.assign("personal-profile.jsp");
                 } else {
-                    alert("修改密码失败!");
                     $("#newPassword").val("");
                     $("#reNewPassword").val("");
                 }

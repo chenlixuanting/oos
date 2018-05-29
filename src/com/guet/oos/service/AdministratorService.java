@@ -5,6 +5,7 @@ import com.guet.oos.po.Administrator;
 import java.util.List;
 
 /**
+ * 管理员Service接口
  * Created by Shinelon on 2018/4/29.
  */
 public interface AdministratorService {

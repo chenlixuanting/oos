@@ -3,7 +3,8 @@ package com.guet.oos.po;
 import java.io.Serializable;
 
 /**
- * 菜品种类
+ * 菜品种类实体
+ * <p>
  * Created by Shinelon on 2018/4/30.
  */
 public class DishesType implements Serializable {

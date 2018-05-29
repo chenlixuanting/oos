@@ -1,9 +1,11 @@
 package com.guet.oos.fields;
 
 /**
+ * ShopCartBean对应字段常量
  * Created by Shinelon on 2018/5/15.
  */
 public class ShopCartFields {
+
     public static final String SCID = "scId";
     public static final String USID = "usId";
     public static final String TOTAL_COST = "totalCost";
@@ -13,4 +15,5 @@ public class ShopCartFields {
     public static final String DELIVER_COST = "derliverCost";
     public static final String PRODUCT_COST = "productCost";
     public static final String PAY_TYPE = "payType";
+
 }

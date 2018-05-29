@@ -6,10 +6,12 @@ import com.guet.oos.po.ShopCart;
 import com.guet.oos.service.ShopCartService;
 
 /**
+ * 购物车Serviec实现类
  * Created by Shinelon on 2018/5/15.
  */
 public class ShopCartServiceImpl implements ShopCartService {
 
+    //注入购物车Dao实现类
     private ShopCartDao shopCartDao = DAOFactory.getShopCartDaoInstance();
 
     /**
@@ -34,11 +36,23 @@ public class ShopCartServiceImpl implements ShopCartService {
         return shopCartDao.doCreate(shopCart);
     }
 
+    /**
+     * 删除购物车
+     *
+     * @param scId
+     * @return
+     */
     @Override
     public boolean deleteByShopCartId(long scId) {
         return shopCartDao.deleteByShopCartId(scId);
     }
 
+    /**
+     * 删除指定用户的购物车
+     *
+     * @param usId
+     * @return
+     */
     @Override
     public boolean deleteByUserId(long usId) {
         return shopCartDao.deleteByShopCartId(usId);

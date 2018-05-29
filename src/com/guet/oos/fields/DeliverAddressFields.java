@@ -1,6 +1,7 @@
 package com.guet.oos.fields;
 
 /**
+ * DeliverAddressBean对应的字段常量
  * Created by Shinelon on 2018/5/18.
  */
 public class DeliverAddressFields {

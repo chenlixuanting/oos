@@ -1,6 +1,7 @@
 package com.guet.oos.fields;
 
 /**
+ * AdministratorBean对应的字段常量
  * Created by Shinelon on 2018/4/29.
  */
 public class AdministratorFields {

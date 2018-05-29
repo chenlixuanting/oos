@@ -16,9 +16,11 @@ public class ShopCart implements Serializable {
 
     private static final long serialVersionUID = 1557110188502933830L;
 
+    //转换成Json格式数据时,忽略该字段
     @JSONField(serialize = false)
     private long scId;// 购物车ID
 
+    //转换成Json格式数据时,忽略该字段
     @JSONField(serialize = false)
     private long usId;// 用户ID
 
@@ -32,9 +34,11 @@ public class ShopCart implements Serializable {
 
     private String payType;//支付方式
 
+    //转换成Json格式数据时,忽略该字段
     @JSONField(serialize = false)
     private String creatorTime;// 创建时间
 
+    //转换成Json格式数据时,忽略该字段
     @JSONField(serialize = false)
     private String updateTime;// 更新时间
 

@@ -5,6 +5,7 @@ import com.guet.oos.po.Order;
 import java.util.List;
 
 /**
+ * 订单Service接口
  * Created by Shinelon on 2018/5/18.
  */
 public interface OrderService {

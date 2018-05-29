@@ -1,25 +1,10 @@
 package com.guet.oos.fields;
 
 /**
+ * OrderItemBean对应的字段常量
  * Created by Shinelon on 2018/5/19.
  */
 public class OrderItemFields {
-
-
-    /**
-     * private long oiId;// 订单项ID
-     * private long scId;// 购物车ID
-     * private String orId;// 订单ID
-     * private long dsId;// 菜品ID
-     * private String dishesName;//菜品名称
-     * private long quantity;// 商品数量
-     * private double price;//菜品单价
-     * private double productCost;// 商品开销
-     * private String creatorTime;// 创建时间
-     * private String updateTime;// 更新时间
-     *
-     * @return
-     */
 
     public static final String OIID = "oiId";
     public static final String SCID = "scId";

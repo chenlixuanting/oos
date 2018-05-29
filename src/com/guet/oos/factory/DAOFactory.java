@@ -4,6 +4,9 @@ import com.guet.oos.dao.*;
 import com.guet.oos.dao.impl.*;
 import com.guet.oos.utils.JDBCUtils;
 
+/**
+ * Dao工厂
+ */
 public class DAOFactory {
 
     public static UserDao getUserDaoInstance() {

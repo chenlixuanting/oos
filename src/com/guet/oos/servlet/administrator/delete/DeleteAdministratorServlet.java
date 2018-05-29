@@ -1,11 +1,11 @@
 package com.guet.oos.servlet.administrator.delete;
 
-import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
 import com.guet.oos.constant.ReturnMessage;
 import com.guet.oos.dto.JsonEntityReturn;
 import com.guet.oos.factory.ServiceFactory;
 import com.guet.oos.service.AdministratorService;
+import org.springframework.util.StringUtils;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -17,6 +17,7 @@ import java.io.Writer;
 import java.util.List;
 
 /**
+ * 删除管理员账号
  * Created by Shinelon on 2018/5/27.
  */
 @WebServlet("/admin/deleteAdministrator.action")
@@ -38,19 +39,28 @@ public class DeleteAdministratorServlet extends HttpServlet {
      */
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-
         String mgIds = request.getParameter("mgIds");
-
-        List<Long> mgIdList = JSONObject.parseArray(mgIds, Long.class);
 
         Writer out = response.getWriter();
 
-        for (long mgId : mgIdList) {
-            //删除管理员
-            administratorService.deleteByMgId(mgId);
-        }
+        if (StringUtils.isEmpty(mgIds)) {
+            out.write(JSONObject.toJSONString(JsonEntityReturn.buildFail(ReturnMessage.REQUEST_PARAMTER_EMPTY)));
+            return;
+        } else {
 
-        out.write(JSONObject.toJSONString(JsonEntityReturn.buildSuccess(ReturnMessage.DELETE_DISHES_TYPE_SUCCESS)));
+            List<Long> mgIdList = JSONObject.parseArray(mgIds, Long.class);
+
+            for (long mgId : mgIdList) {
+                //删除管理员
+                if (!administratorService.deleteByMgId(mgId)) {
+                    out.write(JSONObject.toJSONString(JsonEntityReturn.buildFail(ReturnMessage.SERVER_INNER_ERROR)));
+                    return;
+                }
+            }
+
+            out.write(JSONObject.toJSONString(JsonEntityReturn.buildSuccess(ReturnMessage.DELETE_DISHES_TYPE_SUCCESS)));
+
+        }
 
     }
 
