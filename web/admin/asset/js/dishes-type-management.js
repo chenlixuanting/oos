@@ -170,16 +170,18 @@ function encapsulEditDishesType() {
 function checkAddDishesTypeCode() {
 
     /*校验表单*/
-    if ($("#dishesTypeName").val() == "") {
-        alert("菜品种类不能为空");
-        return false;
-    }
-    if ($("#mealTypeName").val() == "") {
+    if ($("#addMealType").val() == "") {
         alert("餐点类型不能为空");
         return false;
     }
-    if ($("#mgId").val() == "") {
-        alert("ID不能为空");
+
+    if ($("#addDishesTypeName").val() == "") {
+        alert("餐品种类不能为空");
+        return false;
+    }
+
+    if ($("#addMgId").attr("name") == "") {
+        alert("管理员账号失效,请重新登录!");
         return false;
     }
 
@@ -192,17 +194,14 @@ function checkEditDishesTypeCode() {
 
     /*校验表单*/
     if ($("#editDishesTypeName").val() == "") {
-        alert("菜品种类不能为空");
+        alert("餐品种类不能为空");
         return false;
     }
+
     if ($("#editMealType").val() == "") {
         alert("餐点类型不能为空");
         return false;
     }
-    // if ($("#editMgId").val() == "") {
-    //     alert("ID不能为空");
-    //     return false;
-    // }
 
     return true;
 
@@ -243,7 +242,7 @@ function sendCreateDishesTypeRequest() {
         })
 
     } else {
-
+        alert("添加餐品种类失败!");
     }
 
 }
@@ -293,7 +292,6 @@ function deleteDishesType() {
         $("input[class='checkboxMain']").removeAttr("checked");
     }
 
-
 }
 
 //获取指定dtId的数据
@@ -310,20 +308,6 @@ function getDishesDataByDtId(dtId) {
 
             var returnData = eval(data);
 
-            /**
-             * {
-                    "body": {
-                        "createTime": "2018-05-26 10:11:26",
-                        "dishesTypeName": "握的大饭团",
-                        "dtId": 4,
-                        "mealTypeName": "早餐",
-                        "mgId": 2,
-                        "updateTime": "2018-05-26 10:11:26"
-                    },
-                    "head": true
-                }
-             */
-
             if (returnData.head) {
 
                 var body = eval(returnData.body);
@@ -333,9 +317,7 @@ function getDishesDataByDtId(dtId) {
                 $("#editMealType").val(body.mealTypeName);
 
             } else {
-
                 alert(returnData.body);
-
             }
 
         }
@@ -377,9 +359,7 @@ function saveEdit() {
         });
 
     } else {
-
         alert("添加餐品种类失败!");
-
     }
 
 }

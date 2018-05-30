@@ -120,6 +120,7 @@ function closeCheckModel() {
 
     //关闭查看模态框
     $("#checkModelBtn").click();
+
 }
 
 //获取一条餐品信息
@@ -137,19 +138,12 @@ function getOneDishesInfo(dsId) {
             var returnData = eval(data);
 
             $("#checkDishesName").val(returnData.dishesName);
-
-            $("#checkDishesType").append("<option>" + returnData.dishesType + "</option>");
-
+            $("#checkDishesType").append("<option selected='selected'>" + returnData.dishesType + "</option>");
             $("#checkPrice").val(returnData.price);
-
             $("#checkCreateTime").val(returnData.createTime);
-
             $("#checkUpdateTime").val(returnData.updateTime);
-
             $("#checkDishesPic").attr("src", pageUrls.customerAddress + returnData.picAddress);
-
             $("#picOperate").css("display", "none");
-
             $("#checkDishesInfo").val(returnData.describe);
 
         }
@@ -193,19 +187,12 @@ function openEditModel(obj) {
             var returnData = eval(data);
 
             $("#editRemoveBtn").click();
-
             $("#editDishesName").val(returnData.dishesName);
-
             $("#editDishesType").val(returnData.dishesType);
-
             $("#editPrice").val(returnData.price);
-
             $("#editStock").val(returnData.stock);
-
             $("#editDishesPic").attr("src", pageUrls.customerAddress + returnData.picAddress);
-
             $("#editDishesInfo").val(returnData.describe);
-
             $("#editDsId").val(returnData.dsId);
         }
     });
@@ -227,17 +214,11 @@ function closeEditModel() {
 function resetAddDishesModel() {
 
     $("#addDishesName").val("");
-
     $("#addPrice").val("");
-
     $("#addStock").val("");
-
     $("#addCreateTime").val("");
-
     $("#updateTimeDiv").val("");
-
     $("#addRemoveBtn").click();
-
     $("#addDishesInfo").val("");
 
 }
@@ -246,13 +227,9 @@ function resetAddDishesModel() {
 function resetEditDishesModel() {
 
     $("#editDishesName").val("");
-
     $("#editDishesType").val("");
-
     $("#editPrice").val("");
-
     $("#editStock").val("");
-
     $("#editDishesInfo").val("");
 
 }
@@ -265,7 +242,7 @@ function editEvent() {
 //删除选中项
 function deleteEvent() {
 
-    if (confirm("您确定要删除餐点信息吗?")) {
+    if (confirm("您确定要删除餐品信息吗?")) {
 
         var checkBox = $("input[class='checkbox']");
 
@@ -307,6 +284,55 @@ function deleteEvent() {
         $("input[class='checkboxMain']").removeAttr("checked");
     }
 
+}
+
+/**
+ * 校验编辑模态框中内容
+ */
+function checkEditModel() {
+
+    /*校验表单*/
+    var reg1 = /^([1-9]\d*|0)(\.\d{1,2})?$/;
+    var reg2 = /^[+]{0,1}(\d+)$/;
+    var reg3 = /^[a-zA-Z]:(\\.+)(.JPEG|.jpeg|.JPG|.jpg|.GIF|.gif|.BMP|.bmp|.PNG|.png)$/;
+
+    if ($("#editDsId").val() == "") {
+        alert("编辑的餐品不存在!");
+        return false;
+    }
+
+    if ($("#editDishesName").val() == "") {
+        alert("餐品名称不能为空");
+        return false;
+    }
+
+    if ($("#editDishesType").val() == "") {
+        alert("餐品种类不能为空");
+        return false;
+    }
+
+    if (!reg1.test($("#editPrice").val())) {
+        alert("餐品单价最多精确到小数点后两位");
+        return false;
+    }
+
+    if (!reg2.test($("#editStock").val())) {
+        alert("库存请填写正整数");
+        return false;
+    }
+
+    if (!reg3.test($("#editPicture").val())) {
+        alert("请上传 jpg、JPG、gif、GIF、png、PNG、bmp、BMP、等常用图片格式");
+        return false;
+    }
+
+    if ($("#editDishesInfo").val() == "") {
+        alert("餐品简介不能为空");
+        return false;
+    }
+
+    //提交编辑表单
+    $("#editForm").submit();
 
 }
 
@@ -320,36 +346,44 @@ function checkAddModel() {
     var reg1 = /^([1-9]\d*|0)(\.\d{1,2})?$/;
     var reg2 = /^[+]{0,1}(\d+)$/;
     var reg3 = /^[a-zA-Z]:(\\.+)(.JPEG|.jpeg|.JPG|.jpg|.GIF|.gif|.BMP|.bmp|.PNG|.png)$/;
+
     if ($("#addDishesName").val() == "") {
-        alert("菜品名称不能为空");
+        alert("餐品名称不能为空");
         return false;
     }
+
     if ($("#addDishesType").val() == "") {
-        alert("菜品种类不能为空");
+        alert("餐品种类不能为空");
         return false;
     }
+
     if (!reg1.test($("#addPrice").val())) {
-        alert("到家格式有错且菜品单价最多精确到小数点后两位");
+        alert("餐品单价最多精确到小数点后两位");
         return false;
     }
+
     if (!reg2.test($("#addStock").val())) {
-        alert("请填写正整数");
+        alert("库存请填写正整数");
         return false;
     }
+
     if ($("#addMgId").attr("name") == "") {
         alert("ID不能为空");
         return false;
     }
-    if (!reg3.test($("#headPicture").val())) {
+
+    if (!reg3.test($("#addDishesPicture").val())) {
         alert("请上传 jpg、JPG、gif、GIF、png、PNG、bmp、BMP、等常用图片格式");
         return false;
     }
+
     if ($("#addDishesInfo").val() == "") {
-        alert("简介不能为空");
+        alert("餐品简介不能为空");
         return false;
     }
 
-    return true;
+    //提交新增表单
+    $("#addForm").submit();
 
 };
 

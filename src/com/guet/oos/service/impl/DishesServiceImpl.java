@@ -117,4 +117,9 @@ public class DishesServiceImpl implements DishesService {
         return dishesDao.doUpdate(dishes);
     }
 
+    @Override
+    public boolean deleteByDishesType(String dishesType) {
+        return dishesDao.deleteByDishesType(dishesType);
+    }
+
 }

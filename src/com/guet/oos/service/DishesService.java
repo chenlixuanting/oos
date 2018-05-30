@@ -27,4 +27,7 @@ public interface DishesService {
     public boolean deleteBydsId(long dsId);
 
     public boolean updateDishes(Dishes dishes);
+
+    public boolean deleteByDishesType(String dishesType);
+
 }

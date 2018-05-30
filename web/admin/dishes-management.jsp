@@ -30,7 +30,6 @@
 
     <!-- this page specific styles -->
     <link rel="stylesheet" href="css/compiled/index.css" type="text/css" media="screen"/>
-
     <link rel="stylesheet" type="text/css" href="css/jquery.dataTables.css">
 </head>
 <body>
@@ -102,7 +101,7 @@
      aria-labelledby="myModalLabel" style="width: 800px !important; left: 40% !important; display: none;">
     <div class="modal-dialog" role="document">
 
-        <form action="addDishes.action" method="post" enctype="multipart/form-data">
+        <form action="addDishes.action" method="post" enctype="multipart/form-data" id="addForm">
             <div class="modal-content">
 
                 <div class="modal-header">
@@ -161,7 +160,7 @@
                                     <div><span class="btn btn-file btn-primary"><span
                                             class="fileupload-new">选择图片</span><span
                                             class="fileupload-exists">更换</span><input
-                                            type="file" name="headPicture"/></span>
+                                            type="file" id="addDishesPicture" name="headPicture"/></span>
                                         <a href="#" class="btn btn-danger fileupload-exists"
                                            data-dismiss="fileupload" id="addRemoveBtn">移除</a>
                                     </div>
@@ -182,7 +181,7 @@
 
                 <div class="modal-footer">
                     <button type="button" class="btn btn-danger" data-dismiss="modal">关闭</button>
-                    <button type="submit" class="btn btn-primary">保存</button>
+                    <button type="button" class="btn btn-primary" onclick="checkAddModel();">保存</button>
                 </div>
 
             </div>
@@ -314,7 +313,7 @@
      aria-labelledby="myModalLabel" style="width: 800px !important; left: 40% !important;display: none;">
     <div class="modal-dialog" role="document">
 
-        <form action="editDishes.action" method="post" enctype="multipart/form-data">
+        <form action="editDishes.action" method="post" id="editForm" enctype="multipart/form-data">
 
             <div class="modal-content">
 
@@ -381,7 +380,7 @@
                                     <div><span class="btn btn-file btn-primary"><span
                                             class="fileupload-new">选择图片</span><span
                                             class="fileupload-exists">更换</span><input
-                                            type="file" name="headPicture"/></span>
+                                            type="file" name="headPicture" id="editPicture"/></span>
                                         <a href="#" class="btn btn-danger fileupload-exists"
                                            data-dismiss="fileupload" id="editRemoveBtn">移除</a>
                                     </div>
@@ -403,7 +402,7 @@
                 <div class="modal-footer">
                     <button type="button" class="btn btn-danger" data-dismiss="modal">关闭
                     </button>
-                    <button type="submit" class="btn btn-primary">保存</button>
+                    <button type="button" class="btn btn-primary" onclick="checkEditModel();">保存</button>
                 </div>
 
             </div>

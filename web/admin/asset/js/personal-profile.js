@@ -30,6 +30,11 @@ $(function () {
         var newPassword = $("#newPassword").val();
         var reNewPassword = $("#reNewPassword").val();
 
+        if (newPassword == "" || reNewPassword == "") {
+            alert("新密码或再次确认新密码输入为空!");
+            return;
+        }
+
         if (newPassword != reNewPassword) {
             alert("两次密码输入不一致!");
             $("#newPassword").val("");

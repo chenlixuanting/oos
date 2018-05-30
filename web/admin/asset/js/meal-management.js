@@ -160,21 +160,6 @@ function encapsulAddData() {
 //封装编辑餐点数据
 function encapsulEditData() {
 
-    /**
-     * {
-        "body": {
-            "createTime": "2018-05-26 10:09:00",
-            "endTime": "09:14",
-            "mealTypeName": "早餐",
-            "mgId": 2,
-            "mtId": 1,
-            "startTime": "05:45",
-            "updateTime": "2018-05-26 10:09:00"
-        },
-        "head": true
-        }
-     */
-
     var editData = {
         startTime: $("#editStartTime").val(),
         endTime: $("#editEndTime").val(),
@@ -194,6 +179,16 @@ function editMealCheckCode() {
 
     if ($("#editMealTypeName").val() == "") {
         alert("点餐名称不能为空");
+        return false;
+    }
+
+    if ($("#mtId").val() == "") {
+        alert("编辑的餐点类型不存在!");
+        return false;
+    }
+
+    if ($("#editMgId").attr("name") == "") {
+        alert("管理员账号失效,请重新登录!");
         return false;
     }
 
@@ -228,6 +223,11 @@ function addMealCheckCode() {
 
     if (!reg.test($("#addEndTime").val())) {
         alert("终止时间所输入的字符不符要求,标准格式：HH:MM");
+        return false;
+    }
+
+    if ($("#addMgId").attr("name") == "") {
+        alert("管理员账号失效，请重新登录!");
         return false;
     }
 
@@ -272,7 +272,7 @@ function addMealEvent() {
         });
 
     } else {
-        alert("添加餐点失败!");
+        alert("添加餐点类型失败!");
     }
 
 }
@@ -308,6 +308,8 @@ function editMealEvent() {
             }
         });
 
+    } else {
+        alert("编辑餐点类型失败!");
     }
 
 }

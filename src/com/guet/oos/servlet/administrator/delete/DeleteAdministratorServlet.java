@@ -58,7 +58,7 @@ public class DeleteAdministratorServlet extends HttpServlet {
                 }
             }
 
-            out.write(JSONObject.toJSONString(JsonEntityReturn.buildSuccess(ReturnMessage.DELETE_DISHES_TYPE_SUCCESS)));
+            out.write(JSONObject.toJSONString(JsonEntityReturn.buildSuccess(ReturnMessage.ADMINISTRATOR_DISABLE)));
 
         }
 

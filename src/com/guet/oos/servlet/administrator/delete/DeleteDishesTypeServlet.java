@@ -5,6 +5,8 @@ import com.alibaba.fastjson.JSONObject;
 import com.guet.oos.constant.ReturnMessage;
 import com.guet.oos.dto.JsonEntityReturn;
 import com.guet.oos.factory.ServiceFactory;
+import com.guet.oos.po.DishesType;
+import com.guet.oos.service.DishesService;
 import com.guet.oos.service.DishesTypeService;
 import org.springframework.util.StringUtils;
 
@@ -27,6 +29,8 @@ public class DeleteDishesTypeServlet extends HttpServlet {
     private static final long serialVersionUID = 1L;
 
     private DishesTypeService dishesTypeService = ServiceFactory.getDishesTypeServiceInstance();
+
+    private DishesService dishesService = ServiceFactory.getDishesServiceInstance();
 
     /**
      * @see HttpServlet#HttpServlet()
@@ -51,12 +55,22 @@ public class DeleteDishesTypeServlet extends HttpServlet {
 
             List<Long> dtIdList = JSON.parseArray(dtIds, Long.class);
 
-            for (long dsId : dtIdList) {
-                //删除餐点
-                if (!dishesTypeService.deleteByDtId(dsId)) {
+            for (long dtId : dtIdList) {
+
+                DishesType dishesType = dishesTypeService.getByDtId(dtId);
+
+                //级联删除餐品
+                if (!dishesService.deleteByDishesType(dishesType.getDishesTypeName())) {
                     out.write(JSONObject.toJSONString(JsonEntityReturn.buildFail(ReturnMessage.SERVER_INNER_ERROR)));
                     return;
                 }
+
+                //删除餐点
+                if (!dishesTypeService.deleteByDtId(dtId)) {
+                    out.write(JSONObject.toJSONString(JsonEntityReturn.buildFail(ReturnMessage.SERVER_INNER_ERROR)));
+                    return;
+                }
+
             }
 
             out.write(JSONObject.toJSONString(JsonEntityReturn.buildSuccess(ReturnMessage.DELETE_DISHES_TYPE_SUCCESS)));

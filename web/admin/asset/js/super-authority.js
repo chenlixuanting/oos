@@ -96,26 +96,6 @@ function encapsulAddAdminData() {
 //封装编辑模态框中的管理员数据
 function encapsulEditAdminData() {
 
-    /**
-     private long mgId;// 管理员ID
-     private String username;// 账号
-     private String password;// 密码
-     private boolean maximumAuthority;// 最高权限
-     private String creator;// 创建者
-     private String adminStatus;//管理员状态
-     private String creatorTime;// 创建时间
-     private String updateTime;// 更新时间
-     */
-
-    /**
-     *$("#editUsername").val(body.username);
-     $("#editPassword").val(body.password);
-     $("#editMaximumAuthority").val(body.maximumAuthority);
-     $("#editCreator").val(body.creator);
-     $("#editAdminStatus").val(body.editAdminStatus);
-     $("#editMgId").val(body.mgId);
-     */
-
     var editData = {
         mgId: $("#editMgId").val(),
         username: $("#editUsername").val(),
@@ -174,6 +154,27 @@ function sendAddAdminRequest() {
     //将新增管理信息封装成js对象
     var adminData = encapsulAddAdminData();
 
+    /**
+     * 校验新增管理员信息
+     */
+
+    if (adminData.username == "") {
+        alert("管理员姓名不能为空!");
+        return;
+    } else if (adminData.password == "") {
+        alert("管理员密码不能为空!");
+        return;
+    } else if (adminData.maximumAuthority == "") {
+        alert("最高权限不能为空!");
+        return;
+    } else if (adminData.creator == "") {
+        alert("创建者不能为空!");
+        return;
+    } else if (adminData.adminStatus == "") {
+        alert("管理员状态不能为空!");
+        return;
+    }
+
     $.ajax({
         url: "addAdministrator.action",
         type: "POST",
@@ -200,7 +201,7 @@ function sendAddAdminRequest() {
 //删除事件
 function deleteEvent() {
 
-    if (confirm("您确定要删除餐点信息吗?")) {
+    if (confirm("您确定要禁用该管理员吗?")) {
 
         var checkBox = $("input[class='checkbox']");
 
@@ -212,7 +213,7 @@ function deleteEvent() {
         }
 
         if (chId.length == 0) {
-            alert("你还没有选择要删除的元素");
+            alert("你还没有选择要禁用的管理员");
             return;
         }
 
@@ -261,10 +262,33 @@ function editEvent(obj) {
 
 }
 
-//发生编辑修改管理员请求
+//发送编辑修改管理员请求
 function sendEditAdminRequest() {
 
     var adminData = encapsulEditAdminData();
+
+    /**
+     * 校验编辑信息
+     */
+    if (adminData.mgId == "") {
+        alert("编辑的管理员不存在!");
+        return;
+    } else if (adminData.username == "") {
+        alert("管理员名称不能为空!");
+        return;
+    } else if (adminData.password == "") {
+        alert("管理员密码不能为空!");
+        return;
+    } else if (adminData.maximumAuthority == "") {
+        alert("管理员最高权限不能为空!");
+        return;
+    } else if (adminData.creator == "") {
+        alert("创建者不能为空!");
+        return;
+    } else if (adminData.adminStatus == "") {
+        alert("管理员状态不能为空!");
+        return;
+    }
 
     $.ajax({
         url: "ModifyAdministrator.action",

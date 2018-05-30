@@ -127,4 +127,20 @@ public class DishesTypeServiceImpl implements DishesTypeService {
         return dishesTypeDao.doUpdate(dishesType);
     }
 
+    /**
+     * 通过餐点类型删除餐品种类
+     *
+     * @param mealTypeName
+     * @return
+     */
+    @Override
+    public boolean deleteByMealTypeName(String mealTypeName) {
+        return dishesTypeDao.deleteByMealTypeName(mealTypeName);
+    }
+
+    @Override
+    public List<String> getDishesTypeByMealTypeName(String melaTypeName) {
+        return dishesTypeDao.getDishesTypeByMealTypeName(melaTypeName);
+    }
+
 }

@@ -263,6 +263,28 @@ public class DishesDaoImpl extends AbstractDAOImpl implements DishesDao {
         return false;
     }
 
+    @Override
+    public boolean deleteByDishesType(String dishesType) {
+
+        String sql = "delete from dishes_table where dishesType=?";
+
+        try {
+            pstmt = conn.prepareStatement(sql);
+
+            pstmt.setString(1, dishesType);
+
+            pstmt.execute();
+
+            return true;
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+
+        return false;
+    }
+
     private List<Dishes> encapsulationDishes(ResultSet res) throws SQLException {
 
         List<Dishes> dishesList = new ArrayList<Dishes>();

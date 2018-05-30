@@ -296,6 +296,51 @@ public class DishesTypeDaoImpl extends AbstractDAOImpl implements DishesTypeDao 
         return false;
     }
 
+    @Override
+    public boolean deleteByMealTypeName(String mealTypeName) {
+
+        String sql = "delete from dishes_type_table where mealTypeName=?";
+
+        try {
+            pstmt = conn.prepareStatement(sql);
+
+            pstmt.setString(1, mealTypeName);
+
+            pstmt.execute();
+
+            return true;
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return false;
+    }
+
+    @Override
+    public List<String> getDishesTypeByMealTypeName(String mealTypeName) {
+
+        String sql = "select dishesTypeName from dishes_type_table where mealTypeName=?";
+
+        List<String> dishesType = new ArrayList<String>();
+
+        try {
+            pstmt = conn.prepareStatement(sql);
+
+            pstmt.setString(1, mealTypeName);
+
+            ResultSet res = pstmt.executeQuery();
+
+            while (res.next()) {
+                dishesType.add(res.getString(1));
+            }
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return dishesType;
+    }
+
     private List<String> ecapsualtionSpecifyColumn(ResultSet res) throws SQLException {
 
         List<String> stringList = new ArrayList<String>();

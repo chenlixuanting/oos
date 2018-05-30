@@ -109,6 +109,30 @@ function saveAddUser() {
 function saveEditUser() {
 
     var userData = encapsualEditUser();
+    var reg = /^(\+\d{2,3}\-)?\d{11}$/;
+
+    /**
+     * 校验编辑后的信息
+     */
+    if (userData.usId == "") {
+        alert("编辑的用户不存在!");
+        return;
+    } else if (userData.mobile == "" || !reg.test(userData.mobile)) {
+        alert("电话号码输入错误!");
+        return;
+    } else if (userData.password == "") {
+        alert("密码不能为空!");
+        return;
+    } else if (userData.username == "") {
+        alert("用户名不能为空!");
+        return;
+    } else if (userData.sex == "") {
+        alert("性别不能为空!");
+        return;
+    } else if (userData.deliverAddress == "") {
+        alert("收货地址不能为空!")
+        return;
+    }
 
     $.ajax({
         url: "modifyUser.action",
@@ -336,6 +360,38 @@ function encapsualEditUser() {
  * 发送添加用户ajax请求
  */
 function sendAddUserRequest(user) {
+
+    /**
+     * 校验新增用户信息
+     */
+
+    var reg = /^(\+\d{2,3}\-)?\d{11}$/;
+
+    if (user.username == "") {
+        alert("用户名不能为空!");
+        return;
+    } else if (user.mobile == "" || !reg.test(user.mobile)) {
+        alert("电话号码输入有误!");
+        return;
+    } else if (user.password == "") {
+        alert("密码输入不能为空!");
+        return;
+    } else if (user.sex == "") {
+        alert("用户性别输入不能为空!");
+        return;
+    } else if (user.receiverName == "") {
+        alert("收货人姓名不能为空!");
+        return;
+    } else if (user.receiverMobile == "" || !reg.test(user.receiverMobile)) {
+        alert("收货人电话输入有误!");
+        return;
+    } else if (user.receiverAddress == "") {
+        alert("收货人地址不能为空!");
+        return;
+    } else if (user.receiverSex == "") {
+        alert("收货人性别不能为空!");
+        return;
+    }
 
     $.ajax({
         url: "addUser.action",

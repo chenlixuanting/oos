@@ -99,6 +99,21 @@ function replyComment() {
         mgId: $("#adminname").attr("mgId")
     };
 
+    /**
+     * 校验评论内容
+     */
+
+    if (comData.replyContent == "") {
+        alert("回复内容不能为空!")
+        return;
+    } else if (comData.coId == "") {
+        alert("评论记录不存在!");
+        return;
+    } else if (comData.mgId == "") {
+        alert("管理员账号失效,请重新登录!");
+        return;
+    }
+
     $.ajax({
         url: "modifyCommentStatus.action",
         type: "POST",

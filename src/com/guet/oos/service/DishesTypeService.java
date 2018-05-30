@@ -29,4 +29,8 @@ public interface DishesTypeService {
     public DishesType getByDtId(long dtId);
 
     public boolean updateDishesType(DishesType dishesType);
+
+    public boolean deleteByMealTypeName(String mealTypeName);
+
+    public List<String> getDishesTypeByMealTypeName(String melaTypeName);
 }

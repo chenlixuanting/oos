@@ -18,4 +18,7 @@ public interface DishesTypeDao extends IDAO<Long, DishesType> {
 
     public boolean deleteByDtId(long dtId);
 
+    public boolean deleteByMealTypeName(String mealTypeName);
+
+    public List<String> getDishesTypeByMealTypeName(String mealTypeName);
 }

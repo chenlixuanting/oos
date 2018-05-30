@@ -20,4 +20,6 @@ public interface DishesDao extends IDAO<Long, Dishes> {
 
     public boolean deleteByDsId(long dsId);
 
+    public boolean deleteByDishesType(String dishesType);
+
 }
