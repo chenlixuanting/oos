@@ -123,4 +123,7 @@ public class ReturnMessage {
 
     public static final String USER_IS_NOT_EXIST = "用户不存在!";
 
+    public static final String DEL_DELIVER_ADD_SUCCESS = "删除收货地址成功!";
+
+    public static final String DEL_DELIVER_ADD_FAIL = "删除收货地址失败!";
 }

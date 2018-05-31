@@ -198,9 +198,6 @@ $(function () {
 
 });
 
-/*
- * 刷新验证码
- * */
 //刷新验证码
 function refreshVerifyCode() {
     $("#verifyCodeImg").attr("src", pageUrls.verifyCodeAddress + new Date().getTime());

@@ -4,7 +4,6 @@
 
 <%
     String path = request.getContextPath();
-
     String basePath = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort()
             + path + "/customer/";
 %>
@@ -19,7 +18,6 @@
     <meta http-equiv="pragma" content="no-cache">
     <meta http-equiv="cache-control" content="no-cache">
     <meta http-equiv="expires" content="0">
-
     <title>美味家网上订餐</title>
 
     <!-- 加载CSS -->
@@ -45,7 +43,7 @@
                 <div class="top_menu_1">
                     <input type="hidden" id="isLogin" value="true"/> <input
                         type="hidden" id="loginFlag" value="true"/> <span
-                        class="span_1 fl_l" id="logon">欢迎网上订餐！</span>
+                        class="span_1 fl_l" id="logon">欢迎使用,美味家网上订餐系统！</span>
                     <div class="fl_r">
 							<span class="span_2 favbtn"> <a href="javascript:;">收藏本订餐网站</a>
 							</span>
@@ -200,7 +198,6 @@
                 </div>
                 <p class="clear"></p>
             </div>
-            <!-- 右侧模块  modified by Pete-->
             <div id="s_cart" class="right s_rm_cart"
                  style="position: absolute; top: 0; float: none; margin: 0 0 0 779px;">
                 <div id="shopping_cart">
@@ -254,4 +251,14 @@
     </div>
 </form>
 </body>
+<div id="footer">
+    <div class="fl_l">
+        <ul>
+            <li class="last_li noBg">版权所有: 美味家汉堡有限公司</li>
+            <li class="record_li">地址: 桂林电子科技大学花江校区</li>
+            <li class="record_li">联系电话: 18477062310</li>
+        </ul>
+    </div>
+    <div class="clear"></div>
+</div>
 </html>

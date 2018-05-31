@@ -4,7 +4,6 @@
 
 <%
     String path = request.getContextPath();
-
     String basePath = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort()
             + path + "/customer/";
 %>
@@ -18,7 +17,6 @@
     <meta http-equiv="pragma" content="no-cache">
     <meta http-equiv="cache-control" content="no-cache">
     <meta http-equiv="expires" content="0">
-
     <title>美味家网上订餐</title>
 
     <!-- 加载CSS -->
@@ -43,10 +41,6 @@
 <div class="con">
     <!-- 标题 -->
     <div id="top">
-        <input type="hidden" id="page_flag" value="customerCenter"/>
-        <input type="hidden" id="seoPath" value="http://www.4008823823.com.cn/kfcios"/>
-        <input type="hidden" value="" id="topFlag" name="topFlag"/>
-        <div class="logo"></div>
         <div class="top_menu">
             <div class="top_menu_1">
                 <input type="hidden" id="isLogin" value="true"/>
@@ -300,7 +294,6 @@
                             <div style="width: 560px">
                                 <div id="import_addr_tip">
                                 </div>
-                                <!--添加送餐地址开始-->
                                 <div style="position: relative; height: 120px; z-index: 1;">
                                     <div class="fl_l">
                                         <div class="info_table_1">
@@ -354,7 +347,6 @@
                                     </div>
                                     <div class="clear"></div>
                                 </div>
-                                <!--添加送餐地址结束-->
                             </div>
                         </div>
 
@@ -369,7 +361,6 @@
                     </div>
                 </div>
             </div>
-            <!--右侧主体/-->
         </div>
     </div>
 
@@ -416,9 +407,19 @@
         </div>
 
     </div>
-    <div id="footer"></div>
 </div>
 </body>
+
+<div id="footer">
+    <div class="fl_l">
+        <ul>
+            <li class="last_li noBg">版权所有: 美味家汉堡有限公司</li>
+            <li class="record_li">地址: 桂林电子科技大学花江校区</li>
+            <li class="record_li">联系电话: 18477062310</li>
+        </ul>
+    </div>
+    <div class="clear"></div>
+</div>
 
 <!-- 地图弹出层 -->
 <script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=OMHt7FA3ciGcVCAMDOAbAeUf9nZ0idKZ"></script>

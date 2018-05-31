@@ -62,7 +62,7 @@ $(function () {
         for (var x = 0; x < input_checked.length; x++)
             $(input_checked[x]).removeAttr("checked");
 
-        $obj.prev().attr('checked', 'checked');
+        $obj.prev().attr("checked", "checked");
 
         var div_selectTime = $(".selectTime");
 
@@ -162,24 +162,6 @@ function initDeliverAddress() {
             if (returnData.head) {
 
                 var body = eval(returnData.body);
-
-                /**
-                 * {
-                    "body": [{
-                        "createTime": "2018-05-24 11:47:48",
-                        "daId": 2,
-                        "default": true,
-                        "receiverAddress": "广西壮族自治区南宁市良庆区 圣湖小区(爬上的吗)",
-                        "receiverMobile": "18477062310",
-                        "receiverName": "阿斯顿",
-                        "receiverSex": "先生",
-                        "receiverTime": "2018年5月24日 周四 12时00分",
-                        "updateTime": "2018-05-24 11:47:48",
-                        "usId": 66
-                    }],
-                    "head": true
-                }
-                 */
 
                 $(".info_table_1").html("");
 

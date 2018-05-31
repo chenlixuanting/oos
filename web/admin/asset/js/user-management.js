@@ -41,13 +41,13 @@ $(function () {
             {data: "deliverAddress"},
             {data: "creatorTime"},
             {data: "updateTime"},
-            {data: null}],
-        columnDefs: [{//列渲染，可以添加一些操作等
-            targets: 8,//表示是第8列，所以上面第8列没有对应数据列，就是在这里渲染的。
-            render: function (obj) {
-                return "<a class='btn btn-danger btn-lg edit' onclick='openEditModel(this);' style='margin-left: 50px;' usId='" + obj.usId + "'>编辑</a>";
-            }
-        }, {//列渲染，可以添加一些操作等
+            /*{data: null}*/],
+        columnDefs: [/*{//列渲染，可以添加一些操作等
+         targets: 8,//表示是第8列，所以上面第8列没有对应数据列，就是在这里渲染的。
+         render: function (obj) {
+         return "<a class='btn btn-danger btn-lg edit' onclick='openEditModel(this);' style='margin-left: 50px;' usId='" + obj.usId + "'>编辑</a>";
+         }
+         },*/ {//列渲染，可以添加一些操作等
             targets: 0,//表示是第8列，所以上面第8列没有对应数据列，就是在这里渲染的。
             render: function (obj) {
                 return "<input type='checkbox' class='checkbox' chId='" + obj.usId + "'/>";

@@ -18,7 +18,6 @@
     <meta http-equiv="pragma" content="no-cache">
     <meta http-equiv="cache-control" content="no-cache">
     <meta http-equiv="expires" content="0">
-
     <title>美味家网上订餐官网</title>
 
     <!-- 加载CSS -->
@@ -35,14 +34,13 @@
 <body>
 <form id="mainForm" action=" ">
     <input type="hidden" id="page_flag" value="cart"/>
-    <!-- top -->
     <div id="top">
         <div class="top_menu">
             <div class="top_menu_1">
                 <input type="hidden" id="isLogin" value="true"/>
                 <input type="hidden" id="loginFlag" value="true"/>
                 <span class="span_1 fl_l" id="logon">
-                       	 欢迎网上订餐！
+                       	 欢迎使用,美味家网上订餐系统！
                 </span>
                 <div class="fl_r">
                         <span class="span_2 favbtn">
@@ -77,22 +75,18 @@
         </div>
         <div class="clear"></div>
     </div>
-    <!-- 详细内容区 -->
     <div id="content">
         <div class="login_content">
             <div class="login_content_top"></div>
             <div class="order_content_main">
                 <div class="confirmation_order" style="min-height:0px;">
-                    <!-- 导航条 -->
                     <div class="confirmation_order_title">
                         <img src="images/step_2.gif" border="0" usemap="#Map"/>
                         <map name="Map" id="Map">
                             <area shape="rect" coords="6,2,322,29" class="step1" href="continueShopping.jsp"/>
                         </map>
                     </div>
-                    <!-- 订单明细和优惠 -->
                     <div id="order_promotion">
-                        <!-- 订单详细  -->
                         <div class="order_detail_1">
                             <table width="100%" border="1" class="order_detail_table">
                             </table>
@@ -114,4 +108,14 @@
     </div>
 </form>
 </body>
+<div id="footer">
+    <div class="fl_l">
+        <ul>
+            <li class="last_li noBg">版权所有: 美味家汉堡有限公司</li>
+            <li class="record_li">地址: 桂林电子科技大学花江校区</li>
+            <li class="record_li">联系电话: 18477062310</li>
+        </ul>
+    </div>
+    <div class="clear"></div>
+</div>
 </html>

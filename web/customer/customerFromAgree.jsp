@@ -1,4 +1,3 @@
-<%@ page import="com.guet.oos.constant.SessionKey" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
          pageEncoding="UTF-8" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -6,14 +5,12 @@
 
 <%
     String path = request.getContextPath();
-
     String basePath = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort()
             + path + "/customer/";
 %>
 
 <head>
     <base href="<%=basePath%>">
-    <!-- kfc_iso 公共资源文件  -->
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <meta name="keywords" content="美味家"/>
@@ -21,7 +18,6 @@
     <meta http-equiv="pragma" content="no-cache">
     <meta http-equiv="cache-control" content="no-cache">
     <meta http-equiv="expires" content="0">
-
     <title>美味家网上订餐</title>
 
     <!-- 加载CSS -->
@@ -41,8 +37,8 @@
             <div class="top_menu_1">
                 <input type="hidden" id="isLogin" value="false"/>
                 <span class="span_1 fl_l" id="logout">
-                     	   欢迎网上订餐！
-                    </span>
+                     	   欢迎使用,美味家网上订餐系统！
+                </span>
                 <div class="fl_r">
                         <span class="span_2 favbtn">
                             <a href="javascript:;">收藏本订餐网站</a>
@@ -93,7 +89,6 @@
                                 </div>
                                 <div style="width:760px">
                                     <div id="import_addr_tip"></div>
-                                    <!--添加送餐地址开始-->
                                     <div style="position: relative; height: 100px; z-index:1;">
                                         <div class="fl_l">
                                             <div class="info_table_1">
@@ -145,7 +140,7 @@
                                             </div>
                                         </div>
                                         <div class="clear"></div>
-                                    </div> <!--添加送餐地址结束-->
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -155,12 +150,21 @@
         </div>
     </div>
 </div>
-<!--弹出层开始-->
 <div id="layer_box"></div>
 </div>
 </body>
 
-<!-- 地图弹出层 -->
+<div id="footer">
+    <div class="fl_l">
+        <ul>
+            <li class="last_li noBg">版权所有: 美味家汉堡有限公司</li>
+            <li class="record_li">地址: 桂林电子科技大学花江校区</li>
+            <li class="record_li">联系电话: 18477062310</li>
+        </ul>
+    </div>
+    <div class="clear"></div>
+</div>
+
 <script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=OMHt7FA3ciGcVCAMDOAbAeUf9nZ0idKZ"></script>
 <script type="text/javascript">
     // 百度地图API功能
@@ -197,8 +201,6 @@
                 $("#cityName").val(addComp.province + addComp.city + addComp.district + addComp.street + addComp.streetNumber);
                 $("#allmap").css({display: "none"});
             }
-            //alert(addComp.province + ", " + addComp.city + ", " + addComp.district + ", " + addComp.street + ", " + addComp.streetNumber);
-            //addComp.province + addComp.city + addComp.district + addComp.street + addComp.streetNumber ;
         });
     });
 
@@ -206,6 +208,4 @@
         $("#allmap").css({display: "block"});
     });
 </script>
-
-<!-- 地图弹出层 -->
 </html>

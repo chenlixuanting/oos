@@ -18,7 +18,6 @@
     <meta http-equiv="pragma" content="no-cache">
     <meta http-equiv="cache-control" content="no-cache">
     <meta http-equiv="expires" content="0">
-
     <title>美味家网上订餐</title>
 
     <%-- 加载CSS--%>
@@ -36,12 +35,11 @@
 </head>
 <body>
 <form id="mainForm" name="myForm" action="" method="post">
-    <!-- 导航栏 -->
     <div id="top">
         <div class="top_menu">
             <div class="top_menu_1">
                 <input type="hidden" id="isLogin" value="false"/> <span
-                    class="span_1 fl_l" id="logout"> 欢迎网上订餐！</span>
+                    class="span_1 fl_l" id="logout"> 欢迎使用,美味家网上订餐系统！</span>
                 <div class="fl_r">
 						<span class="span_2 favbtn"> <a href="javascript:;">收藏本订餐网站</a>
 						</span>
@@ -63,7 +61,6 @@
         </div>
         <div class="clear"></div>
     </div>
-    <!-- 内容页面 -->
     <div id="content">
         <div class="login_content">
             <input type="hidden" id="checkFlag" name="checkFlag" value=""/> <input
@@ -112,4 +109,14 @@
     </div>
 </form>
 </body>
+<div id="footer">
+    <div class="fl_l">
+        <ul>
+            <li class="last_li noBg">版权所有: 美味家汉堡有限公司</li>
+            <li class="record_li">地址: 桂林电子科技大学花江校区</li>
+            <li class="record_li">联系电话: 18477062310</li>
+        </ul>
+    </div>
+    <div class="clear"></div>
+</div>
 </html>

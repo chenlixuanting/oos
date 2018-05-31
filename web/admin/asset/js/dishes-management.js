@@ -321,11 +321,6 @@ function checkEditModel() {
         return false;
     }
 
-    if (!reg3.test($("#editPicture").val())) {
-        alert("请上传 jpg、JPG、gif、GIF、png、PNG、bmp、BMP、等常用图片格式");
-        return false;
-    }
-
     if ($("#editDishesInfo").val() == "") {
         alert("餐品简介不能为空");
         return false;

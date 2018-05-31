@@ -151,4 +151,9 @@ public class DeliveryAddressServiceImpl implements DeliveryAddressService {
         return deliveryAddressDao.updateDeliveryAddress(deliveryAddress);
     }
 
+    @Override
+    public boolean deleteByDaId(long daId) {
+        return deliveryAddressDao.deleteByDaId(daId);
+    }
+
 }

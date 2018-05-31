@@ -5,7 +5,6 @@
 
 <%
     String path = request.getContextPath();
-
     String basePath = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort()
             + path + "/customer/";
 %>
@@ -19,7 +18,6 @@
     <meta http-equiv="pragma" content="no-cache">
     <meta http-equiv="cache-control" content="no-cache">
     <meta http-equiv="expires" content="0">
-
     <title>美味家网上订餐</title>
 
     <!-- 加载CSS -->
@@ -47,7 +45,7 @@
             <div class="top_menu_1">
 
                 <input type="hidden" id="isLogin" value="false"/> <span
-                    class="span_1 fl_l" id="logout">欢迎网上订餐！</span>
+                    class="span_1 fl_l" id="logout">欢迎使用,美味家网上订餐系统！</span>
 
                 <div class="fl_r">
                     <span class="span_2 favbtn">
@@ -168,7 +166,6 @@
                             src="images/close_icon.png"></a>
                     </p>
 
-                    <!-- 产品区域 -->
                     <div class="popup_product_detail">
                         <div>
                             <div class="popup_product_detail_img">
@@ -191,15 +188,12 @@
             </div>
         </div>
 
-        <!--文字链-->
-        <!-- 公告 -->
         <div id="s_nt" class="notice s_nt"
              style="position: absolute; top: 0; margin: 0 0 0 212px; z-index: 100;">
             <div class="news news_icon">&gt;最新活动：</div>
             <div id="rolling"></div>
         </div>
 
-        <!-- 详细内容部分 -->
         <div id="main" class="e_main">
             <div class="home_bg_mid" style="margin:36px 0 0;">
                 <div class="prod_show" style="width:600px">
@@ -209,13 +203,9 @@
             </div>
         </div>
 
-        <!-- 右侧模块 -->
         <div id="s_login" class="notmenu right s_rm_login"
              style="position: absolute; top: 0; float: none; margin: 0 0 0 779px; height: 542px;">
 
-            <!-- 右侧模块 -->
-            <!-- 右侧订单 -->
-            <!-- 右侧登陆 -->
             <input type="hidden" id="displayUserAgreement" name="displayUserAgreement" value="0"/>
 
             <div class="right_order">
@@ -254,7 +244,6 @@
                     </div>
                 </div>
 
-                <!-- 【下一步】按钮 -->
                 <div class="right_order_btm">
                     <p>
                         <input type="button" class="next_btn" id="loginSubmit"/>
@@ -266,9 +255,6 @@
                 </div>
 
             </div>
-
-            <!-- 帮助中心 -->
-            <!--  帮助中心-->
             <div class="help" style="line-height: 13px; display:none;">
                 不设最低起送金额，每单酌收9元外送费。为了保证食物品质，美味家有送餐范围和服务时间限制。
                 早餐、夜宵仅限部分送餐区域供应。美味家实施专属菜单及价格，不同城市的送餐菜单和价格有所不同。
@@ -314,17 +300,15 @@
 
     $(".notmenu").smartFloat();
 </script>
-
+</body>
 <div id="footer">
     <div class="fl_l">
         <ul>
-            <li class="last_li noBg">版权所有 美味家汉堡有限公司</li>
-            <li class="record_li">地址 桂林电子科技大学花江校区</li>
-            <li class="record_li">联系电话 18477062310</li>
+            <li class="last_li noBg">版权所有: 美味家汉堡有限公司</li>
+            <li class="record_li">地址: 桂林电子科技大学花江校区</li>
+            <li class="record_li">联系电话: 18477062310</li>
         </ul>
     </div>
     <div class="clear"></div>
 </div>
-
-</body>
 </html>

@@ -241,7 +241,7 @@ $(function () {
     $('#close_details').click(function () {
 
         //初始化订单详情页
-        // initOrderSearch();
+        initOrderSearch();
 
         $('#orderList_now').show().siblings().hide();
     });
@@ -841,6 +841,34 @@ function initAddressPage() {
                     );
                 }
 
+            }
+
+        }
+    });
+
+}
+
+//删除收货地址
+function deleteDeliverAddress(obj) {
+
+    //获取当前订单地址的ID
+    var daId = $(obj).attr("daId");
+
+    $.ajax({
+        url: "delDeliverAddress.action",
+        type: "POST",
+        dataType: "json",
+        data: {
+            daId: daId
+        },
+        success: function (data) {
+
+            var returnData = eval(data);
+
+            alert(returnData.body);
+
+            if (returnData.head) {
+                initAddressPage();
             }
 
         }

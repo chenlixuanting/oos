@@ -1,4 +1,4 @@
-var KFC_float = function () {
+var MWJ_float = function () {
     var B = $(window).width(), A = $(window).height();
     $(window).resize(function () {
         B = $(window).width(), A = $(window).height()
@@ -96,7 +96,7 @@ var vaildTime = function (A, J) {
     }
     return false
 };
-var KFC_initLeftMenu = function () {
+var MWJ_initLeftMenu = function () {
     var B = $("#isLogin").val();
     if (B == "true") {
         $("#nav").find($("ul[id^='ChildMenu']")).not(function (F) {
@@ -208,9 +208,9 @@ function DoMenu(A, E) {
 var pageEffect = {
     init: function () {
         if (typeof document.body.style.maxHeight !== "undefined") {
-            KFC_float()
+            MWJ_float()
         }
         initSilder();
-        KFC_initLeftMenu()
+        MWJ_initLeftMenu()
     }
 };

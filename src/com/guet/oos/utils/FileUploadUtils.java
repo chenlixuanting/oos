@@ -136,12 +136,26 @@ public class FileUploadUtils {
 //                    IOUtils.copy(item.getInputStream(), new FileOutputStream(
 //                            new File(parentDirectory, uuidname)));
 
-                    //调用FtpOperateUtils上传文件
-                    FtpOperateUtils.uploadFile(item.getInputStream(), picRandAddress, FtpConfig.GOODS_BASEPATH);
+                    //从名称判断文件类型
+                    String[] suffix = picRandAddress.split("\\.");
 
-                    map.put("picRandName", new String[]{picRandAddress});//封装上传文件随机名称
+                    //判断图片的后缀是否为.jpg.png....格式
+                    //jpg、JPG、gif、GIF、png、PNG、bmp、BMP、
+                    if (
+                            suffix[1].equals("JPG") || suffix[1].equals("jpg") ||
+                                    suffix[1].equals("gif") || suffix[1].equals("GIF") ||
+                                    suffix[1].equals("png") || suffix[1].equals("PNG") ||
+                                    suffix[1].equals("bmp") || suffix[1].equals("BMP")) {
+
+                        //调用FtpOperateUtils上传文件
+                        FtpOperateUtils.uploadFile(item.getInputStream(), picRandAddress, FtpConfig.GOODS_BASEPATH);
+
+                        map.put("picRandName", new String[]{picRandAddress});//封装上传文件随机名称
+
+                    }
 
                     item.delete();
+
                 }
 
             }

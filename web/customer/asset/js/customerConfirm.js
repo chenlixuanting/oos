@@ -1,11 +1,16 @@
 /**
  * Created by Shinelon on 2018/5/12.
  */
+
+var inputDate;
+var inputHour;
+var inputMinute;
+
 $(function () {
 
-    var inputDate = $("#input_date");
-    var inputHour = $("#input_hour");
-    var inputMinute = $("#input_minute");
+    inputDate = $("#input_date");
+    inputHour = $("#input_hour");
+    inputMinute = $("#input_minute");
 
     inputDate.val(getPutOffDayDate(putOffMinutes(30)));
     inputHour.val(getPutOffHoursHour(putOffMinutes(30)));
@@ -88,9 +93,9 @@ $(function () {
         //清除被选择的radio的checked标记
         var input_checked = $("input[name='sendfoodtime'][checked='checked']");
         for (var x = 0; x < input_checked.length; x++)
-            $(input_checked[x]).removeAttr("checked");
+            $(input_checked[x]).attr("checked", false);
 
-        $obj.prev().attr('checked', 'checked');
+        $obj.prev().attr('checked', true);
 
         var div_selectTime = $(".selectTime");
 

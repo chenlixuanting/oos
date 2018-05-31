@@ -4,7 +4,6 @@
 
 <%
     String path = request.getContextPath();
-
     String basePath = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort()
             + path + "/customer/";
 %>
@@ -19,7 +18,6 @@
     <meta http-equiv="pragma" content="no-cache">
     <meta http-equiv="cache-control" content="no-cache">
     <meta http-equiv="expires" content="0">
-
     <title>美味家网上订餐官网</title>
 
     <!-- 加载CSS -->
@@ -35,12 +33,11 @@
 <body>
 
 <div class="con">
-    <!-- 标题 -->
     <div id="top">
         <div class="top_menu">
             <div class="top_menu_1">
                 <input type="hidden" id="isLogin" value="false">
-                <span class="span_1 fl_l" id="logout" style=""> 欢迎网上订餐!</span>
+                <span class="span_1 fl_l" id="logout" style=""> 欢迎使用,美味家网上订餐系统！</span>
                 <div class="fl_r">
 				<span class="span_2 favbtn">
 					<a href="javascript:;">收藏本订餐网站</a>
@@ -108,7 +105,8 @@
                                             <li id="0" class="selectcolor td_no_border">
 
                                                 <div style="width: 20px; float: left; margin-top: 12px;">
-                                                    <input name="selAddressId" type="radio" value="0" checked="checked">
+                                                    <input name="selAddressId" type="radio" value="0" checked="checked"
+                                                           disabled="disabled">
                                                 </div>
 
                                                 <div style="float:left" class="cityName"></div>
@@ -133,7 +131,7 @@
                                                    type="radio"
                                                    tip="inTime"
                                                    checked="checked"
-                                                   style="vertical-align:middle;margin:-4px 0 0;">
+                                                   style="vertical-align:middle;margin:-4px 0 0;" disabled="disabled">
                                             <a name="sendfoodtimeLink" href="javascript:void(0);"
                                                style="text-decoration: none;" timeType="1">
                                                 <span>成功提交订单后，预计</span>
@@ -147,7 +145,8 @@
                                         <%--隔天送达--%>
                                         <div style="position:relative;width: 100%;height: 30px;margin-left: 93px;display:block">
                                             <div class="fl_l">
-                                                <input class="sendfoodtime-style" name="sendfoodtime" type="radio">
+                                                <input class="sendfoodtime-style" name="sendfoodtime" type="radio"
+                                                       disabled="disabled">
                                                 <a name="sendfoodtimeLink" href="javascript:void(0);"
                                                    style="text-decoration: none;" timeType="2">
                                                     <span>预约当日稍晚时间送餐。</span>
@@ -191,7 +190,7 @@
                                         <div style="position:relative;width: 100%;height: 30px;margin-left: 93px;display:block">
                                             <div class="fl_l">
                                                 <input class="sendfoodtime-style" name="sendfoodtime" type="radio"
-                                                       bookingtype="2">
+                                                       bookingtype="2" disabled="disabled">
                                                 <a name="sendfoodtimeLink" href="javascript:void(0);"
                                                    style="text-decoration:none;" timeType="3"><span>隔日预约单。</span>
                                                 </a>
@@ -278,34 +277,16 @@
         </div>
     </div>
 
-    <!-- alert 弹出层 -->
-    <div id="dialog-message-alert" title="友情提示" closebtn="true" style="display: none;">
-        <span></span>
-    </div>
-
-    <!-- dialog-bind-phone 弹出层 -->
-    <div id="dialog-bind-phone" title="友情提示" closebtn="true" style="display: none;">
-        <span></span>
-    </div>
-
-    <!-- confirm 弹出层 -->
-    <div id="dialog-message-confirm" title="友情提示" closebtn="true" style="display: none;">
-        <span></span>
-    </div>
-
-    <!-- alert_back 弹出层 -->
-    <div id="dialog-message-alert-back" title="友情提示" closebtn="true" style="display: none;">
-        <span></span>
-    </div>
-
-    <!-- 弹出层 -->
-    <div id="dialog-message" title="友情提示：" closebtn="false" style="display: none;">
-        <span></span>
-    </div>
-
-    <!--弹出层开始-->
-    <div id="layer_box"></div>
-
 </div>
 </body>
+<div id="footer">
+    <div class="fl_l">
+        <ul>
+            <li class="last_li noBg">版权所有: 美味家汉堡有限公司</li>
+            <li class="record_li">地址: 桂林电子科技大学花江校区</li>
+            <li class="record_li">联系电话: 18477062310</li>
+        </ul>
+    </div>
+    <div class="clear"></div>
+</div>
 </html>

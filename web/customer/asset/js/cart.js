@@ -58,7 +58,7 @@ function initNav() {
                     $("#step_pay").click(function () {
 
                         if (calcCartItems()) {
-                            location.assign("pay.jsp");
+                            location.assign("saveCustomer.jsp");
                         }
 
                     });

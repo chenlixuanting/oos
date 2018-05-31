@@ -30,4 +30,6 @@ public interface DeliveryAddressService {
 
     public boolean updateDeliveryAddress(DeliveryAddress deliveryAddress);
 
+    public boolean deleteByDaId(long daId);
+
 }

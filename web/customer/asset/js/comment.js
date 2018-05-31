@@ -54,7 +54,12 @@ $(function () {
                 alert(returnData.body);
 
                 if (returnData.head) {
+
+                    //重新加载评论列表
                     initCommentPage();
+
+                    //清空评论框
+                    $("#commentContent").val("");
                 } else {
 
                 }

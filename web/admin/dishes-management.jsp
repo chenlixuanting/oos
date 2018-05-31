@@ -101,7 +101,8 @@
      aria-labelledby="myModalLabel" style="width: 800px !important; left: 40% !important; display: none;">
     <div class="modal-dialog" role="document">
 
-        <form action="addDishes.action" method="post" enctype="multipart/form-data" id="addForm">
+        <form action="addDishes.action" method="post" enctype="multipart/form-data" id="addForm"
+              style="margin: 0px;">
             <div class="modal-content">
 
                 <div class="modal-header">
@@ -313,9 +314,9 @@
      aria-labelledby="myModalLabel" style="width: 800px !important; left: 40% !important;display: none;">
     <div class="modal-dialog" role="document">
 
-        <form action="editDishes.action" method="post" id="editForm" enctype="multipart/form-data">
+        <form action="editDishes.action" method="post" id="editForm" enctype="multipart/form-data" style="margin: 0px;>
 
-            <div class="modal-content">
+            <div class=" modal-content">
 
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal"

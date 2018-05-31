@@ -4,7 +4,6 @@
 
 <%
     String path = request.getContextPath();
-
     String basePath = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort()
             + path + "/customer/";
 
@@ -20,7 +19,6 @@
     <meta http-equiv="pragma" content="no-cache">
     <meta http-equiv="cache-control" content="no-cache">
     <meta http-equiv="expires" content="0">
-
     <title>美味家网上订餐官网</title>
 
     <!-- 加载CSS -->
@@ -36,12 +34,11 @@
 <body>
 
 <div class="con">
-    <!-- 标题 -->
     <div id="top">
         <div class="top_menu">
             <div class="top_menu_1">
                 <input type="hidden" id="isLogin" value="false">
-                <span class="span_1 fl_l" id="logout" style=""> 欢迎网上订餐!</span>
+                <span class="span_1 fl_l" id="logout" style=""> 欢迎使用,美味家网上订餐系统！</span>
                 <div class="fl_r">
 				<span class="span_2 favbtn">
 					<a href="javascript:;">收藏本订餐网站</a>
@@ -88,7 +85,6 @@
 
                     <div class="address_manage">
 
-                        <!-- 用户欢迎栏 -->
                         <p class="title_span">欢迎您，请填送餐地址:</p>
 
                         <!-- 用户信息栏 -->
@@ -136,10 +132,8 @@
                                             </a>
                                         </p>
 
-                                        <%--空表div,为使代码统一--%>
                                         <div></div>
 
-                                        <%--隔天送达--%>
                                         <div style="position:relative;width: 100%;height: 30px;margin-left: 93px;display:block">
                                             <div class="fl_l">
                                                 <input class="sendfoodtime-style" name="sendfoodtime" type="radio"
@@ -276,4 +270,14 @@
     </div>
 </div>
 </body>
+<div id="footer">
+    <div class="fl_l">
+        <ul>
+            <li class="last_li noBg">版权所有: 美味家汉堡有限公司</li>
+            <li class="record_li">地址: 桂林电子科技大学花江校区</li>
+            <li class="record_li">联系电话: 18477062310</li>
+        </ul>
+    </div>
+    <div class="clear"></div>
+</div>
 </html>

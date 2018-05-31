@@ -4,7 +4,6 @@
 
 <%
     String path = request.getContextPath();
-
     String basePath = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort()
             + path + "/customer/";
 %>
@@ -19,7 +18,6 @@
     <meta http-equiv="pragma" content="no-cache">
     <meta http-equiv="cache-control" content="no-cache">
     <meta http-equiv="expires" content="0">
-
     <title>美味家网上订餐官网</title>
 
     <!-- 加载CSS -->
@@ -104,7 +102,6 @@
                     <span class="time_span_2">应付总价：</span>
                     <span class="time_span_3" id="totalCost"></span>
                     <span class="donation_account"></span>
-                    <!-- <p> -->
                     <ul>
                         <li class="online">
                             <input name="payType" type="radio" value="货到付款">货到付款
@@ -124,4 +121,14 @@
     </div>
 </form>
 </body>
+<div id="footer">
+    <div class="fl_l">
+        <ul>
+            <li class="last_li noBg">版权所有: 美味家汉堡有限公司</li>
+            <li class="record_li">地址: 桂林电子科技大学花江校区</li>
+            <li class="record_li">联系电话: 18477062310</li>
+        </ul>
+    </div>
+    <div class="clear"></div>
+</div>
 </html>

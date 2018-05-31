@@ -4,7 +4,6 @@
 
 <%
     String path = request.getContextPath();
-
     String basePath = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort()
             + path + "/customer/";
 %>
@@ -20,7 +19,6 @@
     <meta http-equiv="pragma" content="no-cache">
     <meta http-equiv="cache-control" content="no-cache">
     <meta http-equiv="expires" content="0">
-
     <title>美味家网上订餐官网</title>
 
     <%-- 加载CSS --%>
@@ -34,19 +32,16 @@
 
 </head>
 <body>
-<!-- top -->
 <div id="top">
     <div class="top_menu">
         <div class="top_menu_1">
-            <input type="hidden" id="isLogin" value="true"/>
-            <input type="hidden" id="loginFlag" value="true"/>
             <span class="span_1 fl_l" id="logon">
-                               欢迎网上订餐！
-                    </span>
+                               欢迎使用,美味家网上订餐系统！
+            </span>
             <div class="fl_r">
-                    <span class="span_2 favbtn">
-                        <a href="javascript:;">收藏本订餐网站</a>
-                    </span>
+                <span class="span_2 favbtn">
+                    <a href="javascript:;">收藏本订餐网站</a>
+                </span>
             </div>
             <div class="clear"></div>
         </div>
@@ -91,7 +86,6 @@
                 <a href="#" class="red02">用户协议</a>，填写完以下信息（加星号<span
                     class="red">*</span>为必填项）后，提交并选择支付
             </div>
-            <!--新用户信息开始-->
             <div class="userinfo">
                 <ul>
                     <li>
@@ -138,8 +132,6 @@
                     </div>
                 </div>
             </div>
-            <!--新用户信息结束/-->
-            <!--协议开始-->
             <div class="agreement">
                 <p>
                     <span class="p_left"><a id="clickAgree" class="un" value="0" href="javascript:void(0);">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;我已阅读并同意</a></span>
@@ -155,13 +147,21 @@
                     </span>
                 </p>
             </div>
-            <!--协议结束-->
         </div>
         <input type="button" class="b_shang" id="back_menu_btn1"/>
         <input type="submit" class="b_xia" id="submit_btn" value=""/>
         <div class="clear"></div>
     </div>
 </div>
-<input id="user_flag" value="true" style="display: none;"/>
 </body>
+<div id="footer">
+    <div class="fl_l">
+        <ul>
+            <li class="last_li noBg">版权所有: 美味家汉堡有限公司</li>
+            <li class="record_li">地址: 桂林电子科技大学花江校区</li>
+            <li class="record_li">联系电话: 18477062310</li>
+        </ul>
+    </div>
+    <div class="clear"></div>
+</div>
 </html>

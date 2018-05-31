@@ -18,14 +18,14 @@ import java.util.List;
  * Created by Shinelon on 2018/5/21.
  */
 @WebServlet("/customer/delOrderItemFromShopCart.action")
-public class delOrderItemFromShopCart extends HttpServlet {
+public class DelOrderItemFromShopCart extends HttpServlet {
 
     private static final long serialVersionUID = 1L;
 
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public delOrderItemFromShopCart() {
+    public DelOrderItemFromShopCart() {
         super();
     }
 
